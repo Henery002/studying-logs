@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>1、memory-函数记忆</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    1、函数记忆
+     让函数记住处理过的数据
+     为什么：避免重复执行复杂的运算
+     如何使用：
+        1、用闭包将函数处理过的参数和处理结果保存起来
+     */
+    //面试题1：实现一个函数，判断n是不是质数
+    function isPrime1(n){
+        if(n<=3){
+            return true;            //是质数
+        }else{
+            for(var i=2;i<=Math.sqrt(n);i++){
+                if(n%i == 0){
+                    return false;   //不是质数
+                }
+            }
+            return true;
+        }
+    }
+    console.log(isPrime1(12));      //false 不是质数
+    console.log(isPrime1(17));      //true  是质数
+    //用闭包的方式实现函数记忆
+    var isPrime2 = (function(){
+        //哈希对象负责记忆计算过的结果
+        var hash={};
+        return function(n){
+            if(n<3){
+                return true;
+            }else{
+                if(hash[n]!==undefined){
+                    return hash[n];
+                }else{
+                    for(var i=2;i<=Math.sqrt(n);i++){
+                        if(n%i==0){
+                            return hash[n]=false;
+                        }
+                    }
+                    return hash[n]=true;
+                }
+            }
+        }
+    })();
+    //测试比较效率
+    for(var i = 0,arr = [];i<1000000;i++){
+        arr.push(Math.floor(Math.random()*1000));
+    }
+    //第一个
+    console.time("isPrime1");
+    for(var i0;i<arr.length;i++){
+        isPrime1(arr[i]);
+    }
+    console.timeEnd("isPrime1");
+    //第二个
+    console.time('isPrime2');
+    for(var j=0;j<arr.length;j++){
+        isPrime2(arr[j]);
+    }
+    console.timeEnd("isPrime2");
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

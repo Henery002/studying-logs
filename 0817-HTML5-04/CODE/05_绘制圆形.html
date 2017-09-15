@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绘制圆形</title>
+</head>
+<body>
+<svg width="500" height="500" style="background-color: coral">
+    <!--
+        TODO <svg>容器标签内定义多个图形标签
+        TODO 将多个图形标签定义在<g></g>标签
+        TODO <g>标签
+        TODO * 作用:
+        TODO   * 允许定义多个图形标签
+        TODO   * 将该标签内所有图形标签分为一组
+        TODO * 对多个图形标签完成同样操作
+        TODO   * 将多个图形标签包裹在<g>标签内
+        TODO   * 统一对<g>标签操作即可
+     -->
+    <g>
+        <!--
+            TODO 绘制圆形
+            TODO * cx和cy - 绘制圆形的圆心坐标值
+            TODO * r - 绘制圆形的半径
+        -->
+        <circle cx="60" cy="60" r="50"></circle>
+        <!--
+            TODO 由于圆角矩形也可以实现圆形效果
+            TODO <circle>和<ellipse>标签并不是必要的
+        -->
+        <!--
+            TODO 绘制椭圆
+            TODO 注意:水平方向的半径与垂直方向的半径不等
+            TODO * cx和cy - 椭圆的圆心坐标值
+            TODO * rx - 水平方向的半径
+            TODO * ry - 垂直方向的半径
+        -->
+        <ellipse cx="200" cy="160" rx="100" ry="50"></ellipse>
+        <ellipse cx="300" cy="300" rx="50" ry="100"></ellipse>
+        <!--
+            TODO 绘制直线
+            TODO * 起点坐标值(x1,y1)
+            TODO * 终点坐标值(x2,y2)
+            TODO 注意
+            TODO * 必须设置stroke属性
+            TODO 设置线的宽度
+            TODO * stroke-width属性:
+            TODO   * 默认值为 1.0
+        -->
+        <line x1="50" y1="400" x2="400" y2="400" stroke="black" stroke-width="10" stroke-linecap="round"></line>
+    </g>
+</svg>
+</body>
+</html>

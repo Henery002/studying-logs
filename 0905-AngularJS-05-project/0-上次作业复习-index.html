@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>上周五晚上作业-复习</title>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+</head>
+<body ng-controller="parentCtrl">
+
+    <!--设置盛代码片段的容器-->
+    <div ng-view>
+
+    </div>
+</body>
+    <script>
+        //声明模块
+        var app = angular.module('myApp',["ng","ngRoute"]);
+        //声明一个控制器，实现从login页面跳转到main页面
+       /* app.controller('loginCtrl',function($scope,$location){
+            $scope.jump = function(){
+                $location.path("/main");
+            }
+        });*/
+        //声明另一个控制器，实现从main页面跳转到login页面
+       /* app.controller("mainCtrl",function($scope,$location,$routeParams){
+            $scope.jump = function(){
+                $location.path("/login");   //页面的跳转
+            };
+            console.log($routeParams.userName);
+        });*/
+        //再声明一个父控制器
+        app.controller('parentCtrl',function($scope,$location){
+            /*参数 path 是要跳转的目的地*/
+            $scope.jump = function(path){
+                $location.path(path);
+            }
+        });
+        //配置路由词典
+        app.config(function($routeProvider){
+            $routeProvider.when("/login",{templateUrl:"tpl/login.html"})
+                          .when("/register",{templateUrl:"tpl/register.html"})
+                          .when("/main",{templateUrl:"tpl/main.html"})
+                          .when("/main/:userName",{templateUrl:"tpl/main.html"})
+                          .otherwise({redirectTo:"/login"});
+        });
+    </script>
+</html>

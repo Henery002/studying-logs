@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="800px" height="800px" style="border:1px solid #333"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    //TODO 绑定事件 onmousemove
+    canvas.onmousemove = function(event){
+        /*
+        * 通过事件event对象
+        *   pageX和pageY     --  相对于HTML页面
+        *   offsetX和offsetY --  相对于canvas页面
+        * */
+        context.clearRect(0,0,canvas.width,canvas.height);
+        context.beginPath();
+        context.fillStyle = '#0055dd';
+        context.arc(event.pageX,event.pageY,50,0,Math.PI*2);
+        context.fill();
+    }
+</script>
+</html>

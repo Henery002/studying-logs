@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <head>
+  <title> 访问电话银行 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		/*直到用户输入数字0才终止
+		function printText(){
+			while(true){
+				var msg = prompt("请输入数据：");
+				if(msg == 0){
+					break;
+				}
+				alert("Hello");
+			}
+		}
+	printText();
+	*/
+	//访问电话银行
+	function bankVisit(){
+		while(true){
+			//1、弹出提示，并且接受用户输入的数据，保存在 input 的变量中
+			//2、判断用户输入的数据
+			  //2.1 判断 是否为 1
+				   //2.1.1 如果为1，则提示 “查询余额中，请稍后...”
+				//2.2 判断 是否为 2
+				   //2.2.1 如果为2，则提示“取款中，请稍后...”
+				//2.3 判断是否为 3
+					 //2.3.1 如果为3，则提示“转账中，请稍后...”
+				//2.4 判断是否为 0
+					 //2.4.1 如果为0，则提示“ 退出系统，谢谢使用 ...”
+					 //2.4.2 break
+				//2.5 如果 非以上结果
+				   //2.5.1 提示 ：输入错误，请重新输入
+			var input = parseInt(prompt("===欢迎进入电话银行系统===\n查询请按1\n取款请按2\n转账请按3\n退出请按0\n"));
+			if(input == 1){
+				alert("查询余额中，请稍后...");
+			}else if(input == 2){
+				alert("取款中，请稍后...");
+			}else if(input == 3){
+				alert("转账中，请稍后...");
+			}else if(input == 0){
+				alert("退出系统，谢谢使用 ...");
+				break;
+			}else{
+				alert("输入错误，请重新输入");
+			}
+		}
+	}
+	</script>
+	<button onclick="bankVisit()">访问电话银行</button>
+ </body>
+</html>

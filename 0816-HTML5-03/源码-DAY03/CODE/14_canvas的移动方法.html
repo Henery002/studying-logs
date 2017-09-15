@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas的移动方法</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    //TODO 1.绘制一个矩形
+    context.strokeRect(10,10,150,150);
+
+    /*
+      TODO canvas的移动方式
+      TODO translate(x,y)方法
+      TODO 问题:x和y是相对值还是绝对值?相对值
+     */
+    context.translate(160,160);
+    //相当于此时已经把canvas的原点移到了(160,160)坐标处。
+
+    //TODO 2.在绘制一个矩形 - 与上面的矩形一致
+    context.strokeRect(10,10,150,150);
+</script>
+</body>
+</html>

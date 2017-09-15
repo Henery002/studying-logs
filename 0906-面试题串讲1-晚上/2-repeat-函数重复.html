@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+</body>
+<script>
+    var arr = ["a","b","a","c","b","a"];
+    //1、unique1看着简单，实际上效率并不高
+    function unique1(arr){
+        for(var i=0,unique=[];i<arr.length;i++){
+            //如果unique中不包含当前元素值
+            if(unique.indexOf(arr[i])==-1){
+                //就将当前元素值压入unique
+                unique.push(arr[i]);
+            }
+        }
+        return unique;
+    }
+    //2、哈希hash
+    function unique2(arr){
+        for(var i=0,hash={};i<arr.length;i++){
+            //如果unique中不包含当前元素值
+            if(hash[arr[i]]===undefined){
+                //就将当前元素值压入unique
+                hash[arr[i]]=1;
+            }
+        }
+        //提取hash中所有key
+        var i = 0;
+        var keys=[];
+        for(keys[i++] in hash);
+        return keys;
+    }
+    //3、正则的效率最低
+    function unique3(arr){
+        var reg = /(^|,,)([^,]+)(,,\2)*/g;
+        return arr.sort().join(",,").replace(reg,"$1$2").split(",,");
+    }
+
+    console.log(String(unique1(arr)));
+    console.log(String(unique2(arr)));
+    console.log(String(unique3(arr)));
+    //测试
+    for(var i=0,nums=[];i<100000;i++){
+        nums.push(Math.floor(Math.random()*1000));
+    }
+    console.time("unique1");
+    unique1(nums);
+    console.timeEnd("unique1");
+    //第二个
+    console.time("unique2");
+    unique2(nums);
+    console.timeEnd("unique2");
+    //第三个
+    console.time("unique3");
+    unique3(nums);
+    console.timeEnd("unique3");
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

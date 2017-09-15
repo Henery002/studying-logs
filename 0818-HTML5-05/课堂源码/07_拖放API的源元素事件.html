@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖放API的源元素事件</title>
+    <style>
+        div {
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1">
+    <!-- TODO 源元素 -->
+    <img id="img" src="img/pic.jpg"/>
+</div>
+<script>
+    //TODO HTML页面的默认行为 - 不允许拖动
+    var img = document.getElementById("img");
+    //TODO 为源元素绑定 源元素事件
+    img.addEventListener("dragstart",function(){
+        console.log("开始拖动....");
+    });
+    img.addEventListener("drag",function(){
+        console.log("一直在拖动....");
+    });
+    img.addEventListener("dragend",function(){
+        console.log("结束拖动....");
+    });
+</script>
+</body>
+</html>

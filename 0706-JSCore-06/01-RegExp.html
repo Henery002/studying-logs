@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+ <head>
+  <title> 正则表达式对象 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body id="body1">
+	<script>
+	/*
+		var names=["Hello","world","and","you"];
+		var reg=new RegExp(names.join("|"),"g");
+		var str='Hello kugou'+'you and me'+'and the whole world'+"any one else?";
+
+		//声明变量arr,初始化为null
+		//循环：在str中查找和reg匹配的关键词，结果保存在arr中。结果如果不是null
+			//输出：在位置 ？ 发现敏感词 ？  
+				//下次从 ？ 开始
+
+		function regexp(){
+			var arr=null;
+			while((arr=reg.exec(str))!=null){		//判断条件！！！！！！！
+				arr=reg.exec(str);
+				if(arr!=null){
+					console.log("在 "+arr.index+" 位置发现敏感词："+arr[0]+"下次从位置："+arr.lastIndex+"开始查找");
+				}
+			}
+			return arr;
+		}
+		regexp();
+		//console.log(String(str.match(reg)));
+	*/
+	</script>
+	<script>
+
+	var html='<a name="top"></a><h1>Hello</h1><a href="http://www.bing.com">百度一下</a><a name="center"></a><a name="username" href="http://www.baidu.com/cn" target="nameuser">百度一下</a><a name="center" target=""></a><a href="http://u.youku.com/Henery"></a>';
+	
+	//练习：查找html中所有超链接的url
+
+	//  /<a\s+[^>]*?href="[^"]*?"[^>]*?>/
+	var reg=/<a\s+[^>]*?href="([^"]*?)"[^>]*?>/g;
+	//声明变量arr，初始化为null
+	//反复 ：在html中找匹配reg的关键词，保存在arr中，如果结果不是null
+		//输出本次找到的关键词中的url
+	/*
+	var arr=null;
+	var d1=document.getElementById("body1");
+	var str=d1.innerHTML;
+	while((arr=reg.exec(str))!=null){
+		arr=reg.exec(str);
+		if(arr!=null){
+			console.log("url为："+arr[1]);
+			break;
+		}
+	}
+	*/
+	var arr=null;
+	while((arr=reg.exec(html))!=null){
+		console.log("url为："+arr[1]);		//1 表示获取第1个分组的子内容	/<a\s+[^>]*?href="([^"]*?)"[^>]*?>/
+											//若为0 ，则会获取a标签下的所有属性及其值
+	}
+	</script>	
+ </body>
+</html>

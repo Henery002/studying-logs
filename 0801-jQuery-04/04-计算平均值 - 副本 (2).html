@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <head>
+  <title> 使用我的工具函数库 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<h1>使用我的工具函数库</h1>
+	<h1>使用名称空间下的工具函数</h1>
+	<h1>使用jQuery下的全局插件函数</h1>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script src='04-tool.js'></script>
+	<script>
+		//console.log(window.list);
+		
+		var list=[545,54,1,11,445,523];
+		console.log(jQuery.max(list));	//jquery等价于$
+		console.log(jQuery.min(list));
+		console.log($.avg(list));
+
+		//JS中：全局变量/函数会自动成为‘全局对象（window/global等）’的成员 -- "污染了全局变量"
+		//console.log(window.max);
+		//console.log(window.list);
+	</script>	
+ </body>
+</html>

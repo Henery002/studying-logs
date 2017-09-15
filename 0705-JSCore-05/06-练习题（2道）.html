@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<!--快速使用ZC：
+		ul#name>li*5+Tab
+	
+	<ul id="emps">
+		<li>scott</li>
+		<li>eric</li>
+		<li>rose</li>
+		<li>jack</li>
+		<li>smith</li>
+	</ul>-->
+	<script>
+		//练习1、
+		//获得id为emps的元素的内容，保存在变量html中
+		//清除html开头和结尾的空字符，再存回html
+		//截取html中4开始，到倒数第5个的子字符串，保存在变量html中
+		//切割。按/正则/切割html，该正则为：/<\/li>\s*<li>/。将结果保存在names中
+		//输出names
+		/*
+		function empsGet(){
+			var html=document.getElementById(emps);
+			html=html.replace(/^\s+|\s+$/g,'');
+			html=html.slice(start4,html.length-4);
+
+		}
+		*/
+		/*
+		var html=emps.inneraHTML;
+		html=html.replace(/^\s+|\s+$/g,'');
+		html=html.slice(4,-5);
+		var names=html.split(/<\/li>\s*<li>/);
+		*/
+		//console.log(names);
+
+		//练习2、（笔试题）
+		//统计一个字符串中每种字符出现的次数
+		//找到字符串中出现次数最多的字符，并判断出现了几次
+		//法一：hash + 遍历
+		var str="hello worlrfefddjykld!";
+		//遍历str中每个字符，同时声明空数组hash
+			//如果hash中已经包含当前字符的键
+				//就将hash中当期字符的键值+1
+			//否则
+				//...
+		for(var i=0,hash=[];i<str.length;i++){
+			if(hash[str[i]!==undefined]){
+				hash[str[i]]++;
+			}else{
+				hash[str[i]]=1;
+			}
+		}
+		console.log(hash);
+
+		//法二：正则
+		var arr=str.split("")
+							.sort()
+							.join("")
+							.match(/([a-z])\1*/g)
+							.sort(function(a,b){
+										return b.length-a.length;
+								}
+		);
+		console.log("出现次数最多的是："+arr[0][0]+"，共"+arr[0].length+"次");
+
+
+
+		//练习3、（笔试题）
+		//将每个单词首字母转大写
+		//1、将str按空格分隔为单词，保存在变量words中
+		//2、遍历words中每个单词
+			//3、将当前单词第一个字母转为大写，再拼接上当前单词的剩余字母，将结果存回当前单词位置。
+		//4、循环结束
+		//5、将words用空格拼接成字符串，保存在str中
+		//以上步骤为法一：循环
+		/*
+		var str='you can you up , no can no bibi.';
+		var words=str.split(' ');
+		for(var i=0;i<=words.length-1;i++){
+			words[i]=words[i][0].toUpperCase()+words[i].slice(1);	//类似于二维数组的思维！！！！！！！！！
+		}
+		str=words.join(" ");
+		console.log(str);
+
+		//法二：正则（分隔、拼接、替换函数）
+		str.replace(/\b([a-z])([a-z]*)\b/g,function(kword,$1,$2){
+				......
+			}
+		);
+		*/
+	</script>
+ </body>
+</html>

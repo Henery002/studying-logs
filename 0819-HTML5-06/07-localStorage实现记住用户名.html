@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage实现记住用户名</title>
+</head>
+<body>
+    <!--
+        TODO 用户登录的表单
+    -->
+    <fieldset>
+        <legend>用户登录</legend>
+        <br>
+        用户名：<input id="username" name="username" type="text"><br><br>
+        密  码：<input id="password" name="password" type="password">
+        <!--
+            TODO 复选框：记住用户名
+        -->
+        <br><br>
+        <label><input id="isremeber" type="checkbox">记住用户名</label>
+        <br><br>
+        <input id="sub" type="submit">
+    </fieldset>
+</body>
+<script>
+    /*
+    * TODO 如果用户勾选 记住用户名，将用户名存储在localStorage中
+    * */
+    //TODO 读取localstorage中的用户名
+    var user = window.localStorage.getItem("isrem");
+    //TODO 判断是否存在用户名的信息，有才执行其他操作
+    if(user){
+        //TODO 表示用户名是存在的
+        var username = document.getElementById('username');
+        username.value = user;
+    }else{
+        //TODO 判断localStorage中存储过用户名信息，删除
+        if(window.localStorage.getItem("isrem")){
+            window.localStorage.removeItem("isrem");
+        }
+    }
+    //TODO 1、获取到用户提交表单的事件
+    var sub = document.getElementById('sub');
+    sub.onclick = function(){
+//        console.log('提交');
+        //TODO 获取对应的复选框，判断用户是否勾选
+        var isrem = document.getElementById('isremeber');
+            if(isrem.checked){
+                //TODO 必须保证用户已勾选了复选框，才能存储用户名
+                //TODO 1、获取当前的用户名
+                var username = document.getElementById('username').value;
+                //TODO 人为设定的值
+                var key = "isrem " + new Date().getTime();
+                window.localStorage.setItem("isrem",username);    //写成"isrem"，则不能在存储其他数据，写成key才可以
+        }
+        //TODO 阻止表单提交，以便于在resource里查看
+        return false;
+    }
+</script>
+</html>

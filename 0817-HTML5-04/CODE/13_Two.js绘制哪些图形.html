@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Two.js绘制哪些图形</title>
+    <script src="js/two.js"></script>
+</head>
+<body>
+<div id="show"></div>
+<script>
+    var elem = document.getElementById("show");
+    var two = new Two({
+        width : 500,
+        height : 500
+    });
+    two.appendTo(elem);
+    //TODO 绘制图形
+    //TODO 1.绘制矩形
+    var rect = two.makeRectangle(60,60,100,100);
+    //TODO 2.通过图形对象进行样式的设置
+    rect.stroke = "blue";
+    rect.linewidth = 10;
+    rect.fill = "red";
+    /*
+      TODO 绘制的图形种类
+      TODO * makeRoundedRectangle(x, y, width, height, radius) - 圆角矩形
+      TODO * makeCircle(x, y, radius) - 圆形
+      TODO * makeEllipse(x, y, width, height) - 椭圆形
+      TODO * makeStar(ox, oy, or, ir, sides) - 星形
+      TODO * makePolygon(ox, oy, r, sides) - 多边形
+      TODO * makeLine(x1, y1, x2, y2) - 直线
+     */
+    var line = two.makeLine(10,120,10,200);
+    line.linewidth = 10;
+    var circle = two.makeCircle(300,300,100);
+    var ellipse = two.makeEllipse(300,100,200,100);
+    var polygon = two.makePolygon(100,400,50,5);
+    //TODO 更新设置
+    two.update();
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<form action="">
+		<input id='user' type="text" required autofocus>
+		<input type="submit">
+	</form>
+	<script>
+		var user = document.getElementById('user');
+		user.onblur = function(){
+			console.log();
+			if(user.validity.valueMissing){
+				/*
+				表示用户名为空
+					默认提示-请填写此字段
+					element.setCustomValidity();
+				*/
+				user.setCustomValidity("抱歉，用户名不能为空");
+			}
+			//配合customError的验证状态使用
+			else if(user.validity.customError){
+				//表示调用了该方法		--  固定方式
+				user.setCustomValidity('');
+			}
+		}
+	</script>
+ </body>
+</html>

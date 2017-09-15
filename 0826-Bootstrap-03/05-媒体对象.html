@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    img{
+        width:400px;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 媒体对象
+                HTML页面中允许进入图片、音频、视频等
+                HTML结构：
+                    定义容器元素：<div>
+                CSS样式：
+                    容器：class为 .media
+        -->
+        <div class="media">
+            <!--
+                TODO 媒体对象嵌入在 .media-left 或 .media-right 中
+            -->
+            <div class="media-left">
+                <!--
+                    TODO 媒体对象：图片、音频、视频
+                        CSS样式：
+                            class为 .media-object
+                -->
+                <img class="media-object" alt=" " src="pic.jpg">
+            </div>
+            <div class="media-body">
+                <h3>标题</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, alias aperiam cumque dignissimos eaque enim error esse minus unde? At atque debitis doloremque ducimus error, ipsa omnis pariatur sint voluptatem?</p>
+            </div>
+            <div class="media-right">
+                <img src="pic.jpg" alt="" class="media-object">
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <!--TODO 第二行-->
+    <div class="row">
+        <div class="media">
+            <div class="media-left">
+                <img src="pic.jpg" alt="" class="media-object" height="100">
+            </div>
+            <div class="media-body">
+                <h3>标题</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, consequuntur debitis, deserunt earum expedita harum iure maiores necessitatibus officiis perferendis, placeat provident quae quod recusandae totam ullam velit voluptate.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

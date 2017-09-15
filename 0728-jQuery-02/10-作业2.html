@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<h3>今日菜单(双击选中)</h3>
+	<select name="" size='5' id="menu">
+		<option value="yxrs">鱼香肉丝</option>
+		<option value="jjrs">京酱肉丝</option>
+		<option value="dsrs">屌丝肉丝</option>
+		<option value=""></option>
+		<option value=""></option>
+	</select>
+	<br>
+	<hr>
+	<h3>我的订单</h3>
+	<select name="" size='5' id="my-order">
+	</select>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+//		$('#menu option').dblclick(function(){
+//			$(this).appendTo('#my-order');
+//		});
+		//使用事件代理，减少事件监听函数数量
+		$('#menu').delegate('option','dblclick',function(){
+			//$(this).prependTo('#my-order');
+			//克隆当前点击的option
+			$(this).clone(false).prependTo("#my-order");
+		});
+	</script>	
+ </body>
+</html>

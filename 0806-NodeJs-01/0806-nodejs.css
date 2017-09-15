@@ -1,0 +1,129 @@
+今日目标：
+	1、巩固数据库服务器、Web服务器、HTTP
+	2、进一步了解服务器端编程
+		JSP/ASPX/PHP/NodeJs
+	3、了解NodeJS的背景、特点、使用，手册
+
+1、Node.js的安装
+2、Node.js概述
+	英文官网：
+		https://nodejs.org/en/
+	中文镜像：
+		http://nodejs.cn/
+		Node.js 是一个基于V8引擎的JS解释器，用于编写服务器端应用。
+	浏览器中运行的JS对象：
+		1、ES对象：String、Number、Boolean、Date、Math、Error、Function、Object、Global、RegExp
+		2、BOM对象：window、document、event、navigator、history、screen、location
+		3、DOM对象：HTMLDOM对象...
+	Node.js中的对象：(支持ES对象，未提供BOM、DOM对象)
+		1、ES核心对象：String、Number、Boolean、Date、Math、Error、Function、Object、Global、RegExp
+		2、Node.js扩展对象：1000+
+
+		node.js中全局对象不再是window，而是global
+
+3、Node.js 执行脚本的两种方法
+	1、交互式执行(REPL)：Read Eval Print Loop
+		输入一行执行一行...
+	2、脚本方式执行：
+		把所有要执行的语句编写在一个文本文件中（可以有后缀js，也可以不写）
+		node E:\nodejs\1.js
+
+		练习：创建一个js脚本，声明一个二维数组，保存3个员工信息，使用循环输出所有的员工信息。
+
+4、Node.js的扩展对象：
+	Node.js的扩展对象分为两种：
+	1、官方扩展对象(1000+)
+		手册：https://nodejs.org/dist/latest-v4.x/docs/api/
+	2、第三方提供的扩展对象
+		集散地：npmjs.org
+
+	说明：为了对扩展对象进行分类，Node.js 引入了‘Module’模块的概念。用于对对象和函数进行分类，避免污染全局对象。
+
+5、使用Node.js中提供的模块	--  QueryString
+	https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=JS&rsv_pq=dc9b71	查询字符串：用于向服务器端指定页面提交数据，追加在URL后面，以？开头，形如：k1=v1&k2=v2&k3=v3...
+	查询字符串：用于向服务器端指定页面提交数据，追加在URL后面，以?开头，形如：  k1=v1&k2=v2&k3=v3....
+	Node.js中的QueryString模块专门用于解析查询字符串中的内容。
+		1、把查询字符串解析为对象		--  作用等价于PHP中的$_REQUEST
+			var obj = querystring.parse(str);		
+		2、把对象转换为查询字符串形式的字符串
+			var str = querystring.stringify(obj);	
+
+6、使用Node.js中提供的模块	--  URL
+	用于解析一个完整的URL地址：
+		http://admimnn:123@127.0.0.1:8080/news/1.html?pno=2&psize=5#chapter3
+	把URL字符串解析为对象：
+		var obj = url.parse( str, true );
+
+7、使用Node.js中提供的模块	--  FileSystem
+	FileSystem模块用于向文件中写出内容，或读取文件中的内容。		
+		1、读取一个文件中的所有内容
+		fs.readFile(fileName, function(err,data){
+			if(err) throw err;
+			console.log(data);
+		})
+		2、向文件中写出文件
+		fs.writeFile(fileName, '待写出的内容', function(err){
+			if(err) throw err;
+			console.log('文件写出完成');
+		})
+
+8、使用Node.js中提供的模块	--  HTTP
+	HTTP模块用于创建Web服务器，接收客户端HTTP请求，解析请求消息中的数据，
+	构建响应消息，再发送给客户端。
+		var http = require('http');
+			//1、创建一个Web服务器对象
+		var server = http.createServer();
+			//2、为Web服务器绑定处理	客户端请求消息的方法
+		server.on('request',function(request,response){
+			console.log('WebServer接收到一个请求...');
+			response.statusCode=200;
+			response.setHeader('Content-Type','text/html');
+			response.write('<h1>This is Node.js Server</h1>');
+			response.end();  //输出完成
+		})
+		//3、Web服务器监听指定的端口	=>	开始上班
+		server.listen(80, function(){
+			console.log('WebServer开始监听80端口....');
+		});
+
+练习：使用Node.js创建一款静态Web服务器，解析客户端请求的URL，
+	返回客户端请求的资源文件；如果不存在，就返回404响应消息。
+
+[2016/08/06 16:31 SAT]
+9、使用Node.js连接MySQL数据库服务器		--  MySQL
+	提示：Node.js官方未提供任何数据库链接相关的模块；全要靠第三方提供的模块来实现。
+	-- http://www.npmjs.com/
+	NPM(Node Package Manager)
+	如何使用npm下载软件包：
+		npm install 软件包名称
+		例如：npm install mysql
+	注意：下载的第三方Node模块必须和.js文件放在同一个目录下，且必需放在一个名为nodes_modules的目录下。一般这种第三方的模块都会自带使用说明。
+	
+	使用mysql模块连接数据库服务器的步骤：
+	var mysql = require('mysql');
+		//1 连接MySQL服务器
+	var conn = mysql.createConnection({
+		host:		'127.0.0.1',
+		user:		'root',
+		password:	'',
+		database:	'tarena'
+	});
+		//2 提交SQL语句
+	var sql = `INSERT INTO users VALUES(NULL, 'smith', '888')`;
+	conn.query(sql, function(err,result){
+			//3 查看执行结果
+		if(err)throw err;
+		console.log('操作影响的行数：'+result.affectedRows);
+		console.log('INSERT产生的自增编号：'+result.insertId);
+			//4 断开连接
+		conn.end();
+	});
+
+10、最终演示：一个完整的动态Web服务器：
+	既可以向客户端提供静态文件(如.html)，也可以提供动态服务(如.do)
+		浏览器	=> 	register.html 	=> 	register.do
+		浏览器	=> 	login.html 		=> 	login.do
+
+	思路：使用HTTP模块创建WebServer，解析客户端请求，若请求资源的后缀是.html，则读取该文件，向客户端输出。
+			若客户端请求资源的后缀是.do，则继续解析后退请求的名称。
+			如login/register，执行不同的数据库访问函数。

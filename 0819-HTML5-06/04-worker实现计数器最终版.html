@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>worker实现计数器最终版</title>
+</head>
+<body>
+    <button id="start">开始计数</button>
+    <button id="stop">结束计数</button>
+    <div id="show"></div>
+</body>
+<script>
+    var start = document.getElementById('start');
+    var stop = document.getElementById('stop');
+    var show = document.getElementById('show');
+    //TODO 定义worker对象、计数器num值
+    var worker,num = 0;
+    start.onclick = function(){
+        //TODO 1.创建worker对象
+        worker = new Worker('04-worker3.js');
+        //TODO 2.将num变量值先发送给worker文件
+        worker.postMessage(num);
+        //TODO 3.接收worker返回的num值
+        worker.onmessage = function(event){
+            num = event.data;
+            console.log(num);
+            show.innerHTML = num;
+        }
+    }
+    stop.onclick = function(){
+        worker.terminate();
+    }
+
+</script>
+</html>

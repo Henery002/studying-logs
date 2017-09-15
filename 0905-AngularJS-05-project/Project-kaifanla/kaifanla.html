@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="kaiFanLa" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>开饭啦项目</title>
+    <!--TODO Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/kaifanla.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持  HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-controller="parentCtrl">
+    <div ng-view></div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/kaifanla.js"></script>
+</body>
+</html>

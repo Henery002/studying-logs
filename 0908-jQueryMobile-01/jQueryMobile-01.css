@@ -1,0 +1,116 @@
+jQueryMobile-01：
+
+前言：data属性:
+	data-role="page"   				基础页面
+
+	data-role="header" 				页头
+	class="ui-content" 				正文
+	data-role="footer" 				页尾
+
+	data-position='fixed'
+	data-transition='slide/pop/slideup...'	设置过场动画
+	data-direction='reverse' 		设置相反的过场动画
+	data-rel='back' 				实现原路返回
+
+	data-corners='false' 			取消圆角
+	data-shadow='false' 			取消阴影
+	data-inline='true' 				在一行内显示
+	data-theme='a/b' 				设置主题效果
+	data-mini='true' 				调整迷你按钮的大小
+
+	data-icon='user/bullets/home' 	设置元素的图标
+	data-iconpos='right/top/bottom' 调整图标相对文本的位置
+
+
+	data-position='right' 			调整面板打开的方向
+	data-display=‘reveal/push/overlay’ 		调整面板打开的模式（揭开、推开、覆盖）
+	data-dismissible='false' 		点击panel外侧就不会再关掉面板
+	data-rel='close' 				点击链接 会关闭面板
+
+一、认识jQueryMobile
+	JQM是一个为触控优化的，基于H5的框架，设计网站和应用，同时支持在线...
+
+二、开始学习JQM
+	1、5分钟时间快速过一下introduction
+	准备工作：
+		1、JQM的page，引入jQuery、jQueryMobile(css/js/images)
+		2、<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		3、page:header、content、footer
+			data-role="page"
+
+			data-role="header"
+			class="ui-content"
+			data-role="footer"
+	2、第一个JQM页面
+	3、在一个HTML页面，实现多个page
+		方法1：
+			<a href="#pageID">单页面跳转到pageID</a>
+			<a href="demo03.html">跨页面跳转到...</a>
+			注意点：page的ID是不允许重复的！！！
+		方法2：
+			$.mobile.changePage('demo2.html',{transition:'flip/turn/slide/none'});
+
+		过场动画的设置：
+			<a href="demo03.html" data-transiton='slide'>jump</a>
+			data-direction='reverse'
+
+		取消过场动画：
+			data-transition='none'
+
+		通过js的方式指定跳转时的过场动画：
+			$.mobile.changPage('demo03.html',{transition:'flip'})
+
+		原路返回：
+			<a href="" data-rel='back'></a>
+
+	4、按钮
+		1、三种实现方式
+			<button>button按钮</button>
+			<a href="#" data-role="button">a按钮</a>
+			<input type="button" value="input按钮"/>
+
+		使用场景：a 按钮 用在导航/跳转，input、button 用在表单中
+
+		data-corners="false"	取消圆角
+		data-shadow="false"		取消阴影
+		data-inline="true"		在一行显示
+		data-theme="a/b"		设置主题效果
+		data-mini="true"		设置迷你按钮
+
+		data-icon="user/mail/lock/home/..."
+		data-iconpos="right/top/bottom"		调整图标相对于文本的位置
+		data-iconpos="notext"				设置无文本按钮
+
+		练习：
+			在同一行显示5个按钮：
+			后退按钮（右边）、前进按钮（左边）、
+			下载按钮（上边）、删除按钮（只有图标）、
+			上传按钮（下边）
+
+	5、grid栅格布局
+		行和列：
+			ui-grid-solo (一行只能放一列)	ui-block-a	(100%)
+			ui-grid-a (一行放两列)	 		ui-block-a/ui-block-b	(50%)
+			ui-grid-b (一行放三列)	 		ui-block-a/ui-block-b/ui-block-c	(33%)
+			ui-grid-c (一行放四列)		 	ui-block-a/ui-block-b/ui-block-c/ui-block-d		(25%)
+			...						 ...
+			
+			注意点：
+				ui-block-a 都会重新起一行
+
+	6、实现一个面板：
+		1、<div id="panel-1" data-role="panel"></div>
+		2、面板应该放在page中header之前或footer之后
+		3、在<div class="ui-content"></div>中设置一个a标签
+			<a href="#panel-1">打开面板</a>
+
+		设置面板打开的方向
+			data-position="right"
+		设置面板打开的模式
+			data-display="overlay/reveal/push"
+		设置面板是否会在点击面板外侧时被关闭
+			data-dismissible="false"
+		当设置了data-dismissible="false"时，设置一个链接用于关闭面板
+			<a href="" data-rel="close">
+				<button data-icon="delete" data-iconpos="notext" data-inline="true"></button>
+			</a>

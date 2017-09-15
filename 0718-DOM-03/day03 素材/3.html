@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>联动菜单</title>
+<meta charset="utf-8" />
+<script>
+	/*使用 HTML DOM 的方式实现联动菜单*/
+	var categories=[
+{"id":10,"name":'男装',"children":[
+	{"id":101,"name":'正装'},
+	{"id":102,"name":'T恤'},
+	{"id":103,"name":'裤衩'}
+]},
+{"id":20,"name":'女装',"children":[
+	{"id":201,"name":'短裙'},
+	{"id":202,"name":'连衣裙'},
+	{"id":203,"name":'裤子',"children":[
+		{"id":2031,"name":'长裤'},
+		{"id":2031,"name":'九分裤'},
+		{"id":2031,"name":'七分裤'}
+	]},
+]},
+{"id":30,"name":'童装',"children":[
+	{"id":301,"name":'帽子'},
+	{"id":302,"name":'套装',"children":[
+		{"id":3021,"name":"0-3岁"},
+		{"id":3021,"name":"3-6岁"},
+		{"id":3021,"name":"6-9岁"},
+		{"id":3021,"name":"9-12岁"}
+	]},
+	{"id":303,"name":'手套'}
+]}
+];
+	
+</script>
+</head>
+<body>
+	<div id="category"></div>
+	<script>
+		//定义函数，根据一个传入的数组，创建select
+		function createSelect(cates){
+			//创建空select
+			var select = document.createElement('select');
+			//创建option，直接设置其内容为 -请选择-，立刻将新的option添加到select中。
+			select.add(new Option('-请选择-'));
+			//遍历cates数组中每个商品类别对象
+			for(var i=0;i<cates.length;i++){
+				//继续创建option，设置其内容为当前商品分类对象的name，设置其值为当前商品分类对象的id，直接将新 option添加到select中。
+				select.add(new Option(cates[i].name,cates[i].id));
+			//将select添加到id为category的元素下
+			//debugger;
+			}
+			//为sel绑定选中项改变事件：
+			select.onchange=function(){
+				//循环：当前select不是sel的父元素的最后一个子元素
+					//删除当前sel的父元素的最后一个子元素
+				while(this!=this.parentNode.lastElementChild){
+					this.parentNode.removeChild(this.parentNode.lastElementChild);
+				}
+
+				//获得当前选中项的下标i
+							//this --> sel
+				var i=select.selectedIndex;
+				//如果i>=1，
+				if(i>=1){
+					//获得categories数组中i-1位置的商品分类保存在cate
+					var cate=cates[i-1];
+					if(cate.children){
+						//再次调用createSelect(cate的children);		//并非形成递归
+						createSelect(cate.children);
+					}
+				}
+			}
+			category.appendChild(select);
+		}
+		createSelect(categories);
+	</script>
+</body>
+</html>

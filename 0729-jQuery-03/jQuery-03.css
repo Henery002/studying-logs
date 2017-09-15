@@ -1,0 +1,114 @@
+复习：
+今日目标：
+	1、补充事件处理相关函数	--  掌握！
+	2、动画	--	简单&掌握	
+	3、jQuery  --  了解
+
+1、面试题：jQuery绑定事件的监听函数有哪些方法？
+	1、bind & unbind
+		语法：$('.btn').bind('click',fn);
+	2、one()
+		语法：$('.btn').one('click',fn);
+	3、click()...
+		语法：$('.btn').click(fn);
+	4、delegate()
+		语法：$('.parent').delegate('.btn','click',fn);
+	5、live() & die()	-- 已废弃	
+		作用：把选定元素的指定事件委托给document  --  原理：冒泡
+	6、on() & off()  --  jQuery1.7 + (即 jQuery1.7 新增)
+		实现类似bind()函数的功能：	--	绑定在事件源上
+		语法：$('.btn').on('click',fn);
+		实现类似delegate()函数的功能：	--	委托给父元素
+		语法：$('.parent').on('click','.btn',fn);	//注意与delegate的区别！！！！
+	
+		练习：创建新按钮，被点击后打印出上面的文字。
+
+2、使用JS触发特定事件	--	注意！
+	$('.btn').trigger('click');
+	$('.btn').click();
+
+3、【面试题】：【下述两个事件绑定的区别？】
+	window.onload=fn;			//后触发
+	$('document').ready(fn);	//先触发
+		本质：
+			$('document').ready(fn)事件绑定的本质：
+				document.addEventListener('DOMContentLoaded',fn,false);
+		onload事件和onDOMContentLoaded事件的区别：
+			后者：待HTML和JS文件请求完成，即触发。
+			load：待HTML/JS/CSS/图片... 全部请求完成，才触发
+			结论：
+				1、DOMContentloaded的触发早于load事件
+				   即：$('document').ready(fn) 早于 window.onload=fn
+				2、window.onload 只能绑定一次，
+				   $('document').ready(fn) 可以绑定多次。
+
+				【注意】：下述三种写法作用一致：
+					1、$('document').ready(fn)
+					2、$().ready(fn)
+					3、$(fn)
+4、使用jQuery对象：
+	遍历jQuery对象中封装的 元素
+		定义：$()/jQuery()函数返回的值，是一个类数组对象，其中封装这DOM元素。
+		$('div').length
+		$('div')[i]
+		$('div').get(i)		//得到类数组对象中的第i个DOM对象
+		/***************************************************/
+		$('div').each(function(i,elem){})
+			对jQuery对象中封装的每个DOM对象执行一次指定的函数
+		/***************************************************/
+		$('div').index(dom)		
+			返回指定的DOM对象在jQuery对象中的下标。
+
+	练习：求出成绩列表中的平均分：
+	练习：打分功能：（利用$('div').index(dom)） 【!!!!!!!!!!】
+
+5、jQuery函数--动画相关 -- 小重点
+	提示：前端领域实现动画的效果有哪些技术？
+		1、CSS Transition
+		2、CSS Keyframes
+		3、JS 定时器动画(setTimeout)	-- jQuery1/2
+		4、JS requestAnimationFrame动画 -- jQuery3
+	1、隐藏/显示动画	--修改width/height/opacity
+		$('div').show(speed,[fn]);
+		$('div').hide(speed,[fn]);
+		$('div').toggle(speed,[fn]);	//在显示/隐藏之间切换
+	2、折叠展开/收起动画	--修改height
+		$('div').slideUp();
+		$('div').slideDown();
+		$('div').slideToggle();
+	3、淡入/淡出动画		--使用定时器修改opacity
+		$('div').fadeIn();
+		$('div').fadeOut();
+		$('div').fadeToggle();
+	4、万能动画函数			--使用定时器修改指定的属性
+		说明：实现定时器动画的样式必须是“数值型”，非数值型样式无法实现定时器动画。
+		$('div').animate({
+			属性1:值1,
+			属性2:值2,
+			...
+		},time,[fn]);		//[]表示fn函数可有可无，time表示毫秒数，如3000
+		
+		1、并发动画：
+			$('div').animate({
+				属性1:值1,
+				属性2:值2,
+			},300);
+		2、排队动画：
+			$('div').animate({
+				属性1:值1,
+			},300);
+			$('div').animate({
+				属性2:值2,
+			},300);
+
+		思考：animate()可以对数值型属性创建定时器动画，非数值型不行！
+		结论：jQuery没有提供颜色类的定时器动画！
+
+6、jQuery UI的使用	--	了解
+	jQuery UI 是一个HTML组件库，基于jQuery而编写。
+	jQueryUI的内容分为三部分：
+		1、Effects:动画特效
+		2、Interactions:交互组件
+		3、Widgets:小部件
+7、jQuery动画特效：
+		此外，jQuery UI还为jQuery的animate()函数提供了颜色动画

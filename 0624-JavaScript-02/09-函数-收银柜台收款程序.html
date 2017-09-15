@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		function getMoney(){
+			//1、声明输入数据：单价price、数量count、金额money
+			//2、声明输出数据：应收金额总价total、找零change
+			//3、手动输入单价price、数量count
+			//4、计算总价total = price * count
+			//5、手动输入付款金额money
+			//6、计算找零（change）= money - total
+			var price,count,money;
+			var total,change;
+			price = prompt("请输入单价：");
+			count = prompt("请输入购买数量：");
+			total = price * count;
+			//计算总价的折扣
+			/*
+			if(total >= 500){
+				alert("您的消费超过了500元，可以打八折");
+				total = total * 0.8;
+				alert("您打折后共消费了："+total+" 元");
+			}
+			//document.write("您共消费了："+total+" 元"+'\n');
+			alert("您共消费了："+total+" 元");
+			money = prompt("请输入付款金额：");
+			//判断输入的付款金额与消费金额的关系
+			if(money <= total){
+				alert("您的付款金额小于消费金额，输入错误请重试！");
+				money = prompt("请输入付款金额：");
+			}else{
+				change = money - total;
+				//document.write("共找您零钱："+change+" 元");
+				alert("共找您零钱："+change+" 元");
+			}
+			*/
+		}
+		getMoney();
+	</script>	
+ </body>
+</html>

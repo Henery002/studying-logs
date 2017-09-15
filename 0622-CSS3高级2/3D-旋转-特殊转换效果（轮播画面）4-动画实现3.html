@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+ <head>
+  <title> 3D-旋转 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+	<style>
+		/*声明一个动画*/
+		@-webkit-keyframes scroll{
+			0%{
+				transform:rotatex(-30deg) rotatey(0deg) rotatez(30deg);
+			}
+			100%{
+				transform:rotatex(-390deg) rotatey(360deg) rotatez(390deg);
+			}
+		}
+		/*声明一个动画*/
+		@-moz-keyframes scroll{
+			/**/
+			0%{
+				transform:rotatex(-30deg) rotatey(0deg) rotatez(30deg);
+			}
+			100%{
+				transform:rotatex(-390deg) rotatey(360deg) rotatez(390deg);
+			}
+		}
+		#stage{
+			width:800px;
+			height:400px;
+			margin:150px auto;
+			-webkit-perspective:1200px;
+			-moz-perspective:1200px;
+		}
+		#stage:hover{
+			animation-play-state:paused;
+			-webkit-animation-play-state:paused;
+			-moz-animation-play-state:paused;
+		}
+		#container{
+			width:800px;
+			height:400px;
+			transform:rotatex(-30deg) rotatey(0deg);
+			position:relative;
+			/*规定其子元素按照3D位置摆放*/
+			-webkit-transform-style:preserve-3d;
+			transform-style:preserve-3d;
+			/*调用动画*/
+			animation:scroll 15s linear infinite;
+			-webkit-animation:scroll 15s linear infinite;
+			-moz-animation:scroll 15s linear infinite;
+		}
+		#container:hover{
+			/*
+			animation-play-state:paused;
+			-webkit-animation-play-state:paused;
+			-moz-animation-play-state:paused;
+			*/
+		}
+		#container div{
+			width:100px;
+			height:100px;
+			font-weight:bold;
+			background:#e4393c;
+			border-radius:50%;
+			border:8px solid #666;
+			/*绝对定位*/
+			position:absolute;
+			top:150px;
+			left:350px;
+			/*透明度*/
+			opacity:1;
+		}
+		#container div:hover{
+			border-left:8px solid #f00;
+			border-top:8px solid #f00;
+			border-right:8px solid #0f0;
+			border-bottom:8px solid #0f0;
+			/*
+			transform:rotatez(90deg) translatez(50px);
+			*/
+			transition:border 1s linear,background 1s linear,opacity 1s linear;
+			opacity:0.4;
+		}
+		#container div:nth-child(1){
+			background-color:#f00;
+			transform:rotatey(0deg) translatez(200px);
+			background:url(CSS3/animation_images/11.png);
+		}
+		#container div:nth-child(1):hover{
+			background:url(CSS3/animation_images/1.png);
+		}
+		#container div:nth-child(2){
+			background-color:orange;
+			transform:rotatey(60deg) translatez(200px);
+			background:url(CSS3/animation_images/22.png);
+		}
+		#container div:nth-child(2):hover{
+			background:url(CSS3/animation_images/2.png);
+		}
+		#container div:nth-child(3){
+			background-color:yellow;
+			transform:rotatey(120deg) translatez(200px);
+			background:url(CSS3/animation_images/33.png);
+		}
+		#container div:nth-child(3):hover{
+			background:url(CSS3/animation_images/3.png);
+		}
+		#container div:nth-child(4){
+			display:none;
+			background-color:green;
+			transform:rotatey(180deg) translatez(200px);
+			background:url(CSS3/animation_images/44.png);
+		}
+		#container div:nth-child(4):hover{
+			background:url(CSS3/animation_images/4.png);
+		}
+		#container div:nth-child(5){
+			background-color:blue;
+			transform:rotatey(240deg) translatez(200px);
+			background:url(CSS3/animation_images/55.png);
+		}
+		#container div:nth-child(5):hover{
+			background:url(CSS3/animation_images/5.png);
+		}
+		#container div:nth-child(6){
+			background-color:purple;
+			transform:rotatey(300deg) translatez(200px);
+			background:url(CSS3/animation_images/66.png);
+		}
+		#container div:nth-child(6):hover{
+			background:url(CSS3/animation_images/6.png);
+		}
+		#container div:nth-child(7){
+			background-color:black;
+			transform:rotatex(60deg) translatez(-200px);
+			background:url(CSS3/animation_images/77.png);
+		}
+		#container div:nth-child(7):hover{
+			background:url(CSS3/animation_images/7.png);
+		}
+		#container div:nth-child(8){
+			background-color:pink;
+			transform:rotatex(120deg) translatez(200px);
+			background:url(CSS3/animation_images/88.png);
+		}
+		#container div:nth-child(8):hover{
+			background:url(CSS3/animation_images/8.png);
+		}
+		#container div:nth-child(9){
+			background-color:indigo;
+			transform:rotatex(120deg) translatez(-200px);
+			background:url(CSS3/animation_images/99.png);
+		}
+		#container div:nth-child(9):hover{
+			background:url(CSS3/animation_images/9.png);
+		}
+		#container div:nth-child(10){
+			background-color:#e4393c;
+			transform:rotatez(60deg) translatez(-200px);
+			background:url(CSS3/animation_images/1010.png);
+		}
+		#container div:nth-child(10):hover{
+			background:url(CSS3/animation_images/10.png);
+		}
+		#container div:nth-child(11){
+			display:none;
+			background-color:white;
+			transform:rotatez(120deg) translatez(-200px);
+			background:url(CSS3/animation_images/1111.png);
+		}
+		#container div:nth-child(11):hover{
+			background:url(CSS3/animation_images/10-11.png);
+		}
+		#container div:nth-child(12){
+			background-color:light;
+			transform:rotatex(60deg) translatez(200px);
+			background:url(CSS3/animation_images/1212.png);
+		}
+		#container div:nth-child(12):hover{
+			background:url(CSS3/animation_images/10-12.png);
+		}
+	</style>
+ </head>
+ <body>
+	<div id="stage">
+		<div id="container">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+ </body>
+</html>

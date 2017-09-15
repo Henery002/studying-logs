@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+ <head>
+  <title> 错误处理 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//错误处理
+		//函数定义者
+		function round(num,d){
+		//if...else...版本
+			//如果num是数字且d是数字且d>=0且d<=20
+			if(!isNaN(num)&&!isNaN(d)&&d>=0&&d<=20){
+				var r=parseFloat(parseFloat(num).toFixed(d));
+			}else{
+				//否则
+				//函数定义者在检测到错误的时候，就会抛出异常
+				throw new Error("参数必须是数字，且小数位数必须介于0-20");
+			}
+			num=null;
+			d=null;
+			console.log("释放资源");
+			return r;
+
+		//try catch版本
+			/*
+			*/
+			//函数调用者
+			//var r;
+			try{
+				r=round(parseFloat(parseFloat(num).toFixed(d)));	//toFixed返回的是字符串
+			}catch(err){	//err:Error对象
+				//alert(err);
+				console.log(String(err));
+				alert("出错了，请联系管理员");
+				return "出错了";
+			}finally{
+				num=null;
+				d=null;
+				console.log("释放资源");
+			}
+		
+		}
+		num=prompt("输入一个数值：num");
+		d=prompt("请输入小数位数：d");
+		//var r;
+		//var r=round(prompt("输入数字"),prompt("输入小数位数"));
+		console.log("正常结束："+r);
+	</script>	
+ </body>
+</html>

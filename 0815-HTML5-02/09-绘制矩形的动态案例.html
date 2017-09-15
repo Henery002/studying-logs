@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="1000px" height="800px"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    /*
+    * 编写要求
+    *     绘制空心矩形(strokeRect(x,y,width,height))：
+    *     描边颜色(strokeStyle)随机，
+    *     大小(width,height)随机：
+    *       0<width<canvas.width
+    *       0<height<canvas.height
+    *     每500ms绘制一次
+    * */
+    setInterval(function(){
+        var r = Math.floor(Math.random()*255);
+        var g = Math.floor(Math.random()*255);
+        var b = Math.floor(Math.random()*255);
+        style = "rgb()"
+        context.strokeStyle = "rgb("+r+","+g+","+b+")";
+        var x = Math.random()*canvas.width;
+        var y = Math.random()*canvas.height;
+        var width = Math.random()*(canvas.width-x);
+        var height = Math.random()*(canvas.height-y);
+        context.strokeRect(x,y,width,height);
+    },600);
+</script>
+</html>

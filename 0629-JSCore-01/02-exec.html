@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//练习一
+		//请用户输入一个字符，保存在变量c中
+		//输出：“是一个字母吗？”+
+			//c>='A'&&c<='Z' || c>="a"&&c<='z'
+		//输出：‘是一个数字吗？’+
+			//c>='0'&&c<='9'
+		//输出："是一个汉字吗？"+
+			//c>='\u4e00'&&c<='\u9fa5'
+		/*
+		function getChar(){
+			var c = prompt("请输入一个字符：");
+			if((c>='A'&&c<='Z')||(c>='a'&&c<='z')){
+				alert("您输入的字符是一个字母");
+			}else if(c>='0'&&c<='9'){
+				alert('您输入的字符是一个数字');
+			}else if(c>='\u4e00'&&c<='\u9fa5'){
+				alert('您输入的字符是一个汉字');
+			}
+		}
+		//getchar();
+		*/
+
+		//练习二：
+		/*
+		//请用户输入一个年份，保存在变量y中
+		//输出：“是闰年吗？”+
+			//y能被4且不能被100整除
+			//或
+			//y直接能被400整除
+		
+		var y = prompt("请输入一个年份：");
+		console.log(y+"是闰年吗？"+'\n'+((y%4 == 0 && y%100 !=0) || (y%400 ==0)));
+		*/
+
+		//练习三：短路逻辑
+		//1、利用 &&
+		//...
+		//2、利用 || 实现代码优化
+		var reply = prompt("请输入回复内容");
+		alert(reply || "主人很懒，什么也没有留下...");
+		//常规方法：
+		/*
+		var reply = prompt("请输入回复内容");
+		if(reply == ''){
+			alert("主人很懒，什么也没有留下...");
+		}else{
+			alert(reply);
+		}
+		*/
+
+
+	</script>	
+	<!--<button onclick="getChar()">练习一：判断输入的字符是何类型</button>-->
+ </body>
+</html>

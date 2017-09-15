@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+//1、
+		document.write('<h1>'+navigator.userAgent+'</h1>');
+//2、如何判断何种浏览器
+		//将userAgent属性保存在变量userAgent中
+		var userAgent=navigator.userAgent;
+		//声明变量browser,初始化为'unknown'
+		var browser='unknown';
+		//如果在userAgent中找到IE
+		if(userAgent.match(/IE/g)){		//查找-法1：正则匹配，返回内容
+			//将borwser赋值为IE
+			browser="IE";
+		}else if(userAgent.indexOf('Firefox')!=-1){		//查找-法2：indexOf，返回索引值
+		//否则。如果在userAgent中找到FireFox
+			//将borwser赋值为FireFox
+			browser="Firefox";
+		}else if(userAgent.match(/OPR/g)){
+		//否则，如果在userAgent中找到OPR
+			//将borwser赋值为Opera
+			browser="Opera";
+		}else if(userAgent.match(/Chrome/g)){
+		//否则,如果在userAgent中找到Chrome
+			//将borwser赋值为Chrome
+			browser="Chrome";
+		}else if(userAgent.match(/Safari/g)){
+		//否则,如果在userAgent中找到Safari
+			//将borwser赋值为Safari
+			browser="Safari";
+		}else if(userAgent.match(/Trident/g)){
+		//否则，如果在userAgent中找到Trident
+			//将browser赋值为IE
+			browser="IE";
+		}
+		document.write('浏览器：'+browser);
+		
+//3、判断浏览器版本号
+	//声明变量version，初始化为'unknown'
+	var version='unknown';
+	//如果browser不是unknown
+	if(browser!='unknown'){
+	//如果browser时Opera
+		if(browser=='opera'){
+			var i=userAgent.indexOf('OPR')+3+1;
+			//在userAgent中找到OPR的位置+3+1，保存在i
+			//截取useragent中i位置开始后的3位，转为浮点数保存在version
+			var version=parseFloat(userAgent.substr(i,3));
+		}else if((browser=='IE')&&(userAgent.indexOf('IE')==-1)){
+			//如果browser是IE，且userAgent中找不到IE
+			//设置version为11
+			version='11';
+		}else{
+			var i=userAgent.indexOf(browser)+browser.length+1;	//此处indexOf中的browser不加引号，因为browser本身就是一个字符串
+		}else{
+			
+		}
+	}
+	document.write('版本：'+version);
+	</script>	
+ </body>
+</html>

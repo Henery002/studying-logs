@@ -1,0 +1,172 @@
+1、***RegExp
+	什么是正则表达式对象：封装一条正则表达式，
+		提供使用该正则表达式执行验证和查找的API。
+	何时使用：
+		1、既查找每个关键词内容，又查找位置的时候。
+		2、格式验证
+	如何创建：2种方法
+		1、使用直接量：
+			var reg=/正则/ig;		//此处变量reg成为了正则表达式对象
+			何时使用：如果正则表达式是固定的，不需要运行时动态生成。
+			字符冲突：直接量中，正则内部如果包含 / ，需要转义为 \/
+		2、使用new关键字创建：
+			var reg=new RegExp("正则","ig");
+			何时使用：如果正则表达式需要在 运行时动态生成。
+			强调：正则前后不需要加 / /
+			字符冲突：如果正则中包含 " ' \ 等字符，都需要转义。
+	
+	正则API：
+		查找关键词：4种：
+			1、查找一个固定的关键词 的 【位置】
+				1、var i=str.indexOf("关键词",fromi);
+				2、var i=str.lastindexOf("关键词",fromi);
+				问题：不支持正则
+			2、判断有没有包含和正则匹配的关键词：
+				var i=str.search(reg);
+				问题：永远从 0 位置开始，始终只能找第一个
+			3、获得所有关键词内容：
+				var kwords=str.match(reg);	//加g
+				问题：无法获得每个关键词的位置
+			4、既找每个关键词的位置，又找内容 。【？？？？？？？？？？？？？？？】
+				var arr=reg.exec(str);
+				在str中找下  一个  关键词的位置和内容，保存在数组arr中。
+				【补】："reg对象的lastIndex属性"：
+					表示下次从lastIndex位置开始匹配
+					默认为0
+				
+				原理：
+					1、用reg去str中匹配一个关键词
+					2、将本次找到的关键词"内容"，放在arr的第一个元素中，
+					   同时将关键词的"位置"记录在arr.index属性中。
+					3、自动将reg的"lastIndex属性"调整为当前位置之后
+					
+					返回值：
+						如果找到：同 match方法不加 g 时 情况完全一样，也就是只查找第一个。
+							arr[0] -> 本次找到的完整关键词
+							如果正则中有分组，那么：
+							arr[1]...-> 获得第n个分组的子内容
+					如何使用：用循环，反复调用exec，直到返回null为止。
+			
+			【课堂练习01中的问题】：
+			【课堂练习01中的问题】：
+				正则：
+					贪婪模式：默认匹配尽量长的符合规则的字符串。
+					懒惰模式：让正则仅匹配最短的符合规则的字符串。
+
+					如何将贪婪改为懒惰：
+						.*?    .+?	
+			
+		验证格式：
+			var bool=reg.test(str);
+			验证str是否满足reg的格式要求
+				满足则返true，否则返回false
+			强调：一般验证都是要从头到尾完整匹配
+				都要前加 ^，后加 $。
+
+2、Math
+	专门封装数学计算所用的API或常量
+	何时使用：只要执行数学计算时
+	创建：Math不能new！
+	API：所有API都用 Math 直接调用
+		1、取整
+			1、上取整：只要小数点超过，就取下一个整数
+				num = Math.ceil(num);
+			2、下取整：舍弃小数部分
+				num = Math.floor(num);	
+					只能对纯数字  下取整
+				对比：parseInt(str);
+					转换为number，去掉结尾的非数字字符。舍弃小数部分
+			3、四舍五入取整：
+				num = Math.round(num);
+					强调：只能取整，不能设定小数位数
+				对比：toFixed(d)
+					参数上来说：round  无法指定小数位数，只能取整
+								toFixed(d) 可指定小数位数，可按任意小数位数四舍五入
+					返回值："round   返回num，可直接参与算数计算"
+							"toFixed 返回str，都要提前类型转换，再做加法"
+				强调：小心舍入误差。-- 例 03
+		2、乘方和开平方：
+			Math.pow(底数,幂)
+			Math.sqrt(num) 开平方
+		3、最大值和最小值
+			Math.max(值1,值2,...)
+			Math.min(值1,值2,...)
+			强调：max和min不支持数组类型的参数
+				无法获得数组中的最大值
+			解决：
+				Math.max.apply(null,arr)
+		4、【随机数】
+			Math.random(): 产生0-1之间的随机数
+			公式：
+				如果从任意min-max之间取随机整数：
+					parseInt(Math.random()*(max-min+1)+min)
+				如果从0-max之间：
+					parseInt(Math.random()*(max+1))
+3、Date:
+	什么是日期对象：封装一个时间
+		提供操作时间的API
+	何时使用：只要保存时间和日期，以及对时间进行操作时。
+	创建：3种场景
+		1、创建日期对象，保存当前时间：
+			var  now=new Date();
+			强调：now封装的是客户端本地时间。
+		2、创建日期对象，保存自定义时间。 -- 2种
+			var date=new Date('yyyy/MM/dd hh:mm:ss');	//√√√√√
+			var date=new Date('yyyy,MM-1,dd,hh,mm,ss');
+			说明：
+				1、如果不关心时分秒，可省略
+				2、如果使用数字设置时间，月份要-1
+		3、复制日期对象：
+			为什么？
+				因为日期的计算，都是直接修改原日期对象。
+			何时复制："如果希望同时保留开始时间和截止时间时，都要先复制，再计算"。
+			如何复制：
+				var date1=new Date();
+				var date2=new Date(date1.getTime());
+				说明：.getTime()可省略
+		
+	原理：日期对象中保存的其实是一个巨大的毫秒数。
+		是1970年1月1日0点至今的毫秒数。
+	
+	API：
+		分量：FullYear	Month	Date	Day
+			  Hours		Minutes	Seconds Milliseconds
+		1、每个分量都有一对getXXX/setXXX方法。此处XXX即该分量名
+			其中，date.getXXX方法负责获取指定分量的值
+				  date.setXXX(n)方法负责修改指定分量的值
+			"例外：星期Day没有setDay方法"
+		2、命名：年月日星期，没有s结尾
+				 时分秒毫秒，都有s结尾
+		3、取值范围（返回值）：
+			只有月中的日 Date	从 1~31 结束
+			其余都是 从 0 ~ 进制-1 结束
+			"Month：0~11	需要修正"：
+				计算机中的月份比现实中的少1
+			Date：1~31	不用修正
+			Day：0~6	不用修正：
+				星期日是第一天，即0
+			Hours：0~23	不用修正
+			Minutes/Seconds：0~59	不用修正
+
+		应用：
+		日期计算：
+			1、两个日期对象可相减：得到毫秒差
+			2、对任意分量做加减：3步：
+				1、取分量	var n=date.getXXX();
+				2、做加减	n+=x;	//如：n+=59
+				3、放回去	date.setXXX(n);
+			说明：
+				1、setXXX方法可自动调整时间
+				2、setXXX方法直接修改原日期
+
+			简版公式：date.setXXX(date.getXXX()+n)
+		
+		日期转字符串：
+			date.toGMTString();		转为中国标准时间格式
+			date.toLocaleString();	转为当地时间格式
+				eg:
+					var now=new Date();
+					now.toGMTString();
+					//输出 ："Wed, 06 Jul 2016 09:51:18 GMT"
+			date.toLocaleDateString();	仅保留日期
+			date.toLocaleTimeString();	仅保留时间

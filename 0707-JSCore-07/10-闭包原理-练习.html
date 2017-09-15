@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//工厂：生产货币计算器
+			//每个计算器中封装一个独立的汇率r
+			//计算器：输入一个人民币金额
+				//计算0omoney*r，得到目标货币的金额
+
+	var r=0.1639;
+	function factory(r){
+		//var r=0.1639;
+		return function(money){
+			console.log((money*r).toFixed(2));
+		}
+	}
+	var lilei_$=factory(0.1639);
+	lilei_$(1000);	//163.9
+	lilei_$(5000);
+	var hmm_euro=factory(0.1449);
+	hmm_euro(1000);	//1449
+	</script>	
+ </body>
+</html>

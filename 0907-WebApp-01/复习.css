@@ -1,0 +1,76 @@
+...
+使用新的框架：
+	1、官方手册
+	2、多写demo
+	3、官方论坛：stackoverflow、guthub、segmentFault
+
+JqueryMobile：为触控优化的移动端web框架，用来设计响应式网站和跨平台移动开发。
+
+一、认识WebApp、NativeApp、HybridApp
+	1、Webapp
+		网页应用
+	2、NativeApp
+		原生应用：借助SDK提供的原生组件和，进行编码生成的本地应用。
+
+			Android			iOS
+	开发语言：Java		object-c/swift
+
+	ART(Android Runtime)
+
+	3、HybridApp
+		混合应用(编程)，介于WebApp以及NativeApp两者之间的开发模式
+		兼具原生开发（良好的体验）、WebApp（跨平台）
+
+		phoneGap技术：(jQueryMobile、ionic ...)
+
+	三者之间的对比：
+						Webapp网页应用 		HybridApp混合应用 	NativeApp原生应用
+		开发成本：			低					中					高
+		维护更新：			简单				简单				复杂	  
+		体验	：			差					优 					优
+		Store或market认可：	不认可				不认可				认可
+		安装：				不需要				需要				需要
+		跨平台：			优					优					差
+
+二、搭建Android开发环境：
+	1、SDK：Software Develop Kit
+
+	如何在线使用Google关于SDK更新？
+		http://...
+		...
+
+三、第一个Android应用程序
+	1、如何创建工程
+	2、配置工程的信息
+	3、如何编译运行一个Android平台下的可执行程序
+
+四、第一个HybridApp：
+	步骤分析：
+		1、编写一个html文件	index.html
+		2、将index.html放入到Android工程中
+		3、通过Android网络组件，载入index.html
+			//创建一个网络视图组件
+			WebView wv = new WebView(getApplicationContext());
+			//设置：
+			mv.getSettings().setJavaScriptEnabled(true);
+			//载入指定网址
+			wv.loadUrl("file:///android_asset/index.html");
+			//设置内容视图为wv
+			setContentView(wv);
+
+	快捷键：alt + /		代码提示
+
+	练习：
+		页面元素：p、button
+		功能：点击button按钮，隐藏段落
+		要求：新建一个Android工程
+			设置：mv.getSettings().setJavaScriptEnabled(true);
+
+五、飞机大战项目的移植
+
+
+
+
+
+
+

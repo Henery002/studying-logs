@@ -1,0 +1,153 @@
+复习：
+	第三阶段：
+	1、jQuery
+	2、AJAX
+		数据库服务器		--  SQL
+		Web服务器			--  PHP  语法、连接
+ 		HTTP协议			--  请求、响应
+		原生AJAX			--  四步
+ 		jQuery中的AJAX		--  6个函数
+	3、HTML5
+		//1 创建一个XHR对象  new...
+		//2 监听XHR的状态改变 on...
+		//3 打开到Web服务器的连接 open...
+		//4 发送请求消息  send...
+			//readyState: 0 1 2 3 4
+
+今日目标：
+	1、使用XHR对象发起GET/POST请求 			--  重点
+	2、使用XHR对象接收各种类型的响应消息	--  重点
+
+1、使用XHR对象发起GET请求
+		//1 创建一个XHR对象  new...
+	var xhr = new XMLHttpRequest();
+		//2 监听XHR的状态改变 on...
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState===4){
+			if(xhr.status===200){
+				console.log('响应完成且成功');
+			}else{
+				console.log('响应完成但存在问题');
+			}
+		}
+	}
+		//3 打开到Web服务器的连接 open...
+	xhr.open('GET','1_check_uname.php?uname='+n, true);
+		//4 发送请求消息  send...
+	xhr.send(null);
+
+2、使用XHR对象发起POST请求
+		//1 创建一个XHR对象  new...
+	var xhr = new XMLHttpRequest();
+		//2 监听XHR的状态改变 on...
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState===4){
+			if(xhr.status===200){
+				console.log('响应完成且成功');
+			}else{
+				console.log('响应完成但存在问题');
+			}
+		}
+	}
+		//3 打开到Web服务器的连接 open...
+	xhr.open('POST','1_check_uname.php', true);
+	/**********************************************/
+		//3.5 修改请求头部
+	xhr.setRequestHeader('Content-Type',  'application/x-www-form-urlencoded');
+	/**********************************************/
+		//4 发送请求消息  send...
+	xhr.send('k1=v1&k2=v2&...');
+
+	GET /1.php?uname=tom&age=20
+	/*********************************************/
+	POST /2.php 
+	Content-Type: application/x-www-form-urlencoded
+	uname=tom&age=20 
+
+	HTTP协议规定请求消息的Content-Type可能取值为：
+		1、text/plain 				--  PHP服务器拒绝接受
+		2、application/x-www-form-urlencoded	--  请求数据编码后
+		3、multiplart/form-data		--  文件上传
+
+	HTTP协议规定响应消息的Content-Type可能取值为任意合法的MIME类型。
+	但AJAX应用中，响应内容类型一般为：
+		1、text/plain
+		2、text/html  				--  HTML片段
+		3、application/javascript 	--  JS片段
+		4、application/xml 			--  XML片段
+  		5、application/json 		--  JSON片段
+
+3、使用XHR接收响应消息		--  text/plain
+	服务器端发送响应消息：
+		header('Content-Type:text/plain');
+		echo '一段文本';
+	客户端接收响应消息：
+		xhr.responseText;	//响应主体：一段文本
+
+4、使用XHR接收响应消息		--  text/html
+	服务器端发送响应消息：
+		header('Content-Type:text/html');
+		echo '<li>丁丁</li><li>当当</li>';
+	客户端接收响应消息：
+		parent.innerHTML = xhr.responseText;	//响应主体：一段HTML片段
+
+	练习：用户选择部门后，异步请求该部门对应的员工，服务器响应消息是多个option元素
+	dept.onchange = function(){
+		var did = this.value;
+		//1 
+		//2	
+		//3
+		//4
+	}
+
+[pm]:
+5、使用XHR接收响应消息		--  application/javascript  (不是text/html)
+	服务器端发送响应消息：
+		header('Content-Type:application/javascript');
+		echo '任意内容';	
+		//如：
+		//echo 'var span=document.createElement("span");span.innerHTML="...";
+	客户端接收响应消息：
+		eval(xhr.responseText);	//响应主体：一段JS片段
+	客户端XHR对象接收到字符串型响应消息，就必须调用eval()函数加以执行。!!!!!!!!!!
+
+	演示：实现国际化(internationalization,i18n)的JS消息
+		例：4_i18n.html  4_i18n.php
+
+场景：异步请求中，服务器端返回“多个商品的信息（每个商品又有多个属性）”，以何种格式：
+	1、text/plain				--  不够灵活，对于大量复杂的数据来说，容易出错
+		1#1号U盘#11#1.jpg@2#2号U盘#12#2.jpg
+	2、text/html 				--  不够灵活，返回的数据只能用在特定的HTML结构
+		<div>名称:1号U盘 价格：11<img src='1.jpg'></div>
+		<div>名称:2号U盘 价格：21<img src='2.jpg'></div>
+	3、application/xml 			--  尤其适合于批量的复合型数据
+	4、application/json			--  尤其适合于批量的复合型数据
+
+6、使用XHR接收响应消息		--  application/xml 	--  了解
+	XML：eXtensible Markup Language，可扩展标记语言。
+		对于前端来讲，XML就是一种特殊的字符串格式，用于描述批量的复合型数据。
+	XML语法要求：
+	1、标签名、属性、子标签都可以任意指定。
+	2、整个XML字符串有且只有一个根标签。
+	3、标签名有开始必须有结束，区分大小写。
+	4、标签可以有属性，值必须用单引号或双引号括起来。
+	5、标签可以嵌套，不能交叉。
+
+	HTML、XML关系？			--  无任何关系！
+	1、HTML标签都已经预定义好；XML 的标签都是任意指定的。
+	2、HTML专用于描述网页的内容；XML专用于描述数据。
+	3、HTML语法不严格；XML语言严格！
+
+	服务器端发送响应消息：
+		header('Content-Type:application/html');
+		echo '<?xml ?><productList>...</productList>';
+	客户端接收响应消息：
+		xhr.responseXML;	//响应主体：字符串，会被解析为一颗 XML DOM 树
+
+7、使用XHR接收响应消息		--  application/json 	--  重点
+
+	练习内容： 
+	功能要求：
+  		1、编写.sql文件，创建员工表，保存多个员工的信息；
+		2、选择不同的部门，则下方的员工列表显示出该部门的员工信息——异步请求，服务器返回HTML片段即可；
+		3、点击“删除”，发起异步请求删除该员工信息，服务器返回删除成功信息后，前端页面将表格中的当前TR>TD删除。

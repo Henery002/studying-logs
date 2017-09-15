@@ -1,0 +1,7 @@
+/*移动端*/
+[class*='col-']{
+        width:100%;
+}
+aside{
+    display: none;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>如何使用Two.js库</title>
+    <!-- TODO 引入 two.js 库文件 -->
+    <script src="js/two.js"></script>
+</head>
+<body>
+<!--
+    TODO 1.定义容器元素
+    TODO * <svg></svg>
+    TODO * <canvas></canvas>
+    TODO * <div></div>
+-->
+<div id="show">
+    <!-- TODO 通过 two.js 库生成的代码
+    <svg version="1.1" width="500" height="500" style="overflow: hidden;">
+        <defs></defs>
+    </svg>
+    -->
+</div>
+<script>
+    //TODO 2.获取HTML页面的容器元素
+    var elem = document.getElementById("show");
+    //TODO 3.定义two对象的配置信息
+    var params = {
+        width : 500,//TODO SVG标签的宽度
+        height : 500//TODO SVG标签的高度
+    }
+    /*
+      TODO 4.通过 two.js 库提供构造函数创建 two 对象
+      TODO var two = new Two(param);
+      TODO * param参数 - 表示创建two对象时，进行的配置
+     */
+    var two = new Two(params);
+    //TODO 5.将创建Two对象添加到HTML页面的容器元素中
+    two.appendTo(elem);
+</script>
+</body>
+</html>

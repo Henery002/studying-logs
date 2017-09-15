@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>复合组件</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    //TODO 组合组件
+    var Website = React.createClass({
+        render:function(){
+            return(
+                <div>
+                    <Name/>
+                    <Address/>
+                </div>
+            )
+        }
+    });
+    //TODO 第一个组件
+    var Address = React.createClass({
+        render:function(){
+            return <a href="http://www.tmooc.cn">www.tmooc.cn</a>
+        }
+    });
+    //TODO 第二个组件
+    var Name = React.createClass({
+        render:function(){
+            return <h1>达内</h1>
+        }
+    });
+    ReactDOM.render(<Website/>,document.getElementById('example'));
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Two.js库分组操作</title>
+    <script src="js/two.js"></script>
+</head>
+<body>
+<div id="show"></div>
+<script>
+    var elem = document.getElementById("show");
+    var two = new Two({
+        width : 500,
+        height : 500
+    });
+    two.appendTo(elem);
+    var rect = two.makeRectangle(100,100,100,100);
+    var circle = two.makeCircle(200,200,50);
+    //TODO 将目前图形设置样式为统一样式
+    /*
+      TODO Two.js库提供分组概念
+      TODO 1.var group = new Two.Group();
+      TODO * 返回分组对象
+      TODO   * 分组对象的方法 - add()
+      TODO 2.通过two对象的makeGroup(Objects);
+      TODO   * 参数:表示多个图形对象
+      TODO   * 返回分组对象
+     */
+    var group = two.makeGroup(rect,circle);
+    //TODO 针对这一组进行样式的设置
+    group.fill = "red";
+    group.stroke = "blue";
+    group.linewidth = 10;
+    //TODO 针对每个图形设置样式
+    rect.fill = "green";
+
+    two.update();
+</script>
+</body>
+</html>

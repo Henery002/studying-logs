@@ -1,0 +1,51 @@
+2016/09/19 ReactJS-day02：
+1、state:
+	......
+
+2、组件的生命周期：
+	mount		插入到真实的DOM
+	update		被渲染
+	unmount		移除DOM
+
+	状态的处理函数：
+		componentWillMount 		准备插入
+		componentDidMount		已经插入
+
+		componentWillUpdate		准备更新
+		componentDidUpdate		已经更新
+		
+		componentWillUnmount	准备从DOM中移除
+
+		this.refs.name			已经插入到真实DOM中的元素
+
+	练习：在组件中插入到真实DOM节点之后，启动定时器去修改组件中div的透明度
+			style='opacity:{this.state.opacity1}'
+		ReactJS中设置style需要以下的写法：
+			style={opacity:this.state.opacity1}
+3、事件
+	onClick		onChange
+	React标准化了事件对象。
+		React.createClass({
+			componentDidMount:
+			render:
+		});
+	组件中使用的方法分为：
+		1、React自身的方法：
+			render、componentDidMount 、......
+		2、用户自定义的方法(驼峰式命名)      
+			handleClick、handleChange、handleMouseOver、......	
+		练习：创建一个组件，组件中有一个div，鼠标滚动改变div的背景色。
+			事件：onWheel
+	知识：组件的创建与使用、状态的初始化与读写操作、事件的基础使用
+
+4、表单
+	1、受控组件
+	2、非受控组件
+
+5、ToDolist：
+	
+
+
+
+
+

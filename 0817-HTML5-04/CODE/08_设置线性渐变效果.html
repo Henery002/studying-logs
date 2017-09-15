@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置线性渐变效果</title>
+</head>
+<body>
+<svg width="500" height="500" style="background-color: coral">
+    <!-- TODO 设置线型渐变 -->
+    <!--
+        TODO <defs></defs>标签
+        TODO * 作用:表示定义重复使用的SVG元素
+    -->
+    <defs>
+        <!--
+            TODO 线性渐变
+            TODO * 基准线 - 起点坐标值与终点坐标值
+            TODO <linearGradient></linearGradient>
+            TODO * x1和y1 - 基准线的起点坐标值
+            TODO * x2和y2 - 基准线的终点坐标值
+            TODO 注意:所有点的值全部是 百分值(%)
+            TODO      * 取值范围为 0% ~ 100%(0-1)
+        -->
+        <linearGradient id="grd1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <!--
+                TODO 设置渐变的颜色及相对位置
+                TODO <stop />标签
+                TODO * offset - 相对位置
+                TODO   * 使用 百分值(%)
+                TODO * stop-color - 渐变颜色
+            -->
+            <stop offset="0%" stop-color="red"></stop>
+            <stop offset="100%" stop-color="blue"></stop>
+        </linearGradient>
+        <!--
+            TODO 设置的线性渐变没有设置基准线
+            TODO * 基准线的起点和终点具有默认值
+            TODO   * 起点默认值 - (0%,0%)
+            TODO   * 终点默认值 - (100%,0%)
+        -->
+        <linearGradient id="grd2">
+            <stop offset="0%" stop-color="red"></stop>
+            <stop offset="100%" stop-color="blue"></stop>
+        </linearGradient>
+    </defs>
+    <!--
+        TODO 绘制图形(使用渐变效果)
+        TODO * 将渐变效果赋值给fill或stroke属性
+        TODO   * 值的格式 - url(#渐变元素id)
+     -->
+    <rect x="10" y="10" width="100" height="100" fill="url(#grd1)"></rect>
+    <rect x="10" y="120" width="100" height="100" fill="url(#grd1)"></rect>
+
+    <rect x="120" y="10" width="100" height="100" fill="url(#grd2)"></rect>
+</svg>
+</body>
+</html>

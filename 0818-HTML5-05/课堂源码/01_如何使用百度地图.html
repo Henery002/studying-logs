@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>如何使用百度地图</title>
+    <style type="text/css">
+        /*
+            TODO WebStorm的快捷键
+            TODO 作用:快速格式化代码结构
+            TODO ctrl+shift+f
+         */
+        body, html,#allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin:0;
+            font-family:"微软雅黑";
+        }
+    </style>
+    <!--
+        TODO 1.引入百度地图的JS文件
+        TODO * 地址是固定的(由百度地图提供)
+        TODO 注意:将申请的秘钥(ak)编写在这里
+     -->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=bk2GxHHoQiqUKgwLj1wW1GQIbCpcnKri"></script>
+</head>
+<body>
+    <!--
+        TODO 2.在HTML页面中定义容器元素
+    -->
+    <div id="allmap"></div>
+    <script>
+        /*
+          TODO 3.创建百度地图对象
+          TODO new BMap.Map(容器元素ID);
+        */
+        var map = new BMap.Map("allmap");
+        /*
+          TODO 4.初始化百度地图
+          TODO map.centerAndZoom(center,zoom)
+          TODO * center - 设置当前地图的中心位置
+          TODO * zoom   - 设置地图的显示级别(3-19)
+         */
+        map.centerAndZoom("北京",12);
+    </script>
+</body>
+</html>

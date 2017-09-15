@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>props对象中的children处理方法</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    var MyList = React.createClass({
+        render:function(){
+            return (
+                <ul>
+                    {
+                        React.Children.map(this.props.children,function(child){
+                            return <li>{child}</li>
+                        })
+                    }
+                </ul>
+            )
+        }
+    });
+    ReactDOM.render(
+        <MyList>
+            <span>test11</span>
+            <span>test22</span>
+            <span>test33</span>
+        </MyList>,
+        document.getElementById('example')
+    );
+</script>
+</html>

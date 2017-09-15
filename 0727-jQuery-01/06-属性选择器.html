@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+<!--  点击相应按钮实现样式修改 -->
+	<button>把所有具有title属性的a加边框</button><br><br>
+	<button>把所有href的值为#d的用红色显示</button><br><br>
+	<button>把所有纯锚点跳转(#开头)的a变斜体</button><br><br>
+	<button>把所有非锚点跳转(不以#开头)的a的字体变为2倍</button><br><br>
+	<button>把素有href中包含锚点地址的背景色改为淡绿色</button><br><br><br>
+	<a href="#" name='#'>链接1</a><br><br>
+	<a href="" title="">链接2</a><br><br>
+	<a href="#">链接3</a><br><br>
+	<a href="">链接4</a><br><br>
+	<a href="http://www.baidu.com#section1">链接5</a><br><br>
+	<a href="http://www.bing.com#section">链接6</a><br><br>
+	<a href="http://www.sina.com">链接7</a><br><br>
+	<a title="">链接8</a><br><br>
+	<a href="#target">链接9</a><br><br>
+	<a href="#target" name='' title=''>链接10</a><br>
+
+  	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+		$($('button')[0]).click(function(){
+			$('a[title]').css('border','2px solid #0055dd');
+		});
+		$($('button')[1]).click(function(){
+			$('a[href="#"]').css('color','#f00');
+		});
+		$($('button')[2]).click(function(){
+			$('a[href^="#"]').css('font-style','italic');
+		});
+		$($('button')[3]).click(function(){
+			$('a:not([href^="#"])').css('font-size','2em');
+		});
+		$($('button')[4]).click(function(){
+			$('a[href*="#"]').css('background-color','lightgreen');
+		});
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+
+	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+		//DOM实现：点击按钮，显示出对应的文字
+		/*
+		var btns=document.querySelectorAll('button');
+		for(var i in btns){
+			var btn=btns[i];
+			btn.onclick=function(){
+				console.log(this.innerHTML);
+			}
+		}
+		*/
+		//jQuery实现：点击按钮，显示文字
+			//console.log($)
+			//console.log(jQuery)
+			//console.log(jQuery===$)	//true
+			//console.log(jQuery==$)	//true
+		//jQuery的特点：自带循环功能
+
+		jQuery('button').click( function(){
+			console.log(this.innerHTML);
+		} );
+
+	</script>
+ </body>
+</html>

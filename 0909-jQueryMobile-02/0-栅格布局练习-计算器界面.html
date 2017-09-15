@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>计算器界面</title>
+    <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="jqm/jquery.mobile-1.4.5.js"></script>
+</head>
+<style>
+    .ui-block-a{
+        padding-right:10px;
+    }
+    .ui-block-b,.ui-block-c{
+        padding:0 10px;
+    }
+    .ui-block-d{
+        padding-left:10px;
+    }
+</style>
+<body>
+<!--TODO data-role="page"  声明一个page页面-->
+<div data-role="page">
+    <!--TODO data-role="header"  声明页头 -->
+    <div data-role="header">
+        <h2>这是header</h2>
+    </div>
+    <!--TODO class="ui-content"  声明正文 -->
+    <div class="ui-content">
+        <!--第一行-->
+        <div class="ui-grid-solo">
+            <div class="ui-block-a">
+                <input type="text" placeholder="0" style="text-align:right;height:100px;">
+            </div>
+        </div>
+        <!--第二行-->
+        <div class="ui-grid-c">
+            <div class="ui-block-a">
+                <button>7</button>
+            </div>
+            <div class="ui-block-b">
+                <button>8</button>
+            </div>
+            <div class="ui-block-c">
+                <button>9</button>
+            </div>
+            <div class="ui-block-c">
+                <button>/</button>
+            </div>
+        </div>
+        <!--第三行-->
+        <div class="ui-grid-c">
+            <div class="ui-block-a">
+                <button>4</button>
+            </div>
+            <div class="ui-block-b">
+                <button>5</button>
+            </div>
+            <div class="ui-block-c">
+                <button>6</button>
+            </div>
+            <div class="ui-block-c">
+                <button>*</button>
+            </div>
+        </div>
+        <!--第四行-->
+        <div class="ui-grid-c">
+            <div class="ui-block-a">
+                <button>1</button>
+            </div>
+            <div class="ui-block-b">
+                <button>2</button>
+            </div>
+            <div class="ui-block-c">
+                <button>3</button>
+            </div>
+            <div class="ui-block-c">
+                <button>-</button>
+            </div>
+        </div>
+        <!--第五行-->
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <button>0</button>
+            </div>
+            <div class="ui-block-b ui-grid-a">
+                <div class="ui-block-a">
+                    <button>.</button>
+                </div>
+                <div class="ui-block-b">
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--TODO data-role="footer"  声明页尾-->
+    <div data-role="footer" data-position="fixed">
+        <h2>这是footer</h2>
+    </div>
+</div>
+</body>
+</html>

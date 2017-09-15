@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <style>
+	body{
+		color:#666;
+		font:12px "Arial";
+	}
+	.discuss{
+		width:990px;
+		color:#9c9a9c;
+		/*border:1px solid #ddd;*/
+		border-top:2px solid #666;
+		border-bottom:1px solid #666;
+		/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+		/*【将discuss的div隐藏浮动，因为尾部的两个span都是浮动，这样就可以实现底部的边框显示】*/
+		overflow:hidden;
+	}
+
+	/*让表格中的单元格内容居中（第一列除外）*/
+	.discuss td{
+		text-align:center;
+	}
+	.discuss .mt{
+		height:30px;
+		border:1px solid #ddd;
+		border-top:2px solid #999;
+		background:#f7f7f7;
+	}
+
+	/*设置导航栏*/
+	.discuss .mt a{
+		float:left;
+		text-align:center;
+		padding:0 30px;
+		height:30px;
+		line-height:30px;
+	}
+	.discuss .mt a.friend{
+		margin-left:-2px;
+	}
+	.discuss .mt a:hover{
+		border-top:2px solid #f00;
+		border-left:1px solid #ddd;
+		border-right:1px solid #ddd;
+		height:37px;
+		margin-top:-8px;
+		line-height:31px;
+		text-decoration:none;
+		color:#f00;
+		background:#fff;
+	}
+	/*设置主题栏*/
+	.discuss_data{
+		width:100%;
+	}
+	.discuss_data th{
+		color:#666;
+		border-bottom:1px solid #ddd;
+		padding:6px 0;
+	}
+	/*分别设置每列的不同宽度*/
+	.discuss .coll{
+		width:520px;
+		text-align:left;
+	}
+	.discuss .replay{
+		width:110px;
+	}
+	.discuss .author{
+		width:120px;
+	}
+	.discuss .time{
+		width:240px;
+	}
+	/*设置每行下面的虚线边框、行高（用内边距的方法）*/
+	.discuss td{
+		padding:6px 0;
+		border-bottom:1px dotted #DEDFDE; 
+	}
+
+	.discuss a{
+		color:#005aa0;
+		text-decoration:none;
+	}
+	.discuss a:hover{
+		text-decoration:underline;
+	}
+
+	.discuss_data td{
+		text-align:center;
+		border-bottom:1px dotted #ddd;
+		padding:5px 0;
+	}
+	/*设置图标logo*/
+	.discuss_content i{
+		margin-right:5px;
+		padding-left:21px;
+		padding-bottom:4px;
+	}
+	.discuss_content i.shai{
+		background:url(images/iconlist_1.png) no-repeat -110px -220px;
+	}
+	.discuss_content i.lun{
+		background:url(images/iconlist_1.png) no-repeat -152px -220px;
+	}
+	/*设置尾部那行的内容（浮动）*/
+	.discuss  span{
+		padding:6px 0;
+	}
+	.discuss .other{
+		float:left;
+	}
+	.discuss .all{
+		float:right;
+	}
+  </style>
+ <head>
+ <body>
+	<div class="discuss">
+		<div class="mt">
+			<a href="#" class="friend">网友讨论圈</a>
+			<a href="#">晒单贴</a>
+			<a href="#">讨论帖</a>
+			<a href="#">问答帖</a>
+			<a href="#">圈子帖</a>
+		</div>	<!--页签-->
+		<div class="discuss_content">
+			<table class="">
+				<thead>
+					<tr class="discuss_data">
+						<th class="coll">主题</th>
+						<th class="replay">回复/浏览</th>
+						<th class="author">作者</th>
+						<th class="time">时间</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="coll">
+							<i class="shai"></i>
+							<a href="#" class="theme">好大一瓶，不错</a>
+						</td>
+						<td>0/0</td>
+						<td>
+							<a href="#">2001年冬天</a>
+						</td>
+						<td>2014-11-19 13:54:40</td>
+					</tr>
+					<tr>
+						<td class="coll">
+							<i class="lun"></i>
+							<a href="#" class="theme">洗衣液超级划算，活动给力</a>
+						</td>
+						<td>0/0</td>
+						<td>
+							<a href="#">xpx2001</a>
+						</td>
+						<td>2014-11-19 13:54:40</td>
+					</tr>
+					<tr>
+						<td class="coll">
+							<i class="lun"></i>
+							<a href="#" class="theme">洗衣液超级划算，活动给力</a>
+						</td>
+						<td>0/0</td>
+						<td>
+							<a href="#">xpx2001</a>
+						</td>
+						<td>2014-11-19 13:54:40</td>
+					</tr>
+					<tr>
+						<td class="coll">
+							<i class="shai"></i>
+							<a href="#" class="theme">好大一瓶，不错</a>
+						</td>
+						<td>0/0</td>
+						<td>
+							<a href="#">2001年冬天</a>
+						</td>
+						<td>2014-11-19 13:54:40</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<span class="other">有问题要与其他用户讨论？&nbsp;&nbsp;<a href="#">[发表帖子]</a></span>
+		<span class="all">共900个话题&nbsp;&nbsp;&nbsp;<a href="#">浏览全部话题>></a></span>
+		<!--<div class="bottom"></div>-->
+	</div>
+ </body>
+</html>

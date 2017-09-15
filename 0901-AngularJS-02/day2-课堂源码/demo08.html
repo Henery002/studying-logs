@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>dishList的练习</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/angular.js"></script>
+</head>
+<body class="container">
+
+<div ng-controller="myCtrl">
+    <p>{{num}}</p>
+    <div class="list-group">
+        <a class="list-group-item" ng-repeat="dish in dishList">
+            <div class="media">
+                <div class="media-left media-object">
+                    <img ng-src="{{dish.imgsrc}}" alt=""/>
+                </div>
+                <div class="media-body">
+                    <p>{{dish.name}}</p>
+                    <p>{{dish.price}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <button class="btn btn-info" ng-click="add()">加载更多</button>
+</div>
+
+<script>
+    //模块的声明
+    var app = angular.module('myApp',[]);
+    //控制器的声明
+    app.controller('myCtrl',function($scope){
+        $scope.num = 10;
+        $scope.dishList = [{name:'鱼香肉丝',price:30,imgsrc:'img/1.jpg'}];
+        $scope.dishList.push({name:'京酱肉丝',price:20,imgsrc:'img/2.jpg'});
+        $scope.dishList.push({name:'土豆丝',price:20,imgsrc:'img/3.jpg'});
+
+        $scope.add = function () {
+            $scope.dishList.push({name:'土豆丝',price:20,imgsrc:'img/4.jpg'});
+        }
+    });
+
+</script>
+</body>
+</html>

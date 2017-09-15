@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+ <head>
+  <title> 自我练习 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	span{
+		display:inline-block;
+		width:15px;
+	}
+  </style>
+  <script>
+	/*
+	 *每个+ - 的按钮，在单击时要调用的函数
+	 *btn:用户点击的按钮对象
+	 */
+	/*
+	/*自我练习*/
+	function btnClick(btn){
+		//获取btn上的文本（符号）
+		var c = btn.innerText;
+		if(c == '+'){
+			//1、获取上一个兄弟元素节点span
+			var span = btn.previousElementSibling;
+			//2、获取span的值，转换成整数
+			var spanValue = parseInt(span.innerText);
+			//3、将span的值累加（+1）
+			spanValue++;
+			//4、将累加之后的值再赋给span
+			span.innerText = spanValue;
+			//5、获取单价 td 元素（btn的父元素的上一个兄弟元素节点）
+			var tdPrice = btn.parentNode.previousElementSibling;
+			//6、获取 单价td 中的 文本，并且转换成整数
+			var tdPriceValue = parseInt(tdPrice.innerText);
+			//7、将 单价td 的值*spanValue 得到小计结果
+			var tdTotalValue = tdPriceValue*spanValue;
+			//8、获取 btn 的父元素的下一个兄弟元素节点
+			var tdTotal = btn.parentNode.nextElementSibling;
+			//9、将小计结果的值赋值给btn的老叔
+			tdTotal.innerText = tdTotalValue;
+			//console.log(tdTotal);
+		}else{
+			/**/
+			//1、获取减号的下一个兄弟元素节点span
+			var span = btn.nextElementSibling;
+			//2、获取span的值，转换成整数
+			var spanValue = parseInt(span.innerText);
+			//3、将span的值递减（-1）
+			spanValue--;
+			//4、将递减后的span值再赋值给span
+			span.innerText = spanValue;
+			//5、获取单价td元素
+			var tdPrice = btn.parentNode.previousElementSibling;
+			//6、获取到价格
+			var tdPriceValue = parseInt(tdPrice.innerText);
+			var tdTotalValue = tdPriceValue*spanValue;
+			var tdTotal = btn.parentNode.nextElementSibling;
+			tdTotal.innerText = tdTotalValue;
+			//console.log(tdTotal);
+			
+		}
+		//总计
+		//1、声明一个变量用于保存总计的和total
+		var sum = 0;
+		//2、先获取tbody
+		var tbody = document.getElementsByTagName("tbody")[0];
+		//console.log(tbody);
+		//3、获取tbody中的所有tr
+		var trs = tbody.getElementsByTagName("tr");
+		//4、循环遍历所有tr
+		for(var i=0;i<=trs.length;i++){
+			var tr = trs[i];
+			//4.1获取最后一个元素子元素
+			var tdLast = tr.lastElementChild;
+			//4.2将值转换成整数 累加到sum 后
+			sum += parseInt(tdLast.innerText);
+			//5、将sum的值赋给总计
+			document.getElementsByTagName("tfoot")[0].getElementsByTagName("tr")[0].lastElementChild.innerText = sum;
+		}
+	}
+  </script>
+ </head>
+ <body>
+	<script>		
+	</script>
+	<table id="table" width="500" border="1">
+		<thead>
+			<tr align="left">
+				<th>商品名称</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>iphone6 plus</td>
+				<td>5288</td>
+				<td align="center">
+					<button onclick="btnClick(this)">-</button>
+					<span>1</span>
+					<button onclick="btnClick(this)">+</button>
+				</td>
+				<td>5288</td>
+			</tr>
+			<tr>
+				<td>iphone6</td>
+				<td>4200</td>
+				<td align="center">
+					<button onclick="btnClick(this)">-</button>
+					<span>1</span>
+					<button onclick="btnClick(this)">+</button>
+				</td>
+				<td>4200</td>
+			</tr>
+			<tr>
+				<td>iphone5</td>
+				<td>4000</td>
+				<td align="center">
+					<button onclick="btnClick(this)">-</button>
+					<span>1</span>
+					<button onclick="btnClick(this)">+</button>
+				</td>
+				<td>4000</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" align="right">Total：</td>
+				<td>0</td>
+			</tr>
+		</tfoot>
+	</table>
+ </body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html >
+<html >
+<head>
+<meta charset="utf-8" />
+<title>隐藏选定DIV</title>
+<link rel="stylesheet" href="exercise01_02.css" />
+<script src="exercise01_02_m.js"></script>
+<style>
+	.block{display:none;}
+	div>div{}
+</style>
+</head>
+<body>
+	<h2>隐藏选定DIV</h2>
+	<button onclick="hidden(this)">隐藏选定</button>
+	<div id="container">
+		<div onclick="selectImg(this)"><img src="img/1.png"/></div>
+		<div onclick="selectImg(this)"><img src="img/2.png"/></div>
+		<div onclick="selectImg(this)"><img src="img/3.png"/></div>
+		<div onclick="selectImg(this)"><img src="img/4.png"/></div>
+	</div>
+</body>
+</html>

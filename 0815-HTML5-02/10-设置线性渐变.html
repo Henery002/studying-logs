@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    canvas{
+        box-shadow: 5px 5px 5px #333;
+    }
+</style>
+<body>
+    <canvas id="canvas" width="500px" height="300px"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    /*
+    * TODO 1、设置线性渐变
+    * createLinearGradient(x1,y1,x2,y2)
+    *   基准线 -- 起点(x1,y1)和终点(x2,y2)
+    *   返回值 -- 渐变对象
+    *   通过上述返回的渐变对象，设置渐变效果
+    *   addColorStop(offset,color)
+    *       参数：
+    *       offset -- 渐变颜色的位置
+    *       color  -- 渐变的颜色
+    * */
+    var grad = context.createLinearGradient(0,0,300,canvas.height);
+    grad.addColorStop(0,'red');
+    grad.addColorStop(0.67,'green');
+    grad.addColorStop(1,'blue');
+    //TODO 2、设置画布的真正样式(fillstyle和strokestyle)
+    context.fillStyle = grad;
+    //TODO 3、将该渐变效果进行绘制
+    context.fillRect(0,0,canvas.width,canvas.height);
+</script>
+</html>

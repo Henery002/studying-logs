@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<h2>求出成绩列表中的平均分</h2>
+	<h4>使用jQuery对象-类数组对象</h4>
+	<ul>
+		<li>89</li>
+		<li>99</li>
+		<li>92</li>
+		<li>65</li>
+		<li>50</li>
+		<li>59</li>
+		<li>80</li>
+		<li>78</li>
+	</ul>
+	<p>上述成绩的平均分为：<span></span></p>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		var sum=0;
+		var jqObj=$('ul li');
+		for(var i=0;i<$('li').length;i++){
+			var li=jqObj.get[i];
+			var score=parseFloat($(li).html());
+			sum+=score;
+			console.log(sum);
+		}
+		$('p span').html(sum/jqObj.length);
+		
+		//法二：
+	/*	
+		var sum=0;
+		$('ul li').each(function(i,li){
+			var score=parseFloat($(li).html());
+			sum+=score;
+		});
+		$('p span').html(sum/jqObj.length);
+	*/
+	</script>	
+ </body>
+</html>

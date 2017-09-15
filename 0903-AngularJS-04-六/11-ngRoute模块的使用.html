@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ngRoute模块的使用</title>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+</head>
+<body>
+    <div ng-view>
+
+    </div>
+</body>
+    <script>
+        //声明自定义模块，依赖于ngRoute和ng模块
+        var app = angular.module('myApp',["ng","ngRoute"]);
+        //声明一个控制器，在main.html页面使用该控制器实现跳转到start页面
+        app.controller('mainCtrl',function($scope,$location){
+            $scope.jump = function(){
+                $location.path('/start');
+            }
+        });
+        //配置路由词典
+        /*
+        app.config(function($routeProvider){
+            $routeProvider.when('/start',{templateUrl:"tpl/11-start.html"})
+                    .when('/main',{templateUrl:"tpl/11-main.html"})
+                    .otherwise({redirectTo:'/start'})
+        })
+        */
+        /*当不在main.html页面已用控制器，而是在when中引用时：*/
+        app.config(function($routeProvider){
+            $routeProvider.when('/start',{templateUrl:"tpl/11-start.html"})
+                          .when('/main',{templateUrl:"tpl/11-main.html",controller:'mainCtrl'})
+                          .otherwise({redirectTo:'/start'})
+        })
+
+    </script>
+</html>

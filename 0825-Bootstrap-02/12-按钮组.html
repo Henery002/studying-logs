@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .container{
+        margin-top: 20px;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 按钮组
+                先定义一个包裹所有按钮的容器
+                class为 .btn-group
+
+        -->
+        <div class="btn-group">
+            <buutton class="btn btn-default">按钮</buutton>
+            <buutton class="btn btn-danger">按钮</buutton>
+            <buutton class="btn btn-success">按钮</buutton>
+        </div>
+    </div>
+    <div class="row">
+        <div class="btn-group">
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-play"></span>
+            </button>
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-pause"></span>
+            </button>
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-play-circle "></span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="btn-group">
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-align-left"></span>
+            </button>
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-align-center"></span>
+            </button>
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-align-right"></span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <!--
+            TODO 按钮组两端对齐（即父元素的100%宽度）
+                容器元素：
+                    基类      .btn-group
+                    修饰类    .btn-group-justified
+                按钮组中的按钮元素
+                注意：只能使用<a>标签完成，否则样式错误
+        -->
+        <div class="btn-group btn-group-justified">
+            <a class="btn btn-warning">又是按钮</a>
+            <a class="btn btn-warning">又是按钮</a>
+            <a class="btn btn-warning">又是按钮</a>
+        </div>
+    </div>
+    <div class="row">
+        <!--TODO 此处不再需要基类 .btn-group ，直接加 修饰类-->
+        <div class="btn-group-vertical">
+            <a class="btn btn-warning" href="">再来一个按钮啊</a>
+            <a class="btn btn-warning" href="">再来一个按钮啊</a>
+            <a class="btn btn-warning" href="">再来一个按钮啊</a>
+        </div>
+    </div>
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

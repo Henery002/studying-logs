@@ -1,0 +1,20 @@
+/* Ö÷ÎÄ¼þ */
+* {
+    box-sizing: border-box;
+}
+header {
+    background-color: #9933cc;
+    color: #ffffff;
+    padding: 15px;
+}
+aside ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+aside li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #33b5e5;
+    color: #ffffff;
+}

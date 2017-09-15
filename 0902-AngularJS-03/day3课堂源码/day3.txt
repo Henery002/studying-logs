@@ -1,0 +1,127 @@
+1、过滤器
+过滤器用在表达式，实现对表达式结果的筛选、过滤、格式化，达到更好的表现效果。
+
+用法：{{表达式 | filter1 | filter2:param}}
+
+| 是管道，表示传递数据的管道。
+
+currency：实现货币的格式化
+{{price | currency:'￥'}}
+
+date 实现日期的格式化
+{{newdate | date:'yyyy-MM-dd'}}
+
+lowercase/uppercase 实现大小写的转换
+
+orderBy 实现排序，指定增序还是降序
+{{tmp | orderBy:'名称':true}}
+
+limitTo 限制显示的个数。
+
+练习：对象数组，5个对象：age name score
+按照age降序、
+按照name增序、
+按照score降序只显示前三名
+
+分析:
+1、定义对象数组
+2、显示结合orderBy以及limitTo
+
+
+
+
+2、ng所提供的方法
+angular.forEach(set,function(value,key){})
+
+angular.uppercase(name);
+angular.lowercase(name);
+
+angular.toJson(jsonObj);将传入的json对象序列化为一个json字符串
+angular.fromJson(jsonStr),将json字符串反序列化为一个json对象
+
+
+3、服务
+服务就是一个单例对象。
+功能：提供数据、方法、对象。
+划分：内置服务和自定义服务
+（$http/$location/$window/$scope/$rootScope/$interval/$timeout）
+
+在使用服务的时候，需要将要用到的服务注入进来。
+app.controller('myCtrl',function($scope,$location){})
+
+$rootScope以及$scope之间的关系
+
+具体请看图片。
+
+$http 跟服务器交互
+$http.get('url').success(function(data){})
+
+实现：通过$http 从php文件中读取数据
+
+分析：
+apache服务跑起来
+在xampp下的htdocs目录中：php文件，html文件
+访问通过在地址栏localhost访问
+
+双向数据绑定的原理：
+
+1、{{num}} 
+ng就在$scope给num设置一个watcher
+$scope.$watch('num',function(){})
+
+2、watcher的回调什么时候会执行？？？
+ng会周期性的运行一个函数，$digest循环。
+会触发各个watcher，ng的scope作对比判断值是否发生变化
+
+3、什么时候执行$digest循环？？
+ng指令都会触发循环；
+$scope.$digest
+$scope.$apply() ==>$rootScope.$digest
+
+
+$timeout
+$interval 每隔2s，num++
+
+
+4、依赖注入
+
+文件压缩：
+会删除所有的注释，并删除空白字符，
+尽可能的简化变量名、方法名、形参名（混淆），所有的数据、关键字都不会做任何改变。
+
+压缩方式1：
+java.exe -jar yuicompressor-2.3.jar test.js > test.min.js
+
+压缩方式2：
+在webStorm中，点击左上角的file，找到settings，选中tools中的fileWatcher中，点击+号，配置program为下载的yui-compressor.jar
+
+
+依赖注入：
+什么是依赖？
+
+function driver(car){
+ car.start();
+ car.stop();
+}
+
+app.controller('myCtrl',function($scope){
+
+})
+
+依赖注入的三种方式：
+推断式依赖注入
+标记式依赖注入
+行内式依赖注入
+
+
+
+
+
+
+
+
+
+
+
+
+

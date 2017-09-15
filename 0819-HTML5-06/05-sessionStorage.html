@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="data">
+    <button id="save">保存</button>
+    <button id="read">读取</button>
+    <button id="del">删除</button>
+</body>
+<script>
+    //TODO 将输入内容保存到sessionStorage中
+    var save = document.getElementById('save');
+    save.onclick = function(){
+        //TODO 获取到用户输入的内容
+        var data = document.getElementById('data').value;
+        /*
+        * TODO 标识 -- 唯一并且不可重复
+        *       new Date().getTime() -- 毫秒值
+        * */
+        var key = new Date().getTime();     //
+        //TODO 通过sessionStorage的setItem()方法进行存储
+        window.sessionStorage.setItem(key,data);
+    }
+    //TODO 从sessionStorage中读取数据
+    var read  = document.getElementById('read');
+    read.onclick = function(){
+        //TODO sessionStorage提供length属性
+        for(var i=0;i<window.sessionStorage.length;i++) {
+            //TODO 在遍历过程中得到每一条存储的数据
+            //TODO sessionStorage提供key(index)得到对应数据的key值
+            var key = window.sessionStorage.key(i);
+            //TODO sessionStorage提供的getItem(key)得到对应的value值
+            var value = window.sessionStorage.getItem(key);
+            //TODO 输出所有存储的内容
+            console.log(key+":"+value);
+        }
+    }
+    //TODO 从sessionStorage中删除数据
+    var del = document.getElementById('del');
+    del.onclick = function(){
+        /*
+        * TODO sessionStorage的删除方法
+        *       removeItem(key)
+        *       clear()
+        * */
+        /*
+        for(var i=0;i<window.sessionStorage.length;i++){
+            var key = window.sessionStorage.key(i);
+            window.sessionStorage.removeItem(key);
+        }
+        */
+        //TODO 倒序删除
+        /*
+        for(var i=window.sessionStorage.length-1;i>=0;i--){
+            var key = window.sessionStorage.key(i);
+            window.sessionStorage.removeItem(key);
+        }
+        */
+        //TODO 直接使用clear()方法
+        window.sessionStorage.clear();
+    }
+</script>
+</html>

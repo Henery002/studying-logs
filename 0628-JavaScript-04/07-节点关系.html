@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	function getParent(){
+		var anchor = document.getElementById("anchor");
+		var d1 = anchor.parentNode;
+		console.log(d1);
+	}
+
+
+	//3
+	function getFirstChild(){
+		var d1 = document.getElementById("d1");
+		var d2 = anchor.FirstChild;
+		console.log(d2);
+	}
+	//4、获取下一个兄弟节点
+	function getNext(){
+		var anchor = document.getElementById("anchor");
+		var next = anchor.nextSibling;
+		console.log(next);
+		var nextElement = anchor.nextElementSibling;
+		console.log(next);
+	}
+  </script>
+ </head>
+ <body>
+	<script>	
+	</script>
+	
+	<div id="d1">
+		<a id="anchor" href="#">百度</a>
+		<a href="">Google</a>
+	</div>
+	<button onclick="getParent()">百度</button><br><br>
+	<button onclick="getChild()">百度</button><br><br>
+	<button onclick="getChild()">百度</button><br><br>
+	<button onclick="getNext()">获取a1的下一个（元素）兄弟节点</button><br><br>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    var arr = [12,22,234234,54,5];
+    ReactDOM.render(
+        <div>
+            <h1>{3+2}</h1>
+            <h1>{(3+1)<5?'正确':'错误'}</h1>
+            <h1>{[12,23,22,43,6,90]}</h1>
+            <h1>{'we are the one!'}</h1>
+            <h1>{arr}</h1>
+        </div>,
+        document.getElementById('example')
+    );
+</script>
+</html>

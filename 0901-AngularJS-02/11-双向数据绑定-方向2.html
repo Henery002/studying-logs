@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <!--通过 ng-value 将 input 绑定到 模型数据value -->
+        <input type="text" ng-model="value">
+    </div>
+</body>
+    <script>
+        //模块声明
+        var app = angular.module('myApp',[]);
+        //控制器声明
+        app.controller('myCtrl',function($scope){
+            //先初始化为空
+            $scope.value = '';
+            //$watch方法：是$scope中的方法，所以直接调用
+            //$watch有两个参数，
+            //第一个参数时要监听的模型数据，第二个参数是监听到变化之后执行的函数
+            $scope.$watch('value',function(){
+                console.log($scope.value);
+            })
+        });
+    </script>
+</html>

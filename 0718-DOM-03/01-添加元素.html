@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var a=document.createElement('a');
+		a.href="http://www.baidu.com";
+		a.innerHTML='百度一下';
+		document.body.appendChild(a);
+		//在a之前插入一个button,提示before
+		//在a之后插入一个input button,提示after
+		var btn=document.createElement('button');
+		var inBtn=document.createElement('button');
+		btn.innerHTML='before';
+		btn.onclick=function(){
+			alert('before');	
+		}
+
+		inBtn.innerHTML='after';
+		document.body.insertBefore(btn,a);
+		a.appendChild(inBtn);
+
+	</script>	
+ </body>
+</html>

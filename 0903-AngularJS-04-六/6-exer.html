@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>$injector注入器的get和has方法的使用</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <button ng-click="callClick()">点我</button>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp',[]);
+    //自定义一个服务
+    app.factory('$custom',function(){
+        return {
+            print:function(){
+                console.log('Hello World!');
+            }
+        }
+    })
+    //通过注入器，判断是否存在$custom服务
+   /*
+    var injector = angular.injector(['ng','myApp']);
+    if(injector.has("$custom")){
+        console.log('该服务存在');
+        //获取参数中的实例化服务对象
+        var custom = injector.get('$custom');
+        custom.print();
+    }
+    */
+    //将以上代码放入下面
+    //行内式依赖注入
+    app.controller('myCtrl',["$scope","injector",function($scope,$injector){
+        $scope.callClick = function(){
+            if($injector.has('$custom')){
+                $injector.get('$custom').print();
+            }
+        }
+    }]);
+</script>
+</html>

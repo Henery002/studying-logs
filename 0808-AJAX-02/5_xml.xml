@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productList>
+	<product pid='101' name=''>
+		<name>金士顿64G</name>
+		<price>25.00</price>
+		<pic>img/1.jpg</pic>
+	</product>
+	<product pid='105' name=''>
+		<name>三星64G</name>
+		<price>25.00</price>
+		<pic>img/12.jpg</pic>
+	</product>
+	<product pid='103' name=''>
+		<name>闪迪64G</name>
+		<price>45.00</price>
+		<pic>img/13.jpg</pic>
+	</product>
+	<product pid='102' name=''>
+		<name>西部数据64G</name>
+		<price>25.00</price>
+		<pic>img/9.jpg</pic>
+	</product>
+</productList>
+

@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap JavaScript插件：Bootstrap自带了13个jQuery插件，这些插件为Bootstrap中的组件赋予了“生命”</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootstrap插件包含过渡效果、遮罩、下拉菜单、滚动监听、标签页、提示、警告框和幻灯片滚动等前端开发常见JavaScript插件">
+    <meta name="keywords" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" tppabs="http://caibaojian.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" tppabs="http://caibaojian.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" tppabs="http://caibaojian.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" tppabs="http://caibaojian.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js" tppabs="http://caibaojian.com/bootstrap/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">    
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">    
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">    
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">    
+    <link rel="shortcut icon" href="assets/ico/favicon.png">    
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="javascript:if(confirm('http://caibaojian.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://caibaojian.com/'" tppabs="http://caibaojian.com/" style="color:#fff">返回前端开发博客</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="index.htm" tppabs="http://caibaojian.com/bootstrap/">首页</a>
+              </li>
+              <li class="">
+                <a href="getting-started.html" tppabs="http://caibaojian.com/bootstrap/getting-started.html">入门</a>
+              </li>
+              <li class="">
+                <a href="scaffolding.html" tppabs="http://caibaojian.com/bootstrap/scaffolding.html">架构</a>
+              </li>
+              <li class="">
+                <a href="base-css.html" tppabs="http://caibaojian.com/bootstrap/base-css.html">基本样式</a>
+              </li>
+              <li class="">
+                <a href="components.html" tppabs="http://caibaojian.com/bootstrap/components.html">功能组件</a>
+              </li>
+              <li class="active">
+                <a href="javascript.html" tppabs="http://caibaojian.com/bootstrap/javascript.html">JavaScript插件</a>
+              </li>
+              <li class="">
+                <a href="customize.html" tppabs="http://caibaojian.com/bootstrap/customize.html">自定义</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead">
+  <div class="container">
+    <h1>JavaScript插件</h1>
+    <p class="lead">Bootstrap自带了13个jQuery插件，这些插件为Bootstrap中的组件赋予了“生命”。
+  </div>
+</header>
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li><a href="#overview"><i class="icon-chevron-right"></i> 概览</a></li>
+          <li><a href="#transitions"><i class="icon-chevron-right"></i> 过渡效果</a></li>
+          <li><a href="#modals"><i class="icon-chevron-right"></i> 模态对话框</a></li>
+          <li><a href="#dropdowns"><i class="icon-chevron-right"></i> 下拉菜单</a></li>
+          <li><a href="#scrollspy"><i class="icon-chevron-right"></i> 滚动监听</a></li>
+          <li><a href="#tabs"><i class="icon-chevron-right"></i> 标签页</a></li>
+          <li><a href="#tooltips"><i class="icon-chevron-right"></i> 工具提示</a></li>
+          <li><a href="#popovers"><i class="icon-chevron-right"></i> 弹出提示</a></li>
+          <li><a href="#alerts"><i class="icon-chevron-right"></i> 警告框</a></li>
+          <li><a href="#buttons"><i class="icon-chevron-right"></i> 按钮</a></li>
+          <li><a href="#collapse"><i class="icon-chevron-right"></i> Collapse</a></li>
+          <li><a href="#carousel"><i class="icon-chevron-right"></i> 轮播</a></li>
+          <li><a href="#typeahead"><i class="icon-chevron-right"></i> 输入提示</a></li>
+          <li><a href="#affix"><i class="icon-chevron-right"></i> 附加导航</a></li>
+        </ul>
+      </div>
+      <div class="span9">
+
+
+        <!-- Overview
+        ================================================== -->
+        <section id="overview">
+          <div class="page-header">
+            <h1>Bootstrap中的JavaScript</h1>
+          </div>
+
+          <h3>引入单个插件还是一次性引入所有插件</h3>
+          <p>每个插件都可以单独的引入到页面中（注意插件间的依赖关系），或者一次性引入。<strong>bootstrap.js</strong> 和<strong>bootstrap.min.js</strong> 文件都将所有插件包含在一个文件中了（前者是未压缩版，后者是压缩版）。</p>
+
+          <h3>Data 属性</h3>
+          <p>你可以仅仅通过data属性API就能使用所有Bootstrap中的插件，而且不用写一行JavaScript代码。这是Bootstrap中的一等API，并且是你的首选方式。</p>
+
+          <p>特殊情况是，在某些情况下可能需要特意禁用这种默认动作。因此，我们特地提供了禁用data属性API的方式，通过解除绑定在body上的被命名为`'data-api'`的事件即可实现。如下所示：
+          <pre class="prettyprint linenums">$('body').off('.data-api')</pre>
+
+          <p>还可以解除特定插件的事件绑定，只要将插件名和data-api链接在一起作为参数使用。如下所示：</p>
+          <pre class="prettyprint linenums">$('body').off('.alert.data-api')</pre>
+
+          <h3>编程API</h3>
+          <p>我们同时为所有Bootstrap插件提供了JavaScript API。所有公开的API都可以单独或链式调用，均返回其所操作的集合（和jQuery的API一致）。</p>
+          <pre class="prettyprint linenums">$(".btn.danger").button("toggle").addClass("fat")</pre>
+          <p>所有方法均可接受一个可选的参数对象、一个对此方法有特定意义的字符串或者什么也不传（即用默认参数初始化此插件）：</p>
+<pre class="prettyprint linenums">
+$("#myModal").modal()                       // initialized with defaults
+$("#myModal").modal({ keyboard: false })   // initialized with no keyboard
+$("#myModal").modal('show')                // initializes and invokes show immediately</p>
+</pre>
+          <p>每个插件都通过`Constructor` 属性暴露了其原始的构造函数：<code>$.fn.popover.Constructor</code>。如果你想获得某个特定插件的实例，可以直接从页面元素中获取：<code>$('[rel=popover]').data('popover')</code>.</p>
+
+          <h3>No Conflict</h3>
+          <p>有时你需要在使用Bootstrap插件时同时使用其它UI框架。在这种情况下，随时都会导致命名空间冲突。如果这种情况发生了，你可以通过调用插件的 <code>.noConflict</code> 函数恢复其原始值。</p>
+
+<pre class="prettyprint linenums">
+var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
+$.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the bootstrap functionality
+</pre>
+
+          <h3>事件</h3>
+          <p>Bootstrap对多数插件的独有行为提供了自定义事件。 一般而言，这些事件都是以（英语）动词的原型和过去分词形式来表示的 - 动词原形形式的(例如： <code>show</code>) 在事件执行之前触发；过去分词形式的(例如：<code>shown</code>) 在动作执行完毕后触发。</p>
+          <p>所有动词原形形式的事件都提供了preventDefault函数。这能在动作执行之前使其停止。</p>
+<pre class="prettyprint linenums">
+$('#myModal').on('show', function (e) {
+    if (!data) return e.preventDefault() // stops modal from being shown
+})
+</pre>
+        </section>
+
+
+
+        <!-- Transitions
+        ================================================== -->
+        <section id="transitions">
+          <div class="page-header">
+            <h1>过渡效果 <small>bootstrap-transition.js</small></h1>
+          </div>
+          <h3>关于过渡效果</h3>
+          <p>对于简单的过度效果，只要在引入其它JS文件时一同引入<strong>bootstrap-transition.js</strong>文件即可。如果你引入的是编译（或压缩）之后的<strong>bootstrap.js</strong>文件，就不再需要引入此文件了，因为<strong>bootstrap.js</strong>文件已经包含了此插件。</p>
+          <h3>使用案例</h3>
+          <p>过渡效果插件的使用案例：</p>
+          <ul>
+            <li>具有幻灯片或淡入效果的对话框</li>
+            <li>具有淡出效果的标签页</li>
+            <li>具有淡出效果的警告框</li>
+            <li>具有幻灯片效果的轮播板</li>
+          </ul>
+
+        </section>
+
+
+
+        <!-- Modal
+        ================================================== -->
+        <section id="modals">
+          <div class="page-header">
+            <h1>模态对话框 <small>bootstrap-modal.js</small></h1>
+          </div>
+
+
+          <h2>案例</h2>
+          <p>模态对话框是一类简洁、灵活的的弹框，他们具有精简的功能和友好的默认行为。</p>
+
+          <h3>静态案例</h3>
+          <p>带有标题、正文、页脚按钮的对话框。</p>
+          <div class="bs-docs-example" style="background-color: #f5f5f5;">
+            <div class="modal" style="position: relative; top: auto; left: auto; right: auto; margin: 0 auto 20px; z-index: 1; max-width: 100%;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>对话框标题</h3>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#" class="btn">关闭</a>
+                <a href="#" class="btn btn-primary">Save changes</a>
+              </div>
+            </div>
+          </div>
+<pre class="prettyprint linenums">
+&lt;div class="modal hide fade"&gt;
+  &lt;div class="modal-header"&gt;
+    &lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;&amp;times;&lt;/button&gt;
+    &lt;h3&gt;对话框标题&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-body"&gt;
+    &lt;p&gt;One fine body&hellip;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-footer"&gt;
+    &lt;a href="#" class="btn"&gt;关闭&lt;/a&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;Save changes&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+          <h3>动态演示</h3>
+          <p>点击下面的按钮会通过javascript触发一个模态对话框。对话框从页面顶端滑下的同时逐渐呈现。</p>
+          <!-- sample modal content -->
+          <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3 id="myModalLabel">模态对话框头部</h3>
+            </div>
+            <div class="modal-body">
+              <h4>模态对话框中的文本</h4>
+              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+
+              <h4>Popover in a modal</h4>
+              <p>This <a href="#" role="button" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on click.</p>
+
+              <h4>Tooltips in a modal</h4>
+              <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
+
+              <hr>
+
+              <h4>Overflowing text to show optional scrollbar</h4>
+              <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
+              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal">关闭</button>
+              <button class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+          <div class="bs-docs-example" style="padding-bottom: 24px;">
+            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">查看演示案例</a>
+          </div>
+<pre class="prettyprint linenums">
+&lt!-- Button to trigger modal --&gt;
+&lt;a href="#myModal" role="button" class="btn" data-toggle="modal"&gt;查看演示案例&lt;/a&gt;
+
+&lt!-- Modal --&gt;
+&lt;div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"&gt;
+  &lt;div class="modal-header"&gt;
+    &lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;&times;&lt;/button&gt;
+    &lt;h3 id="myModalLabel"&gt;Modal header&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-body"&gt;
+    &lt;p&gt;One fine body&hellip;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-footer"&gt;
+    &lt;button class="btn" data-dismiss="modal" aria-hidden="true"&gt;关闭&lt;/button&gt;
+    &lt;button class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+
+          <hr class="bs-docs-separator">
+
+
+          <h2>调用方式</h2>
+
+          <h3>通过data属性</h3>
+          <p>无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。</p>
+          <pre class="prettyprint linenums">&lt;button type="button" data-toggle="modal" data-target="#myModal"&gt;Launch modal&lt;/button&gt;</pre>
+
+          <h3>通过JavaScript</h3>
+          <p>仅用一行JavaScript代码即可启动id为<code>myModal</code>的对话框：</p>
+          <pre class="prettyprint linenums">$('#myModal').modal(options)</pre>
+
+          <h3>选项</h3>
+          <p>上面的选项都可以通过data属性或JavaScript代码传递给组件。对于data属性，将选项名称附着于<code>data-</code>字符串之后，就像<code>data-backdrop=""</code>一样。</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">名称</th>
+               <th style="width: 50px;">类型</th>
+               <th style="width: 50px;">默认值</th>
+               <th>描述</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>backdrop</td>
+               <td>boolean</td>
+               <td>true</td>
+               <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
+             </tr>
+             <tr>
+               <td>keyboard</td>
+               <td>boolean</td>
+               <td>true</td>
+               <td>Closes the modal when escape key is pressed</td>
+             </tr>
+             <tr>
+               <td>show</td>
+               <td>boolean</td>
+               <td>true</td>
+               <td>Shows the modal when initialized.</td>
+             </tr>
+             <tr>
+               <td>remote</td>
+               <td>path</td>
+               <td>false</td>
+               <td><p>If a remote url is provided, content will be loaded via jQuery's <code>load</code> method and injected into the <code>.modal-body</code>. If you're using the data api, you may alternatively use the <code>href</code> tag to specify the remote source. An example of this is shown below:</p>
+              <pre class="prettyprint linenums"><code>&lt;a data-toggle="modal" href="remote.html" data-target="#modal"&gt;click me&lt;/a&gt;</code></pre></td>
+             </tr>
+            </tbody>
+          </table>
+
+          <h3>方法</h3>
+          <h4>.modal(options)</h4>
+          <p>让你指定的内容变成一个模态对话框。接受一个可选的参数<code>object</code>.</p>
+<pre class="prettyprint linenums">
+$('#myModal').modal({
+  keyboard: false
+})
+</pre>
+          <h4>.modal('toggle')</h4>
+          <p>手动打开或隐藏一个模态对话框。</p>
+          <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
+          <h4>.modal('show')</h4>
+          <p>手动打开一个模态对话框。</p>
+          <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
+          <h4>.modal('hide')</h4>
+          <p>手动隐藏一个模态对话框。</p>
+          <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
+          <h3>事件</h3>
+          <p>Bootstrap中的模态对话框对外暴露了一些事件允许你监听。</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">事件</th>
+               <th>描述</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>show</td>
+               <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+             </tr>
+             <tr>
+               <td>shown</td>
+               <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
+             </tr>
+             <tr>
+               <td>hide</td>
+               <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+             </tr>
+             <tr>
+               <td>hidden</td>
+               <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
+             </tr>
+            </tbody>
+          </table>
+<pre class="prettyprint linenums">
+$('#myModal').on('hidden', function () {
+  // do something…
+})
+</pre>
+        </section>
+
+
+
+        <!-- Dropdowns
+        ================================================== -->
+        <section id="dropdowns">
+          <div class="page-header">
+            <h1>下拉菜单 <small>bootstrap-dropdown.js</small></h1>
+          </div>
+
+
+          <h2>案例</h2>
+          <p>通过此插件可以将下拉菜单加入到任何其他组件中，包括导航条、标签页。</p>
+
+          <h3>导航条中的下拉菜单</h3>
+          <div class="bs-docs-example">
+            <div id="navbar-example" class="navbar navbar-static">
+              <div class="navbar-inner">
+                <div class="container" style="width: auto;">
+                  <a class="brand" href="#">Project Name</a>
+                  <ul class="nav" role="navigation">
+                    <li class="dropdown">
+                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:if(confirm('http://google.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://google.com/'" tppabs="http://google.com/">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#anotherAction">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 2<b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav pull-right">
+                    <li id="fat-menu" class="dropdown">
+                      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 3 <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div> <!-- /navbar-example -->
+          </div> 
+
+          <h3>标签页中的下拉菜单。</h3>
+          <div class="bs-docs-example">
+            <ul class="nav nav-pills">
+              <li class="active"><a href="#">Regular link</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+                <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">Dropdown 2 <b class="caret"></b></a>
+                <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">Dropdown 3 <b class="caret"></b></a>
+                <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul> <!-- /tabs -->
+          </div> 
+
+
+          <hr class="bs-docs-separator">
+
+
+          <h2>调用方式</h2>
+
+          <h3>通过data属性</h3>
+          <p>在链接或按钮上添加<code>data-toggle="dropdown"</code>即可切换下拉菜单。</p>
+<pre class="prettyprint linenums">
+&lt;div class="dropdown"&gt;
+  &lt;a class="dropdown-toggle" data-toggle="dropdown" href="#"&gt;Dropdown trigger&lt;/a&gt;
+  &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+          <p>为了保证URL符合规范，请使用<code>data-target</code>属性来代替<code>href="#"</code>。</p>
+<pre class="prettyprint linenums">
+&lt;div class="dropdown"&gt;
+  &lt;a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"&gt;
+    Dropdown
+    &lt;b class="caret"&gt;&lt;/b&gt;
+  &lt;/a&gt;
+  &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+          <h3>通过JavaScript</h3>
+          <p>通过JavaScript调用下拉菜单：</p>
+          <pre class="prettyprint linenums">$('.dropdown-toggle').dropdown()</pre>
+
+          <h3>选项</h3>
+          <p><em>无</em></p>
+
+          <h3>方法</h3>
+          <h4>$().dropdown('toggle')</h4>
+          <p>通过编程式api对某个特定的导航条或标签页导航切换下拉菜单。</p>
+        </section>
+
+
+
+        <!-- ScrollSpy
+        ================================================== -->
+        <section id="scrollspy">
+          <div class="page-header">
+            <h1>滚动监听 <small>bootstrap-scrollspy.js</small></h1>
+          </div>
+
+
+          <h2>用在导航条上</h2>
+          <p>ScrollSpy插件根据滚动的位置自动更新导航条中相应的导航项。拖动下面区域的滚动条，使其低于导航条的位置，注意观察active类的变化。下拉菜单中的子项也会跟着变为高亮状态。</p>
+          <div class="bs-docs-example">
+            <div id="navbarExample" class="navbar navbar-static">
+              <div class="navbar-inner">
+                <div class="container" style="width: auto;">
+                  <a class="brand" href="#">Project Name</a>
+                  <ul class="nav">
+                    <li><a href="#fat">@fat</a></li>
+                    <li><a href="#mdo">@mdo</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#one">one</a></li>
+                        <li><a href="#two">two</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#three">three</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div data-spy="scroll" data-target="#navbarExample" data-offset="0" class="scrollspy-example">
+              <h4 id="fat">@fat</h4>
+              <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+              <h4 id="mdo">@mdo</h4>
+              <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+              <h4 id="one">one</h4>
+              <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+              <h4 id="two">two</h4>
+              <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+              <h4 id="three">three</h4>
+              <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+              <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+              </p>
+            </div>
+          </div>
+
+
+          <hr class="bs-docs-separator">
+
+
+          <h2>调用方式</h2>
+
+          <h3>通过data属性</h3>
+          <p>只需将<code>data-spy="scroll"</code>添加到被监听的页面元素上（大部分情况是添加到body上），然后将<code>data-target=".navbar"</code>添加到导航部分，仅此而已，顶部导航条就拥有了监听滚动的功能。你可能希望将滚动监听应用到<code>.nav</code>组件上。</p>
+          <pre class="prettyprint linenums">&lt;body data-spy="scroll" data-target=".navbar"&gt;...&lt;/body&gt;</pre>
+
+          <h3>通过JavaScript</h3>
+          <p>通过JavaScript启动滚动监听：</p>
+          <pre class="prettyprint linenums">$('#navbar').scrollspy()</pre>
+
+          <div class="alert alert-info">
+            <strong>注意！</strong>
+            必须为导航条中的链接指定相应的目标id。例如，<code>&lt;a href="#home"&gt;home&lt;/a&gt;</code>必须和dom中类似<code>&lt;div id="home"&gt;&lt;/div&gt;</code>的页面元素相呼应。
+          </div>
+
+          <h3>方法</h3>
+          <h4>.scrollspy('refresh')</h4>
+          <p>当滚动监听所作用的DOM有增删页面元素的操作时，需要调用下面的refresh方法：</p>
+<pre class="prettyprint linenums">
+$('[data-spy="scroll"]').each(function () {
+  var $spy = $(this).scrollspy('refresh')
+});
+</pre>
+
+          <h3>选项</h3>
+          <p>所有参数都可以通过data属性或JavaScript传递。对于data属性，将参数名附着到<code>data-</code>后面，就像<code>data-offset=""</code>一样。</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">名称</th>
+               <th style="width: 100px;">类型</th>
+               <th style="width: 50px;">默认值</th>
+               <th>描述</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>offset</td>
+               <td>number</td>
+               <td>10</td>
+               <td>Pixels to offset from top when calculating position of scroll.</td>
+             </tr>
+            </tbody>
+          </table>
+
+          <h3>事件</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>activate</td>
+               <td>This event fires whenever a new item becomes activated by the scrollspy.</td>
+            </tr>
+            </tbody>
+          </table>
+        </section>
+
+
+
+        <!-- Tabs
+        ================================================== -->
+        <section id="tabs">
+          <div class="page-header">
+            <h1>Togglable tabs <small>bootstrap-tab.js</small></h1>
+          </div>
+
+
+          <h2>Example tabs</h2>
+          <p>Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus.</p>
+          <div class="bs-docs-example">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#home" data-toggle="tab">首页</a></li>
+              <li><a href="#profile" data-toggle="tab">Profile</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
+                  <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane fade in active" id="home">
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+              </div>
+              <div class="tab-pane fade" id="profile">
+                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+              </div>
+              <div class="tab-pane fade" id="dropdown1">
+                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+              </div>
+              <div class="tab-pane fade" id="dropdown2">
+                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+              </div>
+            </div>
+          </div>
+
+
+          <hr class="bs-docs-separator">
+
+
+          <h2>调用方式</h2>
+          <p>Enable tabbable tabs via JavaScript (each tab needs to be activated individually):</p>
+<pre class="prettyprint linenums">
+$('#myTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})</pre>
+          <p>You can activate individual tabs in several ways:</p>
+<pre class="prettyprint linenums">
+$('#myTab a[href="#profile"]').tab('show'); // Select tab by name
+$('#myTab a:first').tab('show'); // Select first tab
+$('#myTab a:last').tab('show'); // Select last tab
+$('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+</pre>
+
+          <h3>Markup</h3>
+          <p>You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <code>ul</code> will apply the Bootstrap tab styling.</p>
+<pre class="prettyprint linenums">
+&lt;ul class="nav nav-tabs"&gt;
+  &lt;li&gt;&lt;a href="#home" data-toggle="tab"&gt;首页&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#profile" data-toggle="tab"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#messages" data-toggle="tab"&gt;Messages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#settings" data-toggle="tab"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+          <h3>方法</h3>
+          <h4>$().tab</h4>
+          <p>
+            Activates a tab element and content container. Tab should have either a <code>data-target</code> or an <code>href</code> targeting a container node in the DOM.
+          </p>
+<pre class="prettyprint linenums">
+&lt;ul class="nav nav-tabs" id="myTab"&gt;
+  &lt;li class="active"&gt;&lt;a href="#home"&gt;首页&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#messages"&gt;Messages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#settings"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="tab-content"&gt;
+  &lt;div class="tab-pane active" id="home"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane" id="profile"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane" id="messages"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane" id="settings"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+&lt;/script&gt;
+</pre>
+
+          <h3>事件</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>show</td>
+               <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+            </tr>
+            <tr>
+               <td>shown</td>
+               <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+             </tr>
+            </tbody>
+          </table>
+<pre class="prettyprint linenums">
+$('a[data-toggle="tab"]').on('shown', function (e) {
+  e.target // activated tab
+  e.relatedTarget // previous tab
+})
+</pre>
+        </section>
+
+
+        <!-- Tooltips
+        ================================================== -->
+        <section id="tooltips">
+          <div class="page-header">
+            <h1>工具提示 <small>bootstrap-tooltip.js</small></h1>
+          </div>
+
+
+          <h2>案例</h2>
+          <p>本插件受到Jason Frame开发的jQuery.tipsy插件的启发。Tooltips做了很多改进，例如不需要依赖图片，而是改用CSS3实现动画效果，用data属性存储标题信息。</p>
+          <p>由于性能的原因，For performance reasons, the tooltip and popover data-apis are opt in, meaning <strong>you must initialize them yourself</strong>.</p>
+          <p>Hover over the links below to see tooltips:</p>
+          <div class="bs-docs-example tooltip-demo">
+            <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" data-toggle="tooltip" title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" data-toggle="tooltip" title="A much longer tooltip belongs right here to demonstrate the max-width we apply.">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+            </p>
+          </div>
+
+          <h3>Four directions</h3>
+          <div class="bs-docs-example tooltip-demo">
+            <ul class="bs-docs-tooltip-examples">
+              <li><a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</a></li>
+              <li><a href="#" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</a></li>
+              <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</a></li>
+              <li><a href="#" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</a></li>
+            </ul>
+          </div>
+
+
+          <h3>Tooltips in input groups</h3>
+          <p>When using tooltips and popovers with the Bootstrap input groups, you'll have to set the <code>container</code> (documented below) option to avoid unwanted side effects.</p>
+
+          <hr class="bs-docs-separator">
+
+
+          <h2>调用方式</h2>
+          <p>通过JavaScript触发工具提示：</p>
+          <pre class="prettyprint linenums">$('#example').tooltip(options)</pre>
+
+          <h3>选项</h3>
+          <p>可以通过data属性或JavaScript传递参数。对于data属性，将参数名附着到<code>data-</code>后面即可，例如, <code>data-animation=""</code>。</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">名称</th>
+               <th style="width: 100px;">类型</th>
+               <th style="width: 50px;">默认值</th>
+               <th>描述</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>animation</td>
+               <td>boolean</td>
+               <td>true</td>
+               <td>apply a css fade transition to the tooltip</td>
+             </tr>
+             <tr>
+               <td>html</td>
+               <td>boolean</td>
+               <td>false</td>
+               <td>Insert html into the tooltip. If false, jquery's <code>text</code> method will be used to insert content into the dom. Use text if you're worried about XSS attacks.</td>
+             </tr>
+             <tr>
+               <td>placement</td>
+               <td>string | function</td>
+               <td>'top'</td>
+               <td>how to position the tooltip - top | bottom | left | right</td>
+             </tr>
+             <tr>
+               <td>selector</td>
+               <td>string</td>
+               <td>false</td>
+               <td>If a selector is provided, tooltip objects will be delegated to the specified targets.</td>
+             </tr>
+             <tr>
+               <td>title</td>
+               <td>string | function</td>
+               <td>''</td>
+               <td>default title value if `title` tag isn't present</td>
+             </tr>
+             <tr>
+               <td>trigger</td>
+               <td>string</td>
+               <td>'hover focus'</td>
+               <td>how tooltip is triggered - click | hover | focus | manual. Note you case pass trigger mutliple, space seperated, trigger types.</td>
+             </tr>
+             <tr>
+               <td>delay</td>
+               <td>number | object</td>
+               <td>0</td>
+               <td>
+                <p>delay showing and hiding the tooltip (ms) - does not apply to manual trigger type</p>
+                <p>If a number is supplied, delay is applied to both hide/show</p>
+                <p>Object structure is: <code>delay: { show: 500, hide: 100 }</code></p>
+               </td>
+             </tr>
+             <tr>
+               <td>container</td>
+               <td>string | false</td>
+               <td>false</td>
+               <td>
+                <p>Appends the tooltip to a specific element <code>container: 'body'</code></p>
+               </td>
+             </tr>
+            </tbody>
+          </table>
+          <div class="alert alert-info">
+            <strong>注意！</strong>
+            可以针对单个工具提示指定单独的data属性。
+          </div>
+
+          <h3>标记</h3>
+          <pre class="prettyprint linenums">&lt;a href="#" data-toggle="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;</pre>
+
+          <h3>方法</h3>
+          <h4>$().tooltip(options)</h4>
+          <p>对一组页面元素绑定一个工具提示处理器。</p>
+          <h4>.tooltip('show')</h4>
+          <p>弹出某个页面元素的工具提示。</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('show')</pre>
+          <h4>.tooltip('hide')</h4>
+          <p>隐藏某个页面元素的工具提示。</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('hide')</pre>
+          <h4>.tooltip('toggle')</h4>
+          <p>打开或隐藏某个页面元素的工具提示。</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('toggle')</pre>
+          <h4>.tooltip('destroy')</h4>
+          <p>隐藏并销毁某个页面元素的工具提示。</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('destroy')</pre>
+        </section>
+
+
+
+      <!-- Popovers
+      ================================================== -->
+      <section id="popovers">
+        <div class="page-header">
+          <h1>弹出提示 <small>bootstrap-popover.js</small></h1>
+        </div>
+
+        <h2>案例</h2>下面
+        <p>对任意页面元素添加一个覆盖层展示额外信息，就行iPad中的类似功能。将鼠标悬停在下面的按钮上即可触发一个弹出提示。<strong>必须先引入 <a href="#tooltips">工具提示</a> 插件</strong></p>
+
+        <h3>静态弹出提示</h3>
+        <p>有4个可选参数：top、right、bottom和left 对其方式。</p>
+        <div class="bs-docs-example bs-docs-example-popover">
+          <div class="popover top">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover top</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="popover right">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover right</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="popover bottom">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover bottom</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="popover left">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover left</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+        <p>No markup shown as popovers are generated from JavaScript and content within a <code>data</code> attribute.</p>
+
+        <h3>Live demo</h3>
+        <div class="bs-docs-example" style="padding-bottom: 24px;">
+          <a href="#" class="btn btn-large btn-danger" data-toggle="popover" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">Click to toggle popover</a>
+        </div>
+
+        <h4>Four directions</h4>
+        <div class="bs-docs-example tooltip-demo">
+          <ul class="bs-docs-tooltip-examples">
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on top">Popover on top</a></li>
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on right">Popover on right</a></li>
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on bottom">Popover on bottom</a></li>
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on left">Popover on left</a></li>
+          </ul>
+        </div>
+
+
+        <hr class="bs-docs-separator">
+
+
+        <h2>调用方式</h2>
+        <p>通过JavaScript启用弹出提示：</p>
+        <pre class="prettyprint linenums">$('#example').popover(options)</pre>
+
+        <h3>选项</h3>
+        <p>可以通过data属性或JavaScript传递参数。对于data属性，将参数名附着到<code>data-</code>之后，例如<code>data-animation=""</code>。</p>
+        <table class="table table-bordered table-striped">
+          <thead>
+           <tr>
+             <th style="width: 100px;">名称</th>
+             <th style="width: 100px;">类型</th>
+             <th style="width: 50px;">默认值</th>
+             <th>描述</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+             <td>animation</td>
+             <td>boolean</td>
+             <td>true</td>
+             <td>apply a css fade transition to the tooltip</td>
+           </tr>
+           <tr>
+             <td>html</td>
+             <td>boolean</td>
+             <td>false</td>
+             <td>Insert html into the popover. If false, jquery's <code>text</code> method will be used to insert content into the dom. Use text if you're worried about XSS attacks.</td>
+           </tr>
+           <tr>
+             <td>placement</td>
+             <td>string | function</td>
+             <td>'right'</td>
+             <td>how to position the popover - top | bottom | left | right</td>
+           </tr>
+           <tr>
+             <td>selector</td>
+             <td>string</td>
+             <td>false</td>
+             <td>if a selector is provided, tooltip objects will be delegated to the specified targets</td>
+           </tr>
+           <tr>
+             <td>trigger</td>
+             <td>string</td>
+             <td>'click'</td>
+             <td>how popover is triggered - click | hover | focus | manual</td>
+           </tr>
+           <tr>
+             <td>title</td>
+             <td>string | function</td>
+             <td>''</td>
+             <td>default title value if `title` attribute isn't present</td>
+           </tr>
+           <tr>
+             <td>content</td>
+             <td>string | function</td>
+             <td>''</td>
+             <td>default content value if `data-content` attribute isn't present</td>
+           </tr>
+           <tr>
+             <td>delay</td>
+             <td>number | object</td>
+             <td>0</td>
+             <td>
+              <p>delay showing and hiding the popover (ms) - does not apply to manual trigger type</p>
+              <p>If a number is supplied, delay is applied to both hide/show</p>
+              <p>Object structure is: <code>delay: { show: 500, hide: 100 }</code></p>
+             </td>
+           </tr>
+           <tr>
+             <td>container</td>
+             <td>string | false</td>
+             <td>false</td>
+             <td>
+              <p>Appends the popover to a specific element <code>container: 'body'</code></p>
+             </td>
+           </tr>
+          </tbody>
+        </table>
+        <div class="alert alert-info">
+          <strong>Heads up!</strong>
+          Options for individual popovers can alternatively be specified through the use of data attributes.
+        </div>
+
+        <h3>标记</h3>
+        <p>For performance reasons, the Tooltip and Popover data-apis are opt in. If you would like to use them just specify a selector option.</p>
+
+        <h3>方法</h3>
+        <h4>$().popover(options)</h4>
+        <p>对一组页面元素初始化弹出提示。</p>
+        <h4>.popover('show')</h4>
+        <p>打开某个页面元素的弹出提示。</p>
+        <pre class="prettyprint linenums">$('#element').popover('show')</pre>
+        <h4>.popover('hide')</h4>
+        <p>隐藏某个页面元素的弹出提示。</p>
+        <pre class="prettyprint linenums">$('#element').popover('hide')</pre>
+        <h4>.popover('toggle')</h4>
+        <p>打开或隐藏某个页面元素的弹出提示。</p>
+        <pre class="prettyprint linenums">$('#element').popover('toggle')</pre>
+        <h4>.popover('destroy')</h4>
+        <p>隐藏并销毁某个页面元素的弹出提示。</p>
+        <pre class="prettyprint linenums">$('#element').popover('destroy')</pre>
+      </section>
+
+
+
+      <!-- Alert
+      ================================================== -->
+      <section id="alerts">
+        <div class="page-header">
+          <h1>警告消息 <small>bootstrap-alert.js</small></h1>
+        </div>
+
+
+        <h2>警告框案例</h2>
+        <p>利用此插件对所有警告消息添加取消功能。</p>
+        <div class="bs-docs-example">
+          <div class="alert fade in">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+          </div>
+        </div>
+
+        <div class="bs-docs-example">
+          <div class="alert alert-block alert-error fade in">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 class="alert-heading">Oh snap! You got an error!</h4>
+            <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+            <p>
+              <a class="btn btn-danger" href="#">Take this action</a> <a class="btn" href="#">Or do this</a>
+            </p>
+          </div>
+        </div>
+
+
+        <hr class="bs-docs-separator">
+
+
+        <h2>调用方式</h2>
+        <p>通过JavaScript为某个警告框添加取消功能：</p>
+        <pre class="prettyprint linenums">$(".alert").alert()</pre>
+
+        <h3>标记</h3>
+        <p>仅需将<code>data-dismiss="alert"</code>添加到关闭按钮即可自动赋予某个警告框关闭的功能。</p>
+        <pre class="prettyprint linenums">&lt;a class="close" data-dismiss="alert" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
+
+        <h3>方法</h3>
+        <h4>$().alert()</h4>
+        <p>赋予所有警告框以关闭功能。如果你希望警告框在关闭时带有动画效果，请确保<code>.fade</code> 和<code>.in</code>类已经应用到这些警告框上了。</p>
+        <h4>.alert('close')</h4>
+        <p>关闭某个警告框。</p>
+        <pre class="prettyprint linenums">$(".alert").alert('close')</pre>
+
+
+        <h3>事件</h3>
+        <p>Bootstrap中的警告框对外暴露了一些事件允许你监听。</p>
+        <table class="table table-bordered table-striped">
+          <thead>
+           <tr>
+             <th style="width: 150px;">Event</th>
+             <th>Description</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+             <td>close</td>
+             <td>This event fires immediately when the <code>close</code> instance method is called.</td>
+           </tr>
+           <tr>
+             <td>closed</td>
+             <td>This event is fired when the alert has been closed (will wait for css transitions to complete).</td>
+           </tr>
+          </tbody>
+        </table>
+<pre class="prettyprint linenums">
+$('#my-alert').bind('closed', function () {
+  // do something…
+})
+</pre>
+      </section>
+
+
+
+          <!-- Buttons
+          ================================================== -->
+          <section id="buttons">
+            <div class="page-header">
+              <h1>按钮 <small>bootstrap-button.js</small></h1>
+            </div>
+
+            <h2>使用案例</h2>
+            <p>按钮可以实现很多功能。为工具条（toolbar）之类的组件赋予控制按钮的状态或者创建一组按钮的功能。</p>
+
+            <h4>Stateful</h4>
+            <p>Add <code>data-loading-text="Loading..."</code> to use a loading state on a button.</p>
+            <div class="bs-docs-example" style="padding-bottom: 24px;">
+              <button type="button" id="fat-btn" data-loading-text="loading..." class="btn btn-primary">
+                Loading state
+              </button>
+            </div>
+            <pre class="prettyprint linenums">&lt;button type="button" class="btn btn-primary" data-loading-text="Loading..."&gt;Loading state&lt;/button&gt;</pre>
+
+            <h4>Single toggle</h4>
+            <p>Add <code>data-toggle="button"</code> to activate toggling on a single button.</p>
+            <div class="bs-docs-example" style="padding-bottom: 24px;">
+              <button type="button" class="btn btn-primary" data-toggle="button">Single Toggle</button>
+            </div>
+            <pre class="prettyprint linenums">&lt;button type="button" class="btn btn-primary" data-toggle="button"&gt;Single Toggle&lt;/button&gt;</pre>
+
+            <h4>Checkbox</h4>
+            <p>Add <code>data-toggle="buttons-checkbox"</code> for checkbox style toggling on btn-group.</p>
+            <div class="bs-docs-example" style="padding-bottom: 24px;">
+              <div class="btn-group" data-toggle="buttons-checkbox">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
+            </div>
+<pre class="prettyprint linenums">
+&lt;div class="btn-group" data-toggle="buttons-checkbox"&gt;
+  &lt;button type="button" class="btn btn-primary"&gt;Left&lt;/button&gt;
+  &lt;button type="button" class="btn btn-primary"&gt;Middle&lt;/button&gt;
+  &lt;button type="button" class="btn btn-primary"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+
+            <h4>Radio</h4>
+            <p>Add <code>data-toggle="buttons-radio"</code> for radio style toggling on btn-group.</p>
+            <div class="bs-docs-example" style="padding-bottom: 24px;">
+              <div class="btn-group" data-toggle="buttons-radio">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
+            </div>
+<pre class="prettyprint linenums">
+&lt;div class="btn-group" data-toggle="buttons-radio"&gt;
+  &lt;button type="button" class="btn btn-primary"&gt;Left&lt;/button&gt;
+  &lt;button type="button" class="btn btn-primary"&gt;Middle&lt;/button&gt;
+  &lt;button type="button" class="btn btn-primary"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+
+
+            <hr class="bs-docs-separator">
+
+
+            <h2>调用方式</h2>
+            <p>Enable buttons via JavaScript:</p>
+            <pre class="prettyprint linenums">$('.nav-tabs').button()</pre>
+
+            <h3>Markup</h3>
+            <p>Data attributes are integral to the button plugin. Check out the example code below for the various markup types.</p>
+
+            <h3>选项</h3>
+            <p><em>无</em></p>
+
+            <h3>方法</h3>
+            <h4>$().button('toggle')</h4>
+            <p>Toggles push state. Gives the button the appearance that it has been activated.</p>
+            <div class="alert alert-info">
+              <strong>Heads up!</strong>
+              You can enable auto toggling of a button by using the <code>data-toggle</code> attribute.
+            </div>
+            <pre class="prettyprint linenums">&lt;button type="button" class="btn" data-toggle="button" &gt;…&lt;/button&gt;</pre>
+            <h4>$().button('loading')</h4>
+            <p>Sets button state to loading - disables button and swaps text to loading text. Loading text should be defined on the button element using the data attribute <code>data-loading-text</code>.
+            </p>
+            <pre class="prettyprint linenums">&lt;button type="button" class="btn" data-loading-text="loading stuff..." &gt;...&lt;/button&gt;</pre>
+            <div class="alert alert-info">
+              <strong>Heads up!</strong>
+              <a href="javascript:if(confirm('https://github.com/twitter/bootstrap/issues/793  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://github.com/twitter/bootstrap/issues/793'" tppabs="https://github.com/twitter/bootstrap/issues/793">Firefox persists the disabled state across page loads</a>. A workaround for this is to use <code>autocomplete="off"</code>.
+            </div>
+            <h4>$().button('reset')</h4>
+            <p>Resets button state - swaps text to original text.</p>
+            <h4>$().button(string)</h4>
+            <p>Resets button state - swaps text to any data defined text state.</p>
+<pre class="prettyprint linenums">&lt;button type="button" class="btn" data-complete-text="finished!" &gt;...&lt;/button&gt;
+&lt;script&gt;
+  $('.btn').button('complete')
+&lt;/script&gt;
+</pre>
+          </section>
+
+
+
+          <!-- Collapse
+          ================================================== -->
+          <section id="collapse">
+            <div class="page-header">
+              <h1>Collapse <small>bootstrap-collapse.js</small></h1>
+            </div>
+
+            <h3>About</h3>
+            <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
+            <p class="muted"><strong>*</strong> Requires the Transitions plugin to be included.</p>
+
+            <h2>Example accordion</h2>
+            <p>Using the collapse plugin, we built a simple accordion style widget:</p>
+
+            <div class="bs-docs-example">
+              <div class="accordion" id="accordion2">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                      Collapsible Group Item #1
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                      Collapsible Group Item #2
+                    </a>
+                  </div>
+                  <div id="collapseTwo" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                      Collapsible Group Item #3
+                    </a>
+                  </div>
+                  <div id="collapseThree" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<pre class="prettyprint linenums">
+&lt;div class="accordion" id="accordion2"&gt;
+  &lt;div class="accordion-group"&gt;
+    &lt;div class="accordion-heading"&gt;
+      &lt;a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"&gt;
+        Collapsible Group Item #1
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseOne" class="accordion-body collapse in"&gt;
+      &lt;div class="accordion-inner"&gt;
+        Anim pariatur cliche...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="accordion-group"&gt;
+    &lt;div class="accordion-heading"&gt;
+      &lt;a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"&gt;
+        Collapsible Group Item #2
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseTwo" class="accordion-body collapse"&gt;
+      &lt;div class="accordion-inner"&gt;
+        Anim pariatur cliche...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+...
+</pre>
+            <p>You can also use the plugin without the accordion markup. Make a button toggle the expanding and collapsing of another element.</p>
+<pre class="prettyprint linenums">
+&lt;button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo"&gt;
+  simple collapsible
+&lt;/button&gt;
+
+&lt;div id="demo" class="collapse in"&gt; … &lt;/div&gt;
+</pre>
+
+
+            <hr class="bs-docs-separator">
+
+
+            <h2>调用方式</h2>
+
+            <h3>通过data属性</h3>
+            <p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a css selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you'd like it to default open, add the additional class <code>in</code>.</p>
+            <p>To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.</p>
+
+            <h3>通过JavaScript</h3>
+            <p>Enable manually with:</p>
+            <pre class="prettyprint linenums">$(".collapse").collapse()</pre>
+
+            <h3>选项</h3>
+            <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-parent=""</code>.</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 100px;">名称</th>
+                 <th style="width: 50px;">类型</th>
+                 <th style="width: 50px;">默认值</th>
+                 <th>描述</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                 <td>parent</td>
+                 <td>selector</td>
+                 <td>false</td>
+                 <td>If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior)</td>
+               </tr>
+               <tr>
+                 <td>toggle</td>
+                 <td>boolean</td>
+                 <td>true</td>
+                 <td>Toggles the collapsible element on invocation</td>
+               </tr>
+              </tbody>
+            </table>
+
+
+            <h3>方法</h3>
+            <h4>.collapse(options)</h4>
+            <p>Activates your content as a collapsible element. Accepts an optional options <code>object</code>.
+<pre class="prettyprint linenums">
+$('#myCollapsible').collapse({
+  toggle: false
+})
+</pre>
+            <h4>.collapse('toggle')</h4>
+            <p>Toggles a collapsible element to shown or hidden.</p>
+            <h4>.collapse('show')</h4>
+            <p>Shows a collapsible element.</p>
+            <h4>.collapse('hide')</h4>
+            <p>Hides a collapsible element.</p>
+
+            <h3>事件</h3>
+            <p>Bootstrap's collapse class exposes a few events for hooking into collapse functionality.</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 150px;">Event</th>
+                 <th>Description</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                 <td>show</td>
+                 <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+               </tr>
+               <tr>
+                 <td>shown</td>
+                 <td>This event is fired when a collapse element has been made visible to the user (will wait for css transitions to complete).</td>
+               </tr>
+               <tr>
+                 <td>hide</td>
+                 <td>
+                  This event is fired immediately when the <code>hide</code> method has been called.
+                 </td>
+               </tr>
+               <tr>
+                 <td>hidden</td>
+                 <td>This event is fired when a collapse element has been hidden from the user (will wait for css transitions to complete).</td>
+               </tr>
+              </tbody>
+            </table>
+<pre class="prettyprint linenums">
+$('#myCollapsible').on('hidden', function () {
+  // do something…
+})</pre>
+          </section>
+
+
+
+           <!-- Carousel
+          ================================================== -->
+          <section id="carousel">
+            <div class="page-header">
+              <h1>轮播（Carousel） <small>bootstrap-carousel.js</small></h1>
+            </div>
+
+            <h2>轮播案例</h2>
+            <p>下面就是一个轮播组件的案例。</p>
+            <div class="bs-docs-example">
+              <div id="myCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" tppabs="http://caibaojian.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
+                    <div class="carousel-caption">
+                      <h4>First Thumbnail label</h4>
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="assets/img/bootstrap-mdo-sfmoma-02.jpg" tppabs="http://caibaojian.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg" alt="">
+                    <div class="carousel-caption">
+                      <h4>Second Thumbnail label</h4>
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="assets/img/bootstrap-mdo-sfmoma-03.jpg" tppabs="http://caibaojian.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg" alt="">
+                    <div class="carousel-caption">
+                      <h4>Third Thumbnail label</h4>
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                  </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+              </div>
+            </div>
+<pre class="prettyprint linenums">
+&lt;div id="myCarousel" class="carousel slide"&gt;
+  &lt;ol class="carousel-indicators"&gt
+    &lt;li data-target="#myCarousel" data-slide-to="0" class="active"&gt&lt;/li&gt
+    &lt;li data-target="#myCarousel" data-slide-to="1"&gt&lt;/li&gt
+    &lt;li data-target="#myCarousel" data-slide-to="2"&gt&lt;/li&gt
+  &lt;/ol&gt
+  &lt;!-- Carousel items --&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="active item"&gt;…&lt;/div&gt;
+    &lt;div class="item"&gt;…&lt;/div&gt;
+    &lt;div class="item"&gt;…&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Carousel nav --&gt;
+  &lt;a class="carousel-control left" href="#myCarousel" data-slide="prev"&gt;&amp;lsaquo;&lt;/a&gt;
+  &lt;a class="carousel-control right" href="#myCarousel" data-slide="next"&gt;&amp;rsaquo;&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+
+            <div class="alert alert-warning">
+              <strong>注意！</strong>
+              当使用轮播组件时，请将案例中的图片替换为你需要展示的图片。
+            </div>
+
+
+            <hr class="bs-docs-separator">
+
+
+            <h2>调用方式</h2>
+
+            <h3>通过data属性</h3>
+            <p>使用data属性可以很容易的控制轮播的位置。<code>data-slide</code>内可以包含<code>prev</code> 或 <code>next</code>，他们可以改变当前帧。另外，使用<code>data-slide-to</code>可以传递某个帧的下标，例如<code>data-slide-to="2"</code>，这样就可以直接跳转到这个指定的帧 -- 下标从<code>0</code>开始计算。</p>
+
+            <h3>通过JavaScript</h3>
+            <p>手工启动轮播：</p>
+            <pre class="prettyprint linenums">$('.carousel').carousel()</pre>
+
+            <h3>选项</h3>
+            <p>参数可以通过data属性或JavaScript传递。对于data属性，将参数名称附着到<code>data-</code>之后，例如<code>data-interval=""</code>。</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 100px;">名称</th>
+                 <th style="width: 50px;">类型</th>
+                 <th style="width: 50px;">默认值</th>
+                 <th>描述</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                 <td>interval</td>
+                 <td>number</td>
+                 <td>5000</td>
+                 <td>在自动轮播过程中，展示每帧所停留的时间。如果是false，轮播不会自动启动。</td>
+               </tr>
+               <tr>
+                 <td>pause</td>
+                 <td>string</td>
+                 <td>"hover"</td>
+                 <td>当鼠标在轮播区域内时暂停循环，在区域外时则继续循环。</td>
+               </tr>
+              </tbody>
+            </table>
+
+            <h3>方法</h3>
+            <h4>.carousel(options)</h4>
+            <p>初始化一个带有可选参数<code>object</code>的轮播，并且自动开始循环播放。</p>
+<pre class="prettyprint linenums">
+$('.carousel').carousel({
+  interval: 2000
+})
+</pre>
+            <h4>.carousel('cycle')</h4>
+            <p>从左向右循环播放。</p>
+            <h4>.carousel('pause')</h4>
+            <p>停止循环播放。</p>
+            <h4>.carousel(number)</h4>
+            <p>循环到指定帧（下标从0开始，类似数组）。</p>
+            <h4>.carousel('prev')</h4>
+            <p>返回到上一帧。</p>
+            <h4>.carousel('next')</h4>
+            <p>下一帧。</p>
+
+            <h3>事件</h3>
+            <p>Bootstrap的轮播插件对外暴露了两个可被监听的事件。</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 150px;">事件</th>
+                 <th>描述</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                 <td>slide</td>
+                 <td>当<code>slide</code>实例方法被调用时，此事件会被立即触发。</td>
+               </tr>
+               <tr>
+                 <td>slid</td>
+                 <td>当切换完一帧后触发。</td>
+               </tr>
+              </tbody>
+            </table>
+          </section>
+
+
+
+          <!-- Typeahead
+          ================================================== -->
+          <section id="typeahead">
+            <div class="page-header">
+              <h1>输入提示<small>bootstrap-typeahead.js</small></h1>
+            </div>
+
+
+            <h2>案例</h2>
+            <p>简单，易于扩展，可迅速地为表单中的文本输入框创建优雅的输入提示。</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+            </div>
+            <pre class="prettyprint linenums">&lt;input type="text" data-provide="typeahead"&gt;</pre>
+            <p>需要设置<code>autocomplete="off"</code>以阻止浏览器的默认提示菜单遮盖Bootstrap的输入提示下拉菜单。</p>
+
+            <hr class="bs-docs-separator">
+
+
+            <h2>调用方式</h2>
+
+            <h3>通过data属性</h3>
+            <p>通过添加data属性给页面元素注册输入提示功能，就像上面的案例一样。</p>
+
+            <h3>通过JavaScript</h3>
+            <p>手动调用输入提示：</p>
+            <pre class="prettyprint linenums">$('.typeahead').typeahead()</pre>
+
+            <h3>选项</h3>
+            <p>可以通过data属性或JavaScript传递参数。对于data属性，将参数名附着到<code>data-</code>之后，例如<code>data-source=""</code>。</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 100px;">名称</th>
+                 <th style="width: 50px;">类型</th>
+                 <th style="width: 100px;">默认值</th>
+                 <th>描述</th>
+               </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 <td>source</td>
+                 <td>array, function</td>
+                 <td>[ ]</td>
+                 <td>用于查询的数据源。可以是一个字符串数组或是一个函数。函数会接收到两个参数，分别是输入域中的 <code>query</code>值和<code>process</code>回调函数。函数可能会被同步调用，直接返回数据源；或者异步调用，通过<code>process</code>回调函数的唯一一个参数。</td>
+               </tr>
+               <tr>
+                 <td>items</td>
+                 <td>number</td>
+                 <td>8</td>
+                 <td>下拉菜单中显示的最大的条目数。</td>
+               </tr>
+               <tr>
+                 <td>minLength</td>
+                 <td>number</td>
+                 <td>1</td>
+                 <td>触发提示所需的最小字符个数。</td>
+               </tr>
+               <tr>
+                 <td>matcher</td>
+                 <td>function</td>
+                 <td>case insensitive</td>
+                 <td>该函数用于决定某个查询是否匹配某个条目。它接受唯一一个参数<code>item</code>，表示当前需要测试的条目。 使用<code>this.query</code>引用当前查询字符串。如果匹配查询，就返回一个布尔值<code>true</code> 。</td>
+               </tr>
+               <tr>
+                 <td>sorter</td>
+                 <td>function</td>
+                 <td>exact match,<br> case sensitive,<br> case insensitive</td>
+                 <td>该函数用来排序提示项。它接受唯一一个参数<code>items</code>，并且其变量范围在typeahead实例内。使用<code>this.query</code>引用当前查询字符串。</td>
+               </tr>
+               <tr>
+                 <td>updater</td>
+                 <td>function</td>
+                 <td>returns selected item</td>
+                 <td>此方法用于返回选中的条目。其接受一个参数<code>item</code>，并且其变量范围在typeahead实例内。</td>
+               </tr>
+               <tr>
+                 <td>highlighter</td>
+                 <td>function</td>
+                 <td>highlights all default matches</td>
+                 <td>该函数用来高亮自动完成的结果。 它接受唯一一个参数<code>item</code>，并且变量范围在typeahead实例内。应该返回html。</td>
+               </tr>
+              </tbody>
+            </table>
+
+            <h3>方法</h3>
+            <h4>.typeahead(options)</h4>
+            <p>为输入框初始化输入提示功能。</p>
+          </section>
+
+
+
+          <!-- Affix
+          ================================================== -->
+          <section id="affix">
+            <div class="page-header">
+              <h1>附加导航（Affix） <small>bootstrap-affix.js</small></h1>
+            </div>
+
+            <h2>案例</h2>
+            <p>本页面左侧就是一个附加导航的实际案例。</p>
+
+            <hr class="bs-docs-separator">
+
+            <h2>调用方式</h2>
+
+            <h3>通过data属性</h3>
+            <p>只需添加<code>data-spy="affix"</code>到任意需要监听的页面元素上，就可以很容易的将其变为附加导航。然后使用偏移量来控制其位置。</p>
+
+            <pre class="prettyprint linenums">&lt;div data-spy="affix" data-offset-top="200"&gt;...&lt;/div&gt;</pre>
+
+            <div class="alert alert-info">
+              <strong>Heads up!</strong>
+              You must manage the position of a pinned element and the behavior of its immediate parent. Position is controlled by <code>affix</code>, <code>affix-top</code>, and <code>affix-bottom</code>. Remember to check for a potentially collapsed parent when the affix kicks in as it's removing content from the normal flow of the page.
+            </div>
+
+            <h3>通过JavaScript</h3>
+            <p>通过JavaScript启动：</p>
+            <pre class="prettyprint linenums">$('#navbar').affix()</pre>
+
+          <h3>选项</h3>
+          <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-offset-top="200"</code>.</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">名称</th>
+               <th style="width: 100px;">类型</th>
+               <th style="width: 50px;">默认值</th>
+               <th>描述</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>offset</td>
+               <td>number | function | object</td>
+               <td>10</td>
+               <td>Pixels to offset from screen when calculating position of scroll. If a single number is provided, the offset will be applied in both top and left directions. To listen for a single direction, or multiple unique offsets, just provide an object <code>offset: { x: 10 }</code>. Use a function when you need to dynamically provide an offset (useful for some responsive designs).</td>
+             </tr>
+            </tbody>
+          </table>
+        </section>
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Designed and built with all the love in the world by <a href="javascript:if(confirm('http://twitter.com/mdo  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://twitter.com/mdo'" tppabs="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="javascript:if(confirm('http://twitter.com/fat  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://twitter.com/fat'" tppabs="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+        <p>Code licensed under <a href="javascript:if(confirm('http://www.apache.org/licenses/LICENSE-2.0  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.apache.org/licenses/LICENSE-2.0'" tppabs="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by/3.0/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://creativecommons.org/licenses/by/3.0/'" tppabs="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p><a href="javascript:if(confirm('http://glyphicons.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://glyphicons.com/'" tppabs="http://glyphicons.com/">Glyphicons Free</a> licensed under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by/3.0/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://creativecommons.org/licenses/by/3.0/'" tppabs="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li><a href="javascript:if(confirm('http://blog.getbootstrap.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://blog.getbootstrap.com/'" tppabs="http://blog.getbootstrap.com/">Blog</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="javascript:if(confirm('https://github.com/twitter/bootstrap/issues?state=open  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://github.com/twitter/bootstrap/issues?state=open'" tppabs="https://github.com/twitter/bootstrap/issues?state=open">问题反馈</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="javascript:if(confirm('https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md'" tppabs="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">版本变更记录</a></li>
+        </ul>
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js" tppabs="http://caibaojian.com/bootstrap/assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js" tppabs="http://caibaojian.com/bootstrap/assets/js/bootstrap-affix.js"></script>
+
+    <script src="assets/js/holder/holder.js" tppabs="http://caibaojian.com/bootstrap/assets/js/holder/holder.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js" tppabs="http://caibaojian.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="assets/js/application.js" tppabs="http://caibaojian.com/bootstrap/assets/js/application.js"></script>
+  </body>
+</html>

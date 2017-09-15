@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var story='那天，我去了她家。'+'我说，我草，你家真大！'+'她说，想和我去草地野餐。'+'我草草的收拾了草地。'+'她说 ，我去去就来。';
+		/*
+		story=story.replace(/(我)([去草]{1,2})/g,function(kword){
+			return kword.length==2 ? "**" : "***";
+		})
+		*/
+
+		story=story.replace(/(我)([去草]{1,2})/g,function(kword,$1,$2){
+			return $1 + ($2.length==1 ? "*" : "**");	//注意此处的()，很重要
+		})
+		console.log(story);
+	</script>	
+ </body>
+</html>

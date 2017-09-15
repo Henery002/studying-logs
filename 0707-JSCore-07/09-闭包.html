@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+ <head>
+  <title> 闭包 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//一般函数调用，会受到全局变量的污染
+		/*
+		var n=1;
+		function getNum(){
+			console.log(n++);
+		}	
+		getNum();//1
+		getNum();//2
+		n=1;	//污染
+		getNum();//3
+		getNum();//4
+		*/
+
+		//闭包
+		//1、用外层函数封装  受保护的局部变量(n) 和  操作变量的内层函数
+		//2、外层函数将内层函数对象返回
+		//3、调用外层函数，获得返回的内层函数对象
+		function outer(){
+			var n=1;	//受保护的变量
+			return function(){	//操作变量的内层函数，通过外层函数返回
+				console.log(n++);
+			}
+		}
+		//测试代码：
+		var getNum=outer();	//调用外层函数，将其返回的内层函数对象保存在变量getNum中
+		getNum();//1
+		getNum();//2
+		n=1;//此处n不再污染全局变量，因为getNum()调用的是function中的局部变量了
+		getNum();//3
+		getNum();//4
+	</script>	
+ </body>
+</html>

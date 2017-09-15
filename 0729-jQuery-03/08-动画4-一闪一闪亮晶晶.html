@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	img{
+		width:30px;
+		cursor:pointer;
+		margin-left:0px;
+/**/	position:relative;
+/*		top:50px;*/
+/**/	left:200px;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<h2>漫天猩猩，点击某个，闪三次后消失</h2>
+	<div>
+
+	</div>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		for(var i=0;i<5;i++){
+			var star=$('<img src="img/star.jpg">');
+			$('body').append(star);
+			star.css('left','')
+		}
+//		function ranDom(min,max){
+//			return Math.floor(Math.random()*());
+//		};
+	/*
+		$('img').on('mouseover',function(){
+			for(var i=0;i<2;i++){
+				$(this).fadeOut(600);
+				$(this).fadeIn(600);
+			}
+		});
+	*/
+	//第一题
+	/*
+		$('img').on('mouseover',function(){
+			$(this).animate({
+				width:'50px',
+				opacity:'0',
+			},2000,function(){
+				$(this).remove();		//动画结束之后，删除猩猩
+			});
+		});
+	*/
+	//第2题
+	/*
+	//并发动画：同时修改多个属性
+		$('img').on('mouseover',function(){
+			$(this).animate({
+				marginLeft:'800px',
+				marginTop:'500px',
+			},1000,linear);
+		});
+	*/
+	//第3题
+	/*
+	*///
+		$('img').on('mouseover',function(){
+			$(this).animate({
+				marginLeft:'800px',
+			},1000,function(){
+				marginTop:'500px',
+			});
+		});
+	</script>	
+ </body>
+</html>

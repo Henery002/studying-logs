@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var birth=new Date('1992/10/01');
+		var now=new Date();
+		var ms=now.getTime()-birth.getTime();
+		var seconds=ms/1000;
+		console.log("出生至今秒数："+seconds);
+		var mins=ms/1000/60;
+		console.log("出生至今分钟数："+mins);
+		var hours=ms/1000/3600;
+		console.log("出生至今小时数："+hours);
+		var days=ms/1000/3600/24;
+		console.log("出生至今天数："+days);
+		var months=ms/1000/3600/24/12;
+		console.log("出生至今月数："+months);
+		var years=ms/1000/3600/24/365;
+		console.log("出生至今年数："+years);
+	</script>	
+ </body>
+</html>

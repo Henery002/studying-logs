@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800px" height="800px" style="border:1px solid #333"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var x = canvas.width/2;
+    var y = canvas.height-20;
+    /*
+    * TODO requestAnimationFrame()动画方法
+    *       默认提供定时器的时间
+    *       浏览器兼容性
+    * */
+    //浏览器兼容性
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    function moveBall(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+        //TODO 绘制静态圆形
+        context.beginPath();
+        context.arc(x,y,20,0,Math.PI*2);
+        context.fill();
+        //
+        y--;
+        //定时器
+        requestAnimationFrame(moveBall);
+    };
+    moveBall();
+</script>
+</html>

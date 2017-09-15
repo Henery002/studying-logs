@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现圆形的动态效果</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var y = canvas.height-20;
+    /*
+      TODO requestAnimationFrame()动画方法
+      TODO * 默认提供定时器的时间(方法底层)
+      TODO 注意:
+      TODO * 浏览器的兼容性
+     */
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+
+    function moveBall(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        context.beginPath();
+        context.arc(canvas.width/2,y,20,0,Math.PI*2);
+        context.closePath();
+        context.fill();
+
+        y--;
+        //定时器
+        requestAnimationFrame(moveBall);
+    }
+    moveBall();
+
+    /*TODO setTimeout()定时器
+    function moveBall(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        context.beginPath();
+        context.arc(canvas.width/2,y,20,0,Math.PI*2);
+        context.closePath();
+        context.fill();
+
+        y--;
+        //定时器
+        setTimeout(moveBall,10);
+    }
+    moveBall();
+    */
+
+    /*TODO 周期性
+    setInterval(function(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        context.beginPath();
+        context.arc(canvas.width/2,y,20,0,Math.PI*2);
+        context.closePath();
+        context.fill();
+
+        y--;
+    },10);
+    */
+</script>
+</body>
+</html>

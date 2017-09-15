@@ -1,0 +1,82 @@
+1.文本格式化
+	1、文本格式化
+	   包含
+	       控制字体：大小...
+	       文本格式：颜色...
+	2、控制字体
+		  1、指定字体系列
+		    属性：font-family
+		    取值：字体1、字体2、字体3......;
+		    注意：字体值中包含中文或特殊字符时必须使用“”引起来
+		  2、字体大小
+		    属性：font-size
+		    取值：px或pt
+		  3、字体加粗
+		    相当于：<b></b>
+		    属性：font-weight
+		    取值：
+			  normal:正常
+			  bold：加粗（b,strong,h# 默认值）
+				400-900：整百倍数的数字
+		  4、字体样式（斜体）
+		     相当于：<i></i>
+		     属性：font-style
+		     取值：
+			 normal:正常
+			 italic:斜体，i标记的默认值
+		  5、小型大写字母
+			Aa Bb Cc
+			作用：将匹配元素中所有的小写英文字符全部转换为大写，但是大小与小写一样。
+		     属性：font-variant
+		     取值：normal:正常
+			  small-caps:小型大写字符
+		  6、字体综合属性
+		     将所有的字体属性值声明在一个字体中。
+		     属性：font
+		     取值：font-style font-variant font-weight font-size font-family;
+
+	3、文本格式属性
+		  1、文本颜色
+		    属性：color
+		    取值：合法的颜色值
+		  2、文字排列方式（水平对齐）
+		    属性：text-align
+		    取值：left,right...
+		  3、文字修饰（线条样式）
+		    属性：text-decoration
+		    取值：
+			 none:无样式/无下划线
+			 underline:下划线
+			 overline:上划线
+			 line-through:删除线
+		  4、行高
+		    作用：控制匹配元素中一行数据的高度
+		    属性：line-height:
+		    取值：以px为单位的数值
+		    缺点：仅局限于一行数据
+			
+			font:12px/24px
+			表示:字体大小/行高
+		  【?】5、文本阴影
+		    属性：text-shadow
+		    取值：h-shadow v-shadow blur color
+
+		  6、首航文本缩进
+		    属性：text-indent
+		    取值：以px为单位的距离
+2.表格
+	1、表格的常用样式属性
+		1、尺寸属性
+			width,height
+		2、边框 border
+		3、内边距 padding  【【td中使用margin无效！！】】
+		4、文本和字体的相关属性
+			font-*
+			text-*
+		5、vertical-align:单元格内容的垂直对齐方式
+			取值：top,middle bottom
+	2、表格特有的样式属性
+
+
+3.浮动（重点、难点）
+4.显示

@@ -1,0 +1,119 @@
+HTML DAY01:
+讲师：金云龙
+课程介绍：	--  HTML5新特性
+	1、表单2.0		--  表单验证
+	2、音视频		--  视频
+	3、图像技术		
+		1、Canvas		--  专门用于绘制2D效果
+		2、
+	4、
+资料目录说明：
+	1、CODE目录		--  专门存放代码
+	2、DATA目录		--  专门存放资料
+		1、提高作业		--  当前学习的技术
+			可能会使用到之前学习的技术
+			这是一个比较完整的案例
+			注意：
+				案例不会讲解
+				源码发给大家
+	3、NOTE目录		--  专门存放笔记
+		1、WORD版本		--  方便编辑
+		2、HTML版本		--  方便查看
+	4、readme.txt	--  当前课堂笔记
+
+表单验证
+回顾表单：
+	<form>标签：
+		<form name='myform' id='' enctype='application/x-www-form-urlencoded' action='' method='get|post'>
+			<input type='submit'>
+		</form>
+	如何获取表单
+		1、getElemenById()或getElementsByName()[index]
+		2、document.forms[index]
+		3、document.表单名称		-->myform
+	表单提交
+		1、同步提交		--  submit
+		2、异步提交		--  AJAX
+			1、阻止表单的自动提交  方法：
+				* submit --> 改成button
+				* event对象的preventDefault()方法
+				* return false;
+			2、手动获取表单内元素值
+			3、通过AJAX异步提交
+
+表单2.0		--  <form>
+	INPUT新类型
+	作用：提供了表单验证
+		1、email类型：<input type='email'>
+			作用：表示电子邮件的输入
+			功能：验证输入是否包含 @
+			特点：不能以 @ 开始或结束
+			注意：不能验证有效性
+		2、url类型：<input type='url'>
+			作用：表示输入url地址
+				http://host:端口/path
+			功能：只能验证输入是否包含 http://
+			正确的验证：验证是否以 http:// 开始
+			注意：不够完整
+		3、number类型：<input type='number'>
+			作用：表示输入数字内容
+			效果：提供了数字的增加和减少的操作
+			限制：除数字外的内容，不能输入
+			验证：验证输入的是否是数字
+			属性：
+				min		--  最小的数字
+				max		--  最大的数字
+					<input type='number' value='' mim='5' max='10'>
+					验证是否在指定区间内
+					value 	--  受到限制
+		4、range类型：<input type='range'>
+			作用：提供了滑动条
+			限制：不能随意的输入
+			注意：没有验证的功能
+			属性：
+				min		--  最小值
+				max		--  最大值
+				step	--  步长
+				value	--  默认值
+			问题：不同浏览器的样式不同
+
+		5、date类型：<input type='date'>
+			作用：提供了日期控件
+			格式：yyyy/MM/dd
+			日期格式：
+				标准：yyyy-MM-dd hh:mm:ss
+				中文：yyyy年MM月dd日
+		6、color类型：<input type='color'>
+			作用：提供了颜色选择器
+			问题：如何
+			属性：
+				value	--  
+				用户选择不同颜色时，input标签的value属性值不同
+				value的改变可以通过 onchange 事件监听
+		7、tel类型：<input type='tel'>
+			作用：表示输入电话号码
+			电话号码：
+				固定电话	区号-7/8位
+				移动电话	11位
+					13/14/15/17/18
+			注意：只能在手机浏览器中才有效
+		8、search类型：<input type='search'>
+			作用：表示搜索框
+			注意：只能在手机浏览器中才有效
+
+表单验证
+	验证属性
+	有效状态
+	注意：
+	浏览器版本
+		IE 					--JScript
+			IE 6 7  8 		--  老版本
+			IE 9 10 11
+		其他浏览器			--  Javascript
+			Chrome/FireFox...
+			国产浏览器(别用)
+	IE 6/7/8版本
+		都不支持HTML5的新标签
+			<header><footer><section><nav>
+		引入 htmlshiv.js 文件
+	HTML5新特性				--  JavaScript要掌握好

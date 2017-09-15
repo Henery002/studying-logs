@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800px" height="800px" style="border:1px solid #333"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    //圆心坐标
+    var x = canvas.width/2;
+    var y = canvas.height-20;
+    /*
+    * TODO  每刷新一次，颜色改变
+    *       透明度改变
+    * TODO  增加需求
+    *
+    * TODO  使用面向对象的概念
+    *       将该小球当做对象
+    *       属性：
+    *       方法：
+    * */
+    //浏览器兼容性
+    var r = Math.floor(Math.random()*255);
+    var g = Math.floor(Math.random()*255);
+    var b = Math.floor(Math.random()*255);
+    //TODO 透明度
+    var alpha = 1;
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    function moveBall(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+        if(alpha == 0){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            //TODO 绘制静态圆形
+            context.beginPath();
+            context.fillStyle = "rgb("+r+","+g+","+b+")";
+            context.globalAlpha = alpha;
+            context.arc(x,y,20,0,Math.PI*2);
+            context.fill();
+            //
+            y--;
+            alpha -= 0.0015;
+            //定时器
+            setTimeout(moveBall,100);
+            console.log(alpha);
+        }
+    };
+    moveBall();
+</script>
+</html>
+
+
+
+
+
+
+

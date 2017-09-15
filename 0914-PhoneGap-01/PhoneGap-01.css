@@ -1,0 +1,110 @@
+1、PhoneGap是什么？
+	一个使用前端技术(htmL/css/js)，创建跨平台应用程序的，快速开发平台。
+	与传统应用的区别：能够使用智能手机的核心本地功能(传感器、声音、震动...)。
+
+2、发展历史：
+	2009年，
+	2011年，支持6个平台：ios、Android、BlackBerry、Lg的webOS、Symbian...
+	2011年11月被Adobe收购，保留了phoneGap的商标所有权。phoneGap贡献的核心代码，被Adobe改名并开源：Cordova
+
+3、PhoneGap与Cordova的区别、联系：
+	区别：	
+		phoneGap商业项目，功能比较齐全
+		Cordova开源项目，功能比较少
+	联系：
+		Cordova与phoneGap的关系，就像是Webkit与chrome的关系
+
+4、why？
+	在混合编程中，使用前端技术构造不同平台下的应用程序
+
+5、核心特点：
+	1、兼容性：完全做到了write once,run everywhere。
+	2、标准化：采用W3C标准。
+	3、大众化：不需要手机编程基础，只要会html/css/js就可以做手机应用。
+
+6、如何学习：
+	http://phonegap.com  		官网 
+	build.phonegap.com 			云端打包
+	phonegap-plugins.com 		
+
+
+一、
+
+二、环境搭建：
+	1、命令行：
+		1、安装cordova
+			npm install -g cordova 
+
+		创建cordova工程：
+			cordova create myname
+		查看cordova所支持的平台：
+			cordova platform ls
+		添加对Android平台的支持：
+			cordova platform add android
+		添加对ios平台的支持：
+			cordova platform add ios
+		删除对android平台的支持：
+			cordova platform remove android
+		删除对ios平台的支持：
+			cordova platform remove ios
+		如果想要针对对应的平台进行编译链接生成对应的本地安装包：
+			1、检查条件是否具备：
+			cordova requirements
+			2、生成对应的安装包：
+			cordova run android（判断是否有真机，如果有直接安装，否则判断是否有模拟器，如果有模拟器直接安装，否则直接生成一个apk的包）
+			cordova emulate android（判断是否有模拟器，如果有直接安装，否则只是生成一个apk包）
+		如果查看cordova项目可运行的设备列表？
+			cordova  run -list
+		生成Android：
+			1、安装好jdk，并配置JAVA_HOME环境变量；
+			2、按住阿奴个AndroidSDK，并配置ANDROID_HOME
+		生成ios：
+			1、必须在OSX；
+			2、安装ios的SDK
+
+	2、图形化：
+
+
+		如何绕过
+
+		如何安装apk包到模拟器中？	Android Debug Bridge
+			1、先找到adb.exe
+			2、windows+R cmd	回车
+			3、将adb.exe拖拽到命令行窗口，跟上  空格install
+			4、找到apk包，拖拽到install整个命令的后边，然后点击回车开始安装
+				例：C:\adt-bundle-windows-x86_64-20130522\sdk\platform-tools\adb.exe install "C:\testPhoneGap\PhoneGap Developer_1.7.0_apk-dl.com.apk" 回车
+			5、安装较慢
+
+三、学习cordova
+	1、
+	2、
+	3、核心API的学习
+		1、device
+			当检测deviceReady事件，读取设置信息(平台、版本、名称)，显示在html
+
+			如何通过js中的device对象，拿到android平台的设备信息？
+			主线：
+				1、在device插件中，源码中有个www，device.js(构造函数，在deviceReady之前会被调用)有一个反复噶exec(读取设备信息的)
+				2、判断当前所在的平台，找到对应平台中的cordodva.js文件，nativeApiProvider对象拿到设备信息
+				3、最终调用src中的device.java文件(通过原生方式拿到设备信息，并封装成一个json对象返回)
+
+		2、notification
+			表示提醒：视觉(弹窗)、听觉(声音)、触觉(震动)
+			基础语法：
+				navigation.ntification.alert/confirm/beep/vibrate
+			在html文件中放置一个按钮
+
+
+		4、音视频(图片)的录制
+			1、采集音频
+
+			2、拍摄照片
+							
+			3、采集视频
+	
+				
+		5、文件
+			FileEntry该对象代表文件系统中的一个文件
+			方法：
+
+

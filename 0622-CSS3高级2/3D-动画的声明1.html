@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+	<style>
+		/**1.声明一个动画*/
+		/*浏览器兼容性*/
+		@-webkit-keyframes scroll{
+			0%{
+				width:100px;
+				height:100px;
+				background:#f00;
+				margin-left:0px;
+				margin-top:0px;
+			}
+			25%{
+				border-radius:50%;
+				margin-left:200px;
+				margin-top:0px;
+			}
+			50%{
+				border-radius:0px;
+				margin-top:200px;
+				margin-left:200px;
+			}
+			75%{
+				border-radius:50%;
+				background:#0f0;
+				margin-left:0px;
+				margin-top:200px;
+			}
+			100%{
+				width:100px;
+				height:100px;
+				background:#f00;
+				margin-left:0px;
+				margin-top:0px;
+			}
+		}
+		
+		/*
+		@-moz-keyframes scroll{
+			0%{
+			width:100px;
+			height:100px;
+			background:#f00;
+			marigin-left:200px;
+			}
+			25%{
+			border-radius:50%;
+			margin-left:200px;
+			}
+			50%{
+			border-radius:0px;
+			margin-top:200px;
+			}
+			75%{
+			boder-radius:50%
+			background:#0f0;
+			margin-left:0px;
+			}
+			100%{
+			width:100px;
+			height:100px;
+			background:#f00;
+			margin-left:0px;
+			}
+		}
+		*/
+
+		#d1{
+			width:100px;
+			height:100px;
+			background:#f00;
+			margin-left:0px;
+			margin-top:0px;
+			/**2.调用动画*/
+			animation-name:scroll;
+			animation-duration:5s;
+			animation-timing-function:linear;
+			animation-iteration-count:infinite;
+			/*浏览器兼容性*/
+			-webkit-animation-name:scroll;
+			-webkit-animation-duration:5s;
+			-webkit-animation-timing-function:linear;
+			-webkit-animation-iteration-count:infinite;
+		}
+	</style>
+ </head>
+ <body>
+	<div id="d1">
+		
+	</div>
+ </body>
+</html>

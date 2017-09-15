@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    /*TODO 第一题*/
+    var f = function(){
+        var a = b = 1;  //var a =     b = 1;
+    }
+    f();
+    console.log(b);     //1
+    console.log(a);     //报错
+
+
+    /*TODO 第二题*/
+    var f = function(){var a = b =1;}
+    setTimeout(f,0);
+    console.log(b);     //报错，因为会先执行console.log(b);
+
+
+   /*TODO 第三题*/
+    var a,b = 0,fn = function(){ var a = b = 2;}
+    fn();
+    console.log(a);     //undefined
+    console.log(b);     //2
+
+
+    /*TODO 第四题*/
+    // TODO 函数currying化
+    //     函数可反复调用，且每次调用时都可追加新的参数
+    function add(n){
+        return function(m){     //
+            n += m;     //将m追加到了n上
+            arguments.callee.toString = function(){ return n; };
+            return arguments.callee;    //调用函数自己
+        }
+    }
+    //实现以下功能
+//    alert(add(1)(2)(3)/*.toString()*/);    //6
+//    alert(add(1)(2)(3)(4)/*.toString()*/);   //10
+
+    /*TODO 第五题  递归*/
+    var emp = {
+        work:function(){
+            var sum = 0;
+            for(var i = 0;i<arguments.length && arguments[0]>0;i++){
+                sum += arguments[i]+arguments.callee(--arguments[i]);
+            }
+            return sum;
+        }
+    }
+    console.log(emp.work(3,2,1));       //10
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

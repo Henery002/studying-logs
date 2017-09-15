@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>表单</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <!--
+        TODO 表单元素垂直排列
+    -->
+    <div class="row">
+        <!--
+            TODO 基本的表单
+            TODO * Bootstrap提供的表单样式
+            TODO 使用场景
+            TODO * 开发移动端效果时(配合按钮的块级效果)
+         -->
+        <form action="#">
+            <!-- TODO 表单内分组 -->
+            <div class="form-group">
+                <!--
+                    TODO 表单元素的文本提示
+                    TODO <label>标签的for属性
+                    TODO * 关联对应的输入框ID
+                 -->
+                <label for="username">用户名</label>
+                <!-- TODO 表单元素的组件 -->
+                <input class="form-control" id="username" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input id="password" class="form-control" type="password"/>
+            </div>
+            <input class="btn btn-success btn-block" type="submit"/>
+        </form>
+    </div>
+    <br/><br/>
+    <!--
+        TODO 表单元素水平排列
+    -->
+    <div class="row">
+        <form class="form-inline" action="#">
+            <div class="form-group">
+                <label for="username">用发给户名</label>
+                <input class="form-control" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input class="form-control" type="password"/>
+            </div>
+            <input class="btn btn-success" type="submit"/>
+        </form>
+    </div>
+    <br/><br/>
+    <!--
+        TODO 水平排列
+        TODO .form-group 内表单元素水平排列
+        TODO .form-group 之间还是垂直排列
+    -->
+    <div class="row">
+        <form class="form-horizontal" action="#">
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="username">用户名</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="password">密码</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="password"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

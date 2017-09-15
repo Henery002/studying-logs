@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!--
+        TODO 导航条
+            容器元素<div>
+    -->
+    <nav class="navbar navbar-inverse">
+        <!--
+            TODO 移动端导航效果（只有移动端才能显示）
+        -->
+        <div class="navbar-header">
+            <!--
+                TODO  汉堡包按钮
+                      作用：移动端浏览器中动态显示导航条组件
+                        class 为 .navbar-toggle
+                      动态效果：
+                        data-toggle="collapse"
+                        data-target="#导航条组件容器的id"
+            -->
+            <button data-toggle="collapse" data-target="#mycollapse" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--
+                TODO 添加 页面标题 或 Logo图片
+            -->
+            <a href="#" class="navbar-brand">
+                <!--网站名称-->
+                <!--
+                    TODO 引入图片
+                        boostrap提供的导航条默认高度为50px，...
+                -->
+                <img src="web_logo/feed.png" alt="" class="navbar-left">
+            </a>
+        </div>
+        <!--
+            TODO 导航条组件
+                    组件容器元素：
+                        <div>
+                    CSS样式：
+                        基类：.collapse
+                        修饰类：.navbar-collpase
+        -->
+        <div id="mycollapse" class="collapse navbar-collapse">
+            <!--TODO  利用布局容器解决 导航条中 组件 的布局(居中)-->
+            <div class="container">
+                <!--
+                    TODO 按钮
+                        为按钮元素添加 class为 .navbar-btn
+                -->
+                <button class="btn btn-info navbar-btn navbar-right">按钮</button>
+                <form class="navbar-form navbar-right" action="#">
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="搜索">
+                    </div>
+                </form>
+                <!--
+                    TODO 文本
+                        class为 .navbar-text
+                -->
+                <p class="navbar-text navbar-left bg-warning">这是一个文本内容</p>
+                <!--
+                    TODO 导航(标签页)
+                            删除  修饰类  .nav-tabs .nav-pills
+                            添加  class 为 navbar-nav
+                -->
+                <ul class="nav nav-tabs navbar-right">
+                    <li data-toggle="tab"><a href="#">标签页1</a></li>
+                    <li data-toggle="tab"><a href="#">标签页1</a></li>
+                    <li data-toggle="tab"><a href="#">标签页1</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

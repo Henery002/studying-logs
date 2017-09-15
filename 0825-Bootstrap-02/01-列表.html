@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!--TODO 无序列表-->
+            <ul>
+                <li>无序列表</li>
+                <li>无序列表</li>
+                <li>无序列表</li>
+            </ul>
+            <!--TODO 有序列表-->
+            <ol>
+                <li>有序列表</li>
+                <li>有序列表</li>
+                <li>有序列表</li>
+            </ol>
+            <!--TODO 无样式列表（去除前面的标识）-->
+            <ul class="list-unstyled">
+                <li>无样式列表</li>
+                <li>无样式列表</li>
+                <li>无样式列表</li>
+            </ul>
+            <!--TODO 内联列表（所有列表内容在一行显示）-->
+            <ul class="list-inline">
+                <li>内联列表</li>
+                <li>内联列表</li>
+                <li>内联列表</li>
+            </ul>
+        </div>
+        <div class="row">
+            <!--TODO 垂直排列的自定义列表-->
+            <dl>
+                <dt>标题1</dt>
+                <dd>这里是<sup>自定义列表</sup>描述内容...</dd>
+                <dt>标题2</dt>
+                <dd>这里是<sup>自定义列表</sup>描述内容...</dd>
+                <dt>标题3</dt>
+                <dd>这里是<sup>自定义列表</su  p>描述内容...</dd>
+            </dl>
+            <!--TODO 水平排列的自定义列表-->
+            <dl class="dl-horizontal">
+                <dt>标题4</dt>
+                <dd>这里是<sup>自定义列表</sup>描述内容</dd>
+                <dt>标题5</dt>
+                <dd>这里是<sup>自定义列表</sup>描述内容</dd>
+                <dt>标题6</dt>
+                <dd>这里是<sup>自定义列表</sup>描述内容</dd>
+            </dl>
+        </div>
+    </div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

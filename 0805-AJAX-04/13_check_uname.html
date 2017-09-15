@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <script></script>
+  <style type="text/css">
+  	#unameMsg{
+  		margin-left:10px;
+  	}
+  </style>
+ </head>
+ <body>
+ 	<h1>异步验证用户名是否正确</h1>
+ 	<form actio='12_check_uname.php'>
+ 		用户名：<input name='uname' id='uname'><span id='unameMsg'></span><br><br>
+ 		密码名：<input name='upwd'><br><br>
+ 		<input type='submit'>
+ 	</form>
+	<script type="text/javascript">
+		uname.onblur=function(){	//失去焦点事件
+			var n=this.value;		//获取用户的输入值
+			//1、
+			var xhr=new XMLHttpRequest();	//创建XHR对象
+			//3、xhr.open('GET','13_check_name.php?uname='+n,true);
+			xhr.open('GET','12_check_uname.php?uname='+n,true);
+			//2、
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState===4 && xhr.status===200){
+					if(xhr.responseText=='succeed'){
+						unameMsg.innerHTML = '该用户名可以使用';
+						unameMsg.style.color='#00f';
+					}else{
+						unameMsg.innerHTML='该用户名已存在！请重新输入';
+						unameMsg.style.color='#f00';
+					}
+				}
+			}
+			//4、
+			xhr.send(null);
+		}
+	</script>
+ </body>
+</html>

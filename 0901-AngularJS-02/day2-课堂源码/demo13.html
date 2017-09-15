@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>双向数据绑定的综合练习</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+<div ng-controller="myCtrl">
+
+    <input type="checkbox" ng-model="isAgree"/>123
+    <button ng-disabled="!isAgree">注册</button>
+
+
+    <select ng-model="flower">
+    <option value="bxh.jpg">八仙花</option>
+    <option value="yjx.jpg">郁金香</option>
+    </select>
+    <br/>
+    <img ng-src="img/{{flower}}" alt=""/>
+</div>
+
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl', function ($scope) {
+        $scope.flower = 'yjx.jpg';
+    })
+</script>
+</body>
+</html>

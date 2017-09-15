@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	var emps=["北京","南京","苏州","上海"];
+  </script>
+ </head>
+ <body>
+	<select id="selEmps">	
+	</select>
+	<script>
+		var str="<option>"+emps.join("</option><option>")+"</option>";
+		console.log(str);
+		selEmps.innnerHTML=str;
+	</script>	
+ </body>
+</html>

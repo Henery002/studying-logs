@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>取消与利用冒泡</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/3.css"/>
+	</head>
+	<body>
+		<div id="keys">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button><br>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="sc" style="resize:none;width:200px; height:50px;" readonly></textarea>
+	</body>
+	<script>
+		//为id为keys的元素绑定单击事件为
+		function(){
+			//获得目标元素，保存在变量target   （为了避免点击到大div,这里要作判断点击的是否是按钮。）
+			var target=document.getElementById('keys');
+			//如果target是button  用nodeName判断
+			if(target.nodeName=='BUTTON'){
+				//判断target的内容
+					//如果是C
+						//清除id为sc的元素的内容（用value清除）
+				if(target.innderHTML=='C'){
+					sc.nodevalue='';
+				}else if(target.innerHTML=='='){
+					//如果是=
+						//错误处理
+						try{
+							//将id为sc的内容放入eval，将结果在 保存回id为sc的内容中
+							sc.value=eval(sc.value);
+						}catch(err){
+						//一旦出错
+							//将错误对象转为字符串，放入id为sc的内容中。
+							sc.value=String(err);
+						}
+				}else{
+					//否则其他
+						//将target内容追加到id为sc的内容
+						sc.value+=target.innerHTML;
+				}
+			}
+		}
+	</script>
+</html>
+				//本例？？？？？？？？？？

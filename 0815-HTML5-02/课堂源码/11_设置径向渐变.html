@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置径向渐变</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="300"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    //TODO 1.设置径向渐变
+    var grad = context.
+            createRadialGradient(canvas.width/2,canvas.height/2,10,canvas.width/2,canvas.height/2,100);
+    grad.addColorStop(0,"red");
+    grad.addColorStop(1,"blue");
+    //TODO 2.设置真正样式
+    context.fillStyle = grad;
+    //TODO 3.绘制图像
+    context.fillRect(0,0,canvas.width,canvas.height);
+</script>
+</body>
+</html>

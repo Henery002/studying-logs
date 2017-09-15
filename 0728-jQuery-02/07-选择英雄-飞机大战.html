@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	.up{
+		width:150px;
+		height:105px;
+		margin-left:400px;
+		margin-top:100px;
+	}
+	.down{
+		/*border:1px solid #ddd;*/
+		text-align:center;
+	}
+	img{
+		margin-right:20px;
+		border:1px solid #999;
+		cursor:pointer;
+	}
+	.hidden{
+		display:none;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<div class='up'></div>
+	<hr style='width:50%;margin:30px 220px;'>
+	<div class="down">
+		<img src="p1.png" alt="">
+		<img src="p2.png" alt="">
+		<img src="p3.png" alt="">
+	</div>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('.down img').click(function(){
+			//判断up中有无飞机
+			if($('.up img').length===0){
+				var copy=$(this).clone();
+				$('.up').append($(copy));
+			}else{		//已选定某个飞机
+						//替换已选定的飞机
+				var copy=$(this).clone();		//只克隆本身，不克隆其事件
+				var ret=$('.up img').replaceWith(copy);		//返回值ret是 被替换的元素
+				//$('.down').append(ret);
+			}
+			$('.up img').click(function(){
+				$(this).addClass('hidden');
+			})
+		});
+	</script>	
+ </body>
+</html>
+<!-- ????????????????????????????????? -->

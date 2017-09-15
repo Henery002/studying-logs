@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<div id='accordion'>
+		<h3>水浒传</h3>
+		<div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eos deleniti itaque nostrum dolore at officiis in adipisci! Recusandae dolor fugiat porro perspiciatis ut vel illo quaerat ipsum tenetur corrupti?</p>
+		</div>
+		<h3>红楼梦</h3>
+		<div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eos deleniti itaque nostrum dolore at officiis in adipisci! Recusandae dolor fugiat porro perspiciatis ut vel illo quaerat ipsum tenetur corrupti?</p>
+		</div>
+		<h3>三姑婆演义</h3>
+		<div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eos deleniti itaque nostrum dolore at officiis in adipisci! Recusandae dolor fugiat porro perspiciatis ut vel illo quaerat ipsum tenetur corrupti?</p>
+		</div>
+	</div>
+	<br><br>
+	请选择日期：<input type="text" id='datepicker'>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script>
+		$('#accordion').accordion();
+		$('#datepicker').datepicker({
+			dateFormat:'yy-mm-dd',
+			minDate:new Date(2015,0,1),
+			maxDate:new Date()
+		});
+	</script>	
+ </body>
+</html>

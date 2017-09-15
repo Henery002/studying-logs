@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <!--声明对象数组-->
+    <span id="span" ng-init="student=[{name:'John',score:'60',age:'20'},
+                                      {name:'Stefan',score:'89',age:'32'},
+                                      {name:'Damon',score:'68',age:'35'}]"></span>
+
+    {{student[0].name}}
+    {{student[0].score}}
+    {{student[0].age}}
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>score</th>
+                <th>age</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    function getInfo(){
+        for(var i=0;i<student.length;i++){
+            for( var key in student ){
+                student[key];
+            }
+        }
+    }
+    getInfo();
+</script>
+</html>

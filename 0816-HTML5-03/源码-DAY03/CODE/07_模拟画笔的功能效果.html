@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟画笔的功能效果</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 鼠标动态绘制线 - 画笔功能
+      TODO * 鼠标左键被按下 - 表示开始绘制线
+      TODO   onmousedown 事件
+      TODO * 鼠标移动 - 表示一直在绘制线
+      TODO   onmousemove 事件
+      TODO * 鼠标左键被抬起 - 表示结束绘制线
+      TODO   onmouseup 事件
+     */
+    var flag = false;//TODO 开关
+    canvas.onmousedown = function(event){
+        /*
+        * 若加上开始绘制这句，则实现鼠标抬起后停止绘制。否则鼠标抬起后将会闭合路径
+        * */
+        //context.beginPath();
+        flag = true;//TODO 表示开始绘制
+    }
+    canvas.onmousemove = function(event){
+        if(flag){
+            context.lineTo(event.offsetX,event.offsetY);
+            context.stroke();
+        }
+    }
+    canvas.onmouseup = function(event){
+        flag = false;//TODO 表示结束绘制
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    img{
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <!--TODO 媒体对象的嵌套-->
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object" src="pic.jpg" alt="">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">用户名</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias consequatur, dolores dolorum error illum ipsa minima porro ratione voluptates. Aliquam amet corporis, impedit laboriosam minus nulla quidem quo rem!</p>
+                <!--TODO 再次定义媒体对象-->
+                <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" src="pic.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">评论</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, assumenda commodi cum doloremque eaque eligendi esse ex laudantium magni, minima nostrum obcaecati, porro soluta tempore tenetur voluptatem voluptatibus? Aperiam, et!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object" src="pic.jpg" alt="">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">用户名</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dicta distinctio esse fugit, harum inventore magni nisi nobis qui saepe. Assumenda earum enim excepturi facilis ipsam iure minus quae reprehenderit.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--
+            TODO 列表组：添加class为 .list-group
+        -->
+        <ul class="list-group">
+            <!--
+                TODO <li>的class添加 .list-group-item
+                    修饰类：
+                        .list-group-item-info       一般信息
+                        .list-group-item-warning
+                        .list-group-item-success
+                        .list-group-item-danger
+            -->
+            <li class="list-group-item list-group-item-info">info选项</li>
+            <li class="list-group-item list-group-item-success">success选项</li>
+            <li class="list-group-item list-group-item-warning">warning选项</li>
+            <li class="list-group-item list-group-item-danger">danger选项</li>
+            <!--TODO 文本样式(默认) -->
+            <li class="list-group-item list-group-item-text">
+                text选项
+                <!--TODO 徽章-->
+                <span class="badge">605</span>
+            </li>
+            <li class="list-group-item list-group-item-heading">heading选项</li>
+        </ul>
+    </div>
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

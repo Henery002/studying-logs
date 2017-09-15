@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+
+	//笔试题：
+	//匿名函数：
+	var r=(function (a,b){
+			return a+b;
+		})(1,2);	//此处r引用的是函数的值。而不是函数对象
+	console.log(r);	//所以输出结果：3
+					//区别于下面的例子：
+	//区别于下面的例子：
+	var rrr=function (a,b){
+		return a+b;		//此处rrr引用的是函数对象，相当于rrr是该函数的函数名
+	};
+	console.log(rrr);	//输出该函数对象：
+						/*function (a,b){
+							return a+b;
+						}
+						*/
+
+  </script>
+ </head>
+ <body>
+	<script>
+		//输出  开始加载...
+		(function(){
+			var time=new Date().toLocaleTimeString();	//局部变量,获取当前时间
+			alert("开始加载...at"+time);
+		})();		//函数当函数名，自调
+	</script>
+	<h1>Welcome</h1>
+	<p>Welcome to my first website</p>
+	<script>
+		(function(){
+			var time=new Date().toLocaleTimeString();
+			alert("加载完成...at"+time);
+		})();
+		//测试变量time是否还存在，即是否是全局变量
+		console.log(time);		//Uncaught ReferenceError: time is not defined
+	</script>
+ </body>
+</html>

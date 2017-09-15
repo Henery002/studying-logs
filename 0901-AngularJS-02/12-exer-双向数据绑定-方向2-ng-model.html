@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <form action="">
+            留言：<textarea ng-model="msg" cols="30" rows="6"></textarea><br><br>
+            城市：<select ng-model='city'>
+                    <option disabled>-请选择城市-</option>
+                    <option value="南京">南京</option>
+                    <option value="连云港">连云港</option>
+                    <option value="长沙">长沙</option>
+                    <option value="衡阳">衡阳</option>
+                    <option value="青岛">青岛</option>
+                  </select><br><br>
+            性别：<label><input name="sex" type="radio" ng-model="male" value="男">男</label>
+                  <label><input name="sex" type="radio" ng-model="female" value="女">女</label>
+        </form>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.$watch('msg',function(){
+                console.log($scope.msg);
+            });
+            $scope.$watch('city',function(){
+                console.log($scope.city);
+            });
+            $scope.$watch('male',function(){
+                console.log($scope.male);
+            });
+            $scope.$watch('female',function(){
+                console.log($scope.female);
+            });
+        });
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

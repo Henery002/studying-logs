@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="500px" height="500px" style="border:1px solid #333;"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    //TODO 1、将旋转的左上角移动到正中心位置
+    context.translate(canvas.width/2,canvas.height/2);
+
+    (function zhuan(){
+        //TODO 1、清除
+        context.strokeRect(-canvas.width/2,-canvas.height/2,canvas.width,canvas.height);
+        //TODO 2、绘制一个矩形
+        context.strokeRect(-150,-150,300,300);
+        //TODO 3、旋转
+        context.rotate(Math.PI/180*10);
+        //TODO 4、重新绘制一个矩形
+        context.strokeRect(-150,-150,300,300);
+        requestAnimationFrame(zhuan);
+    })()
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video标签的专有属性</title>
+</head>
+<body>
+    <!--
+        TODO autoplay表示自动播放
+        TODO controls表示控制面板
+        TODO loop循环播放
+        TODO poster允许在播放视频前，显示一张图片
+        TODO preload表示视频加载的方式
+                auto（默认值）自动加载
+                none不缓存（视频版本）
+                metadata只加载除视屏外的信息
+
+    -->
+    <video id="v2" src="DAY02_DATA/oceans-clip.mp4" autoplay loop controls></video>
+    <video id="v2" src="DAY02_DATA/oceans-clip.mp4"  poster="DAY02_DATA/oceans-clip.png" loop controls></video>
+</body>
+    <script>
+        var v2 = document.getElementById('v2');
+        console.log(v2.autoplay);
+    </script>
+</html>

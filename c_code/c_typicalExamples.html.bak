@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>C语言经典例题</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="" />
+  <script></script>
+  <style></style>
+ </head>
+ <body>
+
+  <script>
+	//题1
+	//有1.2.3.4共4个数字，能组成多少个互不相同且无重复数字的三位数？都是多少？ 
+	function groupNum(num){		//设置形参
+		var count=0;	//声明一个计数器，初始化为0
+		var i,j,k;
+		for(i=1;i<=num;i++){
+			for(j=1;j<=num;j++){
+				for(k=1;k<=num;k++){
+					if(i!=j&&i!=k&&j!=k){
+						console.log(i*100+j*10+k);
+						count++;		//计数器，计算满足要求的三位数的个数
+					}
+				}
+			}
+		}
+		alert("满足要求的三位数共有："+count+"个")
+	}
+	//groupNum(4);		//为实参赋值，即数字个数
+
+	//题2
+	//从键盘输入当月利润 I ，求应发放奖金总数
+	function bonusSum(){
+		var bonus1,bonus2,bonus4,bonus6,bonus10,bonus;	//声明变量:奖金
+		bonus1=100000*0.1;		//10万以下的奖金
+		bonus2=bonus1+100000*0.075;		//20万以下的奖金
+		bonus4=bonus2+200000*0.05;		//40万以下的奖金
+		bonus6=bonus4+200000*0.03;		//60万以下的奖金
+		bonus10=bonus6+400000*0.015;	//100万以下的奖金
+		var profits = parseInt(prompt("请输入当月利润profits:"));	//输入profits值
+		if(profits<=100000){
+			bonus1=profits*0.1;
+		}else if(profits<200000){
+			bonus=bonus1+(profits-100000)*0.075;
+		}else if(profits<400000){
+			bonus=bonus2+(profits-200000)*0.05;
+		}else if(profits<600000){
+			bonus=bonus4+(profits-400000)*0.03;
+		}else if(profits<1000000){
+			bonus=bonus6+(profits-600000)*0.015;
+		}else{
+			bonus=bonus10+(profits-1000000)*0.01;
+		}
+		//bonus=bonus.toFixed(2);
+		alert("利润 "+profits+"元，对应的奖金是："+bonus);
+	}
+	//bonusSum();
+
+	//题3：
+	//一个整数，它加上 100 后是一个完全平方数，再加上 168 又是一个完全平方数，该数是多少
+	function sqrtNum(){
+		var count=0;	//定义一个计数器
+		for(var num=1;num<=100000;num++){		//遍历10万以内的数
+			sqrt1=Math.sqrt(num+100);			//计算num+100开根号的数
+			sqrt2=Math.sqrt(num+168);			//计算num+168开根号的数
+			if((parseInt(sqrt1)==sqrt1)&&(parseInt(sqrt2)==sqrt2)){		//判断若果两个数都是整数，则该num为满足要求的数
+				console.log("满足条件的数值为："+num);		//输出该数
+				count++;		//计数器加1
+			}
+		}
+		console.log("共有："+count+" 个");
+	}
+	//sqrtNum();
+
+	//题5：
+	//输入三个整数 x,y,z ，请把这三个数由小到大输出
+	function sortNum(){
+		var x=parseInt(prompt("请输入第一个数："));
+		console.log(x);
+		var y=parseInt(prompt("请输入第二个数："));
+		console.log(y);
+		var z=parseInt(prompt("请输入第三个数："));
+		console.log(z);
+		var temp;		//声明一个中间量
+		if(x>y){
+			temp=x;x=y;y=temp;	//交换x,y的值，此时y变成了最小值
+		}
+		if(x>z){
+			temp=z;z=x;x=temp;
+		}
+		if(y>z){
+			temp=y;y=z;z=temp;
+		}
+		console.log("三个数从小到大排列为："+x+'  '+y+'  '+z);
+	}
+	//sortNum();
+
+	/*
+	function minNum(x,y,z){
+		min=x;
+		if(x>y){
+			min=y;
+		}else if(x>z){
+			min=z;
+		}else if(y>z){
+			min=z;
+		}
+		console.log(min);
+	}
+	//minNum(23,124,9);
+	*/
+
+	//题11：
+	//古典问题:兔子生兔子，假如兔子都不死，问每个月的兔子总数为多少
+	function rabbit(){
+		var m1=m2=1;		//声明前两个月兔子数量
+		console.log("前两个月兔子数为："+m1+'、'+m2);
+		for(i=3;i<=20;i++){		//计数器，从第三个月开始
+			m1=m1+m2;		//前两个月相加得到第三个月数量
+			m2=m1+m2;
+			console.log('第'+i+'个月：'+m1);
+			console.log('第'+(++i)+'个月:'+m2);
+		}
+	}
+	//rabbit();
+
+	//题12：
+	//判断 101-200 之间有多少个素数，并输出所有素数
+	function primeNum(){
+		var count=0,a;
+		for(var prime=101;prime<=200;prime++){
+			for(var i=2;i<prime;i++){
+				temp=prime/i;
+				if(prime%i==0){
+					a=0;
+					break;
+				}else{
+					a=1;
+				}
+			}
+			if(a==1){
+				console.log(prime);
+				count++;
+			}
+		}
+		console.log("个数为："+count);
+	}
+	primeNum();
+
+	//题13：
+	//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+ 
+ </body>
+</html>

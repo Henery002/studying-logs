@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ <head>
+  <title> 插件 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+	#plane{
+		width:40px;
+		height:40px;
+		background-color:#f00;
+		cursor:pointer;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<!-- <div> -->
+		<p id='plane'></p>
+	<!-- </div> -->
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script>
+		$('#plane').resizable().draggable();
+	</script>	
+ </body>
+</html>

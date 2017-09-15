@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="" />
+  <script></script>
+  <style>
+    body{
+     font-family: "Microsoft YaHei UI";
+    }
+     h1{
+      text-align:center;
+      margin-top:100px;
+      font-weight:normal;
+     }
+   #container{
+    margin:20px auto 0;
+    border:1px solid #999;
+    width:600px;
+    height:370px;
+    box-sizing: border-box;
+    padding:26px 5px;
+    /*font-size:1.3em;*/
+   }
+   span{
+    text-align:right;
+    width:100px;
+    display: inline-block;
+   }
+   form{
+    width:55%;
+    margin-right:0px;
+    text-align:right;
+    padding-right:10px;
+    float: left;
+   }
+   input{
+    width:200px;
+    height:28px;
+    padding:0 5px;
+    border:1px solid #ddd;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    border-radius:5px;
+   }
+   input[type="submit"]{
+    margin-left:100px;
+   }
+   .tips{
+    width:40%;
+    float:left;
+    display: inline-block;
+   }
+   //状态颜色
+   .dark{
+      background-color:#777777;
+      color:#fff;
+      font-weight:bold;
+     }
+   .red{
+    background-color: #D9534F;
+    color:#fff;
+    font-weight: bold;
+   }
+   .green{
+    background-color: #5CB85C;
+    color:#fff;
+    font-weight:bold;
+   }
+  </style>
+ </head>
+ <body>
+  <h1>HTML5-用户注册页面</h1>
+  <div id='container'>
+    <div class="formList">
+     <form action="" id="form">
+      <span>用户名：</span><input id="username" autofocus required pattern="^[a-zA-Z0-9]{8,16}$" placeholder="请输入用户名" type="text"><br><br>
+      <span>密码：</span><input id="pwd" type="password" required placeholder="请输入密码" pattern="^[0-9]{6,12}$"><br><br>
+      <span>电子邮件：</span><input id="email" type="email" placeholder="请输入电子邮件" multiple><br><br>
+      <span>个人主页：</span><input id="page" type="url" placeholder="请输入个人主页地址" ><br><br>
+      <span>年龄：</span><input id="age" type="number" required min="18" max="50" step="1" placeholder="请输入年龄" ><br><br>
+      <span>出生日期：</span><input id="birth" type="date" required placeholder="请输入出生日期" ><br><br>
+      <input id="submit" class="green" type="submit">
+     </form>
+     <div class="tips">
+      <input class="green" disabled type="text" value="用户名错误"><br><br>
+      <input class="dark" disabled type="text" value="用户名错误"><br><br>
+      <input class="red" disabled type="text" value="用户名错误"><br><br>
+      <input type="text" disabled value=""><br><br>
+      <input type="text" disabled value=""><br><br>
+      <input type="text" disabled value=""><br><br>
+     </div>
+    </div>
+  </div>
+  <script></script>
+ 
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//验证：arguments是数组类型的对象吗?
+		//		arr是数组类型的对象吗?
+		//采用匿名函数自调的方法
+		(function(){
+			var arr=[];
+			//验证arguments是数组类型的对象吗？
+			console.log(
+				Array.prototype.isPrototypeOf(arguments)
+			);		//false
+			//验证arr是数组类型的对象吗？
+			console.log(
+				Array.prototype.isPrototypeOf(arr)
+			);		//true
+		})();
+	</script>	
+ </body>
+</html>

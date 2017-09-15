@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>双向数据绑定-方向1</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <p>{{info.name}}</p>
+        <p>{{info.age}}</p>
+        <button ng-click="modify()">修改数据</button>
+        <button ng-click="reset()">恢复数据</button>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.info = {name:'张继科',age:30};
+            $scope.info2 = {name:'马龙',age:31};
+            $scope.modify = function(){
+                $scope.info = $scope.info2;
+            };
+            $scope.reset = function(){
+                $scope.info = {name:'张继科',age:30};
+            };
+        });
+    </script>
+</html>

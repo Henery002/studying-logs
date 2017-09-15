@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>如何使用video标签</title>
+</head>
+<body>
+    <!--
+        TODO 编写html标签
+        TODO * <+代码提示+>+自动补全
+        TODO * 标签名+tab
+    -->
+    <!--
+        TODO <video>空标签
+        TODO * 默认情况下没有任何的显示
+        TODO * 默认占 300px * 150px 大小的区域
+        TODO <video>标签
+        TODO * 必要属性 - src
+        TODO   * 运行的效果为 显示黑色背景的矩形区域
+        TODO   * 当前引入的视频宽度为 640px，高度为 264px
+        TODO * 独有属性 - autoplay(自动播放)
+        TODO   * 注意:只需设置属性名即可
+    -->
+    <video autoplay src="videos/oceans-clip.mp4"></video>
+    <!--
+        TODO <video>标签支持几种视频格式
+        TODO * .mp4 - 目前比较主流的视频格式
+        TODO * .ogv - 最初出现在手机视频中
+        TODO * .webm - 这三个视频格式中唯一支持超高清画质
+        TODO   * 该视频格式是由Google公司提供的
+    -->
+    <br/>
+    <!--
+        TODO 视频格式遇到 浏览器兼容问题
+        TODO * 提供了<source>标签
+        TODO   * 允许<video>标签同时引入多个视频格式
+    -->
+    <video autoplay>
+        <!--
+            TODO <source>标签
+            TODO * src属性 - 引入视频文件
+            TODO 注意:
+            TODO * 一个<video>标签可以包含多个<source>标签
+        -->
+        <source src="videos/oceans-clip.mp4">
+        <source src="videos/oceans-clip.ogv">
+        <source src="videos/oceans-clip.webm">
+    </video>
+</body>
+</html>

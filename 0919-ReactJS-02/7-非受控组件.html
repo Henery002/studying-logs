@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习--受控组件</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <h2>受控组件</h2>
+    <div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var MyForm = React.createClass({
+        getInitialState:function(){
+            return {value:"Hello World！"};
+        },
+        handleSubmit:function(){
+            event.preventDefault();
+
+        },
+        handleChange:function(event){
+            this.setState({value:event.target.value})
+        },
+        render:function(){
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" ref="inputBox" onChange={this.handleChange} value={this.state.value}/>
+                    <br/>
+                    <button type="submit">提交</button>
+                </form>
+            )
+        }
+    });
+    ReactDOM.render(
+            <h1>Hello React!</h1>,
+            document.getElementById('example')
+    );
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

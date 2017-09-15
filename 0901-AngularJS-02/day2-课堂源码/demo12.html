@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>方向2的数据绑定的练习</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+        <!-- textarea的绑定-->
+    <textarea name="" ng-model="msg"></textarea>
+    <br/>
+    <select ng-model="location">
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+        <option value="gz">广州</option>
+    </select>
+    <br/>
+    男<input type="radio" value="male" ng-model="gender"/>
+    女 <input type="radio" value="female" ng-model="gender"/>
+</div>
+
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl', function ($scope) {
+        $scope.$watch('msg', function () {
+            console.log($scope.msg);
+        })
+
+        $scope.$watch('location', function () {
+            console.log($scope.location);
+        })
+
+        $scope.$watch('gender', function () {
+            console.log($scope.gender);
+        })
+
+
+    })
+</script>
+</body>
+</html>

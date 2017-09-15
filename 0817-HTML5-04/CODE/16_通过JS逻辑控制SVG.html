@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>通过JS逻辑控制SVG</title>
+</head>
+<body>
+<!-- TODO 定义SVG的容器元素<svg></svg> -->
+<svg id="mysvg" width="500" height="500" style="background-color: aquamarine">
+    <!--
+    <rect x="" y="" width="" height=""></rect>
+    -->
+</svg>
+<script>
+    //TODO 1. 获取HTML页面中的容器元素<svg>
+    var mysvg = document.getElementById("mysvg");
+    /*
+      TODO 2. 创建<rect></rect>空标签
+      TODO 不是document.createElement(标签名)方法
+      TODO 使用document.createElementNS(namespace,element)
+      TODO * namespace:SVG的命名空间
+      TODO   http://www.w3.org/2000/svg
+      TODO * element:当前需要创建的标签名
+     */
+    var rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+    //TODO 3. 设置属性 setAttrbute(name,value)
+    rect.setAttribute("x",100);
+    rect.setAttribute("y",100);
+    rect.setAttribute("width",100);
+    rect.setAttribute("height",100);
+    //TODO 4.将创建的<rect>添加到<svg>标签下
+    mysvg.appendChild(rect);
+</script>
+</body>
+</html>

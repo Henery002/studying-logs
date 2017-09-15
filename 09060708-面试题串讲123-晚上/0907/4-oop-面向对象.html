@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+</head>
+<body>
+</body>
+<script>
+    // TODO 第一题
+    window.a = 300;
+    function fn1(){
+        this.a = 100;
+        this.b = 200;
+        return function(){
+            alert(this.a);
+        }.call(arguments[0]);
+    }
+    function fn2(){
+        this.a = new fn1();
+    }
+    var a = new fn1().b;        //300
+        //{a:100,b:200}.b
+        //a=200
+    var v = new fn1(fn2());     //undefined
+        //200 [object Object]
+        //fn2(); a={a:100,b:200}
+
+    /*输出结果：
+    * 300
+    * 200
+    * [object Object]
+    * */
+
+    // TODO 第二题
+    function Human(){
+        var c = function(){var a = 200;};
+        return c;
+    }   //如果构造函数有return，即返回了一个引用类型的对象，则不再创建新对象
+    var kang = new Human(); //不会再创建对象
+    var feng = new Human();
+    var x = Human();
+    console.log(feng==x);       //false
+    console.log(kang==feng);    //false
+
+    // TODO 第三题
+    var arr = [];
+    function fun(){
+        for(var i=0;i<4;i++){
+            var x = {};
+            x.no = i;
+            x.text = arr[i];
+            x.fun = function(){alert(i);};
+            arr.push(x);
+        }
+    }
+    fun();
+    arr[0].fun();       //4
+    arr[1].fun();       //4
+    arr[2].fun();       //4
+    arr[3].fun();       //4
+
+    // TODO 第四题
+    var setObj = function(o){
+        o.name = "xaioming";
+        o = {};
+        o.name = "xiaohong";
+    };
+    var p = {name:"xixi",age:32};
+    setObj(p);
+    console.log(p);     //Object {name: "xaioming", age: 32}
+
+    // TODO 第五题--包装类型对象，（默认情况下用完即释放）
+    var str = "Hello";
+    str.len = 100;      //相当于 new String(str).len
+    console.log(str.len);   //undefined
+            // new String(str).len
+    str = new String("Hello");
+    str.len = 100;
+    console.log(str.len);   //100
+
+    // TODO 第六题
+    var number = 2;     //4
+    var obj = {
+        number : 4,
+        fn1:(function(){
+            this.number *= 2;
+            number*=2;
+            var number = 3;
+            return function(){
+                this.number*=2;
+                number*=3;
+                alert(number);
+            }
+        })()
+    };
+    var fn1 = obj.fn1;
+    alert(number);      //4
+    fn1();              //9
+    obj.fn1();          //27
+    alert(window.number);   //8
+    alert(obj.number);
+
+    // TODO 第七题
+    var x = 5,o = {
+        c:10,
+        doit:function doit(){
+            var x = 20;
+            setTimeout(function(){
+                alert(this.x)
+            },10)
+        }
+    };
+    alert(o.doit());        //undefined     //5
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

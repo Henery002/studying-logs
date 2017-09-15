@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+ <head>
+  <title> CSS3高级--动画--表盘的制作 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+  
+	/*1、声明时针的动画*/
+	@-webkit-keyframes scroll_02{
+		0%{
+			transform:rotatez(0deg);
+		}
+		100%{
+			transform:rotatez(360deg);
+		}
+	}
+	/*1、声明分针的动画*/
+	@-webkit-keyframes scroll{
+		0%{
+			transform:rotatez(00deg);
+		}
+		100%{
+			transform:rotatez(360deg);
+		}
+	}
+	/*时针和分针样式的定义、调用动画*/
+	h2{
+		width:500px;
+		margin:50px auto;
+		text-align:center;
+		color:#e4393c;
+		font-family:"Microsoft Yahei";
+	}
+	#d1{
+		width:500px;
+		height:500px;
+		margin:50px auto;
+		border:5px solid #5876f8;
+		border-radius:50%;
+		position:relative;
+	}
+	/*时针*/
+	#d1 div:nth-child(1){
+		height:120px;
+		border:6px solid #f00;
+		/**/
+		border-top:0;
+		border-bottom:0;
+		
+		border-top-left-radius:100px;
+		border-top-right-radius:10px;
+		position:absolute;
+		top:130px;
+		left:247px;
+		/*【【更改旋转原点】】！！！！！！！！！！！！！*/
+		/*【【更改旋转原点】】！！！！！！！！！！！！！*/
+		/*【【更改旋转原点】】！！！！！！！！！！！！！*/
+		transform-origin:center bottom;
+		/*2、调用动画*/
+		animation-name:scroll_02;
+		animation-duration:3600s;
+		animation-timing-function:linear;
+		animation-iteration-count:infinite;
+		/*浏览器兼容性*/
+		-webkit-animation-name:scroll_02;
+		-webkit-animation-duration:3600s;
+		-webkit-animation-timing-function:linear;
+		-webkit-animation-iteration-count:infinite;
+	}
+	/*分针*/
+	#d1 div:nth-child(2){
+		height:200px;
+		border:4px solid #ffc002;
+		border-top:0;
+		border-bottom:0;
+		border-top-left-radius:80px;
+		border-top-right-radius:5px;
+		position:absolute;
+		top:50px;
+		left:249px;
+		/*【【更改旋转原点】】！！！！！！！！！！！！！*/
+		/*【【更改旋转原点】】！！！！！！！！！！！！！*/
+		/*【【更改旋转原点】】！！！！！！！！！！！！！*/
+		transform-origin:center bottom;
+		/*2、调用动画*/
+		animation-name:scroll;
+		animation-duration:60s;
+		animation-timing-function:linear;
+		animation-iteration-count:infinite;
+		/*浏览器兼容性*/
+		-webkit-animation-name:scroll;
+		-webkit-animation-duration:60s;
+		-webkit-animation-timing-function:linear;
+		-webkit-animation-iteration-count:infinite;
+	}
+  </style>
+ </head>
+ <body>
+	<h2>CSS3高级-动画-表盘的制作</h2>
+	<div id="d1">
+		<div></div>
+		<div></div>
+	<div>
+ </body>
+</html>

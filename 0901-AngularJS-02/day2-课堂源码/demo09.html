@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <!-- 通过双花括号将num绑定p-->
+    <p>{{num}}</p>
+    <button ng-click="clickFunc()">clickMe</button>
+</div>
+
+<script>
+    //模块的声明
+    var app = angular.module('myApp',[]);
+    //控制器的声明
+    app.controller('myCtrl', function ($scope) {
+        //定义的一个模型数据
+        $scope.num = 0;
+
+        //点击按钮时的回调函数
+        $scope.clickFunc = function () {
+            $scope.num++;
+        }
+    });
+</script>
+</body>
+</html>

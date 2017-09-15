@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    svg{
+        background-color: #76bfb6;
+    }
+</style>
+<body>
+    <svg id="svg" width="1200" height="800">
+        <!--
+        TODO 设置线性渐变
+            <defs></defs>标签
+            作用：表示定义重复使用的SVG元素
+        -->
+        <defs>
+            <!--
+            TODO 线性渐变标签
+                基准线：起点坐标值与终点坐标值
+                        <lineargradient></lineargradient>
+                x1和y1：基准线的起点坐标值
+                x2和y2：基准线的终点坐标值
+                注意：所有点的值都是百分值%
+                        取值范围为0%~100%
+                      基准线的起点和终点具有默认值：
+                        起点默认值：(0%,0%)
+                        终点默认值：(100%,0%)
+            -->
+            <linearGradient id="grd1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <!--
+                TODO 设置渐变的颜色及相对位置
+                    <stop></stop>标签：
+                        offset:相对位置
+                            使用百分值%
+                        stop-color:渐变颜色
+                -->
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </linearGradient>
+            <linearGradient id="grd2">
+                <!--
+                TODO 设置渐变的颜色及相对位置
+                    <stop></stop>标签：
+                        offset:相对位置
+                            使用百分值%
+                        stop-color:渐变颜色
+                -->
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </linearGradient>
+
+            <!--
+            TODO 设置径向渐变：
+                <radialgradient></radialgradient>
+            TODO 注意：svg中的径向渐变和canvas中的径向渐变不一样！！
+                    设置径向渐变效果：
+                属性：cx和cy：默认值为(0.5,0.5)
+                      fx和fy：焦点坐标值
+                      r：
+            -->
+            <!--TODO cx和cy的值：-->
+            <radialGradient id="grd3" cx="0%" cy="0%" >
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <radialGradient id="grd4" cx="100%" cy="100%" >
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <radialGradient id="grd5" cx="50%" cy="50%" >
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <!--TODO fx和fy的值-->
+            <radialGradient id="grd6" cx="50%" cy="50%" fx="0" fy="0">
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <radialGradient id="grd7" cx="50%" cy="50%" fx="1" fy="1">
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <radialGradient id="grd8" cx="50%" cy="50%" fx="50%" fy="50%">
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <!--TODO r值-->
+            <radialGradient id="grd9" cx="50%" cy="50%" fx="50%" fy="50%" r="0">
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <radialGradient id="grd10" cx="50%" cy="50%" fx="50%" fy="50%" r="1">
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <radialGradient id="grd11" cx="50%" cy="50%" fx="50%" fy="50%" r="0.5">
+                <stop offset="0%" stop-color="#0055dd"></stop>
+                <stop offset="100%" stop-color="#e4393c"></stop>
+            </radialGradient>
+            <!--TODO 设置立体球-->
+            <radialGradient id="grd12" cx="0.3" cy="0.3" r="0.3">
+                <stop offset="0%" stop-color="gold"></stop>
+                <stop offset="100%" stop-color="green"></stop>
+            </radialGradient>
+
+        </defs>
+        <!--
+            TODO 绘制图形（使用上述渐变效果）
+                将渐变效果赋值给fill或stroke属性
+                    值的格式：url(#渐变元素的id)
+        -->
+        <!--线性渐变-->
+        <rect x="10" y="10" width="100" height="100" fill="url(#grd1)"></rect>
+        <rect x="110" y="110" width="100" height="100" fill="url(#grd2)"></rect>
+        <!--径向渐变-->
+        <rect x="210" y="210" width="100" height="100" fill="url(#grd3)"></rect>
+        <rect x="310" y="310" width="100" height="100" fill="url(#grd4)"></rect>
+        <rect x="410" y="410" width="100" height="100" fill="url(#grd5)"></rect>
+        <rect x="510" y="510" width="100" height="100" fill="url(#grd6)"></rect>
+        <rect x="610" y="610" width="100" height="100" fill="url(#grd7)"></rect>
+        <rect x="510" y="310" width="100" height="100" fill="url(#grd8)"></rect>
+        <rect x="610" y="210" width="100" height="100" fill="url(#grd9)"></rect>
+        <rect x="710" y="110" width="100" height="100" fill="url(#grd10)"></rect>
+        <rect x="810" y="10" width="100" height="100" fill="url(#grd11)"></rect>
+        <!--TODO 设置立体球-->
+        <circle cx="410" cy="110" r="50" fill="url(#grd12)"></circle>
+
+    </svg>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

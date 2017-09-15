@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .container{
+        margin-top: 50px;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <!--TODO 按钮组的容器元素-->
+        <div class="btn-group">
+            <button class="btn btn-success">按钮</button>
+            <button class="btn btn-success">按钮</button>
+            <button class="btn btn-success">按钮</button>
+            <!--
+                TODO 下拉菜单内容
+                        容器元素
+                        删除class为 .dropdown
+                        在对应增加class为.btn-group
+            -->
+            <div class="btn-group">
+                <!--
+                    TODO button按钮也要改
+                        增加class为 dropdown-toggle
+                -->
+                <button data-toggle="dropdown" class="btn btn-success dropdown-toggle">下拉菜单<span class="caret"></span></span></button>
+                <ul class="dropdown-menu">
+                    <li>选项</li>
+                    <li>选项</li>
+                    <li>选项</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

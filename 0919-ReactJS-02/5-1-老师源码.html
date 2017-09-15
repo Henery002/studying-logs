@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习--鼠标滚轮改变div背景色</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<style>
+    div{
+        width:200px;
+        height:200px;
+        border:1px solid #0f0;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var Evcomponent = React.createClass({
+        getInitialState:function(){
+            return {color:'#ffffff'};
+        },
+        handleWheel:function(){
+            var newColor = this.getRandomColor();
+            //TODO 设置状态
+            this.setState({color:newColor});
+        },
+        getRandomColor:function(){
+            var r = Math.floor(Math.random()*255);
+            var g = Math.floor(Math.random()*255);
+            var b = Math.floor(Math.random()*255);
+            var r_16 = r.toString(16);
+            var g_16 = g.toString(16);
+            var b_16 = b.toString(16);
+            return '#'+r_16+g_16+b_16;
+        },
+        render:function(){
+            return <div onWheel={this.handleWheel} style={{backgroundColor:this.state.color}}></div>
+        }
+    });
+    ReactDOM.render(
+        <Evcomponent/>,
+        document.getElementById('example')
+    )
+</script>
+</html>

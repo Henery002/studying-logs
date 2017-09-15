@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绘制文字</title>
+</head>
+<body>
+<canvas id="canvas" width="600" height="500"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 设置文字的样式
+      TODO * font属性 - 大小、样式、风格
+     */
+    context.font = "24px 微软雅黑";
+    //TODO 基准线
+    context.beginPath();
+    context.moveTo(100,10);
+    context.lineTo(100,300);
+    context.stroke();
+    /*
+      TODO 设置水平对齐方式
+      TODO textAlign属性 - 基准线的对齐方式
+      TODO * left - 左对齐
+      TODO * right - 右对齐
+      TODO * center - 居中对齐
+     */
+    context.textAlign = "left";
+    //TODO 1.绘制实心文字
+    context.fillText("Web前端",100,50);
+
+    context.textAlign = "center";
+    context.fillText("Web前端",100,150);
+
+    context.textAlign = "right";
+    context.fillText("Web前端",100,250);
+
+    /*
+      TODO 设置垂直方向对齐方式
+      TODO textBaseline属性
+      TODO * top - 上对齐
+      TODO * middle - 居中对齐
+      TODO * bottom - 下对齐
+      TODO * hanging - 悬挂基线
+      TODO * alphabetic - 字母基线
+     */
+    context.beginPath();
+    context.moveTo(10,350);
+    context.lineTo(550,350);
+    context.stroke();
+
+    context.textBaseline = "top";
+    context.strokeText("Web前端",100,350);
+
+    context.textBaseline = "middle";
+    context.strokeText("Web前端",200,350);
+
+    context.textBaseline = "bottom";
+    context.strokeText("Web前端",300,350);
+
+    context.textBaseline = "hanging";
+    context.strokeText("Web前端",400,350);
+
+    context.textBaseline = "alphabetic";
+    context.strokeText("Web前端",500,350);
+</script>
+</body>
+</html>

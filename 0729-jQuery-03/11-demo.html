@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="" />
+  <script></script>
+  <style>
+	div{
+		width:100px;
+		height:100px;
+		/* margin:550px auto; */
+		border-radius:50%;
+		background-color:#f00;
+		position:absolute;
+		top:300px;
+		left:300px;
+		z-index:1;
+	}
+  </style>
+ </head>
+ <body>
+	<div style='background-color:#00f;z-index:2'></div>
+	<div id='d2'>
+	</div>
+  	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script>
+		$('#d2').animate({
+			'width':'150px',
+			'height':'150px',
+			'top':'275px',
+			'left':'275px',
+		},2000)
+	</script>
+ </body>
+</html>

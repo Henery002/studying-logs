@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>如何使用canvas</title>
+    <style>
+        canvas {
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        TODO HTML5提供的新标签 - <canvas></canvas>
+        TODO * 定义标签名时
+        TODO   * 浏览器中没有任何的显示效果
+        TODO   * 默认占用 300px * 150px 的区域
+        TODO   * 是以一张图片(.png)的方式显示在浏览器中
+        TODO 改变显示的大小区域(建议使用像素值)
+        TODO * width和height属性 - 尽量使用属性方式
+        TODO * 通过 CSS 样式属性 - 绘制的图像被拉伸
+    -->
+    <!-- TODO 1.定义<canvas>标签 -->
+    <canvas id="canvas" width="500px" height="300px"></canvas>
+    <script>
+        //TODO 2.获取到<canvas>标签
+        var canvas = document.getElementById("canvas");
+        /*
+          TODO 3.通过<canvas>标签得到画布
+          TODO   getContext()方法
+          TODO   * 该方法的返回值 - 画布对象
+          TODO   * 接收参数 - "2d"
+          TODO   注意:"2d"中的"d"必须小写
+         */
+        var context = canvas.getContext("2d");
+        //TODO 4.通过画布对象绘制图像
+        context.strokeRect(10,10,100,100);
+    </script>
+</body>
+</html>

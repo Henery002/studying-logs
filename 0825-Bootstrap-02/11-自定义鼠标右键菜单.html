@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!--
+        TODO 自定义鼠标右键菜单
+
+    -->
+    <ul class="dropdown-menu">
+        <li>前进</li>
+        <li>后退</li>
+        <li>刷新</li>
+    </ul>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+<script>
+    //TODO 鼠标右键事件
+    //    将事件绑定在什么元素？
+    //    一般都绑定在document下或window对象下
+    //    contextmenu事件表示 鼠标按键 事件
+    //TODO 含义：获取上下文事件
+
+    document.addEventListener('contextmenu',function(event){
+        console.log(event.button);      //输出 2：右键，0：左键，1：滚轮
+        //TODO 阻止默认右键菜单弹出
+        event.preventDefault();
+        //TODO 鼠标一定要右键才行
+        if(event.button == 2){
+            $('.dropdown-menu').attr("style",'display:block;left:'+event.pageX+'px;top:'+event.pageY+'px;');
+            //$('.dropdown-menu').css('display','block');
+            //$('.dropdown-menu').css('left',event.pageX+'px');
+            //$('.dropdown-menu').css('top',event.pageY+'px');
+        }
+    });
+    document.addEventListener('mousedown',function(event){
+        //TODO 左键隐藏菜单
+        if(event.button == 0){
+            $('.dropdown-menu').css('display','none');
+        }
+    })
+    /*
+    $(document).contextmenu(function(event){
+        event.preventDefault();
+        console.log(event.button);
+        //TODO 通过event的事件对象获取鼠标当前位置
+        if(event.button == 2){
+           $(this).attr("style",'display:block;left:'+event.pageX+'px;top:'+event.pageY+'px;');
+        }
+    })
+    */
+</script>
+</html>

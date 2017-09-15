@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//1、打印乘法口诀表第三行
+		//循环条件：乘数<=r
+		//循环变量：乘数i
+			//i从1开始，递增1
+		//循环体：
+			//"在str中拼接：'ixr=(i*r)_'"
+		//var r=3;
+
+		//2、打印整个口诀表
+		for(var i=1;i<=9;i++){
+			//公式，第二个for循环的代码不要修改
+			for(var j=1,str="";j<=i;j++){
+				str += j+'x'+i+'='+(j*i)+'\t';
+			}
+			//以上for代码不要修改
+		console.log(str);
+		}
+
+		//3、打印三角形*号
+		/*
+		 **
+		 ***
+		 ****
+		 *****
+		 ******
+		*/
+		//公式：
+		//i从1开始，同时声明空字符串str,i到<=r，i++
+			//向str中拼一个*
+		//遍历结束
+		//输出str
+		for(var j=1;j<=9;j++){
+			//公式：
+			for(var i=1,str="";i<=j;i++){
+				str += "*";	//实现*号的递加
+			}
+			console.log(str);
+		}
+
+		//4、打印反三角*号
+		/*
+		      *
+			 **
+			***
+		   ****
+		  *****
+		 ******
+		*******
+		*/
+		//
+		//公式:第二个 for 循环的思路
+		//i从1开始，同时声明空字符串str,i到i<=j,i++
+			//如果i<r就向str拼” “,否则拼*
+		//遍历结束
+		//输出str
+		//var r=3;
+
+		//整个for循环
+		for(var j=1;j<=9;j++){
+			//公式
+			for(var i=1,str=" ",ln=9;i<=ln;i++){	//ln是行数
+				str+=(i<(ln-j+1)?" ":"*");
+			}
+			console.log(str);
+		}
+
+		//5、打印等腰三角*号
+		//公式		其中，ln代表每行总字符数，j代表总行数，i代表每行第几个字符
+		//i从1开始，同时声明空字符串str，到i<ln-r+1，i++
+			//如果i<ln-r+1，就拼” “,否则拼*
+		//遍历结束
+		//输出str
+		//function printEtriangle(){
+			var r=4;
+			//for(var j=1;j<=9;j++){
+				for(var i=1,str=" ",ln=9;i<ln-r+1;i++){
+					str+=((i<ln-r+1)?" ":"*");
+				}
+				console.log(str);
+			//}
+		//}
+		//printEtriangle();
+	</script>	
+ </body>
+</html>

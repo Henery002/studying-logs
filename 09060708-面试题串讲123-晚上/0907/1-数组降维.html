@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    /* TODO 数组降维 */
+    var arr = [
+        [0,0,0,0],
+        [0,0,0,0],
+        [0,0,0,0],
+        [0,0,0,0]
+    ];
+    /* TODO 三种方法 */
+    //1、数组遍历
+    for(var i=0,result=[];i<arr.length;i++){
+        for(var j=0;j<arr[i].length;j++){
+            result.push(arr[i][j]);
+        }
+    }
+    console.log(result);
+    //2、concat
+    for(var i=0,result=[];i<arr.length;i++){
+        result = result.concat(arr[i]);
+    }
+    console.log(result);
+    //3、apply+concat
+    var result=Array.prototype.concat.apply([],arr);
+    console.log(result);
+
+    /*三种方法均输出：
+     Array[16]
+     0: 0
+     1: 0
+     2: 0
+     3: 0
+     4: 0
+     5: 0
+     6: 0
+     7: 0
+     8: 0
+     9: 0
+     10: 0
+     11: 0
+     12: 0
+     13: 0
+     14: 0
+     15: 0
+     length: 16
+     __proto__: Array[0]
+    * */
+    /*即：
+    * [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    * */
+</script>
+</html>

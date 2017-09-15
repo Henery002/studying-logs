@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+ 	<button id='btn'>0</button>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('button').click(function(){
+			var num=parseInt($(this).html());
+			num++;
+			$(this).html(num);
+		});
+	</script>	
+ </body>
+</html>

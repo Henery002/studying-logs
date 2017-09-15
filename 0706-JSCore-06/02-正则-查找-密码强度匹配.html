@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//
+		var reg=/^(?![a-z0-9]+$)(?![A-Za-z]+$)[A-Za-z0-9]{8,10}$/;
+		//循环：请用户输入密码，用reg验证，如果不通过
+			//提示：密码强度不够
+		//（循环结束）
+		//提示：验证通过
+		/*	该段代码正确
+		while(true){
+			var str=prompt("请设置密码8-10位密码：");
+			var bool=reg.test(str);
+			
+			if(bool==true){
+				alert("密码格式验证通过，设置成功");
+				break;
+			}else{
+				alert("密码格式错误！请重新设置");
+			}
+			
+		}
+		*/
+		//简化：
+		while(!reg.test(prompt("请设置密码8-10位密码："))){
+			//var bool=reg.test(str);
+			alert("密码格式错误！请重新设置");
+		}
+		alert("密码格式验证通过，设置成功");
+	</script>	
+ </body>
+</html>

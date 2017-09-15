@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var arr=[12,55,45,6,23,7];
+		//法一：声明 比较器函数
+		/*
+		function cmp(a,b){
+			return a-b;
+		}
+		*/
+		//法二：函数直接量
+		/*
+		var cmp=function(a,b){
+			return a-b;
+		};
+		*/
+		//法三：用new关键词：
+		var cmp=new Function('a','b',";return (a-b)");
+
+		arr.sort(cmp);
+		console.log(String(arr));
+	</script>	
+ </body>
+</html>

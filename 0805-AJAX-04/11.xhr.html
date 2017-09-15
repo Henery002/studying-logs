@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <script></script>
+ </head>
+ <body>
+ 	<h1>使用XHR发起异步请求</h1>
+ 	<button id='btn'>向服务器发起异步请求</button>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script type="text/javascript">
+		btn.onclick=function(){
+			/*********发起异步请求需要四步***********/
+			//1、创建一个XHR对象
+			var xhr = new XMLHttpRequest();
+			//2、事先为XHR绑定‘状态改变事件’监听函数
+			xhr.onreadystatechange = function(){
+				console.log('\nXHR的状态改变了');
+				console.log(xhr.readyState);
+				console.log(xhr.status);			//响应状态码
+				console.log(xhr.responseText);		//响应主体文本
+			}
+			//3、使用XHR打开到Web服务器的连接
+			xhr.open('GET','11.php',true);
+			//4、使用XHR发送HTTP请求消息
+			xhr.send(null);
+		}
+	</script>
+ </body>
+</html>

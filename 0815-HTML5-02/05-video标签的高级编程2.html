@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    img{
+        width:50%;
+        position: absolute;
+        left:280px;
+        top:130px;
+    }
+    h1{
+        position: absolute;
+        left:380px;
+        top:270px;
+        z-index: 100;
+        color:#fff;
+        font-size:2.5em;
+        font-family: "微软雅黑", arial;
+    }
+</style>
+<body>
+    <h1 id="h1">不想看见广告？那还不开会员！</h1>
+    <video id="media" loop controls src="DAY02_DATA/homepage-hero-video.webm"></video>
+    <img id="adv" src="DAY02_DATA/homepage-hero-video-desktop-still.jpg"></img>
+</body>
+    <script>
+        var media = document.getElementById('media');
+        media.addEventListener('play',function(){
+            //play事件的触发处理函数
+            adv.style.display = 'none';
+            h1.style.display = 'none';
+        })
+        media.addEventListener('pause',function(){
+            //pause事件的触发处理函数
+            adv.style.display = 'block';
+            h1.style.display = 'block';
+        })
+    </script>
+</html>
+
+
+
+

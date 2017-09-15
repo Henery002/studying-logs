@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>读取并修改元素的属性</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/4_1.css" />
+<style>.foreground { z-index: 1; }</style>
+<script>
+	function show(li){
+		//如果li的z-index不是1
+			//获得id为container的 所有直接子元素保存在divs中
+			//遍历divs中每个div，
+				//移除当前div 的style
+			//遍历结束
+			//查找id为（content+li的id中第3个字符(i=3)）的div,设置其z-index为1
+		if(li.style.zIndex!='1'){
+			var divs = querySelectorAll("#container>div");
+			for(var i=0,len=divs.length;i<len;i++){
+				divs[i].removeAttribute('style');
+			}
+			var ids=li.id[3];
+			document.getElementById("content"+ids).style.zIndex='1';
+		}
+	}
+			//该例？？？？？？？？？？
+</script>
+</head>
+<body>
+	<h2>实现多标签页效果</h2>
+	<ul id="tab">
+		<li id="tab1" onclick="show(this)">10元套餐</li>
+		<li id="tab2" onclick="show(this)">30元套餐</li>
+		<li id="tab3" onclick="show(this)">50元包月</li>
+	</ul>
+	<div id="container">
+		<!--<div id="content1" class="foreground">-->
+		<!--强调：使用style.设置的属性，默认格式都是:
+			"属性: 值;"-->
+		<div id="content1" style="z-index: 1;">
+			10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+		</div>
+		<div id="content2">
+			30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+		</div>
+		<div id="content3">
+			50元包月详情：<br />&nbsp;每月无限量随心打
+		</div>
+	</div>
+</body>
+</html>

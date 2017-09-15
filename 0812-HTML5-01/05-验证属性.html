@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<h1>验证属性</h1>
+	<!--
+		HTML5提供一系列验证属性的问题：
+			错误提示内容、样式是一样的
+		validityState属性：
+		作用：获取validityState对象
+			validityState对象：
+			作用：提供一系列的有效状态
+				有效状态：
+					表单提交的逻辑验证内容
+					自定义样式提示内容
+					注意：必须配合验证属性一起使用
+		
+	-->
+	<form action="">
+		<!--
+			必填项属性 required
+		-->
+		用户名：<input type="text" required><br><br>
+		<!--
+			输入内容的长度限定
+				minlength	--  并不是HTML5的新属性
+				maxlength	--  是限定输入的属性，并非验证属性
+			密码只能输入数字 [0-9]{5,10}
+				pattern属性 --  匹配正则表达式
+					pattern="..."  括号中写正则表达式，不是写正则对象
+				注意：不能验证是否为空，所以要加 required属性
+				正则表达式：	^[0-9]{5,101}$
+				JS中的正则对象：/^[0-9]{5,101}$/
+			【面试题】：以下哪个是错误的？
+				var a = {};		//对象
+				var b = [];		//数组
+				var c = ()();	//自调函数
+				var d = ();		// X
+				var e = //;		//正则对象
+				
+				自调函数：
+				1、(function(){})()
+				2、+function(){}
+		-->
+		密码名：<input type="password" required minlength='5' maxlength='10' pattern='^[0-9]{5,10}$'><br><br>
+		<!--
+			min、max、step属性  --  验证属性
+			min属性的默认值为"0"
+		-->
+		年&nbsp;龄：<input type="number" step='2' min='1'><br><br>
+
+
+		<input type="submit"><br><br>
+	</form>
+
+	<script>
+		//1、获取绑定表单提交事件
+		//2、获取用户名的值
+		//3、判断 username==''||username==null
+		//4、判断 length>=或length<=
+	</script>
+ </body>
+</html>

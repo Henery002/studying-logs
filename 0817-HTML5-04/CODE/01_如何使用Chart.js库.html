@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>如何使用Chart.js库</title>
+    <!-- TODO 引入 Chart.js 库JS文件 -->
+    <script src="js/Chart.bundle.js"></script>
+</head>
+<body>
+<!-- TODO Chart.js 库利用 HTML5 的 Canvas 技术进行绘制图表 -->
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    /*
+      TODO Chart.js 库允许使用的
+      TODO * 直接使用<canvas>元素
+      TODO   var canvas = document.getElementById("canvas");
+      TODO * 使用创建的画布对象
+      TODO   var context = canvas.getContext("2d");
+      TODO * 允许使用 jQuery 对象
+      TODO   var $canvas = $("#canvas");
+     */
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 创建 Chart.js 库的对象
+      TODO var chart = new Chart(context,config);
+      TODO * context参数:获取到的canvas
+      TODO * config参数:
+      TODO   * 类型为 Object 类型(JSON格式)
+      TODO   * 作用:配置当前的图表
+     */
+    var chart = new Chart(context,{
+        /*
+          TODO 设置绘制的哪种图表
+          TODO * bar - 柱状图
+          TODO * line - 曲线图
+          TODO * radar - 雷达图
+          TODO * polarArea - 极地区域图
+          TODO * pie - 饼状图
+          TODO * doughnut - 环形图
+         */
+        type: 'bar',
+        /*
+          TODO 设置对应图表的数据内容
+          TODO * 类型为 Object 类型
+         */
+        data: {
+            /*
+              TODO 设置对应图表所显示的文本信息内容
+              TODO * 类型为 Array 类型
+             */
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
+            /*
+              TODO 设置对应图表中的数据内容
+              TODO * 类型为 Array 类型
+             */
+            datasets: [{
+                //TODO 设置鼠标悬停的提示内容
+                label: '# of Votes',
+                //TODO 设置数据内容
+                data: [12, 19, 3, 5, 2],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        /*
+          TODO 设置对应图表的参数值
+         */
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

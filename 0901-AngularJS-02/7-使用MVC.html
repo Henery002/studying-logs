@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--2、注册模块-->
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>使用MVC</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <!--4、使用控制器-->
+    <div ng-controller="myCtrl">
+        <img ng-src="" alt="">
+        <!--调用控制器的属性-->
+        <p>{{num}}</p>
+        <!--输出对象的属性-->
+        <p>{{car.price}}</p>
+        <p>{{car.name}}</p>
+        <!--调用控制器的方法-->
+        <button ng-click="showInfo()">点我</button>
+        <!--遍历数组-->
+        <ol>
+            <li ng-repeat="temp in list">{{temp}}</li>
+        </ol>
+    </div>
+    <script>
+        //1、声明一个模块
+        var app = angular.module('myApp',[]);
+        //3、声明一个控制器
+        app.controller('myCtrl',function($scope){
+            $scope.num = 30;
+            $scope.car = new Object();
+            $scope.car.name = 'Benz';
+            $scope.car.price = '220';
+            $scope.list = [45,455,22,101];
+            console.log($scope);
+            $scope.showInfo = function(){
+                alert('clicked!');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

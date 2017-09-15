@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px" style="border:1px solid black"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    /*
+    * TODO 基准线
+    *
+    * TODO 设置文字样式
+    *       font属性        --  大小、样式、风格
+    * TODO 设置水平对齐方式
+    *       text-align属性  --  left、right、center
+    * TODO 设置垂直对齐方式
+    *       textBaseline属性--  top、middle、bottom、hanging(悬挂基线)、alphabetic(字母蓟县)
+    * */
+    context.beginPath();
+    context.moveTo(10,350);
+    context.lineTo(450,350);
+    context.stroke( );
+
+    context.font = 'bold 32px 微软雅黑';
+    context.textAlign = 'left';
+    context.fillText('你好',50,50);
+
+    context.textAlign = 'center';
+    context.fillText('你好',150,150);
+
+    context.textAlign = 'right';
+    context.fillText('你好',250,250);
+
+</script>
+</html>

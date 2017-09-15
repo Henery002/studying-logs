@@ -1,0 +1,31 @@
+AngularJS-05：项目--开饭啦！
+1、ng中如何传参？
+	1、明确发送方和接收方：
+		login：将用户姓名 传输给 main
+			发送：login
+			接收：main
+	2、约定：
+		接收方接收的名称
+			/main/web1605
+	3、读取参数：
+		$routeParams
+			console.log($routeParams.username)
+
+	传参的不同方式：
+		1、
+		2、超链接：
+			<a href="#/main/name">
+		3、js：
+			$location.path("/main/:name")
+
+	【面试】：
+		控制器之间的通信？
+			服务：控制器之间的嵌套
+				$rootScope
+			...
+
+	小技巧：
+
+3、ng-include：
+	功能：使用ngInclude指令，完成代码片段的引入
+	用法：<div ng-include="tpl/...">

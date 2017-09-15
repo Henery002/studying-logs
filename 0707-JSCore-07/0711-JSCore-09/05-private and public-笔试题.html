@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//笔试题：
+		//实现一个类型，同时包含public公有属性和private私有属性
+		"use strict";
+		function Emp(id,name,age){
+			//public
+			this.id=id;
+			this.name=name;
+
+			//设置id只读：
+			Object.defineProperty(this,"id",{
+				get:function(){return ...........}
+				}
+			);
+
+			//private	设置私有属性
+			var _age;	//先定义局部变量
+			//访问器属性
+			Object.defineProperty(
+				this,"age",{
+					get:function(){return _age},	//闭包，保护了_age
+					set:function(val){
+						if(val<18||val>65){
+							throw new RangeError("age must between 18-65!");
+						}
+						_age=val;
+					},				//访问器属性
+					enumerable:true//,
+					//configurable:true
+				}
+			);
+			this.age=age;
+			//1、把当前对象设置为防扩展。只限制添加新属性，不限制删除旧属性。
+			Object.preventExtensions(this);
+			//2、密封
+			//Object.seal(this);
+		}	
+		var eric=new Emp(1001,'eric',25);
+		delete eric.age;		//测试能否删除：不能
+		eric.age=50;
+		console.log(eric.id);	//证明是公有属性	1001
+		console.log(eric._age);	//undefined
+		console.log(eric.age);	//25
+		
+		console.log(Object.isExtensible(eric));	//true
+		
+		for(var key in eric){
+			console.log(key+" : "+eric[key]);
+		}
+	</script>	
+ </body>
+</html>

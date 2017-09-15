@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现圆形的动态效果</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 使用面向对象的概念
+      TODO * 将这个小球当做是一个对象
+      TODO * 属性
+      TODO   * 小球的圆心坐标值(x和y)
+      TODO   * 小球的填充颜色
+      TODO   * 小球的透明度
+      TODO * 方法
+      TODO   * 绘制方法 - 只是绘制静态效果
+      TODO   * 移动方法 - 自下向上移动、透明度减小
+     */
+    function Ball(){
+        //TODO 属性
+        this.x = Math.random()*(canvas.width-40)+20;
+        this.y = canvas.height-20;
+        this.r = Math.floor(Math.random()*255);
+        this.g = Math.floor(Math.random()*255);
+        this.b = Math.floor(Math.random()*255);
+        this.color = "rgb("+this.r+","+this.g+","+this.b+")";
+        this.alpha = 1;
+        //TODO 方法
+        //TODO 绘制静态效果
+        this.paint = function(){
+            //TODO 设置小球的填充颜色
+            context.fillStyle = this.color;
+            //TODO 设置小球的透明度
+            context.globalAlpha = this.alpha;
+            //TODO 重新绘制小球
+            context.beginPath();
+            context.arc(this.x,this.y,20,0,Math.PI*2);
+            context.closePath();
+            context.fill();
+        }
+        //TODO 移动方法
+        this.move = function(){
+            //TODO 自下向上
+            this.y--;
+            //TODO 透明度减小
+            this.alpha -= 0.005;
+        }
+    }
+    //TODO 创建用于存储所有小球的数组
+    var balls = [];//TODO 初始化为空数组
+
+    //TODO 创建函数 - 用于创建小球
+    function createBall(){
+        var ball = new Ball();
+
+        //TODO balls[balls.length] = ball;
+        balls.push(ball);
+    }
+    //TODO 创建函数 - 用于绘制并移动所有的小球
+    function controlBall(){
+        for(var i=0;i<balls.length;i++){
+            var ball = balls[i]
+            ball.paint();
+            ball.move();
+            //TODO 判断小球的透明度是否为 0
+            if(ball.alpha <= 0){
+                //TODO 透明度为0,删除该小球
+                balls.splice(i,1);
+            }
+        }
+    }
+
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    //TODO 自调函数
+    (function move(){
+        //TODO 清除整个画布
+        context.clearRect(0,0,canvas.width,canvas.height);
+        controlBall();//TODO 绘制并移动所有小球
+        requestAnimationFrame(move);
+    })();
+
+    setInterval(function(){
+        createBall();//TODO 创建小球
+    },500);
+</script>
+</body>
+</html>

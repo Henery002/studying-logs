@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+	//严格模式下：
+		"use strict";
+		var emp={
+			id:1605,
+			name:'eric',
+			salary:1000
+		}	
+		//设置id属性为只读
+		/*
+		Object.defineProperty(emp,"id",{
+			writable:false;
+			configurable:false;	//双保险，不可逆
+		});
+		*/
+
+	/*一：
+
+		var attrs=Object.getOwnPropertyDescriptor(emp,"id");
+		//console.dir(attrs);
+
+		emp.id=1002;
+		//console.log(emp.id);
+
+		//设置salary属性不可遍历
+		Object.defineProperty(emp,"salary",{
+			enumerable:false,	//
+			configurable:false,
+		});
+		for(var key in emp){
+			console.log(key+" : "+emp[key]);
+		}
+		//console.log(emp.salary);
+
+		//添加属性age
+		Object.defineProperty(emp,"age",{
+			value:24,
+			writable:true,	//额外添加特性
+			enumerable:true,
+			configurable:false,		//禁止删除
+		})	
+		delete emp.age;
+		//打印出属性的四大特性
+		console.dir(Object.getOwnPropertyDescriptor(emp,"age"));
+		//测试输出的age值
+		console.log(emp.age);
+
+	*/
+	
+	//二：一次性更改四大特性：
+		//id属性设置为只读
+		//salary属性设置为禁止遍历
+		//添加age属性为可读写可遍历可配置
+		Object.defineProperties(emp,{
+			//属性：{四大特性},
+			id:{
+				writable:false,
+			},
+			salary:{
+				enumerable:false,
+				configurable:false,
+			},
+			age:{
+				 value:25,
+				 writable:true,
+				 enumerable:true,
+				 configurable:true,
+			}
+		});
+		//emp.id=1001;	//报错！
+		delete emp.id;	//报错！
+		for(var key in emp){
+			console.log(key+" : "+emp[key]);
+		}
+		emp.age++;	//
+		console.log(emp.age);//26
+
+
+	</script>	
+ </body>
+</html>

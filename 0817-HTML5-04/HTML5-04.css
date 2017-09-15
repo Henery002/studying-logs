@@ -1,0 +1,54 @@
+HTML5-day04:
+    Chart.js库：
+    SVG：
+        基础内容：
+        SVG：
+        使用的技术：
+            使用XML技术描述二维图形。
+        SVG技术：
+            并不是HTML5之后才有。HTML5之前就存在SVG技术。
+            HTML5之后允许SVG标签直接定义在HTML页面中。
+    【【SVG与Flash的区别】】：
+            SVG：用于二维矢量图形
+                基于W3C标准。
+                免费并且开放。
+                利用XML技术描述二维图形。
+            Flash：用于二维矢量图形
+                封闭并且不开放。
+                利用二进制格式描述二维图形。
+    【【SVG与Canvas的区别】】：
+            SVG：图像（矢量图）
+                不失真放大或缩小。
+                并不是以图片形式出现。
+                适用于大型密集的Web应用（如百度地图）。
+            Canvas：图像（JPG/PNG）
+                放大时失真。
+                可用于实现网页游戏。
+                是以 '.png' 图片的形式出现的。
+    SVG文件：
+        扩展名为 .svg 。
+    H5使用SVG：
+    特效元素：
+        设置渐变：
+            线性渐变：
+                <linearGradient></linearGradient>
+            径向渐变：
+                <radialGradient></radialGradient>
+
+
+    Two.js:
+        基础内容：
+            主要利用SVG技术在HTML页面进行绘制图像。
+        支持的图像技术：
+            SVG
+            Canvas
+            WebGL
+        编程习惯：
+            在HTML页面：
+				定义一个容器元素即可
+			在JAVASCRIPT代码中
+				编写绘制图像的逻辑内容
+        如何使用 Two.js 库：
+		绘制图形：
+		实现动画效果：
+	

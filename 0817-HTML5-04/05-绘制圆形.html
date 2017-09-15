@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    svg{
+        background-color: #2b542c;
+    }
+</style>
+<body>
+    <svg id="svg" width="800" height="400">
+        <!--
+        TODO <svg>容器内绘制多个图形标签
+             将多个图形标签定义在<g></g>标签
+             <g>标签：
+                作用：
+                    允许定义多个图标签
+                    将该标签内所有图像标签分一组
+                    对多个图形标签完成同样操作
+                    将多个图形标签包裹在<g>内
+                    统一对<g>标签操作
+        TODO 绘制圆形
+        -->
+        <circle cx="100" cy="100" r="50" fill="#0055dd"></circle>
+        <!--
+        TODO 由于圆角矩形也可以实现圆形效果，所以<circle></circle>标签也不是必要的。
+        -->
+        <!--
+        TODO 绘制椭圆
+            注意：视频方向的半径与垂直方向的半径不等。
+                cx和cy:椭圆的圆心坐标值
+                rx:水平方向的半径
+                ry:垂直方向的半径
+        -->
+        <ellipse cx="100" cy="200" rx="50" ry="100" fill="orange"></ellipse>
+        <!--
+        TODO 绘制直线
+            起点坐标值(x1,y1)
+            终点坐标值(y1,y2)
+            注意：必须设置stroke
+            设置线宽：
+                stroke-width属性:
+                默认为1.0
+        -->
+        <line x1="300" y1="100" x2="550" y2="350" stroke-width="3" stroke-linecap="square" stroke="red"></line>
+
+    </svg>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

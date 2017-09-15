@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<button id='btn'>点我复制</button>
+	<div id='container'>
+		<p class="" title=''>今天天气好晴朗，好呀好晴朗~~</p>
+	</div>
+	<script>
+		btn.addEventListener('click',function(){
+			var p=document.querySelector('#container>p');
+			var copy=p.cloneNode(true);		//不加true -- 浅克隆：只复制当前元素本身，不复制内容
+							//加true -- 深克隆：复制元素加内容
+			container.appendChild(copy);
+		},false);
+	</script>	
+ </body>
+</html>

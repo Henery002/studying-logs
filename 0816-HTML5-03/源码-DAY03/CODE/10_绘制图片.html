@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas绘制图片</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    //TODO 如何绘制图像
+    /*
+      TODO 1.加载一张图片
+      TODO 问题:如何加载一张图片
+      TODO * 在 HTML 页面通过 <img> 加入一张图片，通过 JavaScript 逻辑获取这张图片
+      TODO * 在 JavaScript 逻辑中直接通过 new Image() 方式加载图片
+     */
+    var img = new Image();
+    img.src = "../../homepage-hero-video-desktop-still.jpg";
+    //TODO 表示当前图片加载完毕后，再...
+    img.onload = function(){
+        //TODO 2.调用 drawImage() 方法进行绘制
+        context.drawImage(img,10,10,480,480);
+    }
+</script>
+</body>
+</html>

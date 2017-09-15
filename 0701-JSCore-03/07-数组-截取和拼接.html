@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		/**/
+		var arr=[1,2,3,4,5];
+		var newArr=arr.concat(6,7,8);		//数组拼接
+		console.log(arr);
+		console.log(newArr);
+		//newArr=arr.concat(5,6,7,[8,9],10);
+		console.dir(newArr);
+		
+
+		var sub=//newArr.slice(3,6+1);	//数组截取,即截取下标为3-6的数组元素
+				  newArr.slice(3,-4);
+				  newArr.slice(3);		//表示直接截取到结尾
+		console.log(newArr);
+		console.log(sub);
+
+		//删除3位置开始后的4个元素
+		//newArr.splice(3,4);
+		//删除前三个，再拼接到结尾
+		var deletes = newArr.splice(0,3);	//声明一个新的数组接收被删除的数组
+		newArr=newArr.concat(deletes);		//把deletes数组拼接到被删除后的newArr数组中
+		console.log(newArr);
+
+		//插入
+		//替换
+	</script>	
+ </body>
+</html>

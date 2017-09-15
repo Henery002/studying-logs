@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	
+  </script>
+ </head>
+ <body>
+	<script>
+		//生成10以内随机数r
+		var r=parseInt((Math.random()*10));
+		console.log(r);
+		do{
+			//用户输入数字n
+			var n=parseInt(prompt("请输入一个数字："));
+			//利用三目运算符执行判断语句
+			alert(n>r?"猜大了":
+				  n<r?"猜小了":
+
+				  isNaN(n)?"猜的是数字好不啦":
+						"猜对了"
+			);
+		}while(n!=r&&n!="exit");
+	</script>	
+ </body>
+</html>

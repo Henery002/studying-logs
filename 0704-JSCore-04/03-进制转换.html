@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+	var n=35;
+	//定义函数dec2bin，写二进制转换算法过程
+	function dec2bin(n){
+		//声明数组ds,即digits
+		//反复执行:n!=0
+			//向ds中压入n%2的结果
+			//将n/2取整，存回n中
+		//循环结束
+		//颠倒数组ds
+		//返回ds无缝拼接的结果
+		var ds=[];
+		while(n!=0){
+			ds.unshift(n%2);	//若从开头进栈，则不再需要翻转reverse
+			n=parseInt(n/2);
+		}
+		//ds.reverse();
+		return ds;			//返回值，要用return ,不用console.log
+	}
+	var str=dec2bin(n).join("");	//法一：对 函数调用输出的数组值 进行 字符串拼接，赋值给str
+	console.log("手动计算二进制数："+str);
+	console.log("自动计算的值："+n.toString(2));
+	//dec2bin();
+	</script>	
+ </body>
+</html>

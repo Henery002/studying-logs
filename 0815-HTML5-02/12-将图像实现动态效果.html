@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将图像实现动态效果</title>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px" style="border:1px solid black"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var y = 0;
+    var x = 0
+    //TODO 声明一个开关：1：向下移动；2：向上移动
+    var flag = false;       //TODO 默认为开
+    var flag2 = false;
+//    var offset = 0;
+    t = setInterval(function(){
+        offset += 0.001;
+        //TODO 清除画布之前所绘制的所有图像
+        //TODO 再绘制新的位置
+        context.clearRect(0,0,canvas.width,canvas.height);
+        context.fillStyle = 'green';
+        context.fillRect(x,y,50,50);
+        //TODO 判断开关在何时开或关
+        if((y+50) >= canvas.width){
+            //TODO 由下向上移动
+            flag  = true;
+        }else if(y <=0 ){
+            //TODO 由上向下移动
+            flag = false;
+        }
+        //TODO 根据开关决定向上还是向下移动
+        if(flag){
+            y-=4;
+        }else{
+            y+=4;
+        }
+        if(x<=0){
+            flag2 = true;
+        }else if(x>=canvas.width){
+            flag2 = false;
+        }
+        if(flag2){
+            x-=4;
+        }else{
+            x+=4;
+        }
+    },30);
+</script>
+</html>

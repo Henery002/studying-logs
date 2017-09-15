@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<table class="depart">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>生日</th>
+				<th>工资</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>22</td>
+				<td>33</td>
+				<td>44</td>
+			</tr>
+		</tbody>
+	</table>
+	<br><br>
+	<table class="depart">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>生日</th>
+				<th>工资</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>22</td>
+				<td>33</td>
+				<td>44</td>
+			</tr>
+			<tr>
+				<td>55</td>
+				<td>66</td>
+				<td>77</td>
+				<td>88</td>
+			</tr>
+			<tr>
+				<td>55</td>
+				<td>66</td>
+				<td>77</td>
+				<td>88</td>
+			</tr>
+			<tr>
+				<td>55</td>
+				<td>66</td>
+				<td>77</td>
+				<td>88</td>
+			</tr>
+			<tr>
+				<td>55</td>
+				<td>66</td>
+				<td>77</td>
+				<td>88</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+		$('.depart').css('border','2px solid #333').css('box-shadow','5px 7px #999').css('width','400px').css('border-collapse','collapse');
+		$('.depart thead>tr').css('background-color','#ddd').css('height','40px');
+		$('td,th').css('border','1px dotted #666').css('text-align','center').css('font-weight','bold');
+		$('tbody tr').css('height','40px');
+		$('tbody tr:nth-child(even)').css('background-color','lightgreen');
+		$('tbody tr:nth-child(odd)').css('background-color','lightblue');
+		$('tbody tr td:first-child').css('background-color','#00f').css('color','#fff');
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,183 @@
+复习：
+	服务器： Client <=> Server
+
+	数据库系统：
+	1、服务器端：  
+		c:/xampp/mysql/bin/mysqld.exe
+	2、客户端端：
+		c:/xampp/mysql/bin/mysql.exe
+
+	客户端连接服务器端：
+  	服务器端应用启动；
+  	客户端开始连接：
+		c:/xampp/mysql/bin/mysql.exe -h127.0.0.1 -uroot -p -P3306
+		可以简写为：
+		c:/xampp/mysql/bin/mysql.exe -uroot
+		可以继续简介为：
+		mysql  -uroot
+
+	案例分析：
+		C:\Users\bjwsl-001>mysql  -uroot
+		'mysql'不是内部或外部命令，也不是可运行的程序或批处理文件。
+		
+		原因：Windows不知道mysql.exe在哪里
+		解决办法：修改Windows的 环境变量 Path
+
+今日内容：
+	1、SQL语句的分类  			-- 了解
+	2、Web服务器概述			-- 了解
+	3、PHP Web服务器搭建过程	-- 了解
+	4、使用PHP语言语法			-- 重点&不难
+	5、使用PHP语言编写网页，显示出数据库中的数据	-- 重点&难点
+
+1、补充：SQL语句的分类 		-- 【考试题】
+	1、DDL：Data Define Language	--	数据定义语言，定义数据库中数据的结构（定义'列'）
+		CREATE 		DROP	 ALTER(修改列) 	TRUNCATE(截断表)
+	2、DML：Data Manipulate Language--	数据操作语言，操作表中的记录行（操作'行'）
+		INSERT		DELETE	 UPDATE
+	3、DQL：Data Query Language 	--	数据查询语言，用于查询
+		SELECT
+	4、DCL：Date Control Language	--	数据控制语言，控制用户的权限
+		GRANT(授权)	REVOKE(收权)
+
+2、Web服务器：
+	作用：等待浏览器的请求，理解请求，查找客户端需要的文件，发送回客户端。		-- 类似于“面包小姐”
+	Web服务器的分类：
+		1、静态Web服务器：
+			任何人在任何时间访问该资源，内容都是一样的（可能有动画效果）。
+			对应的技术：HTML、CSS、JS、DOM/jQuery、图片、Flash动画...
+			常用的Web服务器：Apache、Httpd、MS IIS、NginX
+		2、动态Web服务器：
+			不同的人在不同时间访问，其内容是变化的（可能没有动画效果）。
+			对应的技术：JSP、ASP.NET、PHP、NodeJS
+			常用的Web服务器：
+				JSP 	-- Apache Tomcat、Apache JBoss
+				ASP.NET -- IIS + .Net
+				PHP 	-- Apache Httpd + PHP
+				NodeJS 	-- 什么都不需要
+
+			JSP 	= HTML + Java
+			ASP.NET = HTML + C#
+			PHP 	= HTML + php
+3、PHP语言概述
+	Personal Home Page 				个人主页
+	PHP：Hypertext Preprocessor		超文本预处理器
+	搭建PHP服务器端环境：图略
+
+	1、服务器端：下载并安装静态Web服务器，如Apache Httpd 	-- 面包小姐
+		C:\xampp\apache\bin\httpd.exe
+	2、服务器端：下载并安装PHP解释器		-- 烤箱
+		C:\xampp\php\bin\php.exe
+	3、服务器端：编写网页，保存在特定的目录下
+		C:\xampp\htdocs 					-- 面包箱
+	4、服务器端：启动Web服务器：			-- 开张营业
+		/*******************************************/
+		Apache Httpd 服务器默认端口需要占用80/443端口
+		/*******************************************/
+	5、客户端：在浏览器地址栏输入服务器访问URL
+		http://127.0.0.1/1.php
+
+午间练习：
+	1、创建1.php 页面，向客户端输出1个*
+ 	2、创建2.php 页面，向客户端输出50个*
+ 	3、创建3.php 页面，向客户端输出5行10列个*
+	4、创建4.php 页面，向客户端输出“九九乘法表”表格
+	提示：PHP语言中使用 echo() 执行向客户端的输出，例如：
+	echo('你<br>好');
+
+练习：
+	使用PHP创建一个如下的二维数组，把这些数据已TABLE形式，输出给客户端		
+	$list = [
+		[101, 'Tom', 20, '1350123456'],
+		[102, 'Mary', 21, '1350123457'],
+		[103, 'John', 22, '1350123458']
+	];
+
+练习：使用PHP向客户端输出100个背景色随机的
+	DIV（50*50），
+	<div style="background: rgb(213, 10, 77)"></div>
+	PHP：  $num = rand(min, max);    获取一个指定范围内的整数
+
+【面试题：如何自学一门语言？】
+	1、了解背景： 历史、特点、应用领域...
+	2、搭建开发环境，写出 HelloWorld
+	3、声明变量和常量
+	4、数据类型
+	5、运算符
+	6、逻辑结构
+	7、function 和 object
+	8、通用小程序
+	9、常用对象、组件、框架
+	10、实用小项目
+
+4、PHP基础语法
+	1、了解其背景知识：历史、特点、应用领域
+	2、搭建开发环境，写出 HelloWorld
+	3、"声明变量和常量"
+		声明变量：$名称 = 值;
+		声明常量：const 常量名 = 值;	//PHP5.4+
+				  define('常量名',值);	//PHP5.3+
+	4、数据类型
+		1、基本值类型	声明string有哪两种类型？有何区别？
+			四种：
+				boolean、integer、float、string
+		2、复合类型		声明array有哪两种类型？有何区别？
+			两种：
+				array(PHP中数组不是对象，不能echo)、object
+		3、特殊类型
+			两种：
+				resource(资源)、null(无类型)
+	5、运算符
+		+	只用于数学加法
+		.	字符串拼接
+		=>	指向运算符，用于关联数组
+	6、逻辑结构
+		if...else...
+		switch...case...
+		while...
+		do...while...
+		for...				//可用于遍历索引数组
+
+	*** foreach				//可用于遍历索引数组、关联数组
+	
+	7、function 和 object
+		function fnName($num1, $num2){
+			return $num1+$num2;
+		};
+	8、通用小程序
+	9、常用对象、组件、框架
+	10、实用小项目
+
+练习：创建PHP脚本文件：
+	1、创建一个空数组：  $bookList
+	2、创建一个小数组，保存一本书籍的信息，包括书名、单价、数量、出版日期、是否特价，把这个小数组添加到大数组$bookList中
+		*3
+	5、使用foreach循环，把上面三本书籍信息，输出在一个TABLE中
+		
+5、使用PHP操作MySQL数据库：
+		图略
+	PHP连接MySQL数据库的过程层与命令行连接的步骤一样：
+	1、连接到MySQL服务器
+		$conn = mysqli_connect(host,user,pwd,dbname,port);	//i->Improved
+	2、提交SQL命令给MySQL服务器执行
+		$sql = "...";
+		$result = mysqli_query($conn,$sql);
+	3、查看服务器执行的结果
+		if($result){
+			//执行成功！
+		}else{
+			//执行失败！
+		}
+	
+作业：
+	1、整理今天学过的所有PHP函数。
+	2、按步骤完整下面的SQL和PHP练习：
+		1、创建一个 .sql 文件，编写SQL语句，实现：
+			重建一个数据库dangdang，创建一个保存书籍信息的表：dd_book，
+			包含书籍编号、书名、图片、价格、出版日期、是否特推等属性，
+			添加3条书籍记录，查看所有书籍信息。
+		2、使用命令行，连接MySQL服务器，把上述 .sql 文件提交给服务器执行
+		3、创建一个 addbook.php 页面，使用PHP代码连接数据库，
+			添加新的书籍信息到数据库中，查看添加结果
+		4、选作(需要自学后面的PPT内容)：创建一个 selectbook.php 页面，
+			使用PHP代码连接数据库，查询出所有的书籍信息，在一个TABLE中显示出所有的书籍信息

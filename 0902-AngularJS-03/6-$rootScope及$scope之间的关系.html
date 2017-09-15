@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>$rootScope及$scope之间的关系</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <p>第1个：{{name}}</p>
+    </div>
+    <div ng-controller="myCtrl-2">
+        <p>第2个：{{name}}</p>
+        <p>{{school}}</p>
+        <!--嵌套-->
+        <div ng-controller="myCtrl-3">
+            <p>第3个:{{name}}</p>
+            <p>{{school}}</p>
+            <p>年龄{{age}}</p>
+        </div>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        /* 注入 $rootScope */
+        app.controller('myCtrl',function($scope,$rootScope){
+            $scope.name = 'lucy';
+            $scope.age = 23;
+            $rootScope.school = 'Tarena';
+        });
+        app.controller('myCtrl-2',function($scope){
+            $scope.name = 'Nancy';
+        });
+        app.controller('myCtrl-3',function($scope,$rootScope){
+            $scope.name = 'Nancy';
+            $rootScope.school = 'Tarena';
+        });
+    </script>
+</html>

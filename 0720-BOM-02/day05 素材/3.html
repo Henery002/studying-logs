@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/3.css"/>
+		<script>
+			
+		</script>
+	</head>
+	<body>
+		<div class="d1">
+			<div class="d2">
+				<div class="d3">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	//取消冒泡：
+	/*
+		function highLight(e){
+			//设置当前元素的background为yellow
+			this.style.background='yellow';
+			//弹出提示：我是 +class
+			alert('我在'+this.className+"\n我始终记着"+e.target.className);
+			//清除当前元素的background属性。
+			this.style.background='';
+			//取消冒泡
+			e.stopPropagation();
+		}
+		//为class为d1的元素绑定单击事件为highLight
+		document.querySelector('.d1').addEventListener('click',highLight);
+		//为class为d1的元素绑定单击事件为highLight
+		document.querySelector('.d2').addEventListener('click',highLight);
+		//为class为d1的元素绑定单击事件为highLight
+		document.querySelector('.d3').addEventListener('click',highLight);
+	*/	
+	//利用冒泡：e.target
+		function highLight(e){
+			//设置目标元素的background为yellow
+			e.target.style.background='yellow';
+			//弹出提示：我是 +class
+			alert('我在'+this.className+"\n我始终记着"+e.target.className);
+			//清除目标元素的background属性。
+			e.target.style.background='';
+		}
+		//为class为d1的元素绑定单击事件为highLight
+		document.querySelector('.d1').addEventListener('click',highLight);
+	</script>
+</html>

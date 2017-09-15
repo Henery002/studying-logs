@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800px" height="600px" style="border:1px solid #333;"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    /*
+    * TODO 1、定义一个开关
+    *
+    *       2、一直绘制直线
+    * */
+    var flag = false;
+    var x = 0;
+    var y = 0;
+    canvas.onmousedown = function(event){
+        flag = true;
+        x = event.offsetX;
+        y = event.offsetY;
+    }
+    canvas.onmousemove = function(event){
+        if(flag){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            context.beginPath();
+            context.moveTo(x,y);        //TODO 起点
+            context.lineTo(event.offsetX,event.offsetY);    //TODO 终点
+            context.stroke();
+        }
+    }
+    canvas.onmouseup = function(event){
+        flag = false;
+    }
+
+</script>
+</html>

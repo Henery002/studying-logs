@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ngRepeat指令的学习</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-init="list=[33,88,125,47]">
+        <!--<p>{{list[1]}}</p>-->
+        <ul>
+            <li ng-repeat="temp in list">
+                <!--TODO 法一-->
+                {{list[$index]}}
+                <!--TODO 法二-->
+                <!--{{temp}}-->
+            </li>
+        </ul>
+    </div>
+    <div ng-init="car={name:'BMW',price:'300'}">
+        <p ng-repeat="temp in car">{{temp}}</p>
+    </div>
+</body>
+</html>

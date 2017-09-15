@@ -1,0 +1,37 @@
+/* CSS的注释写法   生成在CSS文件中*/
+#header {
+  color: #007ddd;
+}
+.bordered {
+  border-top: dotted 1px #0f0;
+  border-bottom: dotted 2px #0f0;
+}
+#menu {
+  color: #111;
+  border-top: dotted 1px #0f0;
+  border-bottom: dotted 2px #0f0;
+}
+#button {
+  border-radius: 3px;
+}
+#box {
+  box-shadow: 2px 5px 1px #000000;
+}
+.header {
+  color: #0055dd;
+}
+.header .logo {
+  font-size: 24px;
+}
+.header .logo:hover {
+  background-color: blueviolet;
+}
+.col-md-1 {
+  width: 82px;
+}
+.a {
+  color: #0000ff;
+}
+.a:hover {
+  color: #3333ff;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	ul li:first-child{
+		border-bottom-left-radius:10px;
+		border-top-left-radius:10px;
+	}
+	ul li:last-child{
+		border-top-right-radius:10px;
+		border-bottom-right-radius:10px;
+	}
+	ul li{
+		float:left;
+		list-style:none;
+		padding:10px 40px;
+		background-color:#00aaee;
+		color:;
+		font-size:1.1em;
+		font-weight:bold;
+	}
+	.up_press{
+		background-color:#0055dd;
+		color:#fff;
+		cursor:pointer;
+		font-size:1.1em;
+	}
+	ul li.click{
+		padding-top:1px;
+		padding-left:1px;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<ul id="press">
+		<li>第一个</li>
+		<li>第二个</li>
+		<li>第三个</li>
+		<li>第四个</li>
+	</ul>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('#press>li').click(function(){
+			if($(this).hasClass('up_press')){
+				$(this).removeClass('up_press');
+			}else{
+				$(this).addClass('up_press');
+			}
+		});
+//		$('#press>li').mouseout(function(){
+//			$(this).removeClass('up_press');
+//		});
+//		$('#press>li').click(function(){
+//			$(this).addClass('');
+//		});
+	</script>	
+ </body>
+</html>

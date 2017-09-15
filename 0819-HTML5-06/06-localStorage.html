@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="data" type="text">
+    <button id="save">保存</button>
+    <button id="read">读取</button>
+    <button id="del">删除</button>
+</body>
+<script>
+    var save = document.getElementById('save');
+    save.onclick = function(){
+        //TODO key
+        var key = new Date().getTime();
+        //TODO value
+        var value = document.getElementById('data').value;
+        //TODO localStorage的setItem()方法
+        window.localStorage.setItem(key,value);
+    }
+    //TODO 读取
+    var read = document.getElementById('read');
+    read.onclick = function(){
+        for(var i=0;i<window.localStorage.length;i++){
+            var key = window.localStorage.key(i);
+            var value = window.localStorage.getItem(key);
+            console.log(key+":"+value);
+        }
+    }
+    //TODO 删除
+    var del = document.getElementById('del');
+    del.onclick = function(){
+        //TODO 一步就可以直接删除
+        window.localStorage.clear();
+    }
+</script>
+</html>

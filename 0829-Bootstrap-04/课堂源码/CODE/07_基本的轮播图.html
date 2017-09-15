@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>基本的轮播图</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 轮播图
+            TODO * 静态组件
+            TODO   * 作为轮播图的容器元素
+            TODO     class 为 .carousel
+            TODO   * 包含多张图片的容器元素
+            TODO     class 为 .carousel-inner
+            TODO     * 包含单张图片的元素
+            TODO       class 为 .item
+            TODO     * 引入对应的图片
+            TODO * 动态交互
+            TODO   data-ride="carousel"
+            TODO * 动态动画
+            TODO   class 为 .slide
+            TODO * 设置间隔时间
+            TODO   data-interval=number
+        -->
+        <div data-ride="carousel"
+             class="carousel slide"
+             data-interval="500">
+            <div class="carousel-inner">
+                <!-- TODO 默认一张是被激活的 -->
+                <div class="item active">
+                    <img src="imgs/Koala.jpg"/>
+                </div>
+                <div class="item">
+                    <img src="imgs/Lighthouse.jpg"/>
+                </div>
+                <div class="item">
+                    <img src="imgs/Penguins.jpg"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(".carousel").carousel();
+</script>
+</body>
+</html>

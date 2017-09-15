@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>5-复合组件练习</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    //TODO 组合组件
+    var Form = React.createClass({
+        render:function(){
+            return(
+                <form>
+                    <UserName/>
+                    <UserName2/><br/><br/>
+                    <Pwd/>
+                    <Pwd2/><br/><br/>
+                    <Btn1/>
+                    <Btn2/>
+                </form>
+            )
+        }
+    });
+    //TODO 姓名组件
+    var UserName = React.createClass({
+        render:function(){
+            return <label>用户名：</label>
+        }
+    });
+    var UserName2 = React.createClass({
+        render:function(){
+            return <input type="text" placeholder="请输入用户名..."/>
+        }
+    });
+
+    //TODO 密码组件
+    var Pwd = React.createClass({
+       render:function(){
+           return <label>密   码：</label>
+       }
+    });
+    var Pwd2 = React.createClass({
+        render:function(){
+            return <input type="password" placeholder="请输入密码..."/>
+        }
+    });
+    //TODO 按钮组件
+    var Btn1 = React.createClass({
+        render:function(){
+            return <input type="button" value="登录"/>
+        }
+    });
+    var Btn2 = React.createClass({
+        render:function(){
+            return <input type="button" value="注册"/>
+        }
+    });
+    //TODO
+    //ReactDOM.render(<Form/>,document.getElementById('example'));
+    ReactDOM.render(<Form/>,example);
+</script>
+</html>

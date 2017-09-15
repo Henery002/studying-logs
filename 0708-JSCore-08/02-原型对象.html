@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//实现在IE8中成功输出结果
+		//如果数组类型的原型对象没有indexOf
+			//为数组类型的原型对象添加indexOf方法，两个参数：val，fromi
+				//如果fromi是undefined，就改为0
+					//this就是当前数组对象
+					//从fromi开始遍历当前数组中每个元素
+						//如果当前元素等于val
+							//返回当前位置i
+					//遍历结束，就返回-1
+	/*
+		if(Array.prototype.indexOf===undefined){
+			Array.prototype.indexOf=function(val,fromi){
+				if(fromi===undefined){
+					fromi=0;
+				}
+				for(var i=fromi;i<this.length;i++){
+					if(this[i]==val){
+						return i;
+					}
+				}
+				return -1;
+			}
+		}
+		var arr=[1,2,3,4,3,2,1];
+		document.write(arr.indexOf(2));
+		document.write(arr.indexOf(2,2));
+		document.write(arr.indexOf(2,4));
+		document.write(arr.indexOf(5));
+	*/
+		
+		//例2
+		//实现在IE8中完成删除/替换开头和结尾的空格功能,完成浏览器兼容
+		document.write('<br/>');
+		//如果？没有trim
+			//就在？添加trim方法
+				//用正则替换当前字符串的开头或结尾的空字符串，返回结果
+		if(String.prototype.trim===undefined){
+			String.prototype.trim=function(){
+				return this.replace(/^\s+|\s+$/ig,"");
+			}
+		}
+		var str='\t	    魏     范光\t	    ';
+		//str=str.trim();
+		document.write(str);
+	</script>	
+ </body>
+</html>

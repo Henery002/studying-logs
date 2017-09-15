@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置高斯模糊效果</title>
+</head>
+<body>
+<svg width="500" height="500" style="background-color: coral">
+    <!-- TODO 渐变效果+滤镜效果 -->
+    <defs>
+        <!--
+            TODO 设置滤镜(具有多种滤镜效果)
+            TODO 定义滤镜的容器元素
+            TODO * 定义id属性值 - 方便后面调用
+        -->
+        <filter id="myfilter">
+            <!--
+                TODO 设置具体的滤镜效果
+                TODO * in属性 - 设置当前模糊的类型
+                TODO   * SourceGraphic
+                TODO * stdDeviation属性 - 设置模糊的程度
+             -->
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur>
+        </filter>
+    </defs>
+    <!--
+        TODO 绘制高斯模糊效果
+        TODO * 通过 filter 属性进行关联
+     -->
+    <rect x="10" y="10" width="100" height="100" filter="url(#myfilter)"></rect>
+</svg>
+</body>
+</html>

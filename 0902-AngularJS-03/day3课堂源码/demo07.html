@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>$http服务的使用</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+    <div ng-controller="myCtrl">
+
+    </div>
+
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl', function ($scope,$http) {
+       /* $http.get('data/test.json').success(function (data) {
+            console.log(data);
+        })*/
+
+        $http.get('test.php').success(function (data) {
+            console.log(data);
+        })
+
+    });
+</script>
+
+</body>
+</html>

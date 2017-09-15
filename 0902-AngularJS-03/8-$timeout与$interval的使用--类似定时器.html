@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>$timeout与$interval的使用</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <p>{{num2}}</p>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope,$timeout,$interval){
+            $scope.num = 0;
+            $scope.num2 = 0;
+            /**/
+            /*
+            //法一：通过调用$apply，实现数据同步
+            setTimeout(function(){
+                $scope.num = 11;        //新值不会同步到视图上去
+                console.log($scope.num);
+                $scope.$apply();        //
+            },2000);
+            */
+            //法二：不调用$apply，实现数据同步到视图上
+            /**/
+            $timeout(function(){
+                $scope.num = 11;
+            },2000);
+
+            var t = $interval(function(){
+                $scope.num2 ++;
+                console.log($scope.num2);
+                if($scope.num >= 100){clear(t)}
+            },100);
+        });
+    </script>
+</html>

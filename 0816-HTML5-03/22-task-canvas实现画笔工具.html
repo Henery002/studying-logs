@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        padding:0px;
+        margin:0px;
+    }
+    body{
+        background: #666;
+    }
+    #header{
+        height:200px;
+        background: #fff;
+    }
+    h2{
+        padding:15px;
+        border-bottom:1px solid #ddd;
+    }
+    .sub{
+        width:24%;
+        display: inline-block;
+        padding:5px 10px;
+        box-sizing: border-box;
+    }
+    h3{
+        border-bottom:1px solid #ddd;
+        padding:5px 0;
+        margin-bottom:15px;
+    }
+    span{
+        padding:6px 23px;
+        margin-left:0;
+        border:1px solid #ddd;
+        -webkit-border-radius:;
+        -moz-border-radius:;
+        border-radius:5px;
+    }
+    span:hover,.click{
+        color:#fff;
+        background: #999;
+        cursor:pointer;
+    }
+    canvas{
+        box-shadow: 2px 2px 5px #aaa;
+        margin:20px;
+    }
+</style>
+<body>
+    <div id="header">
+        <h2>Canvas版画图工具</h2>
+        <div id="tool" class="sub">
+            <h3>工具</h3>
+            <span id="click pen">画笔</span>
+            <span id="word">文字</span>
+            <span id="era">橡皮擦</span>
+            <span id="clear">清除</span>
+        </div>
+        <div id="figure" class="sub">
+            <h3>图形</h3>
+            <span id="line">直线</span>
+            <span id="rect">矩形</span>
+            <span id="arc">圆形</span>
+            <span id="tria">三角</span>
+        </div>
+        <div id="color" class="sub">
+            <h3>颜色</h3>
+            <span id="white">白色</span>
+            <span id="black">黑色</span>
+            <span id="red">红色</span>
+            <span id="yellow">黄色</span><br><br>
+            <span id="blue">蓝色</span>
+            <span id="green">绿色</span>
+            <span id="orange">橙色</span>
+            <span id="pink">紫色</span>
+        </div>
+        <div id="setting" class="sub">
+            <h3>设置</h3>
+            <span id="font">字体大小</span>
+            <span id="style">字体样式</span>
+            <span id="bold">加粗</span>
+            <span id="italic">斜体</span>
+        </div>
+    </div>
+    <div id="main">
+        <canvas id="'canvas" width="1200px" height="700px" style="background-color: #fff;"></canvas>
+    </div>
+</body>
+<script>
+    /*
+     TODO 工具栏
+     */
+    pen.click = function(){
+        var context = canvas.getContext('2d');
+        
+    }
+     /*
+     TODO 图形栏
+     */
+
+     /*
+     TODO 颜色栏
+     */
+
+     /*
+     TODO 设置栏
+     */
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

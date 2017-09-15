@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	用户名：<input type="text" value='' name='username'><br><br>
+	密码：<input type="password" value='' name='pwd'><br><br>
+	性别：<input type='radio' name='sex' value='male'>男
+		  <input type='radio' name='sex' value='female'>女<br><br>
+	所在城市：
+		<select name="city" id="" value=''>
+			<option value="南京">南京</option>
+			<option value="苏州">苏州</option>
+			<option value="上海">上海</option>
+			<option value="长沙">长沙</option>
+			<option value="衡阳">衡阳</option>
+		</select><br><br>
+<!-- 		!!!!! -->
+	<input type='button' class='btn' value='读取用户输入'>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('[type="button"]').click(function(){
+			var username=$('[name="username"]').val();
+			var pwd=$('[name="pwd"]').val();
+			var sexs=$('[type="radio"]:checked').val();
+			var city=$('[name="city"]').val();
+			alert(username+pwd+sexs+city);
+
+			//清空输入内容
+			$('[name="username"]').val('');
+			$('[name="pwd"]').val('');
+			$('[type="radio"]:checked').attr('checked',false);
+			$('[name="city"]').val('南京');
+		});
+	</script>	
+ </body>
+</html>

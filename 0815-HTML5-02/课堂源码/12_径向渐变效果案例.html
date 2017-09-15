@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>径向渐变效果案例</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="300"></canvas>
+<script>
+    var context = document.getElementById("canvas").getContext("2d");
+
+    var radgrad = context.createRadialGradient(45,45,10,52,50,30);
+    radgrad.addColorStop(0, '#A7D30C');
+    radgrad.addColorStop(0.9, '#019F62');
+    radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+
+    context.fillStyle = radgrad;
+    context.fillRect(0,0,150,150);
+</script>
+</body>
+</html>

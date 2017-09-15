@@ -1,0 +1,15 @@
+什么是this:
+	函数调用时，引用正在调用函数的对象的关键字。
+	简单说就是
+
+
+
+回调函数：
+
+定时器中的this  ->  window
+	setInterval(
+		function(){
+			consoloe.log(this)
+		},1000
+	);
+

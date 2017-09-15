@@ -1,0 +1,152 @@
+正课：
+1、BOM常用对象：
+	1、history:
+		什么是：保存当前窗口打开后，成功访问过的url的历史记录栈。
+		特点：内容不对开发人员开放，更无法修改。
+		如何使用：前进，后退，刷新
+			前进：history.go(1)
+			后退：history.go(-1)
+			刷新：history.go(0)
+	2、location:
+		什么是：保存当前窗口正在打开的url对象
+		何时使用：
+			1、跳转：只能实现在当前窗口打开
+				location.href='url';
+				location.assign('url');	//赋值
+				location='url';		//实际就是更改href属性
+			2、重新加载当前页面：
+				location.reload(true/false);
+					参数：force -->  布尔类型的值。
+						表示是否强制从服务器硬盘获取最新文档。
+			3、在当前页面打开，禁止后退：
+				location.replace('url');
+					打开新的url，并用新的url替换history中当前旧url，实现禁止后退。
+
+		属性：
+			1、location.protocol:协议
+			2、location.host:主机名+端口号
+			3、location.port:端口
+			4、location.pathname:相对路径
+		==> 5、location.search:？及其之后的查询字符串
+			6、location.hash:#锚点名
+	3、navigator:
+		包含了所有浏览器的配置信息，没有标准
+		1、判断cookie是否启用：
+			navigator.cookieEnabled   -->true：启用		false:禁用
+				eg:例-01-navigator-cookie
+
+		2、判断是否安装了指定插件（plugin）
+			navigator.plugins 集合		返回一个类数组对象 PluginArray
+		3、判断浏览器名称和版本号（只支持5大浏览器）
+
+			navigator.userAgent		//返回一个字符串	
+
+	4、*****event:
+		什么是事件：浏览器自动触发或用户手动触发的页面元素状态的改变。
+			比如：change  click  focus  blur  ...
+		事件处理函数：当事件发生时，自动触发执行的函数。
+		事件处理函数其实就是元素 的一个特殊属性。
+		属性的值是一个函数对象。
+			比如：onchange  onclick  onfocus
+				elem.onclick=function(){...}
+				当事件发生时，自动执行：elem.onclick();
+		如何绑定事件处理函数：3种方法：
+		1、直接在html中绑定：
+			<elem onXXX='js语句'>
+				eg:  <button onclick="fun();">事件按钮</button>
+			
+			若：......
+
+			'问题'：1、不符合内容与行为分离的原则
+				  2、其实不是真正的绑定，只是传入了一条JS语句而已。
+		2、在JS中动态绑定：
+			1、elem.onXXX=function(){
+					this -> elem
+				}
+				'问题'：1、一个事件处理函数只能绑定一个函数对象。
+					  2、无法改变事件触发的顺序。
+			2、elem.addEventListener(			//jQuery 的重点！！！！！！
+					'事件名',function,false/true		//事件名，如click	
+				);
+
+				为elem元素的指定“事件”，绑定fun
+				第三个参数：设置是否在捕获阶段触发。
+
+				优点：1、为一个事件的处理函数绑定多个函数对象。当事件发生时，可同时执行多个任务。
+					  2、可以改变事件触发的顺序。
+
+					VS IE8：elem.attachEvent(
+								'on事件名',
+							);
+					 
+		***事件模型：
+			3个阶段：
+				1、捕获：'由外向内'依次记录各级元素绑定的事件处理函数
+					捕获阶段只到目标元素截止。
+				2、目标触发：默认  实际触发事件的元素上的 处理函数  先执行。
+					目标元素：实际触发事件的元素。
+				3、冒泡：按照捕获阶段'反向'的顺序，依次执行各级父元素上
+					eg:例-3
+				
+		VS	IE8:也有事件模型：2个阶段
+				1、目标触发、
+				2、冒泡
+
+		***事件对象：
+			当事件发生时，自动创建的封装事件信息的对象。
+			如何获得事件对象：发生事件时，自动调用事件处理函数。
+							此时JS会将事件对象默认作为事件处理函数的第一个参数，放入函数。
+				elem.addEventListener(
+					'事件名',function(e){
+							//e -> event	
+					}
+				);
+				
+				VS IE8：事件对象保存在全局变量event中。
+						不作为第一个参数传入
+						
+						e=e||window.event
+						即：如果e有效（即如果支持DOM），就用e，否则用window.event
+
+			取消冒泡：执行完当前元素的事件处理函数后，阻止冒泡向上执行。
+				e.stopPropagation();
+
+				VS IE8：
+					e.cancelBubble
+			如何利用冒泡：
+				优化：尽量减少事件监听的个数。
+				办法：如果多个子元素绑定在相同的事件处理函数，
+					则只需要将时间爱你处理函数绑定在父元素一次即可！
+				存在的问题：如何获得目标元素：
+					this -> 会随冒泡儿改变
+				解决：
+					e.target	始终会保持目标元素
+
+					VS IE8：target=e.target||e.srcElement
+									  DOM		IE8
+		取消事件：
+			在 事件 执行过程中，如果出现问题，可阻止事件继续执行。
+				更多的是取消浏览器默认行为。
+			如何取消：
+				e.preventDefault();
+			
+				VS return :
+					前者阻止后续默认行为，不是停止当前函数执行。该句放前放后，对当前函数没有影响。
+					后者退出当前函数执行，但是不阻止默认行为
+		
+			练习：form.onsubmit 事件 ：
+				当表单提交前触发。
+			
+			事件坐标：
+				1、相对于屏幕左上角：
+					e.screenX/Y
+				2、相对于文档显示区的坐标：
+					e.clientX/Y
+					兼容性问题：e.x/y
+				3、相对于所在父元素左上角：
+					e.offsetX/Y
+
+
+
+
+

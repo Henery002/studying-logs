@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    svg{
+        background-color: #76bfb6;
+    }
+</style>
+<body>
+    <svg id="svg" width="1200" height="800">
+        <defs>
+            <!--
+            TODO 渐变+滤镜效果
+            TODO 设置滤镜（具有多种滤镜效果）
+                定义滤镜的容器元素
+                定义id属性值-方便后期调用
+             -->
+            <filter id="myfilter">
+                <!--
+                TODO 设置具体的滤镜效果
+                    in属性：
+                    stdDeviation属性：
+                -->
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4"></feGaussianBlur>
+            </filter>
+        </defs>
+        <!--
+        TODO 绘制高斯模糊效果
+            通过filter进行关联
+        -->
+        <rect x="110" y="110" width="100" height="100" fill="#0055dd" filter=url("#myfilter")></rect>
+    </svg>
+</body>
+</html>

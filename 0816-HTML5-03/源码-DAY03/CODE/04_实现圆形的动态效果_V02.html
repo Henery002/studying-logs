@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现圆形的动态效果</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    /*
+      TODO 增加需求
+      TODO * 每隔 100ms 生成这样的小球
+      TODO * 小球的颜色随机
+      TODO * 自下向上移动
+      TODO * 透明度由 1 变到 0 (当透明度为0时,将这个小球从画布中删除)
+     */
+
+    var y = canvas.height-20;
+    var alpha = 1;
+    /*
+      TODO requestAnimationFrame()动画方法
+      TODO * 默认提供定时器的时间(方法底层)
+      TODO 注意:
+      TODO * 浏览器的兼容性
+     */
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    /*
+     TODO 每刷新一次页面，圆形的填充颜色改变
+     TODO * 填充颜色每一次都是随机的
+     */
+    var r = Math.floor(Math.random()*255);
+    var g = Math.floor(Math.random()*255);
+    var b = Math.floor(Math.random()*255);
+    context.fillStyle = "rgb("+r+","+g+","+b+")";
+
+    function moveBall(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        context.globalAlpha = alpha;
+
+        context.beginPath();
+        context.arc(canvas.width/2,y,20,0,Math.PI*2);
+        context.closePath();
+        context.fill();
+
+        y--;
+        alpha -= 0.005;
+        //定时器
+        requestAnimationFrame(moveBall);
+    }
+    moveBall();
+
+    /*TODO setTimeout()定时器
+    function moveBall(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        context.beginPath();
+        context.arc(canvas.width/2,y,20,0,Math.PI*2);
+        context.closePath();
+        context.fill();
+
+        y--;
+        //定时器
+        setTimeout(moveBall,10);
+    }
+    moveBall();
+    */
+
+    /*TODO 周期性
+    setInterval(function(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        context.beginPath();
+        context.arc(canvas.width/2,y,20,0,Math.PI*2);
+        context.closePath();
+        context.fill();
+
+        y--;
+    },10);
+    */
+</script>
+</body>
+</html>

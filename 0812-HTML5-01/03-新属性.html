@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<fieldset>
+		<legend>新属性</legend>
+		<form action="" id='myform'>
+			<!-- 
+				autofocus属性
+				作用：自动获取焦点
+				注意：只定义属性名即可
+			-->
+			<label>用户名：<input type="text" autofocus value='请输入用户名'>
+			</label><br><br>
+			<!--
+				placeholder属性
+				提供默认提示内容
+				利用value属性完成（效果不好）
+				HTML5的placeholder属性
+			-->
+			<label>密&nbsp;码：<input type="text" autofocus placeholder='请输入密码'></label>
+			<br><br>
+			<!--
+				multiple属性
+				要求输入多个email地址
+				注意：默认只允许输入一个值
+				解决：HTML5的 multiple，多个地址用逗号,分隔
+			-->
+			email： <input type="email" multiple>
+			<br><br>
+			<input type="submit" ><br><br>
+		</form>
+			<!--
+				form属性：
+				作用：允许将表单元素定义在表单之外
+				注意：表单的元素默认必须被定义在表单内容
+					表单外定义的元素与表单无关
+			-->
+		<input type="text" form='myform'>
+	</fieldset>	
+	
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script>
+		
+	</script>	
+ </body>
+</html>

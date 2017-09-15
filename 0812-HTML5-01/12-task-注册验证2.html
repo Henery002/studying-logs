@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+  	body{
+  		font-family: 'microsoft yahei';
+  	}
+	.title h1{
+		text-align:center;
+		font-weight:normal;
+	}
+	form{
+		width:600px;
+		border:1px solid #ddd;
+		margin:0 auto;
+	}
+	.form-group{
+		margin:25px 0;
+	}
+	.input-box{
+		display:inline-block;
+	}
+	.col{
+		width:80px;
+		margin-left:20px;
+		display:inline-block;
+		text-align:right;
+	}
+	.tip{
+		width:250px;
+		height:25px;
+		line-height:25px;
+		border-radius:2px;
+		padding:0 10px;
+		/*display: inline-block;*/
+		display:none;
+	}
+	input{
+		width:200px;
+		height:25px;
+		line-height:25px;
+		border-radius:2px;
+		padding:0 10px;
+		box-sizing: border-box;
+	}
+	[type='submit']{
+		margin-left:110px;
+		background-color: #0f0;
+		color:#fff;
+		font-weight:bold;
+	}
+	.default{
+		background-color:#777;
+		color:#fff;
+	}
+	.success{
+		color:#fff;
+		background-color: #5cb85c;
+	}
+	.error{
+		color:#fff;
+		background-color: #d9534f;
+	}
+	.hide{
+		display: none;
+	}
+	.show{
+		color:#fff;
+		display: inline-block;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+ 	<div class='container'>
+		<div class='title'>
+			<h1>2016/08/13  H5-用户注册界面</h1>
+		</div>
+		<form class='form' action=''>
+		<!-- 用户名 -->
+			<div class='form-group'>
+				<label class='col' for='uname'>用户名：</label>
+				<div class='input-box'>
+					<input id='uname' type='text' autofocus class='form-control' placeholder="请输入用户名" required  pattern='^[a-zA-Z0-9]{8,16}$'></input>
+				</div>
+				<label id='unameTip' class='tip'>请输入8至16位英文或数字.</label>
+			</div>
+		<!-- 密码 -->
+			<div class='form-group'>
+				<label class='col' for='pwd'>密码：</label>
+				<div class='input-box'>
+					<input id='pwd' type='password' class='form-control' placeholder="请输入密码" required pattern='^[0-9]{6,12}$'></input></div>
+				<label id='pwdTip' class='tip'>请输入6至12位数字.</label>
+			</div>
+		<!-- 邮件 -->
+			<div class='form-group'>
+				<label class='col' for='email'>电子邮件：</label>
+				<div class='input-box'>
+					<input id='email' type='email' class='form-control' placeholder="请输入电子邮件" multiple required></input></div>
+				<label id='emailTip' class='tip'>请输入你的电子邮件地址</label>
+			</div>
+		<!-- 个人主页 -->
+			<div class='form-group'>
+				<label class='col' for='home'>个人主页：</label>
+				<div class='input-box'>
+					<input id='home' type='url' class='form-control' placeholder="请输入个人主页"></input></div>
+				<label id='homeTip' class='tip'>请输入你的个人主页(该项可忽略).</label>
+			</div>
+		<!-- 年龄 -->
+			<div class='form-group'>
+				<label class='col' for='age'>年龄：</label>
+				<div class='input-box'>
+					<input id='age' type='number' class='form-control' placeholder="请输入年龄" min='18' max='50' step='1' required></input></div>
+				<label id='ageTip' class='tip'>请输入你的年龄.</label>
+			</div>
+		<!-- 出生日期 -->
+			<div class='form-group'>
+				<label class='col' for='date'>出生日期：</label>
+				<div class='input-box'>
+					<input id='birth' type='date' class='form-control' placeholder="请选择出生日期" required></input></div>
+				<label id='birthTip' class='tip'>请输入你的出生日期</label>
+			</div>
+		<!-- 提交注册 -->
+			<div class='form-group'>
+				<div class='input-box'>
+					<input type='submit' class='btn btn-success btn-block' value='提交注册'></input>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script>
+		// 用户名验证
+		var uname = document.getElementById('uname');
+		var unameTip = document.getElementById('unameTip');
+		uname.onfocus = function(){
+			unameTip.className = 'tip show default';
+			unameTip.innerHTML = '请输入8至16位的英文或数字.';
+		}
+		uname.onblur = function(){
+			if(uname.validity.valid){
+				unameTip.className = 'tip show success';
+				unameTip.innerHTML = '用户名正确';
+			}else if(uname.validity.valueMissing){
+				unameTip.className = 'tip show error';
+				unameTip.innerHTML = '用户名不能为空';
+			}else if(uname.validity.patternMismatch){
+				unameTip.className = 'tip show error';
+				unameTip.innerHTML = '用户名输入有误';
+			}
+		}
+		// 密码验证
+		var pwd = document.getElementById('pwd');
+		var pwdTip = document.getElementById('pwdTip');
+		pwd.onfocus = function(){
+			pwdTip.className = 'tip show default';
+			pwdTip.innerHTML = '请输入6至12位数字.'
+		}
+		pwd.onblur = function(){
+			if(pwd.validity.valid){
+				pwdTip.className = 'tip show success';
+				pwdTip.innerHTML = '密码格式正确';
+			}else if(pwd.validity.valueMissing){
+				pwdTip.className = 'tip show error';
+				pwdTip.innerHTML = '密码不能为空';
+			}else if(pwd.validity.patternMismatch){
+				pwdTip.className = 'tip show error';
+				pwdTip.innerHTML = '密码输入有误';
+			}
+		}
+		// 邮箱验证
+		var email = document.getElementById('email');
+		var emailTip = document.getElementById('emailTip');
+		email.onfocus = function(){
+			emailTip.className = 'tip show default';
+			emailTip.innerHTML = '请输入你的电子邮件地址.';
+		}
+		emailTip.onblur = function(){
+			if(email.validity.valid){
+				emailTip.className = 'tip show success';
+				emailTip.innerHTML = '邮箱格式正确';
+			}else if(email.validity.valueMissing){
+				emailTip.className = 'tip show error';
+				emailTip.innerHTML = '邮箱不能为空';
+			}else if(email.validity.typeMismatch){
+				emailTip.className = 'tip show error';
+				emailTip.innerHTML = '邮箱输入有误';
+			}
+		}
+		// 主页验证
+		var home = document.getElementById('home');
+		var homeTip = document.getElementById('homeTip');
+		home.onfocus = function(){
+			homeTip.className = 'tip show default';
+			homeTip.innerHTML = '请输入你的个人主页(该项可忽略).';
+		}
+		home.onblur = function(){
+			if(home.validity.valid){
+				homeTip.className = 'tip show success';
+				homeTip.innerHTML = '个人主页正确';
+			}else if(home.validity.typeMismatch){
+				homeTip.className = 'tip show error';
+				homeTip.innerHTML = '个人主页输入有误';
+			}
+		}
+		// 年龄验证
+		var age = document.getElementById('age');
+		var ageTip = document.getElementById('ageTip');
+		age.onfocus = function(){
+			ageTip.className = 'tip show default';
+			ageTip.innerHTML = '请输入你的年龄';
+		}
+		age.onblur = function(){
+			if(age.validity.valid){
+				ageTip.className = 'tip show success';
+				ageTip.innerHTML = '年龄输入正确';
+			}else if(age.validity.valueMissing){
+				ageTip.className = 'tip show error';
+				ageTip.innerHTML = '年龄不能为空';
+			}else if(age.validity.rangeUnderflow){
+				ageTip.className = 'tip show error';
+				ageTip.innerHTML = '年龄太小了，不符合要求';
+			}else if(age.validity.rangeOverflow){
+				ageTip.className = 'tip show error';
+				ageTip.innerHTML = '年龄太大了，不符合要求';
+			}
+		}
+		// 生日验证
+		var birth = document.getElementById('birth');
+		var birthTip = document.getElementById('birthTip');
+		birth.onfocus = function(){
+			birthTip.className = 'tip show default';
+			birthTip.innerHTML = '请选择你的生日';
+		}
+		birth.onblur = function(){
+			birthTip.className = 'tip hide';
+		}
+	</script>	
+ </body>
+</html>

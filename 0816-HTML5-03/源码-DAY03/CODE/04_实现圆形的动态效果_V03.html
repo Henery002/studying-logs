@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现圆形的动态效果</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 使用面向对象的概念
+      TODO * 将这个小球当做是一个对象
+      TODO * 属性
+      TODO   * 小球的圆心坐标值(x和y)
+      TODO   * 小球的填充颜色
+      TODO   * 小球的透明度
+      TODO * 方法
+      TODO   * 绘制方法 - 只是绘制静态效果
+      TODO   * 移动方法 - 自下向上移动、透明度减小
+     */
+    function Ball(){
+        //TODO 属性
+        this.x = canvas.width/2;
+        this.y = canvas.height-20;
+        this.r = Math.floor(Math.random()*255);
+        this.g = Math.floor(Math.random()*255);
+        this.b = Math.floor(Math.random()*255);
+        this.color = "rgb("+this.r+","+this.g+","+this.b+")";
+        this.alpha = 1;
+        //TOTO 方法
+        this.paint = function(){
+            //TODO 清除整个画布
+            context.clearRect(0,0,canvas.width,canvas.height);
+            //TODO 设置小球的填充颜色
+            context.fillStyle = this.color;
+            //TODO 设置小球的透明度
+            context.globalAlpha = this.alpha;
+            //TODO 重新绘制小球
+            context.beginPath();
+            context.arc(this.x,this.y,20,0,Math.PI*2);
+            context.closePath();
+            context.fill();
+        }
+        this.move = function(){
+            //TODO 自下向上
+            this.y--;
+            //TODO 透明度减小
+            this.alpha -= 0.005;
+        }
+    }
+    //TODO 创建小球对象
+    var ball = new Ball();
+
+    setInterval(function(){
+        ball.paint();
+        ball.move();
+    },10);
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<h1>使用JS触发事件</h1>
+	<button>1、链接到远程数据库</button>
+	<button>2、修改数据库中数据</button>
+	<button>3、断开数据库链接</button>
+
+	<button id='btAll'>链 接--断 开--修 改</button>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('button:contains("链接")').on('click',function(){
+			console.log('链接到远程数据库...');
+		});
+		$('button:contains("修改")').on('click',function(){
+			console.log('修改到远程数据库...');
+		});
+		$('button:contains("断开")').on('click',function(){
+			console.log('断开到远程数据库...');
+		});
+		//使用JS触发事件
+		$('#btAll').on('click'.function(){
+			$('')
+		});
+	</script>	
+ </body>
+</html>

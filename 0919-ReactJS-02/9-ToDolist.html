@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ToDolist</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    //TODO 创建组件
+    //TODO ToDoBox
+    var ToDoBox = React.createClass({
+        getInitialState:function(){
+            return {data:[]};
+        },
+        handleAdd:function(str){
+            //TODO 读取数据
+            var newData = this.state.data;
+            newData.push(str);
+            this.setState({data:newData});
+            console.log(this.state.data);
+        },
+        handleDelete:function(index){
+            var newData = this.state.data;
+            newData.splice(index,1);
+            this.setState({data:newData});
+            console.log(newData);
+        },
+        render:function(){
+            return (
+                <div>
+                    <h1>待做事项列表</h1>
+                    <ToDoInput handleAdd={this.handleAdd}/>
+                    <ToDoList handleDelete={this.handleDelete} allData={this.state.data}/>
+                </div>
+            )
+        }
+    });
+    //TODO ToDoInput
+    var ToDoInput = React.createClass({
+        handleClick:function(){
+            //TODO 读取父组件传过来的数据，用props
+            this.props.handleAdd(this.refs.inputArea.value);
+        },
+        render:function(){
+            return (
+                <div>
+                    <input ref="inputArea" type="text" placeholder="请输入待做事项..."/>
+                    <button onClick={this.handleClick}>添加</button>
+                </div>
+            );
+        }
+    });
+    //TODO ToDoList
+    var ToDoList = React.createClass({
+        setUpList:function(){
+            return (this.props.allData.map(function(content,index){
+                    return <ToDoItem name={content} index={index} key={index} handleDel={this.props.handleDelete}/>
+                }.bind(this))
+            )
+        },
+        render:function(){
+            return (
+                <div>
+                    <ul>
+                        {this.setUpList()}
+                    </ul>
+                </div>
+            )
+        }
+    });
+    //TODO ToDoItem
+    var ToDoItem = React.createClass({
+        handleClick:function(){
+            this.props.handleDel(this.props.index);
+        },
+        render:function(){
+             return(
+                 <li>
+                     <button onClick={this.handleClick}>删除</button>
+                     <span>{this.props.name}</span>
+                 </li>
+             )
+        }
+    });
+    //TODO 渲染组件
+    ReactDOM.render(
+        <ToDoBox/>,
+        document.getElementById('example')
+    );
+</script>
+</html>

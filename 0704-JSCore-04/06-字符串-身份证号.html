@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var pid="320721199210014714";
+			   //012345678901234567
+		//根据身份证号码判断性别
+		var gender=(pid[pid.length-2]%2==1)?"男":"女";
+		//根据身份证号码计算年龄
+		var age=2016-pid.slice(6,10);	//截取
+		console.log(gender);
+		console.log(age);
+	</script>	
+ </body>
+</html>

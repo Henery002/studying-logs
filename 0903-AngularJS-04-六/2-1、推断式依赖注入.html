@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>1、推断式注入方式</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <button ng-click="callshow()">快点我</button>
+    </div>
+</body>
+    <script>
+        //1、推断式注入方式
+        var app = angular.module('myApp',[]);
+        //自定义服务 $show
+        app.factory('$show',function($window){
+            return{
+                //定义了一个变量
+                name:'customer',
+                //定义了一个方法
+                show:function(text){
+                    //alert('');
+                    $window.alert(text);
+                }
+            }
+        })
+        app.controller('myCtrl',function($scope ,$show){    //此处注入的服务顺序无关
+            $scope.callshow = function(){
+                //$location.host();
+                $show.show('Hello Injector');   //调用方法
+                console.log($show.name);        //调用属性
+            }
+        });
+    </script>
+</html>

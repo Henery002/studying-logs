@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>props ref state综合练习</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+
+    var AComponent = React.createClass({
+        handlerChange:function(){
+            //console.log(this.refs.InputBox.value);
+            this.props.handlerChange1(this.refs.InputBox.value);
+        },
+        render:function(){
+            return <input ref='InputBox' onChange={this.handlerChange} />
+        }
+    });
+
+    var BComponent = React.createClass({
+        handlerClick:function(){
+              this.props.handlerClick1();
+        },
+        render:function(){
+            return <button onClick={this.handlerClick}>ClickMe</button>
+        }
+    })
+
+    var MainComponent = React.createClass({
+        getInitialState:function(){
+            return {value:0};
+        },
+        handlerChange:function(num){
+            console.log("num is "+num);
+            this.setState({value:num})
+        },
+        handlerClick:function(){
+            alert(this.state.value);
+        },
+        render:function(){
+            return(
+                <div>
+                    <AComponent
+                        handlerChange1={this.handlerChange} />
+                    <BComponent
+                        handlerClick1={this.handlerClick}/>
+                </div>
+            )
+        }
+    })
+
+    ReactDOM.render(<MainComponent/>,
+    document.getElementById('example'))
+
+
+</script>
+
+
+</body>
+</html>

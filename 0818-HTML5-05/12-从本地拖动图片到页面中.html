@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #d1{
+        border:1px solid #333;
+        width:400px;
+        height:600px;
+        margin:0 auto;
+    }
+</style>
+<body>
+    <div id="d1"></div>
+</body>
+<script>
+    /*
+    TODO 目标元素
+
+    */
+    var d1 = document.getElementById('d1');
+    d1.ondragover = function(event){
+        event.preventDefault();
+    }
+    d1.ondrag = function(event){
+        var transfer = event.dataTransfer;
+        /*
+        * TODO 通过dataTransfer对象
+        *       得到files属性   --  FilesList属性
+        *       获取的文件列表
+        *       可以通过files属性得到本地拖动的图片的相关数据。
+        * TODO  FileList类型的说明
+        *       将该类型当做数组处理
+        * */
+        console.log(transfer);
+        /*
+        * TODO 创建filereader对象
+        *       new FileReader()
+        *       通过FileReader对象的readAsDataUrl()方法进行解析
+        * */
+        var reader = new FileReader();
+        reader.readerAsDataUrl(file);
+        //TODO 表示读取文件完毕后
+        reader.onload = function(){
+            console.log(reader.result);
+            d1.innerHTML = "<img src='"+src+"'>";
+        };
+        event.preventDefault();
+    }
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>以中心点来旋转的案例</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    //TODO 1.将旋转的左上角移动到正中心位置
+    context.translate(canvas.width/2,canvas.height/2);
+
+    (function zhuan(){
+        //TODO 1.清除之前绘制的图形
+        context.clearRect(-canvas.width/2,-canvas.height/2,canvas.width,canvas.height);
+        //TODO 2.绘制一个矩形
+        context.fillStyle = '#0055dd';
+        context.fillRect(-150,-150,300,300);
+        //TODO 3.旋转
+        context.rotate(Math.PI/180*10);
+
+        requestAnimationFrame(zhuan);
+    })();
+</script>
+</body>
+</html>

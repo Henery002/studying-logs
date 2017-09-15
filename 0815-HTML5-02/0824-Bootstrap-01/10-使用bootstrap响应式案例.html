@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    header{
+        background-color: #9933cc;
+        color:#fff;
+        padding: 15px;
+    }
+    aside ul{
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    aside li{
+        padding:8px;
+        margin-bottom: 7px;
+        background-color: #33b5e5;
+        color: #fff;
+    }
+</style>
+<body>
+<!--TODO 定义容器-->
+    <div class="container-fluid">
+        <div class="row">
+            <header class="col-md-12">
+                <h1>Bootstrap实现的响应式</h1>
+            </header>
+        </div>
+        <div class="row">
+            <aside class="col-md-3 hidden-xs">
+                <ul class="bg-warning">
+                    <li>菜单</li>
+                    <li>菜单</li>
+                    <li>菜单</li>
+                    <li>菜单</li>
+                </ul>
+            </aside>
+            <article class="col-md-9 col-xs-12 ">
+                <h2>标题</h2>
+                <p class="text-primary bg-success">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur at aut, beatae cumque distinctio dolore exercitationem harum impedit labore minus necessitatibus odio optio possimus recusandae reprehenderit, tempora tempore vitae.</p>
+                <p class="text-justify bg-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur at aut, beatae cumque distinctio dolore exercitationem harum impedit labore minus necessitatibus odio optio possimus recusandae reprehenderit, tempora tempore vitae.</p>
+            </article>
+        </div>
+    </div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

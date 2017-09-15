@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Two.js实现动画(了解)</title>
+    <script src="js/two.js"></script>
+</head>
+<body>
+<div id="show"></div>
+<script>
+    var elem = document.getElementById("show");
+    var two = new Two({
+        width : 500,
+        height : 500
+    });
+    two.appendTo(elem);
+    //TODO 绘制静态图像
+    var circle = two.makeCircle(-70, 0, 50);
+    var rect = two.makeRectangle(70, 0, 100, 100);
+    circle.fill = '#FF8000';
+    rect.fill = 'rgba(0, 200, 255, 0.75)';
+
+    var group = two.makeGroup(circle, rect);
+    group.translation.set(two.width / 2, two.height / 2);
+    group.scale = 0;
+    group.noStroke();
+    /*
+        TODO 如何实现动画
+        TODO * update() - 表示每次更新绘制最新的图形效果
+        TODO * play() - 表示提供循环执行的动画方法
+        TODO * pause() - 表示停止执行的循环动画
+     */
+    two.bind('update', function(frameCount) {
+        /*
+         TODO 判断图形的缩放比例接近于 原大小
+         */
+        if (group.scale > 0.9999) {
+            //TODO 将图形缩放到不显示,不旋转
+            group.scale = group.rotation = 0;
+        }
+        var t = (1 - group.scale) * 0.125;
+        //TODO 不断地放大图形
+        group.scale += t;
+        //TODO 图形不断地旋转
+        group.rotation += t * 4 * Math.PI;
+    }).play();
+</script>
+</body>
+</html>

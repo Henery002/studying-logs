@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+ <head>
+  <title> 找出一个数组中的最大值 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//1、定义函数，找出一个数组中的最大值
+		function findMax(){
+			var array=[12,122,20,7,54,69,234,22,65];	//1、声明一个整数数组
+			var max = array[0];		//2、将第一个元素的值赋给max
+			//console.log(array.length);		
+			for(var i=1;i<=array.length;i++){		//3、循环遍历数组，从第二个元素开始依次与max做比较,...
+				if(max<array[i]){
+					max = array[i];
+				}
+			}
+			console.log(max);
+		}
+
+		//2、在数组中查找指定元素的位置/索引
+		function findLocal(){
+			var array = [12,24,5,1,77,56,32,88,154];
+			var input = parseInt(prompt("请输入您要查找的元素（仅限数字）："));
+			document.write("该数组中所有元素为："+array);	//1、声明一个变量用于保存用户输入的数据
+			var index = -1;			//2、
+			for(var i=0;i<=array.length;i++){
+				if(input == array[i]){
+					//alert(input+" 在数组中为第 "+(i+1)+" 个元素");
+					index = i;
+					alert(input+" 在数组中为第 "+(i+1)+" 个元素");
+				}
+			}
+			if(index == -1){
+				alert("您输入的数值不存在。");
+			}
+			//else{
+			//	alert(input+" 在数组中为第 "+(i+1)+" 个元素");
+			//}
+		}
+
+		//???????????????????????//3、在数组中查找指定元素的位置（有重复元素）
+		function getIndex(){
+			var array = [12,24,56,1,77,56,56,88,154];
+			var input = parseInt(prompt("请输入您要查找的数值："));
+			document.write("该数组中所有元素为："+array);	//1、声明一个变量用于保存用户输入的数据
+			var numbers = [];	//2、声明一个空数组用于保存查找到的索引
+			for(var i=0;i<=array.length;i++){
+				if(input == array[i]){
+					numbers[numbers.length] == i;
+					//alert(input+" 在数组中为第 "+(i+1)+" 个元素");
+				}else if(input == 0){
+					alert("您输入的数值不存在，请重新输入。");
+					break;
+				}
+			}
+			//alert("该数组为："+array[]);
+			//alert("该元素在数组中的位置是："+i);
+		}
+		//findLocal();
+	</script>
+	<button onclick="findMax()">找出一个数组中的最大值</button><br><br>
+	<button onclick="findLocal()">在数组中查找指定元素的位置</button><br><br>
+	<button onclick="getIndex()">在数组中查找元素重复位置的索引</button>
+ </body>
+</html>

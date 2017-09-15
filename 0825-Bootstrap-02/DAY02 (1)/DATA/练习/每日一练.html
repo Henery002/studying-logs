@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>每日一练：BootDay02</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+		<style>
+			#d1{
+				position:absolute;
+				border:1px solid black;
+				background-color:#ddd;
+				width:250px;
+				height:200px;
+				left:20px;
+				top:200px;
+			}
+			#d1>span{
+				float:right;
+				margin-right:10px;
+				cursor:pointer;
+			}
+		</style>
+</head>
+<body>
+	<div id="d1">
+		<span>X</span>
+		<h3>BootStrapDay02每日一练：编写响应式页面</h3>
+            <p>
+                1、完成页面效果；<br>
+                2、PC和PAD中：第一行4/3；第二行2/8/2<br/>
+				3、SM下：第一行6/4；第二行3/9<br/>
+				4、XS下：第一行12/12；只显示图片，不显示文字
+			</p>
+	</div>
+    <div class="container">
+        <div class="row bg-info">
+            <div class="col-md-4 col-sm-6">
+                <ul class="list-inline">
+                    <li><a href="">首页</a></li>
+                    <li><a href="">影集</a></li>
+                    <li><a href="">活动</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-md-offset-5 col-sm-4 col-sm-offset-2">
+                <input class="form-control" type="text" placeholder="Search...."/>
+            </div>
+        </div>
+
+
+
+    <div class="row">
+        <div class="col-md-2 col-sm-3 bg-warning">
+            <ul class="list-unstyled">
+                <li><a href="#">豆蔻年华</a></li>
+                <li><a href="#">青葱岁月</a></li>
+                <li><a href="#">激情岁月</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-sm-9 bg-success">
+            <div class="row">
+                <div class="col-sm-3 col-xs-6"><img class="img-responsive" src="img/1.jpg" alt=""/></div>
+                <div class="col-sm-3 col-xs-6"><img class="img-responsive" src="img/2.jpg" alt=""/></div>
+                <div class="col-sm-3 col-xs-6"><img class="img-responsive" src="img/3.jpg" alt=""/></div>
+                <div class="col-sm-3 col-xs-6"><img class="img-responsive" src="img/4.jpg" alt=""/></div>
+            </div>
+            <p class="text-justify"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium, amet consectetur consequuntur eos, facilis illum magnam nobis officiis perspiciatis possimus quo ratione recusandae repudiandae sint sit voluptatem! Quibusdam, voluptate!</span><span>Accusamus accusantium asperiores, aut autem beatae commodi cum debitis dignissimos dolor expedita fugit, illum itaque laboriosam molestiae non obcaecati officiis pariatur placeat possimus quas recusandae repudiandae soluta, temporibus tenetur voluptate?</span><span>Ab delectus dolorum id labore, laborum maiores omnis sit tempore! Ab adipisci animi architecto corporis deleniti, deserunt ex facere incidunt inventore laborum minus quod repudiandae sapiente sequi vel velit voluptate?</span><span>Ad alias aliquid architecto, culpa deserunt dolorum ducimus eos exercitationem fugit iste laudantium magnam magni maxime molestias nihil nisi obcaecati quaerat quasi qui recusandae saepe, sunt suscipit totam ut, vel?</span><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ducimus esse iure magni nemo praesentium repudiandae ut. Aut corporis eum excepturi expedita ipsa non odit, quod, repellendus rerum totam voluptatem.</span><span>Autem, beatae distinctio incidunt natus quae reprehenderit sint. Accusamus, ad alias aliquid aperiam asperiores consequatur cum eveniet laudantium minus molestias natus nesciunt nisi officiis omnis porro possimus quasi vel voluptates.</span><span>Adipisci aperiam aspernatur assumenda distinctio, iure, libero magni minus odit reiciendis reprehenderit tenetur velit. Accusamus consequatur deserunt dicta dignissimos eos hic, itaque modi, necessitatibus neque nostrum officia perferendis soluta tempora.</span><span>Accusamus asperiores deleniti deserunt et iure, libero necessitatibus officia, possimus quia quod repellendus rerum sed sit vel voluptatum. Accusamus aspernatur ducimus ex recusandae similique tenetur voluptatum! Corporis eaque earum laudantium?</span><span>A amet aspernatur dignissimos distinctio, eaque ex fugit labore, non nostrum odit quas reiciendis sed tenetur voluptas voluptatibus. Delectus deleniti, distinctio dolores facilis iste laborum molestiae qui ratione sapiente vitae.</span><span>Cum ea error iusto magnam porro quam quas sed vero. Atque autem doloremque eius enim excepturi modi, non numquam perferendis possimus quasi quis quos similique temporibus ullam vero voluptas voluptates.</span> </p>
+        </div>
+        <div class="col-md-2 hidden-sm hidden-xs bg-error">
+            <div class="right">
+                <p class="text-justify"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span><span>Accusantium ad aut commodi deleniti dignissimos distinctio ducimus eum explicabo, fugiat hic illum ipsum laboriosam laborum maxime nobis odio officiis provident quasi quis quos sed unde veritatis vero vitae voluptates.</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!--页脚-->
+    <div class="row bg-primary">
+        <div class="col-xs-12">
+            <div class="footer">
+                <p class="text-center">
+                    COPYRIGHT ® TARENA.COM 2016
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+	<script>
+		$('#d1>span').click(function(){
+			$('#d1').hide();
+		});
+	</script>
+</body>
+</html>

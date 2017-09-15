@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<h1>使用each给每个分数+5分</h1>
+	
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script>
+		var list=[50,60,70];
+		//处理list
+		$.each(list,function(i,v){
+			//console.log(i+'-'+v);
+			list[i]+=5;
+		})
+		console.log(list);
+	</script>
+
+	<ul id="scoreList">
+		<li>50</li>
+		<li>60</li>
+		<li>70</li>
+	</ul>	
+	<script>
+		//处理ul>li
+		$('#scoreList>li').each(function(i,li){
+			var v=(parseFloat(li.innerHTML)+5);
+			//console.log(v);
+			li.innerHTML=v;		//直接修改了ul>li中的值
+		});
+	</script>	
+ </body>
+</html>

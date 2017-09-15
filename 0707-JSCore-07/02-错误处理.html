@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//笔试题：
+		var m=3;
+		function fun(){
+			try{
+				m++;		//4
+				return m;
+			}catch(err){	//不一定会执行
+				//m++;
+				//return m;
+			}finally{		//一定会执行
+				m++;
+				//return m;
+			}
+		}	
+		var n=3;
+		function fun2(){
+			try{
+				n++;		//4
+				p++;
+				//return m;
+			}catch(err){	//不一定会执行
+				n++;
+				return n;
+			}finally{		//一定会执行
+				n++;
+				//return n;
+			}
+		}	
+		console.log(fun());		//4
+		console.log(m);			//5
+		console.log(fun2());	//5
+		console.log(n);			//6
+	</script>	
+ </body>
+</html>

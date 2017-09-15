@@ -1,0 +1,67 @@
+1、***修改：
+	1、修改内容：
+		1、获取或修改元素开始标签和结束标签之间的html内容：
+			elem.innerHTML
+		2、获取或修改元素开始标签和结束标签之间的纯文本内容（去掉标签，将特殊符号转为正文）：
+			elem.textContent
+			专门用途：
+				去掉内容中的标签，仅保留文字
+				IE8中使用innerText
+	2、修改属性：
+		1、"核心DOM"：get、set、remove。万能，但是繁琐
+			1、获取属性值：【【月考题！！】】
+				1、//获得属性节点对象
+					var attrNode=elem.attributes[i]; 或 下标i写成属性名
+								 elem.attributes('属性名');
+					attrNode.value		//获得属性节点的值		
+						eg:
+							a1.attributes['href'].value	//获取到a标签的href的值	
+				2、//直接获得属性值
+					var value=elem.getAttribute('属性名');
+			2、设置属性值：
+				elem.setAttribute('属性名',属性值);	//属性值会隐式转换成字符串
+			3、移除属性：
+				elem.removeAttribute('属性名');
+			4、判断是否包含指定属性：
+				elem.hasAttribute('属性名');
+		2、"HTML DOM"：
+			1、所有html标准的属性，自动成为元素对象的属性。可用 . 访问。
+				元素对象的属性和普通对象的属性用法完全相同。
+				强调：HTML DOM只能访问标准属性，
+					  自定义属性只能用核心DOM访问
+
+			特殊：HTML class	-->		js className
+				建议：修改样式，首选className修改
+
+		"自定义属性：HTML5规定"
+			什么是：开始标签中，data-开头 的属性
+				data-i		data-age	data- 是HTML5中自定义属性的标志		
+			如何获取自定义属性值：
+				elem.dataset.i
+
+	3、修改样式：
+		1、内联样式：
+			1、获取或设置：
+				elem.style.css属性名 = 值
+				强调：只能获得内联样式
+				优点：修改一个元素的样式时，又不影响其他元素。
+				何时使用：只要修改一个元素的样式时，首选 style.css属性名 的方式
+				强调：css属性名：
+					将css中的属性名去掉 - ，变 驼峰命名法
+					font-size  ->  fontSize
+					background-color  ->  backgroundColor
+					list-style-type  ->  listStyleType
+		2、内部/外部：
+			1、获取最终应用到当前元素的计算后的样式
+				var style=getComputedStyle(elem)		//返回的是一个style对象
+					style.css属性名
+				何时使用：只要想获得一个元素完整的样式，就要用getComputedStyle(elem)
+			2、修改样式表中的样式：强烈不建议
+				样式表对象模型：COM
+					步骤：
+					1、每个样式表都是一个sheet对象：
+						var sheet = document.styleSheets[i];
+					2、每个选择器后的 {...}，就是一个cssRule规则。
+						var cssRule = sheet.cssRules[i];
+					3、访问每个cssRule中的一个样式属性：
+						cssRule.style.css属性

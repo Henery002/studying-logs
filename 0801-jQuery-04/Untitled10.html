@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <script></script>
+  <style></style>
+ </head>
+ <body>
+	<ul>
+		<li>123</li>
+		<li>32</li>
+		<li>55</li>
+	</ul>	
+  <script src='../js/jquery-1.11.3.js'></script>
+  <script src='../js/jquery-ui.js'></script>
+  <script>
+	var arr=[12,3,4443];
+	$.each(arr,function(i,v){
+		arr[i]+=5;
+	});
+	console.log(arr);
+	$('li').each(function(i,li){
+		var liNum=parseFloat(this.innerHTML);	//此处this可以换成li
+		liNum+=5;
+		this.innerHTML=liNum;			//此处this可以换成li
+	})
+  </script>
+ 
+ </body>
+</html>

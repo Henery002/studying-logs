@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//定义round函数，实现对num按任意小数位数四舍五入
+		function round(num,d){
+			//num*10的 d 次方
+			//将num四舍五入取整
+			//返回 num/ 10 的 d 次方
+			//num*=Math.pow(10,d);
+			//num=Math.round(num*=Math.pow(10,d));
+			return (num=Math.round(num*=Math.pow(10,d)))/Math.pow(10,d);	//可把上两行简写成一句
+		}
+		console.log(round(345.555,2),	//按2位小数舍入
+					round(345.678,0),	//按整舍入
+					round(345.678,-1)	//按...
+					);
+	</script>	
+ </body>
+</html>

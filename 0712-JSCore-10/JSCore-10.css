@@ -1,0 +1,101 @@
+回顾：
+1、*****ES5:
+	对象的属性：
+		命名属性：
+			数据属性：
+				四大特性：
+					value:
+					writable:
+					enumerable:
+					configurable:
+			访问器属性：
+				何时使用：只要用自定义规则保护属性时，就都要用访问器属性。
+				如何使用：2步：
+					1、定义局部变量，以实际存储属性值
+					2、定义访问器属性，读写局部变量的值 -- 形成闭包
+		内部属性：
+
+		防篡改：3个级别：
+			1、防扩展：Object.preventExtensions(obj);
+			2、密封：  Object.seil(obj);
+			3、冻结：  Object.freeze(obj);
+
+		Object.create():创建一个子对象，继承父对象，同时为子对象扩展自由属性。
+		
+		数组API：
+			1、判断：
+				arr.every(function(val,idx,arr){
+					return 条件;
+				});
+				arr.some(function(val,idx,arr){
+					return 条件;
+				});
+			2、遍历：
+				arr.forEach(function(val,idx,arr){
+					对arr[idx]直接操作;
+				});
+				var arr1=arr.map(function(val,idx,arr){
+					return 对arr[idx]操作后的值;
+				});
+
+正课：
+1、*****ES5：
+	1、数组API（续）：
+		1、...
+		2、...
+		3、过滤和汇总：
+			过滤：筛选出arr中符合条件的元素组成新数组。
+				var sub=arr.filter(function(val,idx,arr){
+					return 条件;
+				});
+				这种做法不修改原数组。
+
+			汇总：将当前数组中的所有元素统计出一个结果。
+				var r=arr.reduce(function(prev,val,idx,arr){
+					return 将val汇总到prev中的结果;
+				},base);
+				base：用来设置起始的汇总值。
+				表示依次将arr中的每个值 ，汇总到prev中。
+				说明：prev获得的是 截止idx位置之前的所有元素值的临时汇总。
+		
+	2、*****bind:
+		bind：基于一个现有函数，创建一个新函数，同时永久绑定this对象和部分参数。
+			为什么：
+				call和apply:
+					临时借用函数，替换其中的this，传入参数。
+				问题：都是临时借用，临时替换this。
+				解决：用bind
+			何时使用：希望永久绑定this和部分参数时
+			如何使用：
+				var fun=Fun.bind(obj,参数,参数2,...);
+				意思是：基于已有的Fun函数，返回一个新函数，
+					同时永久绑定新函数中的this为obj，再同时绑定部分参数值为参数1,参数2,...
+			
+			"【eg：例-02;	bind】"
+
+	3、严格模式：
+		启用：代码段顶部："use strict";
+			2处：
+				1、script的开始
+				2、函数的开始
+		规则：
+			1、将静默失败升级为错误
+			2、禁止对未声明过的变量赋值
+				(function(){
+					"use strict";
+					m=12;	//报错：m is not defined
+					console.log(m);
+				})();
+			3、禁用了arguments.callee
+				(function(){
+					"use strict";
+					arguments.callee();	//报错： 'caller', 'callee', and 'arguments' properties 
+											   //may not be accessed on strict mode functions or 
+											   //the arguments objects for calls to them.
+				})();
+			4、多了eval作用域
+				(function(){
+					'use strict';
+					eval("var sum=2+3");
+					console.log(sum);	//报错：sum is not defined
+				})();

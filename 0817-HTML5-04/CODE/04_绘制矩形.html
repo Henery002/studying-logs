@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绘制矩形</title>
+</head>
+<body>
+<svg width="500" height="500" style="background-color: coral">
+    <!--
+        TODO 绘制矩形
+        TODO <rect>标签
+        TODO * 绑定 DOM 事件及 DOM 进行操作
+        TODO * 属性
+        TODO   * x和y - 绘制矩形的左上角坐标值
+        TODO   * width和height - 绘制矩形的宽度和高度
+        TODO * 效果
+        TODO   * 默认填充颜色为 黑色
+        TODO   * 默认绘制效果为 实心矩形
+    -->
+    <rect x="10" y="10" width="100" height="100"></rect>
+    <!--
+        TODO 设置图形的样式
+        TODO * fill属性 - 设置填充样式
+        TODO * stroke属性 - 设置描边样式
+        TODO 建议使用这种方式
+    -->
+    <rect x="10" y="120" width="100" height="100" fill="white" stroke="black"></rect>
+    <!--
+        TODO SVG的样式属性,通过style属性设置
+    -->
+    <rect x="10" y="230" width="100" height="100" style="fill: white;stroke: black;"></rect>
+    <!--
+        TODO fill-opacity设置填充透明度的值
+    -->
+    <rect x="10" y="340" width="100" height="100" fill-opacity="0" stroke="black"></rect>
+    <!--
+        TODO 绘制圆角矩形
+        TODO * rx - 表示水平方向的圆角半径
+        TODO * ry - 表示垂直方向的圆角半径
+    -->
+    <rect x="120" y="10" width="100" height="100" rx="20" ry="20"></rect>
+
+    <rect x="120" y="120" width="100" height="100" rx="10" ry="20"></rect>
+    <!--
+        TODO * 圆角矩形的宽度和高度一致
+        TODO * rx和ry分别为宽度和高度的一半
+        TODO 最终绘制圆形效果
+    -->
+    <rect x="120" y="230" width="100" height="100" rx="50" ry="50"></rect>
+    <!--
+        TODO * 圆角矩形的宽度和高度不一致
+        TODO * rx和ry分别为宽度和高度的一半
+        TODO 最终绘制椭圆形效果
+    -->
+    <rect x="120" y="340" width="200" height="100" rx="100" ry="50"></rect>
+</svg>
+</body>
+</html>

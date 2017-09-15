@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .btn-group>a,.btn-group>a>span{
+        color:#00549D;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 一、分页效果（不是功能）
+                HTML标签：
+                    容器元素：<nav>
+                    分页元素：<ul>、<li>
+        -->
+        <nav>
+            <ul class="pagination">
+                <!--TODO 前n页切换按钮-->
+                <li><a href="#">
+                    <span>&laquo;</span>
+                </a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <!--TODO 后n页切换按钮-->
+                <li><a href="#">
+                    <span>&raquo;</span>
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+    <!--TODO 二、利用按钮组组件完成分页效果-->
+    <div class="row">
+        <div class="btn-group">
+            <a href="#" class="btn btn-default">
+                <span>&laquo;</span>
+            </a>
+            <a href="#" class="btn btn-default">1</a>
+            <a href="#" class="btn btn-default">2</a>
+            <a href="#" class="btn btn-default">3</a>
+            <a href="#" class="btn btn-default">
+                <span>&raquo;</span>
+            </a>
+        </div>
+    </div>
+    <!--TODO 翻页(上一页和下一页)-->
+    <div class="row">
+        <nav>
+            <ul class="pager">
+                <li><a href="#">上一页</a></li>
+                <li><a href="#">下一页</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

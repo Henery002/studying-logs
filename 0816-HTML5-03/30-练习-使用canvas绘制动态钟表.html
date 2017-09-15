@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用canvas绘制动态钟表</title>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600" style="border:1px solid #aaa;"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById('canvas');
+        var GC = canvas.getContext('2d');
+        function getCircle(){
+            var x = 300;
+            var y = 300;
+            var r = 200;
+            //获取系统当前时间
+            var date = new Date();
+            var getSecond = date.getSeconds();
+            var getMin = date.getMinutes();
+            var getHours = date.getHours();
+            //计算角度
+            var hourDeg = (-90+getHours*30 + getMin/2)*Math.PI/180;
+            var minDeg = (-90+getMin*6)*Math.PI/180;
+            var secondDeg = (-90+getSecond*6)*Math.PI/180;
+            //清空画布
+            GC.clearRect(0,0,GC.width,GC.height);
+            //利用循环绘制圆形表盘    --  秒针
+            GC.beginPath();
+            for(var i=0;i<60;i++){
+                GC.moveTo(x,y);
+                GC.arc(x,y,r,6*(i)*Math.PI/180,6*(i+1)*Math.PI/180,false);
+            }
+            GC.closePath();
+            GC.stroke();
+            //绘制同心圆覆盖外表盘
+            GC.fillStyle = 'white';
+            GC.beginPath();
+            GC.moveTo(x,y);
+            GC.arc(x,y,r*19.3/20,0,360*Math.PI/180,false);
+            GC.closePath();
+            GC.fill();
+            //绘制分针刻度表盘      --  时针
+            GC.beginPath();
+            GC.lineWidth = 3;
+            for(var i = 0;i < 12;i ++) {
+                GC.moveTo(x, y);
+                GC.arc(x, y, r, 30*i*Math.PI/180, 30*(i-1)*Math.PI / 180, false);
+            }
+            GC.closePath();
+            GC.stroke();
+            //绘制同心圆覆盖外表盘
+            GC.fillStyle = 'white';
+            GC.beginPath();
+            GC.arc(x,y,r*18.5/20,0,360*Math.PI/180,false);
+            GC.closePath();
+            GC.fill();
+            //绘制时针
+            GC.beginPath();
+            GC.lineWidth = 7;
+            GC.moveTo(x,y);
+            GC.arc(x,y,r*9/20,hourDeg,hourDeg,false);
+            GC.closePath();
+            GC.stroke();
+            //绘制分针
+            GC.beginPath();
+            GC.moveTo(x,y);
+            GC.lineWidth = 4;
+            GC.arc(x,y,r*11/20,minDeg,minDeg,false);
+            GC.closePath();
+            GC.stroke();
+            //绘制秒针
+            GC.beginPath();
+            GC.moveTo(x,y);
+            GC.lineWidth = 2;
+            GC.arc(x,y,r*16/20,secondDeg,secondDeg,false);
+            GC.closePath();
+            GC.stroke();
+
+        }
+        //定时器
+        setInterval(getCircle,1000);
+        //函数调用
+        getCircle();
+    }
+</script>
+</html>

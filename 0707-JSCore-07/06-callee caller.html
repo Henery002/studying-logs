@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//斐波那契
+		function fib(n){
+			if(n<3){
+				return 1;
+			}else{
+				return arguments.callee(n-1)+arguments.callee(n-2);	//松散耦合
+			}
+		}	
+		var f=fib;
+		fib=null;
+		console.log(f(330));
+	</script>	
+ </body>
+</html>

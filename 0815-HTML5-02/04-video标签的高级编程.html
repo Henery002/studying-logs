@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <style>
+        #control{
+            width:60px;
+            height:40px;
+            font-weight:bold;
+        }
+    </style>
+<body>
+    <video id="video" src="DAY02_DATA/homepage-hero-video.webm"></video>
+    <br>
+    <button id="control">播放</button>
+</body>
+    <script>
+        //获取btn按钮
+        var btn = document.getElementById("control");
+        var video = document.getElementById("video");
+        //为btn按钮绑定onclick事件
+        //播放视频
+        btn.onclick = function(){
+                //判断当前视频暂停还是播放
+            if(video.paused){   //表示当前是暂停状态
+                //暂停，则播放
+                video.play();
+                //将播放按钮修改为暂停按钮
+                this.firstChild.nodeValue = '暂停';
+            }else{
+                //将视频暂停
+                video.pause();
+                this.firstChild.nodeValue = '播放';
+            }
+        }
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

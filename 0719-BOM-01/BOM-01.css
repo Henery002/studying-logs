@@ -1,0 +1,172 @@
+回顾:
+1. 添加和删除：
+  添加一个元素:3步:
+   var elem=
+	document.createElement("标签名");
+   elem.xxx=值;
+   parent.appendChild(elem);
+         .insertBefore(elem,oldElem);
+         .replaceChild(elem,oldElem);
+  同时添加多个平级元素: 
+   var frag=
+    document.createDocumentFragment();
+   frag.appendChild(child);
+   parent.appendChild(frag);
+
+  移除: parent.removeChild(child);
+
+2. HTML DOM:
+  1. Image: var img=new Image();
+  2. Select/Option:
+     事件:onchange
+     属性:.selectedIndex
+          .value
+          .length
+          .options
+     方法:.add(opt);
+          .remove(i);
+  3. Table/行分组/tr/td
+    逐级管理：
+     table: .createTHead/TBody/TFoot()
+            .deleteTHead/TFoot()
+            .tHead/tFoot/tBodies[i]
+     行分组: .insertRow(i);
+             .deleteRow(i);
+             .rows
+     tr: .insertCell(i);
+         .deleteCell(i);
+         .cells
+
+    table->tr: .insertRow(i);
+               .deleteRow(i);
+               .rows;
+     tr.rowIndex
+  
+  4.Form:
+    获取: 
+     var form=
+       document.forms[i/id/name];
+     属性: .length
+     方法: .submit();
+    获取元素:
+       form.elements[i/id/name]
+       form.name
+    方法: .focus();
+          .blur();
+
+正课：
+1、BOM：
+	什么是BOM：专门操作浏览器窗口的API
+			未普及，因为没有标准
+		DHTML模型：
+			window扮演2个角色：1.全局作用域		2.当前打开的窗口
+				history  :负责url历史记录，负责前进后退
+				navigator:负责浏览器的配置信息
+				location :负责地址栏
+				document :负责网页内容 -- 属于DOM
+				screen   :负责当前显示器
+					【笔试题】：screen可以用来判断用户当前设备的种类
+				event	 :负责事件绑定，事件触发
+2、window窗口：
+	1、打开和关闭窗口：
+		总结：打开超链接的方式：
+			1、在当前窗口打开，可后退
+				html:<a href='url'>...</a>
+				js	:window.open('url','_self');
+			2、在当前窗口打开，不可后退
+				html:做不了
+				js	:location.replace('url');
+			3、在新窗口打开，可同时打开多个
+				html:
+				js	:open('url','_blank');
+					其实 _blank 可省略
+			4、在新窗口打开，只能打开一个
+				html:
+				js	:
+
+		name属性的特点：
+			其实每个window在内存中都有一个唯一的name属性值。
+			浏览器规定，相同name属性值的窗口只能打开一个。
+			其实html中的target和js open中的第二个参数，都是name属性。
+			只不过：name属性有预设：
+				_self _blank
+
+		【补】：var pop = open('url','name',config);
+				config:'属性=值,...'
+					配置打开新窗口的大小和位置。
+				open方法会返回打开的新窗口的对象
+					pop其实就是新窗口的window
+
+					eg：例-2：点不到的小窗口
+
+	2、窗口大小和窗口定位（了解）：
+		窗口大小：
+			整体大小：outerWidth/outerHeight
+			文档显示区大小：innerWidth/innerHeight
+			设置：（了解）
+				resizeTo(width,height);
+				resizeBy(width增量,height增量)
+			强调：不能自己修改自己的大小 （即不能在本窗口调用控制台调整大小）
+		窗口定位：
+			screenLeft,screenTop
+			设置：	
+				moveTo(left,top)
+				moveBy(left的增量,top的增量)
+		屏幕大小：
+			屏幕总大小：screen.width/height
+			屏幕可用大小：screen.availWidth/availHeight
+
+	3、*****定时器：
+		1、周期性定时器：
+			让程序按照指定的时间间隔反复执行同一任务。
+			何时使用：
+				只要不需要用户干预，即可自动反复执行任务时。
+			如何使用：3件事：
+				1、一项任务：(即)函数
+					只规定了动画中，每一步执行的操作。
+				2、启动定时器：
+					var timer = setInterval(fn,interval);
+				3、停止定时器：
+					clearInterval(timer);
+						timer:是定时器的序号。是一个从1开始，连续不重复的数字
+					如何停止：
+						1、用户手动停止
+						2、都要在任务函数内设计自动停止机制。
+
+						eg: 例-4_1、4_2、5_3、5_5
+
+		2、一次性定时器：
+			让程序先等待一段时间间隔，然后自动执行一次，自动停止。
+			用法：同周期性定时器：3件事
+				1、任务函数：
+				2、启动定时器：
+					var timer=setTimeout(fn,wait);
+					wait:等待的毫秒数
+				3、停止定时器：
+					clearTimeout(timer);
+					timer=null;
+
+			【【"定时器原理"：】】
+				setXXX(fn,ms);
+					其实就是向定时器中添加一项任务：fn,ms
+					定时器会根据ms的间隔，自动调用fn:(怎么调)
+						先将fn加入回调队列callback queue等待
+						等待主程序中（ECS）最后一条语句执行完，才能从callback queue中进入ECS队列。
+				【笔试题】：
+				for(var i=0;i<3;i++){
+					setTimeout('console.log(i)',0);
+				}		//i=3
+						//3 3 3	
+						//3 console自动输出最后一条语句的执行结果
+			
+			关于回调函数：2种
+				1、事件处理函数就是一种回调函数：
+					elem.click();	//this -> elem
+						eg:
+						
+				2、放入计时器中的任务函数
+					fn();			//this -> window
+						fn();	//this -> window
+						setXXX(fn.bind(obj),ms)
+
+							eg：例 - 5_3 启动屏幕弹出窗口

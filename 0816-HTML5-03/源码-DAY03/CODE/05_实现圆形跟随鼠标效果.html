@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现圆形跟随鼠标效果</title>
+</head>
+<body>
+<canvas id="canvas" width="300" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d")
+    //TODO 绑定事件 onmousemove
+    canvas.onmousemove = function(event){
+        /*
+          TODO 通过事件event对象
+          TODO * pageX和pageY - 相对于 HTML 页面的坐标值
+          TODO * offsetX和offsetY - 相对于 canvas 标签的坐标值
+         */
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        context.beginPath();
+        context.arc(event.offsetX,event.offsetY,10,0,Math.PI*2);
+        context.closePath();
+        context.fill();
+    }
+</script>
+</body>
+</html>

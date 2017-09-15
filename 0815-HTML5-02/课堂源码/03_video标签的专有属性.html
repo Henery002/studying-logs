@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>video标签的专有属性</title>
+</head>
+<body>
+    <!-- TODO autoplay - 自动播放 -->
+    <video autoplay src="videos/oceans-clip.mp4"></video>
+    <br/>
+    <!-- TODO controls - 提供控制面板 -->
+    <video controls src="videos/oceans-clip.mp4"></video>
+    <br/>
+    <!--
+        TODO loop - 表示循环播放
+        TODO 自动播放+循环播放 - 动态广告
+     -->
+    <video autoplay loop src="videos/oceans-clip.mp4"></video>
+    <br/>
+    <!-- TODO poster - 允许在播放视频前,显示一张图片 -->
+    <video controls poster="videos/oceans-clip.png" src="videos/oceans-clip.mp4"></video>
+    <!--
+        TODO preload - 表示视频加载的方式
+        TODO * auto - (默认值)自动加载
+        TODO * none - 不缓存(视频版本)
+        TODO * metadata - 只加载除视频外的信息
+    -->
+</body>
+</html>

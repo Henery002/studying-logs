@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习--鼠标滚动改变div背景色练习</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<style>
+    div{width:200px;height:200px;border:1px solid #0f0;cursor:pointer;}
+</style>
+<body>
+<div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var Div = React.createClass({
+        //TODO 随机生成背景色
+        getColor:function(){
+           /* var r = Math.floor(Math.random()*255);
+            var g = Math.floor(Math.random()*255);
+            var b = Math.floor(Math.random()*255);
+            var rgb = "rgb("+r+","+g+","+b+")";
+            return rgb;*/
+           return {rgb:"rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")"}
+        },
+        //TODO 初始化一个状态
+        getInitialState:function(){
+            return {backgroundColor:getColor};
+        },
+        render:function(){
+            return <div style={{backgroundColor:this.state.backgroundColor}}></div>
+        }
+    });
+    ReactDOM.render(
+        <Div/>,
+        document.getElementById('example')
+    );
+</script>
+</html>

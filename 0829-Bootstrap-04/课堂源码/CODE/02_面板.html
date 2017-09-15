@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>面板</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 面板
+            TODO * 容器元素
+            TODO   * 基类 - .panel
+            TODO   * 修饰类
+            TODO     .panel-default
+            TODO * 包含内容
+            TODO   * 面板的标题 - .panel-heading
+            TODO   * 面板的主体 - .panel-body
+            TODO   * 面板的注脚 - .panel-footer
+        -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">标题</h4>
+            </div>
+            <div class="panel-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cumque dicta dignissimos dolor dolore ea itaque nesciunt numquam quidem ratione, repudiandae tempore veritatis? Delectus nobis pariatur perferendis similique veniam?</p>
+            </div>
+            <div class="panel-footer">
+                <p>注脚</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

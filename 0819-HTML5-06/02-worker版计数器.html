@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Worker版计数器</title>
+</head>
+<body>
+<button id="start">开始计数</button>
+<button id="stop">结束计数</button>
+<div id="showtime"></div>
+</body>
+<script>
+    var start = document.getElementById('start');
+    var stop = document.getElementById('stop');
+    var showtime = document.getElementById('showtime');
+    var num = 0;    //TODO 表示计数的变量
+    var worker = null; //TODO 需要将worker变量提升Wie全局变量，以便所有函数都能访问到
+    start.onclick = startNum;
+    function startNum(){
+        //TODO 开始计数
+        //TODO 1、创建worker对象
+        worker = new Worker("02-worker1.js");
+        //TODO 2、为worker对象绑定onmessage事件
+        worker.onmessage = function(event){
+            //TODO 通过event对象的data属性，接收到postMessage方法所传递的数据
+            console.log(event.data);
+            showtime.innerHTML = event.data;
+        }
+    }
+    stop.onclick = function(){
+        //TODO 结束计数
+        //TODO 需要终止当前HTML页面与worker文件之间的通信
+        worker.terminate();
+    }
+</script>
+</html>

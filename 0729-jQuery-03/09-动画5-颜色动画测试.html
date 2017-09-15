@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	div{
+		width:200px;
+		height:200px;
+		background-color:rgb(0,0,255);
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<div></div>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('div').mouseover(function(){
+			$(this).animate({
+				backgroundColor:'rgb('+0+','+0+','+255+')',
+				backgroundColor:'rgb('+0+','+255+','+255+')',
+			},2000);
+		})
+	</script>	
+ </body>
+</html>

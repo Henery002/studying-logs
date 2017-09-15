@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	var wd=prompt("编码解码中文汉字");
+	alert("http://www.baidu.com/s?wd"+encodeURI(wd));
+	alert("服务器解码"+'\n'+"http:www.baidu.com/s?wd="+decodeURI(wd));
+
+	var request=prompt("编码解码保留字符");
+	alert("http://www.baidu.com/s?wd"+encodeURIComponent(request));
+	alert("服务器解码"+'\n'+"http:www.baidu.com/s?wd="+decodeURIComponent(request));
+  </script>
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+ </body>
+</html>

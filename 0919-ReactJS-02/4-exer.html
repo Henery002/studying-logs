@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var HelloLife = React.createClass({
+        //TODO 先初始化一个状态
+        getInitialState:function(){
+            return {opacity:1.0};
+        },
+        componentDidMount:function(){
+            setInterval(function(){
+                var opacityValue = this.state.opacity;
+                opacityValue -= 0.1;
+                if(opacityValue < 0){
+                    opacityValue = 1.0;
+                }
+                this.setState({opacity:opacityValue});
+            }.bind(this),200);  //TODO 绑定this
+        },
+        render:function(){
+           return (
+               <div style={{opacity:this.state.opacity}}>
+                   Hello Life!
+               </div>
+           )
+       }
+    });
+    ReactDOM.render(
+            <HelloLife/>,
+            document.getElementById('example')
+    );
+</script>
+</html>

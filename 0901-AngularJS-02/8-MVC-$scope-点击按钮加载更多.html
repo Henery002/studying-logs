@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--2、注册使用模块-->
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/angular.js"></script>
+</head>
+<style>
+    img{
+        width:100px;
+        float:left;
+        margin-right:20px;
+    }
+    span{
+        float:left;
+        display: inline-block;
+    }
+    li{
+        width:300px;
+        overflow: hidden;
+        display: block;
+        list-style-type: none;
+        margin-bottom: 30px;
+        padding-bottom:10px;
+        border-bottom: 1px solid #222;
+    }
+    button{
+        margin:20px 40px;
+    }
+</style>
+<body>  <!--也可以在body内使用控制器-->
+    <!--4、使用控制器，若在div内使用了该控制器，则该控制器只在div之内生效-->
+    <div ng-controller="myController">
+        <button  ng-click="add()">加载更多</button>
+        <ul>
+            <li ng-repeat="temp in dishList">
+                <img ng-src="{{temp.pic}}" alt="">
+                <span>{{temp.name}}</span><br><br>
+                <span>{{temp.price}}</span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        //1、声明模块
+        var app = angular.module('myApp',[]);
+        //3、声明控制器
+        app.controller('myController',function($scope){
+            //console.log($scope);
+            $scope.dishList = [{name:'鱼香肉丝',pic:'img/img2.jpg',price:30},
+                               {name:'麻辣香锅',pic:'img/img4.jpg',price:45},
+                               {name:'过桥米线',pic:'img/img5.jpg',price:35}
+                              ];
+            //$scope.dishList.push = {name:'可乐鸡翅',pic:'img/img2.jpg',price:30};
+            //$scope.dishList2 = {name:'麻婆豆腐',pic:'img/img6.jpg',price:30};
+
+            $scope.add = function(){
+                $scope.dishList.push({name:'鱼香肉丝',pic:'img/img2.jpg',price:30},
+                                     {name:'麻辣香锅',pic:'img/img4.jpg',price:45});
+            }
+        });
+    </script>
+</body>
+</html>

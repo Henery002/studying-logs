@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+ <head>
+  <title> 数组 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		function createArray(){
+			var names=["张","赵","周","金"];
+			console.log(names);
+			//打印数组中的第三个元素
+			console.log(names[2]);
+			names[0] = "山";
+			console.log("修改元素值后："+"\n");
+			console.log(names);
+			names[4] = "谢";
+			console.log("增加元素值后："+"\n");
+			console.log(names);
+			//获取元素
+			console.log(names[4]+names[4]);
+			console.log(names[9]);
+			//获取数组长度
+			console.log(names.length);
+		}
+
+		//关于数组长度的问题
+		function saveInfo(){
+			//声明数组
+			var names=["张","赵","周","金"];
+			//向数组中最新的位置处插入元素
+			names[names.length]="张三";
+			console.log(names);
+		}
+
+		//通过数组实现信息循环录入系统
+		function infoManager(){
+			//声明一个空数组，保存所有员工的姓名
+			var names=[];
+			//循环录入数据，并为数组赋值
+			while(true){
+				var name = prompt("请输入员工姓名：");
+				//判断name 的值是否为 exit 
+				if(name == "exit"){
+					break;
+				}
+				names[names.length] = name;
+			}
+
+			console.log(names);
+
+			//循环遍历数组中的每个元素
+			for(var i=0;i<names.length;i++){
+				console.log("第"+(i+1)+"位："+names[i]);
+			}
+		}
+	</script>
+	<button onclick="createArray()">声明数组并打印</button>
+	<button onclick="saveInfo()">插入数组</button>
+	<button onclick="infoManager ()">员工姓名录入系统</button>
+ </body>
+</html>

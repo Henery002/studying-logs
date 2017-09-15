@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建路径_绘制直线</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 创建路径提供以下两种方式
+      TODO * moveTo(x,y)方法 - 设置起点
+      TODO   * 作用:将当前光标移动到(x,y)坐标值
+      TODO * lineTo(x,y)方法 - 设置终点
+      TODO   * 作用:绘制直线达到(x,y)坐标值
+      TODO 注意:
+      TODO * 只能使用 stroke() 方法
+      TODO * 绘制直线时，可以不写 closePath();
+     */
+    context.beginPath();
+    context.moveTo(10,10);
+    context.lineTo(10,100);
+    context.stroke();
+    //TODO 使用两条直线拼接成一条折线
+    context.beginPath();
+    context.moveTo(10,100);
+    context.lineTo(90,100);
+    context.stroke();
+
+    //TODO 直接绘制折线
+    context.beginPath();
+    context.moveTo(100,10);//TODO 起点
+    context.lineTo(210,10);//TODO 折点
+    context.lineTo(210,100);//TODO 折点
+    context.lineTo(100,100);//TODO 折点
+    context.lineTo(100,10);//TODO 终点
+    context.stroke();
+    //TODO 绘制实心的多边形
+    context.beginPath();
+    context.moveTo(220,10);
+    context.lineTo(220,200);
+    context.lineTo(400,200);
+    context.fill();//TODO 绘制填充效果
+
+    context.beginPath();
+    context.moveTo(410,10);
+    context.lineTo(410,200);
+    context.lineTo(500,200);
+    context.closePath();
+    context.stroke();
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <script src="js/angular.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+    <style>
+        .sub{
+            width:300px;
+            height:300px;
+            margin-top:50px;
+            margin-left: 20px;
+            border:1px solid #f00;
+            float:left;
+        }
+        img{
+            margin:0px 0px 30px 20px;
+            width:200px;
+            height:190px;
+            border:1px solid #aaa;
+        }
+        button{
+            margin-top: 5px;
+        }
+    </style>
+<body>
+    <div ng-controller="myCtrl" class="container">
+        <div class="row">
+            <div class="sub">
+                <select ng-model="flower">
+                    <option value="img4.jpg">郁金香</option>
+                    <option value="img2.jpg">水仙花</option>
+                </select>
+                <img ng-src="img/{{flower}}" alt="">
+                <div style="display:block;"></div>
+                <label><input ng-model="isAgree" type="checkbox" >是否同意本站协议</label>
+                <br>
+                <button ng-disabled="!isAgree" class="btn btn-success">注册</button>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.$watch('flower',function(){
+                $scope.flower;
+            })
+        });
+    </script>
+</html>

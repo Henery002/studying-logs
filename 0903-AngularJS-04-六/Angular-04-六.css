@@ -1,0 +1,101 @@
+AngularJS-04:
+1、依赖注入
+	根据依赖注入服务，标记方式的不同，划分：
+		推断/猜测、标记、内联式/行内
+
+	1、推断式 依赖注入
+
+	2、标记式 依赖注入
+		$injector	设置一个字符数组
+
+		练习：自定义两个服务，...
+
+	【3】、【行内式/内联式 依赖注入】
+		在构建一个ng应用的时候，允许将一个字符串数组作为对象的参数。
+		注意：在这个数组中，最后一个必须是函数体。
+
+	练习：
+
+	验证：
+
+	推断式：尽量不要这样写
+	标记式：
+	内联式/行内式：建议使用
+
+
+	$injector
+		angularJS在依赖注入时，注入器
+	$injector
+
+2、模块化设计
+	ng有两种：
+		1、ng自身封装好的模块
+		2、自定义的模块
+
+	自定义模块之间如何通讯？？
+		angular.module(...)
+
+	面试题：
+		ng模块都包含哪些组件？？
+		1、controller用于维护模型数据
+		2、directive：数据相关
+		3、service：在不同的控制器之间提供某种函数服务
+		4、filter：刷新、格式化、排序
+		5、function：
+		6、object
+		.....
+
+	如何自定义一个指令？
+		var app = angular.module(...);
+		app.directive('指令名',fn);
+
+		新指令的命名必须使用驼峰式，由两部分构成，前部分是前缀，使用项目名/公司名；后半部分是指 指令 的作用，用于说明其功能。
+			app.directive( 'tsHello' , ... );
+			HTML中：
+			<te-hello></ts-hello>
+
+	service：
+		$http / $timeout / $interval / $scope / $rootScope / $location / $window ...
+
+		创建自定义服务 ：
+			法一：app.factory(name,fn);
+			法二：app.service(name,fn);
+
+			app.constant/value
+
+	练习：使用factory创建2个服务：$outfun(返回方法)、$outarr(返回数组)
+
+3、学习使用路由模块：
+	多页应用和单页应用：
+		SPA(SinglePageApplication)的基本工作原理：
+			1、url	http://127.0.0.1/index.html#/路由地址
+			2、浏览器解析index.html，解析路由地址
+			3、查找路由词典，找到对应的代码片段
+				#/start ==> tpl/start.html
+				#/main ==> tpl/main.html
+			5、获取当前url中路由地址所对应的真实模板页面的地址
+			6、发起异步ajax请求，获取到面板页面，插入到DOM树上，实现刷新的操作。
+
+	实现SPA的步骤：
+		1、创建一个完整页面：index.html ，引入 angular.js 、angular-route,js
+		2、创建自定义模板，声明依赖于 ngRoute 和 ng 。
+		3、在index.html的body中使用ngView，盛放代码片段
+		4、创建一些代码片段
+		5、使用ngRoute提供的对象配置路由词典（之后才能够去访问它）
+			app.config(function($routeProvider){
+						$routeProvider.when('/路由地址',{template:"..."})
+					})
+		6、测试SPA
+
+	模板之间的跳转：
+		1、直接修改地址栏中的路由地址
+			.../index.html#/路由地址
+		2、超链接：
+			<a href='#/路由地址'></a>
+		3、使用js：
+			$location.path('/路由地址');
+
+	练习：
+		index.html
+
+		

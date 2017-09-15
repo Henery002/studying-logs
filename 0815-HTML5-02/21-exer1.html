@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>晚间练习</title>
+</head>
+<body>
+    <video id="media" src="DAY02_DATA/homepage-hero-video.mp4"></video>
+    <br>
+    <input id="btn" type="button" value="播放">
+</body>
+<script>
+//    console.log(media.play());
+    btn.onclick = function(){
+        if(media.paused){
+            media.play();
+            this.value = '暂停';
+        }else{
+            media.pause();
+            this.value = '播放';
+        }
+    }
+</script>
+</html>

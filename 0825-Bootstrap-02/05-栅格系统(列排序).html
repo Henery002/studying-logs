@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .col-md-3,.col-md-9{
+        height:200px;
+        border:1px solid #000;
+        background-color: #9988DD;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-xs-12">col-md-3</div>
+        <div class="col-md-9 col-xs-12">col-md-9</div>
+    </div>
+    <!--
+        TODO 列排序（呈现出桌面端与移动端排序的不同）
+                 .col-md-push-*     表示向右移动*列
+                 .col-md-pull-*     表示向左移动*列
+        TODO 注意：
+                向右或向左移动的列数过少时，  --  会被覆盖
+                向右或向左移动的列数过多时，  --  会超出行的限制(12列)
+    -->
+    <div class="row">
+        <div class="col-md-3 col-md-push-9 col-xs-12">col-md-3 col-md-push-9</div>
+        <div class="col-md-9 col-md-pull-3 col-xs-12">col-md-9 col-md-pull-3</div>
+    </div>
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

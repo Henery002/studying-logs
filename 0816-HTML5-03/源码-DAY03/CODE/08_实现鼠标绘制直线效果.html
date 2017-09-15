@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现鼠标绘制直线效果</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 1.定义一个开关
+      TODO   * mousedown 时，表示开始绘制直线
+      TODO   * mouseup 时，表示结束绘制直线
+      TODO 2.一直绘制直线
+      TODO   * mousemove 时，绘制直线
+     */
+    var flag = false;
+    var x = 0,y = 0;
+    canvas.onmousedown = function(event){
+        flag = true;
+        //TODO 起点坐标值赋值给 (x,y)
+        x = event.offsetX;
+        y = event.offsetY;
+    }
+    canvas.onmousemove = function(event){
+        if(flag){
+            context.clearRect(0,0,canvas.width,canvas.height);
+
+            context.beginPath();
+            context.moveTo(x,y);//TODO 起点
+            context.lineTo(event.offsetX,event.offsetY);//TODO 终点
+            context.stroke();
+        }
+    }
+    canvas.onmouseup = function(event){
+        flag = false;
+    }
+</script>
+</body>
+</html>

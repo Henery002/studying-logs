@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>复杂的轮播图</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        /* 自定义轮播图中的文字说明样式 */
+        .carousel-caption {
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color: rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 复杂的轮播图
+            TODO * 基于基本的轮播图实现
+        -->
+        <div id="mycarousel" data-ride="carousel" class="carousel slide">
+            <!-- TODO 用于包裹轮播图的图片内容 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="imgs/Koala.jpg"/>
+                    <!--
+                        TODO 添加文字说明
+                        TODO class 为 .carousel-caption
+                     -->
+                    <div class="carousel-caption">
+                        <h3>标题</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="imgs/Lighthouse.jpg"/>
+                </div>
+                <div class="item">
+                    <img src="imgs/Penguins.jpg"/>
+                </div>
+            </div>
+            <!--
+                TODO 用于图片切换的控制器
+                TODO class 为 .carousel-control
+                TODO href="#容器ID"
+             -->
+            <!--
+                TODO 向左切换图片
+                TODO * CSS样式
+                TODO   class 为 .left
+                TODO * 动态交互
+                TODO   data-slide="prev" - 前一张
+                TODO   data-slide="next" - 后一张
+             -->
+            <a class="carousel-control left"
+               data-slide="prev"
+               href="#mycarousel">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <!--
+                TODO 向右切换图片
+                TODO class 为 .right
+             -->
+            <a class="carousel-control right"
+               data-slide="next"
+               href="#mycarousel">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+            <!--
+                TODO 用于每张图片的定位器
+                TODO * 注意 - 定位器的个数与轮播的图片个数相同
+                TODO * HTML结构
+                TODO   有序列表 - <ol>+<li>
+                TODO   class 为 .carousel-indicators
+                TODO * 动态交互
+                TODO   * data-slide-to=number
+                TODO     * number值表示图片的序号
+                TODO       序号是从 0 开始的
+                TODO   * data-target="#容器ID"
+             -->
+            <ol class="carousel-indicators">
+                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mycarousel" data-slide-to="1"></li>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

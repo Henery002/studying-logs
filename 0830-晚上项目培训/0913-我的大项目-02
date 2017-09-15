@@ -1,0 +1,33 @@
+0913-我的大项目：	--  李文华
+1、申请新浪云服务器，获得免费域名
+	1、申请新浪微博账号
+	2、使用微博账号绑定新浪云账号
+	3、登录新浪云账号，创建web应用，获得免费的二级域名
+	4、修改web应用的配置，上传自己的作品代码
+		官网：http://sae.sina.com.cn
+	5、使用pc、手机浏览器查看自己的网站
+
+2、
+
+3、如何评价一个web项目优劣：
+	1、精彩的UI设计
+	2、适当/出色的用户交互
+	3、功能性强的数据交互功能(前端展示、后台录入)
+	4、多屏幕适配性(响应式能力)
+
+4、前端实现动画效果的技术：
+	1、CSS3 Transition			--  执行效率较高
+	2、CSS3	Keyframes			--  执行效率较高
+	3、JS定时器修改元素属性		--  执行效率最低	--  jQuery1/2
+	4、requestAnimationFrame	--  执行效率最高	--  jQuery3
+	
+	5、推荐一个新的动画特效CSS框架：Animate.css
+		官网：http://daneden.gethub.io/animate.css
+		底层就是以transition、keyframes完成的
+
+5、服务器端字体和图标字体
+	web应用中可能使用的图标字体
+		1、Glyphicons Halflings	--  免费
+		2、Font Awesome
+
+	......

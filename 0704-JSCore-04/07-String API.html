@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//String API
+		//大小写转换--验证码问题
+		var code="cE8T";	//验证码
+		//反复输入验证码，保存在变量input中
+		//如果input!=code，就提示验证码错误
+		//简写的代码
+		while((prompt("请输入右侧验证码："+code).toUpperCase())!=code.toUpperCase()){
+			alert("输入错误");		//不区分大小写
+		}
+		document.write("<h2>验证通过</h2>");
+	</script>	
+ </body>
+</html>

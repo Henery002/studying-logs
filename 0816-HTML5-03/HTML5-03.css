@@ -1,0 +1,67 @@
+HTML5-03
+    Canvas：
+        作用：
+            网页游戏：不只是Canvas
+            网页应用：柱状图、饼状图等
+        创建路径：
+            实现步骤：
+                1、context.beginPath()   --  表示开始路径、
+                2、context.rect()或arc() --  设置形状、
+                3、context.closePath()   --  表示关闭路径、
+                4、context.fill()或stroke()   --  绘制上述图形、
+            绘制矩形：
+            绘制圆形：
+            绘制弧形：
+            绘制直线：
+            绘制折线：
+            绘制多边形：
+        设置线型：
+            lineWidth、  --  线宽。
+            lineCap、    --  线端的形状。
+                butt    默认值方形
+                round   圆形
+                square
+            line
+        操作图片：
+            绘制图片：
+                drawImage(image,x,y)
+                    image:表示当前绘制的图片
+                    x和y：
+            平铺图片：
+                createPattern(image,type)
+                作用：
+                参数：
+                    image：
+                    type:
+                        repeat:
+                        repeat-x:
+                        repeat-y:
+                        no-repeat:
+            切割图片：
+                绘制图片：
+
+        画布方法：
+            状态方法：   --  存档
+                save()          --  保存当前状态
+                    注意：每次只能保存一个状态
+                restore()       --  恢复保存到状态
+            转换方法：
+                translate(x,y)  --  移动
+                rotate(angle)     --  旋转
+
+                scale(x,y)      --  缩放
+                    x和y表示缩放的比例
+
+    Chart.js库：
+
+
+
+
+
+
+
+
+
+
+
+

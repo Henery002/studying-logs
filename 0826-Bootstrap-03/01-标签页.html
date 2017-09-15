@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div  class="container">
+    <div class="row">
+        <!--
+            TODO  标签页：
+                    HTML 标签 ：无序列表 <ul>
+                    基类：
+                        .nav
+                        .nav-tab
+        -->
+        <ul class="nav nav-tabs">
+            <!--
+                TODO  至少要有一个默认被激活的状态(使用状态)
+                        .active     表示被激活
+                        .disabled     表示被禁用
+                TODO 实现 动态交互
+                        data-toggle="tab"
+                        每个标签页的元素 都要定义该属性
+            -->
+            <li data-toggle="tab" class="active"><a  href="#">标签页1</a></li>
+            <li data-toggle="tab" class="disabled"><a  href="#">标签页2</a></li>
+            <li data-toggle="tab"><a  href="#">标签页3</a></li>
+        </ul>
+    </div>
+    <br>
+    <div class="row">
+        <!--
+            TODO  胶囊式导航
+                    修饰类 .nav-pills
+                    默认水平排列  --   适用于桌面端浏览器
+                     垂直方向排列 --   移动端浏览器
+
+        -->
+        <ul class="nav nav-pills nav-stacked">
+            <li data-toggle="tab" class="active"><a href="#">导航1</a></li>
+            <li data-toggle="tab"><a href="#">导航2</a></li>
+            <li data-toggle="tab"><a href="#">导航3</a></li>
+        </ul>
+    </div>
+    <br>
+    <div class="row">
+        <!--
+            TODO 两端对齐的标签页
+                    桌面端浏览器：
+
+                    移动端浏览器：
+        -->
+        <ul class="nav nav-pills nav-justified">
+            <li data-toggle="tab"><a href="#">标签页三</a></li>
+            <li data-toggle="tab"><a href="#">标签页三</a></li>
+            <li data-toggle="tab"><a href="#">标签页三</a></li>
+        </ul>
+    </div>
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

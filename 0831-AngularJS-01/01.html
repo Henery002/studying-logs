@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>表达式的学习</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <h2>算数运算</h2>
+    <p>{{23+787*23}}</p>
+    <h2>比较运算</h2>
+    <p>{{3>2}}</p>
+    <h2>逻辑运算</h2>
+    <p>{{true && false}}</p>
+    <hr>
+<h2>对象</h2>
+<span ng-init="car={name:'吉利',price:'20'}"></span>
+<p>{{car.name}}</p>
+<p>{{car.price}}</p>
+    <hr>
+<h2>数组的练习</h2>
+<span ng-init="list=[60,80,75,100]"></span>
+<p>{{list[0]}}</p>
+{{list[2]}}
+
+</body>
+</html>

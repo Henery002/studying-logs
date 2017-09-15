@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//1、
+		/*法一：
+		//定义函数getLeaps，获得给定年份后的5个闰年年份
+		function getLeaps(y){
+		//参数:y	(计数的变量)
+		//函数体:
+			//从y开始，循环检之后的每一年
+			for(var y,n=0;n<5;y=y+3){
+			//循环条件：个数<5
+			//循环变量：个数n	年份y
+				//y每次增1
+				//n从0开始，只有是闰年时才+1
+				if(y%4==0&&y%100!=0||y%400==0){
+					n++;
+					console.log(y);
+				}
+			//循环体：
+				//如果y是闰年，就把n+1，并输出y
+			}
+		}
+		getLeaps(2016);
+		*/
+		//法二：最大程度上的优化代码，减少比较次数
+		function getLeaps(y){
+			var count=0;
+			for(var n=0;n<5;y+=n==0?1:4){	//n是输出润年的个数，输出5个即可
+				count++;
+				(y%4==0&&y%100!=0||y%400==0)&&(n++,console.log(y));	//若果是闰年，就把n+1，并且输出该y	
+			}
+			console.log(count);	  //输出比较次数，这样一来，次数减少到5-8之间
+		}
+		getLeaps(2013);
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<h1>验证状态</h1>
+	<form action="">
+		用户名：&nbsp;<input id='user' type="text" required pattern='^[a-zA-Z0-9]{6,16}$' autofocus><br><br>
+		密&nbsp;码：&nbsp;<input id='pwd' type="password" required pattern='^[0-9]{6,8}$'><br><br>
+		年&nbsp;龄：&nbsp;<input id='age' type="number" min='18' max='50' step='1'><br><br>
+		email ：&nbsp;<input id='email' type="email"><br><br>
+		个人简介：<input id='des' type="text" minlength='10' maxlength='15'><br><br>
+		<input type="submit">
+	</form>
+	
+	<script>
+		/*
+			validity属性	-->  为了获取validityState对象
+			->  验证状态
+			validity属性：
+				（表示获取）几乎所有的表单元素都默认具有该属性
+			validityState对象
+				提供了一系列属性 -- 称之为 验证状态
+			验证状态：
+				专门用于表单的验证
+			验证状态:(都是布尔值 Boolean )
+				1、valueMissing  验证是否当前为空，
+					返回值
+					true	--  表示为空(错误)
+					false	--  表示不为空(正确)
+					必须配合required使用
+				2、patternMismatch	--  验证正则是否匹配
+					返回值：
+					true:
+					false:
+					必须配合pattern使用
+				3、rangeUnderflow	--  验证值是否小于min属性
+					返回值：
+					true:		表示小于min
+					false:		表示不小于min
+					配合min属性使用
+				4、rangeOverflow	--  验证值是否大于max属性
+					返回值：
+					true:		表示大于max
+					false:		表示不大于max
+					配合max属性使用
+				5、stepMismatch     --  
+					返回值：
+					true:
+					false:
+					必须配合step属性使用
+				6、tooLong			--  验证长度是否过长
+					返回值：
+					true:
+					false:
+					配合maxlength属性使用
+				7、tooShort			--  验证长度是否过短
+					返回值：
+					true:	表示过短
+					false:	表示过长
+					配合
+				8、typeMismatch		--  验证类型是否正确
+					返回值：
+					true:
+					false:
+					配合email、url、number等元素使用
+				9、badInput			--  表示输入是否正确
+					返回值：
+					true:	表示输入不正确
+					false:	表示输入正确
+				【10】、valid		--  验证是否正确
+					返回值：
+					true:	表示验证正确
+					false:	表示验证失败
+				【11】、customError	--  自定义错误提示
+					返回值：
+					true:	
+					false:
+					配置setCustomValidity()方法
+						该方法专门用于自定义错误提示
+		*/
+		var user = document.getElementById('user');
+		user.onblur = function(){
+			/*
+			validity属性：
+				获取：element.vality
+				返回：validityState对象
+				目前：11个验证状态
+				
+			*/
+			//console.log(user.validity);
+			if(user.validity.valueMissing){
+			//if(user.value==""||user.value==null)   与之等价
+				//表示当前用户名为空
+				console.log('用户名不能为空');
+			}else 
+			if(user.validity.patternMismatch){
+				console.log('用户名格式错误');
+			}
+		}
+		var age = document.getElementById('age');
+		age.onblur = function(){
+			if(age.validity.rangeUnderflow){
+				console.log('年龄过大');
+			}else 
+			if(age.validity.rangeOverflow){
+				console.log('年龄过小');
+			}else
+			if(age.validity.stepMismatch){
+				console.log('年龄格式错误');
+			}
+		}
+		var des = document.getElementById('des');
+		des.onblur = function(){
+			if(){
+				
+			}else
+			if(){
+			
+			}
+		}
+		var email = document.getElementById('email');
+		email.onblur = function(){
+			if(email.validity.typeMismatch){
+				console.log('邮箱格式错误');
+			}
+		}
+	</script>	
+ </body>
+</html>

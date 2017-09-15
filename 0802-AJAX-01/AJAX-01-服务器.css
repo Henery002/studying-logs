@@ -1,0 +1,190 @@
+复习：
+jQuery day01：概述  DOM操作 -- 查找元素
+jQuery day02：DOM操作 -- 操作元素、增删改；事件处理
+jQuery day03：动画；jQueryUI
+jQuery day04：插件（jQueryUI、第三方、自定义）
+
+jQuery插件类型：
+	1、jQuery全局插件函数
+		jQuery.avg = function( arr ){  }
+		jQuery.avg( [10,30,50] )
+	2、jQuery对象插件函数
+		jQuery.fn.avg = function(){  //this  }
+		$('li').avg( )
+
+第三阶段课程：
+	1、jQuery -- DOM操作&事件
+	2、AJAX
+		数据库服务器 -- 难！
+		Web服务器	 -- 更难！
+		HTTP		 -- 抽象！
+		AJAX		 -- 目标：难！
+	3、HTML5新特性
+
+今日目标：
+	1、补充：jQuery第三方插件	--	瀑布流插件
+	2、AJAX		--	服务器(机房)	--	了解
+	3、AJAX		--	数据库服务器	--	重点难点
+
+1、小知识：左侧固定，右侧占剩余布局
+	.container{	}
+	.left{width:200px;height:100%;float:left;}			//左侧左浮动，右侧不浮动
+	.right{			  height:100%;margin-left:200px;}
+	
+
+2、补充：jQuery第三方插件	--	瀑布流插件
+	Masonry：彩砖墙，瀑布流
+  	官网：http://masonry.desandro.com/
+  	是一个 JS 网格布局插件。可用选项请参考手册！
+
+3、服务器和机房的介绍	-- 了解
+	硬件服务器：性能强大可被客户端访问的计算机
+  	软件服务器：向客户端提供特定服务的程序
+  	客户端如何访问服务器：图略
+	
+  	特殊的IP地址：  127.0.0.1   指代当前计算机
+  	特殊的域名：  	localhost	指代当前计算机
+	
+4、数据库服务器介绍		-- 重点
+	数据库服务器的分类：
+	1、网状数据库
+	2、树形数据库
+	3、关系型数据库(Relation DBMS)		-- 主流
+		SQLite
+		PostgreSQL
+		MySQL			/最新版：MariaDB
+		MS SQLServer
+		Oracle
+		IBM DB2
+		
+		关系型数据库的结构：
+			1、服务器端
+				服务器 => DATABASE => TABLE => ROW => COLUMN
+			2、客户端
+				命令行形式、网页形式、桌面程序形式
+
+			XAMPP = Apahce + MySQL + PHP + ...
+			XAMPP是一款服务器套装软件
+			https://www.apachefriends.org/zh_cn/index.html
+
+	4、对象型数据库
+
+5、使用数据库服务器		-- 重点难点
+	服务器端：
+		1、安装MySQL服务器端软件
+			启动文件的路径：C:\xampp\mysql\bin\mysqld.exe 	//-d:Daemon守护程序
+			数据文件：		C:\xampp\mysql\data
+		2、启动MySQL服务器端程序
+			查看是否启动成功：
+				使用netstat查看3306端口是否被占用且被 mysqld.exe 占用。
+	客户端：
+		3、安装MySQL客户端软件
+			启动文件的路径：C:\xampp\mysql\bin\mysql.exe
+		4、启动MySQL客户端程序，连接服务器，提交命令增删改查服务器中的数据。
+			C:\xampp\mysql\bin\mysql.exe  -h127.0.0.1  -uroot  -p  -P3306
+			-h 指定服务器域名或IP地址，默认值为127.0.0.1 ，可不写
+			-u 指定用户名，默认为空	--	所以就成了匿名用户--禁止登陆
+			-p 指定登陆密码	，默认为空
+			-P 指定服务器所监听的端口号，默认为3306
+			
+			【上面的命令可以简写为：】
+			C:\xampp\mysql\bin\mysql.exe -uroot
+
+  			练习：使用MySQL客户端登录MySQL服务器，查看服务器上有哪些数据库，退出登录。 
+
+6、SQL语言		--	重点
+	SQL：Structured Query Language 结构化查询语言，专用于操作关系型数据库服务器中的数据。
+	所有语句分为四类：
+		1、DDL：CREATE		DROP
+		2、DML: INSERT		DELETE		UPDATE
+		3、DQL: SELECT
+
+	SQL 语句的执行有两种方式：
+		1、登陆到MySQL服务器，输入一条语句回车执行一条...
+			C:\xampp\mysql\bin\mysql.exe  -uroot
+		2、把所有要执行的SQL语句编写在一个sql文件中，一次性提交给服务器来执行。
+			C:\xampp\mysql\bin\mysql.exe  -uroot  <  e:\...\jd.sql
+		提示：上述命令中的 < 表示“导入”一个SQL文件给服务器执行
+
+	SQL语句的特点：
+		1、所有的语句都必须以分号结尾
+		2、SQL语句不区分大小写；习惯上所有的关键字都大写，非关键字都小写
+
+	【常用SQL:】
+		SET NAMES UTF8;
+		DROP DATABASE IF EXISTS 数据库名;
+		CREATE DATABASE 数据库名 CHARSET UTF8;
+		USE 数据库名;
+
+		CREATE TABLE 表名 (
+			列名1  类型,
+			列名2  类型,
+			...
+		);
+		INSERT INTO 表名 VALUES (值1, 值2,....);
+		DELETE FROM 表名 WHERE 列名=值;
+		UPDATE 表名 SET 列名1=值1, 列名2=值2,...  WHERE 列=值;
+		SELECT 列名1,列名2,... FROM 表;
+
+	/*************示范：*************/
+		#设置后面要执行的SQL语句的编码方式
+	SET NAMES UTF8;		#注意编码方式中，UTF8中没有 - 
+		/**  服务器=>DATABASE=>TABLE=>ROW=>COLUMN  **/
+		#试着删除一个数据库（如果存在）
+	DROP DATABASE IF EXISTS jd;
+		#创建一个数据库，并指定其中保存数据的编码方式
+	CREATE DATABASE jd CHARSET=UTF8;
+		#CREATE DATABASE Henery CHARSET=UTF8;
+		#进入指定的数据库
+	USE jd;
+		#创建表
+	CREATE TABLE products(
+		id INT PRIMARY KEY,	#编号，主键，不能重复
+		name VARCHAR(32),	#名称，64个字符 
+		price FLOAT(10,2),	#价格，包括小数位共10位
+		pic VARCHAR(64),	#图片路径，如img/p101.png 
+		birthday DATE,		#生产日期 
+		isOnSale BOOLEAN	#是否特价
+	);
+		#插入数据行
+	INSERT INTO products VALUES(
+		101,
+		'美年达',
+		3.50,
+		'img/p101.jpg',
+		'2016-08-02',
+		TRUE		#FALSE/1/0都可以
+	);
+	INSERT INTO products(id, name, price, pic,birthday, isOnSale) VALUES(
+		102,
+		'百事可乐',
+		5.50,
+		'img/p102.jpg',
+		'2016-08-23',76 
+		TRUE		#FALSE/1/0都可以
+	);
+	INSERT INTO products(id, name, price, pic,birthday, isOnSale) 
+		VALUES(
+			103,
+			'可口可乐小子',
+			2.50,
+			'img/p103.jpg',
+			'2016-02-19',
+			FALSE		#FALSE/1/0都可以
+		);
+	INSERT INTO products(id, name, price, pic,birthday, isOnSale) VALUES(
+		255,
+		'芬达',
+		8.50,
+		'img/p6066.jpg',
+		'2015-12-19',
+		1		#FALSE/1/0都可以
+	);
+		#删除数据行
+		#DELETE FROM products;	#删除所有记录行
+	DELETE FROM products WHERE id=101; 		#删除一行记录
+		#修改数据行
+	UPDATE products SET name='百事可乐不可乐', price='15', isOnSale=TRUE  WHERE id=102;			#TRUE可用引号
+		#查询数据
+	SELECT id,name,price,pic,birthday,isOnSale FROM products;
+	SELECT id,name,price FROM products WHERE id=103;		#根据条件查询特定的行

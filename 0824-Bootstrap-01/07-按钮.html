@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--TODO 容器-->
+    <div class="container">
+        <div class="row">
+            <!--
+                TODO 按钮
+                TODO    html元素  <a>、<button>、<input>
+                        CSS的内容
+                            .btn    - 基类
+                            .btn-*  - 修饰类
+            -->
+            <button class="btn btn-default">按钮</button>
+            <input type="button" class="btn btn-info" value="按钮">
+            <a href="#" class="btn btn-danger" role="button">按钮</a>
+        </div>
+        <br>
+        <div class="row">
+            <!--
+                TODO 按钮的修饰类：
+                    .btn-default    --  默认样式
+                    .btn-info       --  一般信息
+                    .btn-danger     --  危险警告
+                    .btn-warning   --  警告提示
+                    .btn-primary    --  首选项
+            -->
+            <button class="btn btn-warning">激活按钮</button>
+            <button class="btn btn-primary">按钮</button>
+            <button class="btn btn-link">按钮</button>
+        </div>
+        <br>
+        <div class="row">
+            <!--
+                TODO 设置按钮显示的大小
+                    .btn-lg     --  大按钮  大桌面
+                    默认        --  桌面
+
+            -->
+            <button class="btn btn-default btn-lg">按钮</button>
+            <button class="btn btn-default">按钮</button>
+            <button class="btn btn-default btn-sm">按钮</button>
+            <button class="btn btn-default btn-xs">按钮</button>
+        </div>
+        <br>
+        <div class="row">
+            <!--
+                TODO 块级元素
+                    作用：多用于移动端页面
+            -->
+            <button class="btn btn-default btn-block">按钮</button>
+        </div>
+    </div>
+
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

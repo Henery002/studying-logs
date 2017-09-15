@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//1、将被选字符都放在一个数组中
+			//声明空数组chars
+			//循环：u从48-57
+				//将u转为字符，压入 chars	//fromCharCode??
+			//循环：u从65-90
+				//将u转为字符，压入 chars
+			//循环：u从97-122
+				//将u转为字符，压入 chars
+		var chars=[];
+		for(var u=48;u<=57;u++){
+			chars.push(String.fromCharCode(u));
+		}
+		for(var u=65;u<=90;u++){
+			chars.push(String.fromCharCode(u));
+		}
+		for(var u=97;u<=122;u++){
+			chars.push(String.fromCharCode(u));
+		}
+		console.log((chars).join("\n"));
+		//2、函数 ，随机抽取4个位置上的字符，拼成验证码
+		function getCode(){
+			//循环4次，同时声明空字符串
+				//0-chars的元素个数-1之间生成一个随机数r
+				//将chars中r位置的字符拼接到str中
+			//循环结束
+			//返回
+			var str='';
+			while(str.length<4){
+				var r=parseInt(Math.random()*chars.length);
+				str+=chars[r];
+			}
+			return str;
+		}
+		//3、反复输入，验证
+		//调用getCode函数，获得一个验证码，保存在变量code中
+		//请用户输入一个验证码(code),保存在input中
+		//如果input转为小写!=code转为小写
+		//提示：验证码错误
+		var code=getCode();		//获得验证码！！！！！！！！！！
+		var input=prompt("请输入右侧验证码 ："+code);
+		if(input.toLowerCase()!=code.toLowerCase()){
+			alert("验证码错误，重新输入！");
+		}else{
+			break;		//???????????????????
+		}
+		alert("验证通过");
+	</script>	
+ </body>
+</html>

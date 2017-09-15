@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+	//使用map方法，让IE8完美运行结果
+		//如果？没有map方法
+			//在？添加map方法：1个参数fun
+				//创建空数组rr
+				//遍历原数组中每个元素
+					//调用fun函数，传入当前元素值,i,原数组三个参数，将返回值保存到arr中的i位置
+				//遍历结束
+				//返回arr
+		if(arr.map!=undefined){
+			var map=arr.map(function(val,idx,arr){
+					var rr=[];
+					for(var i=0;i<arr1.length;i++){
+						arr[i]=function(arr[i]){
+							return   
+						}
+					}
+				}
+				return arr;
+			);
+		}
+		
+		var arr1=[1,2,3,4,5]; 
+	//forEach
+		arr1.forEach(function(val,idx,arr){
+			arr[idx]*=2;
+		});
+		console.log(String(arr1));
+	//map	map可以模拟 forEach
+		//法一：
+		var arr2=arr1.map(function(val,idx,arr){
+			return val*=10;
+		});
+		console.log(String(arr2));
+	/*
+		//法二：等价于法一
+		arr1.map(function(val,idx,arr){
+			arr[idx]*=10;
+		})
+		console.log(String(arr1));
+	*/
+	</script>	
+ </body>
+</html>

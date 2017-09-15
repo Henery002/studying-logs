@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//编码函数：将msg消息，编码为数字组成的字符串
+		function encode(){
+			//遍历msg中 每个 字符，同时声明空字符串str
+				//获得msg中i位置的字的unicode号，保存在变量n中
+				//如果n是2位数，就补"000";
+				//否则，如果n是3位数，就补"00";
+				//否则，保持原样
+				//将n拼接到str中	concat(值1,值2,...)
+			//遍历结束
+			var msg="今晚308,w84u";
+			var str='';
+			for(var i=0;i<=msg.length-1;i++){
+				var n=msg[i].charCodeAt();
+				/*
+					if(String(n).length==2){
+						n='000'+n;
+					}else if(String(n).length==3){
+						n='00'+n;
+					}else{
+						n=n;
+					}
+				*/
+				String(n).length==2 ? n='000'+n :
+				String(n).length==3 ? n='00'+ n :
+										  n = n ;
+				str=str.concat(n);
+			}
+			console.log("'"+msg+"'"+"\n的编码为：\n"+str);
+			//return str;
+		}
+		encode();
+		//console.log(encode);
+		//console.log(code);
+		//编写解码函数:将编码后的code，翻译为字符串原文
+		function decode(){
+				//i从0开始，每隔5个字符遍历一次，同时声明空字符串msg
+					//截取code中i位置之后的5个字符，保存在变量n中	//slice
+					//将n转为字符原文，拼接到msg中：
+				//循环结束
+				var code=("20170262020005100048000560004400119000560005200117");
+				for(var i=0;i<=code.length-1;i=i+5){
+					var msg='';
+					var n=code.slice(i,i+5);
+					msg+=String.fromCharCode(n);
+					//msg=msg.concat(n.fromCharCode);
+					console.log(msg);
+				}
+			//return msg;
+		}
+		decode();
+		//console.log(decode());
+
+		/*
+		var code=encode("20170262020005100048000560004400119000560005200117");
+		function decode(code){
+			//i从0开始，每隔5个字符遍历一次，同时声明空字符串msg
+				//截取code中i位置之后的5个字符，保存在变量n中	//slice
+				//将n转为字符原文，拼接到msg中：
+			//循环结束
+			for(var i=0;i<=code.length-1;i=i+5){
+				var msg='';
+				var n=code.slice(i,i+5);
+				msg+=String.fromCharCode(n);
+				//msg=msg.concat(n.fromCharCode);
+				//console.log(msg);
+			}
+			return msg;
+		}
+		//decode();
+		//console.log(decode(code));
+		*/
+
+	</script>	
+ </body>
+</html>

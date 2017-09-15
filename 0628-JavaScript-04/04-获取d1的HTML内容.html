@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	function getInnerHTML(){
+		var d1 = document.getElementById("d1");
+		console.log(d1.innerHTML);
+		d1.innerHTML = "<h1>Hello World</h1>";
+	}
+  </script>
+ </head>
+ <body>
+	<script>
+	</script>
+	<div id="d1">
+		<p>sncn</p>
+	</div>
+	<button onclick="getInnerHTML()">获取d1的HTML内容</button><br><br>
+	<button onclick="getInnerHTML()">设置d1的HTML内容</button><br><br>
+ </body>
+</html>

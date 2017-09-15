@@ -1,0 +1,59 @@
+body{
+	width:500px;
+	margin:100px auto;
+}
+/*标题*/
+p{
+	text-align:center;
+	font-weight:bold;
+	color:#e4393c;
+	font-family:"Microsoft Yahei";
+}
+/*导航栏*/
+div:nth-child(2){
+	width:500px;
+	height:22px;
+	margin-top:30px;
+	border:1px solid #e4393c;
+	border-radius:15px;
+	position:relative;
+	text-align:center;
+}
+ul{
+	padding-left:0;
+	margin:0;
+}
+ul li{
+	display:inline-block;
+	list-style:none;
+	margin:0 auto;
+}
+ul li a{
+	display:inline-block;
+	padding:2px 25px;
+	border:1px solid #e4393c;
+	border-top:0;
+	border-bottom:0;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	background-color:#e4393c;
+}
+/*除去最后一个li元素的右外边距*/
+li:not(:last-child){
+	margin-right:40px;
+}
+/*正文图片*/
+div[id]{
+	width:500px;
+	height:352px;
+	margin-top:30px;
+	text-align:center;
+	border:1px solid #e4393c;
+	border-radius:60px;
+	position:absolute;
+}
+/*通过锚点改变z-index的值，改变堆叠顺序*/
+#img01:target,#img02:target,#img03:target,#img04:target{
+	z-index:10;
+}

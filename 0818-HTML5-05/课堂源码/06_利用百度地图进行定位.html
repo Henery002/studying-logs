@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>利用百度地图进行定位</title>
+    <style type="text/css">
+        body, html,#allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin:0;
+            font-family:"微软雅黑";
+        }
+    </style>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=bk2GxHHoQiqUKgwLj1wW1GQIbCpcnKri"></script>
+</head>
+<body>
+<div id="allmap"></div>
+<script>
+    var map = new BMap.Map("allmap");
+    //map.centerAndZoom("北京",14);
+    /*
+      TODO 获取当前定位信息
+      TODO 1.通过浏览器进行定位(当前浏览器支持geolocation接口)
+      TODO   * 创建定位对象
+      TODO     new BMap.Geolocation()
+      TODO   * 获取用户的当前位置
+      TODO     getCurrentPosition(callback)
+
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(result){
+        //TODO 进行标注
+        var marker = new BMap.Marker(result.point);
+        map.addOverlay(marker);
+    });
+     */
+    /*
+        TODO 地址解析获取当前位置
+        TODO 1.创建地址解析对象
+        TODO   BMap.Geocoder()
+        TODO 2.通过地址解析对象
+        TODO   getPoint(addr,callback,city)
+        TODO   * addr - 解析的地址名称
+        TODO   * callback - 解析后的回调函数
+        TODO     * 如果解析成功,返回Point坐标值
+        TODO   * city - 解析地址所在的城市
+     */
+    var geo = new BMap.Geocoder();
+    geo.getPoint("北京市海淀区万寿路西街2号文博大厦",function(point){
+        //TODO 重新初始化百度地图
+        map.centerAndZoom(point,16);
+        //map.panTo(point);
+        //map.setCenter(point);
+        //TODO 添加标注
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        //TODO 绘制圆形
+        var circle = new BMap.Circle(point,500,{
+            fillColor:"blue",
+            fillOpacity:0.2,
+            strokeColor:"blue",
+            strokeOpacity:0.5,
+            strokeWeight:1
+        });
+        map.addOverlay(circle);
+        //TODO 信息窗口
+        var infoWindow = new BMap.InfoWindow("我在 文博大厦 附近",{
+            width : 80,
+            height : 30
+        });
+        marker.addEventListener("click",function(){
+            map.openInfoWindow(infoWindow,point);
+        })
+    },"北京");
+</script>
+</body>
+</html>

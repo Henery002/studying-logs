@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现从本地拖放图片到页面中</title>
+    <style>
+        div {
+            width : 500px;
+            height: 500px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- TODO 目标元素 -->
+<div id="d1"></div>
+<script>
+    //TODO 目标元素事件的逻辑
+    var d1 = document.getElementById("d1");
+    d1.ondragover = function(event){
+        event.preventDefault();
+    }
+    d1.ondrop = function(event){
+        var transfer = event.dataTransfer;
+        /*
+          TODO 通过dataTransfer对象
+          TODO * 得到 files 属性 - FileList类型
+          TODO   获取的文件列表
+          TODO * 可以通过 files 属性得到本地拖动的图片的相关数据
+          TODO   * 通过 files[index] 形式得到 File类型
+          TODO FileList类型的说明
+          TODO * 将该类型当做数组来处理
+         */
+        console.log(transfer.files[0]);
+        var file = transfer.files[0];
+        /*
+          TODO File类型 - HTML5提供 FileReader 类型进行解析
+          TODO * 创建 FileReader 对象
+          TODO   new FileReader()
+          TODO * 通过 FileReader 对象的 readAsDataURL() 方法进行解析
+         */
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        //TODO 读取文件完毕后
+        reader.onload = function(){
+            console.log(reader.result);
+            d1.innerHTML = '<img src="'+reader.result+'" />';
+        }
+        event.preventDefault();
+    }
+</script>
+</body>
+</html>

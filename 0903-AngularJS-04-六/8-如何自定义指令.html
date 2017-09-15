@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>如何自定义指令</title>
+    <script src="js/angular.js"></script>
+</head>
+<style>
+    ts-hello,[ts-hello],.ts-hello{
+        color:#0055dd;
+        font-family: Microsoft Yahei;
+    }
+</style>
+<body>
+    <div ng-controller="myCtrl">
+        <!--作为HTML标签使用-->
+        <ts-hello></ts-hello>
+        <!--作为属性使用-->
+        <div ts-hello></div>
+        <!--作为类名用-->
+        <div class="ts-hello"></div>
+     </div>
+</body>
+<script>
+    //模块的声明
+    var app = angular.module('myApp',[]);
+    //自定义指令
+    app.directive("tsHello",function(){
+        return {
+            template:"<h2>Hello Directive!</h2>",
+            restrict:"EACM"
+        }
+    });
+    //控制器的声明
+        app.controller('myCtrl',function($scope){
+
+    })
+</script>
+</html>

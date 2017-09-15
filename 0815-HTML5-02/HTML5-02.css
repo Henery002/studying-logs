@@ -1,0 +1,88 @@
+HTML5 DAY02
+1、音频
+    1、视频（为主）    --  画面+音频
+        1、基础内容
+            1、目前网页中实现视频的技术  --  Flash
+                移动智能终端均不再不支持Flash。
+                性能不够好。
+                浏览器原生不支持（由第三方组件提供）
+            2、HTML5提供的视频技术
+                提供新标签 <video>
+        2、如何使用<video>
+        3、<video>标签的属性。
+        4、<video>提供JS高级编程。
+            方法：
+                play()      --  播放视频、
+                pause()     --  暂停视频、
+            属性：
+                played      --
+                paused      --  判断是暂停。
+                    true        --  表示当前暂停。
+                    false       --  表示当前播放。
+                volume      --  音量大小、
+                    volume++        增加、
+                    volume--        减小、
+                muted       --  是否静音、
+            事件：
+                play        --  当视频被播放时，该视频被触发
+                pause       --  当视频被暂停时，该视频被触发
+    2、音频
+        基础内容：
+            目前实现音频的技术。
+                Flash技术。
+                mediaplayer技术。
+            HTML5提供的音频  --  <audio>
+        如何使用 <audio>：
+            与<video>保持一致。
+        <audio>的专有属性：
+            autoplay、
+            loop、
+            controls、
+    3、video.js库         --  第三方。
+
+2、Canvas（画布）
+    基础内容：
+        Canvas  --  主要应用于2D效果图像。
+        WebGL   --  主要应用于3D效果图像。
+        SVG     --  主要应用于矢量图。
+    如何使用：
+    绘制图像：
+        绘制矩形：
+            空心矩形    --  strokeRect(x,y,width,height)、
+                x 
+            实心矩形    --  fillRect(x,y,width,height)
+        设置样式：
+            strokeStyle
+            fillStyle
+        设置渐变
+            线性渐变
+                createLinearGradient(x1,y1,x2,y2)
+                基准线 -- 起点(x1,y1)、终点(x2,y2)
+            径向/射线渐变
+                createRadialGradient(x1,y1,x2,y2)
+                基准圆
+    绘制文字：
+        fillText(text,x,y)      --  绘制实心文字
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

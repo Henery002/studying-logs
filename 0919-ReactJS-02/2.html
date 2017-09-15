@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var num;
+    var MainComponent = React.createClass({
+        getInitialState:function(){
+            return {num:0};
+        },
+        handleChange:function(sth){
+            console.log(sth);
+            this.setState({num});
+        },
+        handleCheck:function(){
+            alert('num is '+this.state.num);
+        },
+        render:function(){
+            return (
+                <div>>
+                    ......
+                </div>
+            )
+        }
+    });
+    ReactDOM.render(
+        <MainComponent/>,
+        document.getElementById('example')
+    );
+</script>
+</html>

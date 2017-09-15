@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Worker的双向通信</title>
+</head>
+<body>
+<input id="mydata" type="text"/>
+<input id="send" type="button" value="发送"/>
+<br/>
+<div id="show"></div>
+<script>
+    /*
+      TODO 需求描述
+      TODO 1.获取用户在输入框中所输入的内容
+      TODO 2.当用户点击"发送"按钮时
+      TODO   * 将获取到的用户内容发送给Worker文件
+      TODO   * Worker文件根据接收的内容，返回对应的信息
+      TODO   * HTML页面接收Worker返回的信息，写入到div元素中进行显示
+      TODO 3.用户重新向输入框输入新的内容
+      TODO   * 重新获取用户的输入内容
+      TODO   * 将内容发送给Worker文件
+      TODO   * Worker文件根据接收的内容，返回对应的消息
+      TODO   * HTML页面接收Worker返回的信息，写入到div元素中进行显示
+     */
+    var send = document.getElementById("send");
+    send.onclick = function(){
+        //TODO 1.获取用户所输入的内容
+        var value = document.getElementById("mydata").value;
+        //TODO 2.将用户输入的内容发送给Worker文件
+        //TODO a.创建Worker对象
+        var worker = new Worker("worker2.js");
+        //TODO b.调用 postMessage() 传递消息
+        worker.postMessage(value);
+        //TODO c.接收Worker文件传递的消息
+        worker.onmessage = function(event){
+            //TODO 接收Worker传递的消息
+            var value = event.data;
+            //TODO 将内容写入到div标签中
+            var show = document.getElementById("show");
+            show.innerHTML = value;
+        }
+    }
+</script>
+</body>
+</html>

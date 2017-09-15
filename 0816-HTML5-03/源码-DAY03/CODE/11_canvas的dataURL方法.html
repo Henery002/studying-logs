@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas的dataURL方法</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+<img id="myimg" src=""/>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.beginPath();
+    context.moveTo(10,10);
+    context.lineTo(10,100);
+    context.stroke();
+    //TODO 使用两条直线拼接成一条折线
+    context.beginPath();
+    context.moveTo(10,100);
+    context.lineTo(90,100);
+    context.stroke();
+
+    //TODO 直接绘制折线
+    context.beginPath();
+    context.moveTo(100,10);//TODO 起点
+    context.lineTo(210,10);//TODO 折点
+    context.lineTo(210,100);//TODO 折点
+    context.lineTo(100,100);//TODO 折点
+    context.lineTo(100,10);//TODO 终点
+    context.stroke();
+    //TODO 绘制实心的多边形
+    context.beginPath();
+    context.moveTo(220,10);
+    context.lineTo(220,200);
+    context.lineTo(400,200);
+    context.fill();//TODO 绘制填充效果
+
+    context.beginPath();
+    context.moveTo(410,10);
+    context.lineTo(410,200);
+    context.lineTo(500,200);
+    context.closePath();
+    context.stroke();
+
+    /*
+      TODO canvas绘制图像后，动态显示在<img>标签中
+      TODO 1.获取当前canvas生成的图片地址
+      TODO   toDataURL()方法
+      TODO   * 作用:返回当前canvas生成的图片地址
+      TODO   注意:返回的地址是以"data:image/png"开头的
+      TODO 2.将该地址引入到<img>标签中
+      TODO   a.获取<img>标签
+      TODO   b.<img>标签的src属性进行设置
+     */
+    //TODO 1.获取canvas生成的图片地址
+    var addr = canvas.toDataURL();
+    //TODO 2. 获取<img>标签
+    var myimg = document.getElementById("myimg");
+    myimg.src = addr;
+
+</script>
+</body>
+</html>

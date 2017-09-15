@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js版计数器</title>
+</head>
+<body>
+    <button id="start">开始计数</button>
+    <button id="stop">结束计数</button>
+    <div id="showtime"></div>
+</body>
+<script>
+    /*
+    * TODO 需求描述：
+    *
+    * */
+    var start = document.getElementById('start');
+    var stop = document.getElementById('stop');
+    var showtime = document.getElementById('showtime');
+    var num = 0;    //TODO 表示计数的变量
+    start.onclick = startNum;
+    function startNum(){
+        //TODO 开始计数
+        showtime.innerHTML = num;
+        num ++;
+//        showtime.innerHTML = num;
+        //TODO 定义计时器
+        t = setTimeout(startNum,10);  //t未var，所以是全局变量
+    }
+    stop.onclick = function(){
+        //TODO 结束计数
+        clearTimeout(t);
+    }
+</script>
+</html>

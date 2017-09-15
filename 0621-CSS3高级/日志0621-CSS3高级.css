@@ -1,0 +1,274 @@
+1、复杂选择器
+	1、兄弟选择器
+		兄弟：具备  相同父元素  的一组元素称之为兄弟元素
+		兄弟元素：
+		1、相邻兄弟选择器
+			1、什么是相邻兄弟选择器
+				匹配指定元素的相邻兄弟
+				相邻：下一个
+			2、语法：
+				结合符：+
+				结  构：选择器1 + 选择器2
+				eg：
+					p + div{}
+					#content + .important{}
+		2、通用兄弟选择器
+			1、什么是通用兄弟选择器
+				匹配指定元素下面所有的满足选择器的元素
+			2、语法
+				结合符：~
+				结  构：选择器1 ~ 选择器2
+	2、属性选择器
+		1、作用
+			允许通过元素所附带的属性及其值，来匹配页面上的元素
+			比如：获取页面上的所有文本框
+				<input type="text" />
+		2、语法规范
+			[]
+			1、[attr]
+				匹配元素中附带 attr 属性的元素
+				eg:
+					[title]:匹配所有附带 title 属性的元素
+					[class]:匹配所有附带 class 属性的元素
+			2、elem[attr]
+				作用：匹配具备 attr 属性的elem元素
+				eg:
+					div[title]
+			3、elem[attr1][attr2]
+				作用：匹配 同时具有 attr1 属性以及 attr2 属性的elem元素
+			4、elem[attr=value]
+				作用：匹配 attr 属性的值等于 value 的 elem 元素
+				eg:
+					[class=c1]:匹配class属性的值为c1的元素
+					div[title='xxx']：匹配 title 属性值为xxx的元素。
+					【"此处的引号可有可无，也可为双引号"】
+					p[id="p1"][class=important]:匹配 p 的 id 值为p1且class属性值为important的元素。
+			5、elem[attr~=value]
+				作用：匹配 attr 属性值为 值列表，并且 value 是该列表中的一个值的 elem 元素
+				【值列表】：
+					<p class="p1 important rf"></p>
+				eg:
+					p[class~=important]	
+					匹配 class 属性值为列表值，并且important时该列表中的一个值的p元素
+			6、elem[attr^=value]
+				^ ：表示【开始】
+				作用：匹配 attr 属性值 是以 value 作为开始的 elem 元素
+				eg：
+					p[class^=c]:
+						(匹配到p中class值以"c"字母开始的元素)
+			7、elem[attr$=value]
+				$ ：表示【结束】
+				作用：匹配 attr 属性值是以 value 作为结束的 elem 元素
+				eg：
+					[class$=t]
+						(匹配到页面中class值以"t"字母结束的元素)
+			8、elem[attr*=value]
+				* ：表示【包含】
+				作用：匹配 attr 属性值中包含"value"字符的元素
+				eg：
+					div[class*=ant]
+						（匹配所有class值中包含字母"ant"的元素）
+	3、伪类选择器
+		作用：匹配 元素 不同的状态
+		已学：
+			1、链接伪类
+				:link
+				:visited
+			2、动态伪类
+				:hover
+				:active
+				:focus
+		新伪类：
+			1、目标伪类
+				1、作用：突出显示活动的HTML锚元素
+				2、语法
+					:target
+			2、元素状态伪类
+				元素状态：启用的
+						  禁用的
+						  被选中的
+				使用场合 ：表单元素中
+				1、语法
+					1、:enabled
+						匹配每个已启用的元素
+					2、:disabled
+						匹配每个被禁用的元素
+					3、:checked
+						匹配每个被选中的元素
+			3、结构伪类
+				1、:first-child
+					作用：匹配属于其父元素中的首个子元素
+				2、:last-child
+					作用：匹配属于其父元素中的最后一个子元素
+				3、:empty
+					作用：匹配没有子元素的每个元素
+						eg:
+							<div></div>	--	即无子元素
+							<div>
+
+							</div>		--	即有子元素
+				4、:only-child
+					作用：匹配属于其父元素中的唯一子元素
+					<div><p>Hello World</p></div>
+				5、:nth-child(n)
+					作用：获取属于其父元素中的第n个子元素
+					eg:
+						:nth-child(5){}		:获取第5个子元素
+			4、否定伪类
+				作用：在获取到的元素中进行进一步的筛选或排除。
+				语法：:not(选择器)
+					   选择器:not(选择器)
+					eg:
+						input:not([type="text"])
+	4、伪元素选择器
+		与伪类的区别：
+			伪类：匹配 "元素（不同的状态）"
+			伪元素：匹配  元素中的"内容的一部分"
+		1、:first-letter  (或)  ::first-letter
+			first:第一个
+			letter:字符
+			作用：获取  匹配元素  的首字符。（如：首字下沉）
+		2、:first-line  (或)  ::first-line
+		3、::selection
+			作用：匹配被用户选取的部分
+			eg:
+				::selection{
+					background:#f00;
+					color:#0f0;
+				}
+		【【【  :  和  ::  的区别】】】：
+		在 CSS2.0 中，伪元素和伪类选择器统一使用 ：来表示。
+		从 CSS3 开始，W3C规范所有的伪类选择器一律使用 ：表示，所有的伪元素选择器一律使用 :: 表示。
+		【为了实现兼容性，尽可能使用 : 表示伪元素】，:: selection 除外。
+2、内容生成
+	1、什么是内容生成
+		通过CSS生成一部分新的内容，插入到网页元素中。
+	2、伪元素选择器（需要用到）
+		1、:before  或  ::before
+			作用：匹配 指定元素 的内容区域之前
+		2、:after  或  ::after
+			作用：匹配 指定元素 的内容区域之后
+	3、属性：content
+		作用：生成的内容是什么
+		属性：content
+		取值：
+			1、字符串，使用 " " 引起来的纯文本
+			2、图像，url(...)
+
+			"解决问题"：
+				1、【【浮动元素的父元素高度】】
+					解决方案：
+						1、设置高度
+						2、overflow:hidden;
+						   overflow:auto;
+						3、父元素浮动（有局限）
+						4、增加 子元素 并且 清除浮动
+						5、
+							eg:
+								...
+								.div:after{
+									content:"";
+									display:block;
+									clear:both;
+								}
+								html代码:
+								<div class="div">
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+				2、【【外边距的溢出】】
+					解决方案：
+					1、父元素加上边框
+					2、通过父元素的 padding-top 代替子元素的 margin-top（有局限）
+					3、追加一个子元素：<table></table>	--table是 行内块元素
+					4、
+						eg:
+							div:before{
+								content:"";
+								display:table;
+							}
+
+			3、计数器
+				1、什么是计数器
+					通过CSS生成一组有顺序的数字，并且添加到元素的内容区域中。
+				2、语法
+					1、声明一个计数器
+						【counter-reset】 属性
+						作用：声明/复位 一个计数器
+						语法：
+							counter-reset:计数器名称 初始值;
+							初始值：
+								默认为0，
+								可以设置为正数，也可为负数
+							一次性声明多个计数器：
+								counter-reset:计数器1 值1 计数器2 值2；
+							声明计数器的位置：
+								不能放在使用计数器的元素中
+								【【【推荐】】】：将计数器声明在 使用元素 的父元素中。
+												  如页面中所有的元素使用相同的计数器的话，可以将其声明在body中。
+					2、设置计数器增量
+						counter-increment 属性
+						作用：设置 某个选择器 每次使用计数器的增量，默认值为1
+						取值：
+							正数：递增
+							负数：递减
+						语法：
+							counter-increment:计数器名称 增量;
+						位置：哪个元素使用计数器，就在哪个元素中声明增量
+					3、使用计数器
+						counter()函数
+						已学的常用函数：url()、linear-gradient()等
+						【注意】：配合content属性一起使用
+						语法：content:counter(计数器名称)
+								content:"~"counter(计数器名称)"~";
+3、多列
+	1、分割列
+		作用：将文本分成几列
+		属性：column-count
+		取值：数字
+	2、列间隔
+		作用：每两列间间隔的距离是多大
+		属性：column-gap
+		取值：px
+	3、列规则
+		作用：设置每两列之间的边框的大小、样式、颜色
+		属性：column-rule
+		取值：width、style、color ...
+	4、【兼容性】
+		IE10+ , Opera :支持多列属性
+		Firefox : 需要加上  -moz- 前缀
+		Chrome , Safari :加 -webkit- 前缀
+4、CSS Hack
+	1、CSS Hack 原理
+		CSS Hack 是使用 选择器或样式属性的【优先级】来解决兼容性问题的
+	2、实现方式
+		1、CSS类内部Hack
+			在样式属性名称前 或者 属性值之后 增加前后缀，解决兼容性。
+		2、选择器Hack
+			在 选择器 名称前 增加 前缀 解决兼容性。
+		3、HTML头部引用Hack
+			通过HTML中的 【条件注释】 判断浏览器的版本，解决兼容性问题。
+			【【条件注释的语法结构】】：
+
+			<!--[if 条件 IE 版本]>
+				待执行的内容（html、css、js...）
+			<![endif]-->
+			
+			版本：
+				6 ：表示 IE6
+				7 ：表示 IE7
+				...
+				省略 ：表示判断是否为 IE 浏览器
+			【条件】：
+				1、gt ：表示 选择条件 版本以上的浏览器版本，不包含条件版本
+				
+				eg:
+					<!--[if gt IE 6]>
+						只在IE6（不包含）以上的版本上执行
+					<![endif]-->
+				
+				2、gte : 大于等于指定版本
+				3、lt ： 小于指定版本（不包含）
+				4、lte : 小于等于指定版本
+				5、! :   判断是否为指定版本

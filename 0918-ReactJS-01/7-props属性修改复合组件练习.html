@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>props属性修改复合组件练习</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    var Form = React.createClass({
+        render:function(){
+            return(
+                <div>
+                    <LabelComponent labelname="用户名"/>
+                    <InputComponent inputname=""/>
+                </div>
+            )
+        }
+    });
+    ReactDOM.render(
+            <HelloMsg name="Web1605"/>,
+            document.getElementById('example')
+    )
+</script>
+</html>

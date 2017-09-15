@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Two.js绘制的图形</title>
+    <script src="two.js"></script>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    div{
+        background-color: #00aa00;
+    }
+</style>
+<body>
+    <div id="show"></div>
+</body>
+<script>
+    //TODO 1、创建TWO对象
+    var elem = document.getElementById('show');
+    var two = new Two({
+        //表示设置当前使用的技术，可修改
+        type:Two.Types.canvas,
+//        type:Two.Types.svg,
+//        type:Two.Types.webgl,
+        width:500,
+        height:500
+    });
+    two.appendTo(elem);
+    //TODO 2、绘制图形
+    /*
+    * TODO makeRectangle(x,y,width,height)方法
+    * 作用：绘制矩形
+    * 参数：
+    *       x和y：表示绘制的矩形的中心点的坐标！！！！！！！！！！！！
+    *       width和height指宽高
+    * 该方法返回矩形对象
+    * */
+    var rect = two.makeRectangle(50,50,100,100);    //此矩形在左上角顶部
+    //TODO 3、表示更新当前的操作
+    two.update();
+</script>
+</html>

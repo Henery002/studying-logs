@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+	function calScore(){
+		//1、输入成绩
+		//2、根据成绩判断
+		var score = parseInt(prompt("请输入您的成绩："));
+		/*
+		if(score == 100){
+			alert("奖励一台兰博基尼");
+		}else{
+			if(score >= 90){
+				alert("奖励一台法拉利");
+			}else{
+				if(score >= 80){
+					alert("奖励一台奥迪");
+				}else{
+					if(score >= 70){
+						alert("奖励一台奥拓");
+					}else{
+						if(score >= 60){
+							alert("奖励一台自行车");
+						}else{
+							alert("奖励大嘴巴子");
+						}
+					}
+				}
+			}
+		}
+		*/
+
+		//法二：
+		if(score==100){
+			alert("兰博");
+		}else if(score>=90){
+			alert("法拉利");
+		}else if(score>=80){
+			alert("奥迪");
+		}else if(score>=70){
+			alert("奥拓");
+		}else if(score>=60){
+			alert("自行车");
+		}else{
+			alert("大嘴巴子");
+		}
+
+	}
+	</script>
+	<button onclick=
+	calScore()>成绩</button>
+ </body>
+</html>

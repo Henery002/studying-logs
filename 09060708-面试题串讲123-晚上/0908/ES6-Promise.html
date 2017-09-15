@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ES6新特性 - Promise</title>
+</head>
+<body>
+</body>
+<script>
+    function timeout(callback){
+        callback();
+    }
+    function start(){
+        return new Promise(()=>{
+            console.log('开始等待...');
+            setTimeout(timeout.bind(null,finish),1000);
+        });
+    }
+    function finish(){
+        console.log('...结束了');
+    }
+    start();
+
+    /******************????????????******************/
+
+</script>
+</html>

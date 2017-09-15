@@ -1,0 +1,143 @@
+1、DDHTML概述
+	1、DHTML介绍
+		D：Dynamic 动态的
+		功能：当网页加载到客户端之后依然能改变它上面的内容
+		DHTML=HTML+CSS+JAVASCRIPT
+		包含：
+			1、动态改变页面元素
+			2、与用户进行交互
+			3、DHTML对象模型中主要包含两个
+				BOM：浏览器对象模型
+				DOM：文档对象模型
+	2、DHTML-BOM与DOM
+		1、BOM
+			作用：专门用来访问和操作浏览器窗口。
+			BOM 没有标准和规范，但浏览器的支持性较好（普遍支持）。
+		2、DOM
+			作用：专门用来访问和操作网页文档内容。
+	3、DOM概述
+		1、标准被分为3个部分：
+			1、核心 DOM
+				针对任意一个结构化文档所提出的标准模型（属性和方法）
+				结构化文档：
+					1、html:用于显示数据
+					2、xml: 用于记录数据
+			2、XML DOM
+				针对XML文档所提供的属性和方法
+			3、HTML DOM
+				针对HTML文档所提供的属性和方法
+		2、DOM发展
+			1、DOM1：定义了最底层的内容（1998）
+			2、DOM2：增加了交互模块
+				DOM2 Core：DOM1底层基础上增加了新内容
+				DOM2 Style：增加了操作HTML样式的属性和方法
+				DOM2 Tranversal And Range：增加了遍历页面元素的属性和方法
+				DOM2 Even：标准化事件
+			3、DOM3
+				增加了新方法和属性
+	4、DOM树	又称为节点树
+		将HTML 页面解析为一个倒挂的树状结构
+		
+		文档中的元素、属性、文本、注释都是树状结构中的一个节点
+		
+		整个文档 是一个 文档节点(document)
+		每个HTML元素 是一个 元素节点(Element Node)
+		包含在HTML元素中的 文本 是一个 文本节点(Text Node)
+		包含在HTML中的 属性 是一个 属性节点(Attribute Node)
+		页面中的 注释 属于 注释节点(Comment Node)
+	5、document 对象
+		该对象由JS解释器负责创建，不需要声明，直接就能使用
+2、通过 HTML 选取元素
+	1、document.getElementById()
+		返回值：指定ID的元素对象
+	2、node.getElementsByTagName()
+		node：元素节点对象
+		作用：根据"标签名称"获取一组对象
+		返回值：动态数组
+	3、node.getElementsByClassName()
+		node：元素节点对象
+		作用：根据 "class 属性值" 获取一组对象
+		返回值：动态数组
+	4、通过节点关系获取页面元素
+		1、节点关系
+			1、父节点(Parent Node)
+			2、子节点(Child Node)
+			3、兄弟节点(Sibling)
+		2、属性
+			1、
+				1、parentNode
+					获取当前元素的父节点对象
+				2、childNodes
+					获取当前元素的所有子节点对象
+					返回：数组
+				3、children
+					获取当前元素的所有子元素节点对象
+				4、firstChild
+					获取当前元素的第一个子节点
+				5、lastChild
+					获取最后一个节点
+				6、previousSibling
+					获取上一个兄弟节点
+				7、nextSibling
+					获取下一个兄弟节点
+			2、获取 元素节点对象
+				1、firstElementChild	第一个元素子节点
+				2、lastElementChild		最后一个元素子节点
+				3、previousElementSibling	获取上一个兄弟元素节点
+				4、nextElementSibling		获取下一个兄弟元素节点
+3、读取和修改 节点内容
+	1、元素的内容
+		1、HTML内容
+			属性：innerHTML
+			作用：获取 或 设置元素节点中的HTML内容
+		2、文本内容
+			属性：
+				innerText	(火狐不支持)
+				textContent	(浏览器都支持)(IE8及以下 版本不支持)
+			作用 ：获取 或 设置元素节点中的文本内容
+	2、元素的属性
+		1、属性集合
+			元素节点属性：attributes
+				返回一个属性集合，类型为 NamedNodeMap 是一个 类数组对象
+		2、获取属性值
+			方法：
+			1、elem.attributes[下标].value;
+			2、elem.attributes["属性名"].value;		//效果等同于1
+			3、element.getAttributeNode("属性名").Value;
+			4、element.getAttribute("属性名");
+		3、修改属性值
+			方法：
+			1、元素对象.属性名=value;
+			2、element.setAttribute(name,value);	//( IE8 不支持该方法)
+			3、element.setAttributeNode(attrNode);	//前提：先创建 属性节点对象
+	3、元素的样式
+		1、CSS样式的三种使用方式
+			1、内联
+				<div style=""></div>
+			2、内部样式表
+				<style></style>
+			3、外部样式表
+				<link href=""/>
+		2、常用的访问样式的方式
+			常用：访问元素的 内联样式
+			属性：style 属性
+			
+				/*style.样式属性名称
+				 *【【样式属性名称的组成】】：
+				 *例如：CSS:background-color
+				 *	  JS :backgroundColor
+				 *	  CSS:border-left-color
+				 *	  JS :borderLeftColor
+				 */
+		3、获取 计算(Computed) 的样式
+			变相获取 内部 和 外部 样式表中的值
+			DOM：
+				document.defaultView.getComputedStyle(元素对象).属性名称;
+			IE :
+				元素对象.currentStyle.属性名
+				注意：该方法只能获取样式属性值，不能设置。设置样式全部采用style属性进行设置。
+		4、修改样式表中的样式值
+			1、先获取样式表对象
+			2、获取 样式表对象中所有样式的集合
+			3、在集合中，找到要修改的样式规则(cssRules)
+			4、获取或设置指定的样式值

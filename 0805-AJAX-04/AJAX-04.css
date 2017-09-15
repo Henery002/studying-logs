@@ -1,0 +1,132 @@
+今日目标：
+	1、HTTP请求和响应消息 		--重点&难点
+	2、原生AJAX					--四个月的重点&难点
+		难度系数：********（八星）
+
+1、HTTP请求消息 	--  客户端发给服务器
+	见前一天笔记：line100
+2、HTTP响应消息 	--  服务器发给客户端
+	见前一天笔记：line100
+
+	网页版本数据库:
+	http://127.0.0.1/phpmyadmin
+
+【面试题】：
+【面试题】：
+3、根据HTTP协议相关知识进行网页访问优化
+	1、域名解析
+		解决办法：尽可能减少域名解析次数	--  减少跨站外部资源的引用
+	2、创建连接
+		解决办法：努力减少链接次数			--  使用Keep-Alive避免重复连接
+	3、发送请求
+		解决办法：尽量减少请求次数			--  合理设置Expires缓存时间、资源合并(CSS Sprite)
+	4、等待响应
+		解决办法：提高服务器端运行次数		--  提高数据运算及查询速度
+	5、接收响应
+		解决办法：尽可能减小响应数据长度	--  启用压缩
+
+4、HTTPS协议：			--  了解
+	HTTP Secure
+	HTTP over SSL
+
+5、AJAX概述
+	Asynchronous Javascript And XML：异步的JS和XML
+	Google在2001年，首次提出AJAX的概念，用在‘GoogleSuggest’效果中，实现无刷新无提交的页面内容局部更新。
+	包含HTML、CSS、JS、DOM、HTTP、XML等技术		--  纯客户端技术	
+	实现目标：
+		1、无刷新的页面局部更新。
+		2、动态网页静态化，彻底剥离 前端 和 后台 技术。
+
+	浏览器可以发起的请求类型：
+		1、同步请求：地址栏中输入URL、超链接、JS跳转、表单提交
+		2、异步请求：使用XMLHttpRequest对象发起的请求(XHR是一门纯客户端技术)
+
+6、AJAX应用	--  超重点&超难
+	AJAX应用的核心对象：XMLHttpRequest
+	作用：用于向Web服务器发起HTTP请求消息，并接收服务器返回的响应消息，
+		解析响应消息内容，呈现在HTMLDOM树上。
+	
+	XHR对象的常用属性：
+		1、readyState: 0			--  只读属性，用于描述XHR当前状态
+		2、response: ""
+		3、responseText: ""			--  响应消息主体（文本形式）
+		4、responseType: ""			--  响应消息类型
+		5、responseURL: ""			--  响应消息URL
+		6、responseXML: null		--  响应消息主体（XML形式）
+		7、status: 0				--  响应消息的状态码，readyState变为2时就可以有值（即不为0）
+		8、statusText: ""			--  原因短句，readyState变为2时就可以有值
+		
+		9、UNSENT: 0				--  readyState可取值之一，表示请求尚未发送
+		10、OPENED: 1				--  readyState可取值之一，表示连接被打开
+		11、HEADERS_RECEIVED: 2		--  readyState可取值之一，表示XHR开始接收响应消息头部（和起始行）
+		12、LOADING: 3				--  readyState可取值之一，表示正在加载响应消息的主体
+		13、DONE: 4					--  readyState可取值之一，表示响应消息接收完成
+
+		【XHR对象的状态转换图】：
+		   xhr.open()   xhr.send()	     自动		 自动
+		  0	  --> 	 1	   -->     2	  -->	 3	  -->	 4
+		UNSENT    OPENED    HEADERS_RECEIVED  LOADING       DONE
+
+	XHR对象的常用事件：
+		1、onreadystatechange: null			--  只要xhr.readyState值发生改变就触发此事件
+	
+	XHR对象的常用方法：
+		1、open(METHOD,URL,true)			--  打开到服务器的连接
+		2、send('k1=v1&k2=v2...'/null) 		--  发送请求消息
+		3、setRequestHeader(NAME,VALUE)		--  设置请求消息头部
+		4、getResponseHeader				--  获取某个响应消息头部
+		5、getAllResponseHeaders			--  获取所有的响应消息头部
+
+7、/*********创建XHR对象的方法*********/
+	var xhr = null;
+	if(window.XMLHttpRequest){ 			//其它浏览器
+		xhr = new XMLHttpRequest();
+	}else {  							//IE6-
+		xhr = new ActiveXObject('Microsoft.XMLHttp');
+	}
+
+8、/***发起异步请求需要四步***/
+		//1 创建一个XHR对象
+	var xhr = new XMLHttpRequest();
+		//2 事先为XHR绑定“状态改变事件”监听函数
+	xhr.onreadystatechange = function(){
+			//console.log('\nXHR的状态改变啦');
+			//console.log(xhr.readyState); //就绪状态
+			//console.log(xhr.status); //响应状态码
+			//console.log(xhr.responseText); //响应主体文本
+		if(xhr.readyState===4){	//响应消息接收完成
+			if(xhr.status===200){	//成功的响应
+				//处理响应主体数据xhr.responseText
+			}else {
+				alert('响应完成但存在问题！');
+			}
+		}
+	}
+		//3 使用XHR打开到Web服务器的连接
+	xhr.open('GET','7.php',true);
+		//4 使用XHR发送HTTP请求消息
+	xhr.send(null);
+
+	/*******其中的7.php文件*******/
+	<?php
+		for($i=0; $i<5000; $i++){
+		echo "$i-hello ";
+	}
+
+9、案例演示： 
+	用户注册时的“用户名异步验证”
+	1、创建check_uname.php页面
+	2、创建register.html页面
+
+10、练习内容：
+	1、使用XHR对象发起异步请求——成绩录入系统
+		<h1>成绩录入系统</h1>
+		学生姓名：  <input id="stuName">
+		语文成绩：  <input id="chinese">
+		语文成绩：  <input id="math">
+		<input type="button" value="保存成绩">
+	要求：点击“保存成绩”按钮，发起异步请求，把数据提交给服务器端的PHP页面，INSERT到MySQL数据库，返回'succ'或'err'提示文字。客户端弹出一个alert("保存成功/失败")。用户点击确定后，清空输入框内容，继续录入下一个学生成绩。
+	实现步骤：
+	1、创建tarena.sql，创建score表，包含sid、stuName、chinese、math三列
+	2、创建score_add.php，接收客户端数据，执行INSERT
+	3、创建score_add.html，显示输入框及按钮

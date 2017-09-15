@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	div{
+		margin:30px 50px;
+	}
+	div h3{
+		width:20%;
+		background-color:#000;
+		color:#fff;
+		padding:5px 10px;
+		cursor:pointer;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<div class="accordion">
+		<h3>西游记简介</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus odit culpa quas illo harum in asperiores quibusdam suscipit temporibus enim architecto sapiente hic cum nesciunt corporis reprehenderit amet autem error.</p>
+		<h3>红楼梦简介</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde fugit placeat distinctio perspiciatis sed veniam nisi eveniet nesciunt quibusdam. Officia velit vero quam molestiae earum qui quae optio. Excepturi.</p>
+		<h3>水浒传简介</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure maxime tempore omnis veniam repellat harum distinctio nulla consectetur sit numquam temporibus molestiae odit in vitae libero. Commodi voluptas provident quos.</p>
+	</div>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('p').css('display','none');
+		$('h3').on('click',function(){
+			//让当前元素h3的下一个兄弟p展开/收起；同时，此兄弟的同级p兄弟收起
+			$(this).next().slideToggle(400);
+			$(this).next().siblings('p').slideUp(400);
+		})
+	</script>	
+ </body>
+</html>

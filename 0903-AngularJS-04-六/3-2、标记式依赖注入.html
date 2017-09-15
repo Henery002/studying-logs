@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2、标记式依赖注入</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <button ng-click="callShow()">CallShow</button>
+        <button ng-click="callPrint()">CallPrint</button>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        //定义服务$show，有一个show方法，alert显示 hello Angular
+        app.factory('$show',function($window){
+            //以返回一个对象的方式
+            return {
+                show:function(){
+                    $window.alert('Hello Angular!');
+                }
+            }
+        })
+        //定义另一个服务，有一个print方法，console.log显示 hello injector
+        app.factory('$print',function(){
+            return {
+                print:function(){
+                    console.log('Hello Injector!');
+                }
+            }
+        })
+        //设置回调函数并注入各项服务
+        var ctrFunc = function($scope,$show,$print){
+            //定义两个方法
+            $scope.callShow = function(){
+                $show.show();
+            }
+            $scope.callPrint = function(){
+                $print.print();
+            }
+        };
+        //为其设置回调函数的$inject属性，，注入标记（属性值是一个数组）
+        ctrFunc.$inject = ["$scope","$show","$print"];
+        //控制器的声明
+        app.controller('myCtrl',ctrFunc);
+    </script>
+</html>

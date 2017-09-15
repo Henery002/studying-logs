@@ -1,0 +1,60 @@
+*{
+    font-family:"Microsoft Yahei";
+}
+/*start页面*/
+.title{
+    padding-top: 150px;
+}
+.title h1{
+    font-size:4em;
+    margin-bottom:60px;
+}
+.title img{
+    width:600px;
+    cursor:pointer;
+}
+/*detail页面*/
+.detail{
+    margin:45px 0;
+    padding:20px;
+}
+.detail-price{
+    color:#e4393c;
+    font-size:1.5em;
+    margin:20px 0;
+}
+/*order*/
+.order-panel{
+    margin-top:50px;
+}
+/*myorder*/
+.myorder-panel{
+    margin:70px 0;
+}
+.myorder-panel h2{
+    margin-bottom: 10px;
+}
+.myorder-img img{
+    width:70px;
+}
+/* footer.html */
+.navbar-footer-menu{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.navbar-footer-menu li{
+    display:inline-block;
+    line-height:50px;
+    width:30%;
+    text-align:center;
+}
+.navbar-footer-menu li:hover{
+    background-color: #9d9d9d;
+}
+hr{
+    margin:5px 0px;
+}
+.loadmore{
+    margin-bottom: 70px;
+}

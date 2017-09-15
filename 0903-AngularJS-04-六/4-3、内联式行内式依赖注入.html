@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行内式/内联式依赖注入</title>
+    <script src="js/angular.js"></script>
+    <!-- 通过引入压缩文件的方式，也可以-->
+    <script src="js/4-3-test.min.js"></script>
+</head>
+<body>
+    <h3>行内式注入可以解决js文件被压缩后无法使用的问题，建议使用行内式</h3>
+    <div ng-controller="myCtrl">
+        <!--将用户的输入绑定到数据模型上-->
+        <input type="number" ng-model="x">
+        <input type="number" ng-model="y">
+        <button ng-click="add()">求和计算</button>
+        <p>{{result}}</p>
+    </div>
+</body>
+    <script>
+    /*
+    var app = angular.module('myApp',[]);
+    //定义一个服务:$calc，它有一个add方法计算参数的和，并返回
+    app.factory('$calc',function(){
+        return {
+            add:function(x,y){
+                return x + y;
+            }
+        }
+    })
+    //控制器的声明    通过行内式依赖注入的方式
+    //第二个参数不同于以往的   function(){}，而是一个数组，里面有三个参数在一行，称为行内式。最后一个参数必须是函数体！！！
+    app.controller('myCtrl',["$scope","$calc",function($scope,$calc){
+        $scope.result = 0;
+        $scope.x = 0;
+        $scope.y = 0;
+        $scope.add = function(){
+            $scope.result = $calc.add($scope.x,$scope.y);
+        }
+    }]);
+    */
+    </script>
+</html>

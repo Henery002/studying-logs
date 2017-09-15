@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>video标签的属性</title>
+</head>
+<body>
+    <!--
+        TODO <video>标签的属性
+        TODO * width和height属性 - 显示的宽度和高度
+        TODO   * 只设置高度或宽度时，视频比例不会改变
+    -->
+    <video autoplay width="320px" src="videos/oceans-clip.mp4"></video>
+    <br/>
+    <!--
+        TODO 设置显示的高度和宽度与原视频的高宽比不同
+        TODO * 会不会像图片一样被拉伸?
+        TODO   答案:不会像图片一样被拉伸
+        TODO        除视频区域外,都是空白
+    -->
+    <style>
+        #v2 {
+            background-color: #000;
+        }
+    </style>
+    <video id="v2" autoplay width="800px" height="500px" src="videos/oceans-clip.mp4"></video>
+</body>
+</html>

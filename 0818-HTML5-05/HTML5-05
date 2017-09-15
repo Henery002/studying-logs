@@ -1,0 +1,55 @@
+HTML5 Day05:
+地理定位：
+	基础内容：
+		定位技术：
+			GPS技术		-- 美国产权
+			北斗技术	-- 纯自主产权
+			IP地址		-- 定位
+			手机sim卡	-- 定位
+		HTML5提供的定位技术
+			集成Google提供的Google Map产品
+	百度地图：
+		前提：
+			注册百度开发者
+                http://lbsyun.baidu.com/
+			创建有关百度地图的应用
+				获取对应的应用秘钥(AK)
+			注意：必须保证连接互联网
+		资料：
+            http://developer.baidu.com/map/jsdemo.htm#a1_2
+            http://developer.baidu.com/map/reference/index.php?title=Class:%E6%80%BB%E7%B1%BB/%E6%A0%B8%E5%BF%83%E7%B1%BB#
+拖放API：
+	源元素(事件)		-- 被拖动的元素
+		dragstart	表示开始拖动
+			被触发一次
+		drag 		表示拖动的过程
+            被触发多次
+		dragend		表示结束拖动
+			被触发一次
+
+		鼠标的事件：
+			onmouseover
+			onmousemove
+			onmouseout
+
+	目标元素(事件)		-- 到达的位置
+		dragenter	表示源元素到达了目标元素
+		dragover	表示源元素到达了目标元素
+		drop		表示将源元素投放到目标元素中
+		dragleave	表示源元素到达了目标元素之后又离开
+	dataTransfer对象
+		作用：获取到源元素的相关数据
+		描述：
+			源元素和目标元素中间的中转站。
+		获取：该对象已经被添加到event对象中。
+		方法：
+			setData()方法：设置数据
+				表示将相关数据设置到dataTransfer对象中
+			getData()方法：获取数据
+				从dataTransfer对象中获取数据
+			clearData()方法：清除数据
+				清除dataTransfer对象中所有数据
+
+    练习:图片默认在左边的div中
+        1、将图片从左边的div移动到右边的div
+        2、将图片从左边的div移动到左边的div

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//重载
+		//根据传入参数个数的不同，执行不同的操作
+		function checkout(){
+						//arguments:[      ]
+			//如果没有传入参数
+			if(arguments.length==0){
+				console.log("刷卡");
+			}else if(arguments.length==1){
+				//否则，如果传入1个参数
+				console.log("微信结账");
+			}else if(arguments.length==2){
+				//否则，如果传入2个参数
+				console.log("现金结账");
+			}
+		}
+		checkout();
+		checkout('100');
+		checkout("xxx","xxx");
+		
+		//求和，实现任意个数字的累加
+		function add(){
+					//arguments:[       ]
+			//遍历arguments中每个参数值，同时声明sum初始化为0
+				//将当前参数值累加到sum中
+			//遍历结束
+			//返回sum
+			for(var sum=0,i=0;i<arguments.length;i++){
+				sum+=arguments[i];
+			}
+			return sum;
+		}
+		console.log(add(3,5,7),
+					add(12,45,455,122,8,7),
+					add(12,44525,454525),
+					add(12,45,455,141222,8,42,4214,7)
+					);
+	</script>	
+ </body>
+</html>

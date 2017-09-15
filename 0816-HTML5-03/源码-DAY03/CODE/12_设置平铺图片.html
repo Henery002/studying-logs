@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置平铺图片</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 设置平铺
+      TODO 1.加载一张图片
+      TODO 2.设置平铺方式
+      TODO   createPattern()方法
+      TODO   * 该方法具有返回值 - 返回值是一个平铺对象
+      TODO 3.将平铺对象设置给 fillStyle 或 strokeStyle
+      TODO 4.绘制图形(矩形、圆形...)
+     */
+    //TODO 1.加载图片
+    var img = new Image();
+    img.src = "imgs/demo.jpg";
+    img.onload = function(){
+        //TODO 2.设置平铺方式
+        var ptn = context.createPattern(img,"no-repeat");
+        //TODO 3.设置给fillStyle或strokeStyle
+        context.fillStyle = ptn;
+        //TODO 4.绘制图像
+        context.fillRect(0,0,canvas.width,canvas.height);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var provs=['北京市','江苏省','湖南省',];
+		var cities=["丰台区","朝阳市","济南市",
+					"连云港市","南京市","无锡市",
+					"衡阳市","娄底市","长沙市"
+				    ]
+		var prov;
+		function getCitiesByProv(prov){
+			//遍历provs
+				//如果当前元素等于prov，就退出循环
+			//遍历结束
+			//如果i等于prov的length，就输出没找到
+			//否则，将cities中的i位置的子数组转为字符串输出
+			for(var i=0;i<provs.length;i++){
+				if(provs[i]==prov){
+					break;
+				}
+			}
+			if(i==provs.length){
+				console.log("没找到");
+			}else{
+				console.log(String(cities[i]));
+			}
+		}	
+		//测试代码 
+		getCitiesByProv("无锡市");
+		//getCitiesByProv("青海省");
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>MVC的学习</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <p>{{num}}</p>
+    <button ng-click="showInfo()">clickMe</button>
+    <p>{{car.name}}</p>
+    <ol>
+        <li ng-repeat="tmp in list">
+            {{tmp}}
+        </li>
+    </ol>
+</div>
+
+<script>
+    //声明一个模块
+    var app = angular.module('myApp',[]);
+    //声明一个控制器
+    app.controller('myCtrl',function($scope){
+        $scope.num = 30;
+
+        $scope.car = new Object();
+        $scope.car.name = 'Audi';
+        $scope.car.price = 10000;
+
+        $scope.list = [20,30,44,55];
+
+        $scope.showInfo = function () {
+            console.log('clicked!')
+        }
+        console.log($scope);
+    });
+</script>
+</body>
+</html>

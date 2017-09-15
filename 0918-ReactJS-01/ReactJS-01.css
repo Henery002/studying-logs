@@ -1,0 +1,109 @@
+React.js day01：
+一、介绍：
+	1、what:
+		一个为数据提供渲染HTML视图开源的js库
+		国外：facebook、instagram
+		国内：美团、阿里、大搜车
+	2、发展历程：
+		11年
+		12年
+		13年5月，美国jsConf大会上宣布开源
+		15年，facebook基于React推出：ReactNative，构建原生应用
+			提出理念：Learn once,Write anywhere
+	3、为什么？
+		遇到了问题：
+			问题1：大量的DOM操作 => 虚拟DOM算法，实现DOM的自动操作
+			问题2：逻辑非常复杂	 => state与内容对应起来
+	4、React的特点：
+		1、声明式的设计：采用声明范式，可以轻松的描述应用
+		2、高效：虚拟DOM算法，最大限度减少与DOM的交互
+		3、灵活：方便的搭配其他框架使用
+		4、jsx是js语法的扩展
+		5、组件/组件化开发：构建组件，方便复用
+	5、代价：
+		1、参考资料较少
+		2、其对应的扩展比较少
+		3、React不支持IE8以下浏览器
+		4、如果你的应用或者站点不需要频繁的页面更新，不需要使用React
+	6、学习React：
+		官方：http://facebook.github.io/react/
+		中文：
+
+二、React的核心思想、概念
+	1、核心思想：
+		封装组件，可以提高代码复用率，降低测试难度，降低代码的复杂度
+	2、核心概念：
+		1、组件：
+		2、JSX语法：并不是一种新语言，而是对js的扩展。【建议使用，非必须使用。】
+			React.render(
+				<div>
+					<div>content</div> 
+				</div>,
+				document.getElementByIdd('did');
+			)
+			React.render(
+				React.creatElement('div',null,
+					React.creatElement('div',null,'content')
+				),
+				document.getElementById('did');
+			)
+		3、虚拟DOM(Virtual DOM)
+			虚拟DOM中的节点，称之为组件，组件是存储在内存中的数据结构，操作会非常快(虚拟DOM算法)
+		4、数据流：
+			模型数据的改变会影响视图view(state)
+
+三、React的第一个程序：
+	依赖(annotation)：React.js、React-Dom.js、browser.js
+	基本方法：
+		ReaactDOM.render(参数1,参数2)
+		将参数1渲染到参数2中，(将模板转换为HTML语言，并插入到指定的DOM节点)
+	2、JSX语法：
+		遇到HTML标签(<)，就使用HTML解析；
+		遇到代码块({})，就使用JS解析。
+	3、组件		复合组件
+		创建并使用组件：
+			【注意：HelloMsg首字母必须大写！！！】
+			组件的首字母必须大写。(React中是根据标签的首字母判断是原生的HTML标签还是自定义的组件)
+			var HelloMsg = React.createClass({
+    			render:function(){
+        			return <h1>Hello Component!</h1>
+    			}
+    		});
+		    ReactDOM.render(
+		        <HelloMsg/>,
+		        document.getElementById('example')
+		    );
+
+		【注意】：在创建组件的时候，render方法中如果要返回多个元素，需要一个顶层标签，否则会报错。
+
+	4、props属性：	
+		组件的用法与HTML标签完全一致，在组件的使用中，我们可以加入属性
+			<Hello name='Web1605' age='20'/>	//注意，此标签必须闭合
+		可以通过	this.props.name/this.props.age	读取到该值
+
+		this.props.children	组件的所有子节点
+		其返回值的三种情况：
+			组件中没有子节点：		undefined
+			组件中有一个子节点：	object 
+			组件中有多个子节点：	array
+
+		为了更好的处理子节点：	React.Children
+
+			<MyList>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+			</MyList>
+		......
+
+	[2016/09/18 16:25]
+	5、ref
+		组件本身并不是真实的DOM节点，是存在内存中的一种数据结构，叫做虚拟DOM
+		有时，需要从组件中获取真实的DOM节点。
+		功能：点击按钮，获取input所输入的值
+			<input ref='myTextInput'/>
+			{this.refs.myTextInput}
+
+
+
+

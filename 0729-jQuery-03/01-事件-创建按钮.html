@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	#btn{
+		margin:30px;
+	}
+	div{
+		margin-left:30px;
+		border:1px solid #999;
+		width:500px;
+		height:200px;
+	}
+	div button{
+		margin:5px;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<button id='btn'>点击上面的按钮，在下面创建新按钮--事件委托 on</button>
+	<div>
+	
+	</div>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		//on的第二种用法：
+		$('div').on('click','button',function(){
+			console.log($(this).html());
+		});
+		//on的第一种用法：
+		$('#btn').on('click',function(){
+			var num=$('div button').length;
+			$('<button>'+num+'</button>').appendTo('div');
+		});
+	</script>	
+ </body>
+</html>

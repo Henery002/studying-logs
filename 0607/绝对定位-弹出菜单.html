@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <style>
+	.d1{
+		width:100px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		margin:100px 500px;
+		border:1px solid #333;
+		position:relative;
+		z-index:1;
+	}
+	
+	/*！！！！！！！！！！！设置弹出菜单时，可以设置堆叠顺序为：li压住右边正文  ！！！！！！！！！！！！！！*/
+
+	.d2{
+		width:300px;
+		height:500px;
+		border:1px solid #333;
+		background:#fff;
+		/*绝对定位*/
+		position:absolute;
+		top:30px;
+		left:-49px;
+		display:none;
+		z-index:2;
+	}
+	/*!!!!!!!!!!!!!*/
+	.d1:hover .d2{
+		display:block;
+	}
+
+  </style>
+ <head>
+ <body>
+	<div class="d1">
+		北京海淀区
+		
+		<div class="d2">
+		<!--弹出菜单-->	
+		</div>
+	</div>
+	
+
+ </body>
+</html>

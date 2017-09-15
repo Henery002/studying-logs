@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<table id="products">
+		<tr>
+			<td><a href='#'>佳能</a><i>(30440)</i></td>
+			<td><a href='#'>索尼</a><i>(27220)</i></td>
+			<td><a href='#'>三星</a><i>(20288)</i></td>
+		</tr>
+		<tr>
+			<td><a href='#'>尼康</a><i>(17821)</i></td>
+			<td><a href='#'>松下</a><i>(12289)</i></td>
+			<td><a href='#'>卡西欧</a><i>(8242)</i></td>
+		</tr>
+		<tr class='hidden Tr'>
+			<td><a href='#'>富士</a><i>(14894)</i></td>
+			<td><a href='#'>柯达</a><i>(9520)</i></td>
+			<td><a href='#'>宾得</a><i>(2169)</i></td>
+		</tr>
+		<tr class='hidden Tr'>
+			<td><a href='#'>理光</a><i>(4114)</i></td>
+			<td><a href='#'>奥林巴斯</a><i>(12205)</i></td>
+			<td><a href='#'>明基</a><i>(1466)</i></td>
+		</tr>
+		<tr>
+			<td class='hidden'><a href='#'>爱国者</a><i>(3091)</i></td>
+			<td><a href='#'>其他品牌相机</a><i>(7275)</i></td>
+		</tr>
+	</table>
+	<span>显示全部商品</span>
+	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+		//全局变量用来判断	
+		var isShown=false;
+		//表格
+		$('#products').css('margin','50px auto');
+		//表格行
+		$('#products tr').css('height','25px');
+		//单元格
+		$('td').css('color','#0055dd').css('width','200px');
+		//数字
+		$('i').css('color','#666').css('font-size','0.9em');
+		//增加的商品默认隐藏
+		$('#products .hidden').css('display','none');
+		//显示全部商品
+		$('span').css('margin-left','400px').css('border','1px solid #333').css('padding','5px 20px').css('border-radius','5px').css('cursor','pointer').css('color','#0055dd').click(function(){
+			if(isShown){
+				$('#products .hidden').css('display','none');
+				isShown=false;
+			}else{
+				$('#products .hidden').css('display','block');
+				$('#products .Tr').css('display','table-row');
+				$('#products .Tr td').css('display','table-cell');
+				$('span').html('精简显示品牌');
+				isShown=true;
+			}
+		});
+	</script>	
+ </body>
+</html>

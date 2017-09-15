@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		/*
+		3个函数：
+		*/	
+		//去掉str开头的空字符
+		function ltrim(str){
+			return str.replace(/^\s+/g,"");
+		}
+
+		//去掉str结尾的空字符
+		function rtrim(str){
+			return str.replace(/\s+$/g,"");
+		}
+
+		//同时去掉......
+		function bothtrim(str){
+			return str.replace(/^\s+|\s+$/g,"");		//注意关键点 为：g
+		}
+
+		//测试代码
+		var str='		  江苏南京		 	';
+		console.log('字符串'+'||'+str+"||");
+		console.log('去掉左'+"||"+ltrim(str)+"||");
+		console.log('去掉右'+"||"+rtrim(str)+"||");
+		console.log('都去掉'+"||"+bothtrim(str)+"||");
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,68 @@
+//TODO 1、注释
+/* CSS的注释写法   生成在CSS文件中*/
+// Less文件的注释  不会生成在CSS文件中
+//TODO 2、变量(更像JS中的常量)
+@nice-blue : #007ddd;
+
+#header{
+  color:@nice-blue;
+}
+
+//TODO 3、混合（当做是JS中的函数）
+//TODO  将 class 当做一个变量使用
+.bordered{
+  border-top:dotted 1px #0f0;
+  border-bottom:dotted 2px #0f0;
+}
+//TODO  像变量一样使用
+#menu{
+  color:#111;
+  .bordered;
+}
+
+//TODO 4、带参的混合（更像JS中的函数）
+//TODO  为参数设置默认值
+.border-radius(@radius:5px){
+  border-radius:@radius;
+}
+
+#button{
+  .border-radius(3px)
+}
+
+//TODO 5、@arguments 变量包含了所有参数
+.box-shadow(@x:0px;@y:0px;@blur:1px;@color:#000){
+  box-shadow:@arguments;
+}
+
+#box{
+  .box-shadow(2px,5px)
+}
+
+//TODO 6、嵌套结构
+.header{
+  color:#0055dd;
+  .logo{
+    font-size:24px;
+    //TODO  添加前缀"&"
+    &:hover{
+      background-color: blueviolet;
+    }
+  }
+}
+
+//TODO 7、基本运算（ + - * / % ）
+@screen-width : 992px;
+
+.col-md-1{
+  width:floor(@screen-width/12);
+}
+//TODO 8、函数
+@blue:#00f;
+
+.a{
+  color:@blue;
+  &:hover{
+    color:lighten(@blue,10%);
+  }
+}

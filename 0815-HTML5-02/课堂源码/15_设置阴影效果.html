@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置阴影效果</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    var context = document.getElementById("canvas").getContext("2d");
+
+    //TODO 设置阴影效果
+    context.shadowColor = "red";
+    context.shadowOffsetX = 10;
+    context.shadowOffsetY = 10;
+    context.shadowBlur = 20;
+
+    context.fillStyle = "blue";
+    //TODO 1. 绘制一个实心矩形
+    context.fillRect(100,100,100,100);
+    //TODO 2. 绘制一个实心文字
+    context.font = "36px 微软雅黑";
+    context.fillText("Web前端",300,300);
+</script>
+</body>
+</html>

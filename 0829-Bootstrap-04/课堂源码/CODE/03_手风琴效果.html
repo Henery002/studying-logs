@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>手风琴效果</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 手风琴效果
+            TODO 折叠框 + 面板
+            TODO 1.静态组件
+            TODO   * 用于包含多个面板组件的容器元素
+            TODO   * 在容器元素中,定义多个面板组件
+            TODO     * 标题 + 主体
+            TODO 2.动态交互
+            TODO   * 控制动态显示或隐藏的按钮 - 标题
+            TODO   * 被动态显示或隐藏的内容   - 主体
+        -->
+        <!-- TODO  容器元素 class 为 .panel-group -->
+        <div id="accordion" class="panel-group">
+            <!-- TODO  面板组件 -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <!--
+                            TODO  修改为动态按钮
+                            TODO  data-parent="#容器ID"
+                         -->
+                        <a data-toggle="collapse" href="#c1" data-parent="#accordion">
+                            标题1
+                        </a>
+                    </h4>
+                </div>
+                <div id="c1" class="collapse in">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab iure non sunt tempore veritatis. Ab accusamus ad blanditiis ex. Accusamus ad, explicabo in incidunt nihil reiciendis saepe sequi soluta vel.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#c2" data-parent="#accordion">标题2</a>
+                    </h4>
+                </div>
+                <div id="c2" class="collapse">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus earum eius eum, explicabo magnam officiis reiciendis sit ullam voluptate? Consequatur eaque eveniet facere ipsa labore neque nostrum, quibusdam soluta vitae!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

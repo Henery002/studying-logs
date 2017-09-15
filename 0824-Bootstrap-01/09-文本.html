@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    p{
+        border:1px solid #5a8cc5;
+        margin-top: 5px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <!--
+                TODO 文本对齐方式
+                    .text-left      左对齐
+                    .text-center    居中对齐
+                    .text-right     右对齐
+                    .text-justify   两端对齐(效果类似于左对齐)
+                    .text-nowrap    两端对齐(不换行，向右拖动)
+            -->
+            <p class="text-left ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi aperiam architecto blanditiis debitis, illo impedit libero magnam, maiores maxime natus nulla numquam odio, omnis quaerat quas rem sit temporibus?</p>
+            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi aperiam architecto blanditiis debitis, illo impedit libero magnam, maiores maxime natus nulla numquam odio, omnis quaerat quas rem sit temporibus?</p>
+            <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi aperiam architecto blanditiis debitis, illo impedit libero magnam, maiores maxime natus nulla numquam odio, omnis quaerat quas rem sit temporibus?</p>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi aperiam architecto blanditiis debitis, illo impedit libero magnam, maiores maxime natus nulla numquam odio, omnis quaerat quas rem sit temporibus?</p>
+            <p class="text-nowrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi aperiam architecto blanditiis debitis, illo impedit libero magnam, maiores maxime natus nulla numquam odio, omnis quaerat quas rem sit temporibus?</p>
+        </div>
+        <div class="row">
+            <!--
+                TODO 修饰类
+                    .text-muted      (默认样式)很少使用
+                    .text-primary    首选项
+                    .text-info       一般信息
+                    .text-warnning   警告
+                    .text-danger     危险
+            -->
+            <p class="text-muted bg-success">默认样式Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at, deserunt eius eveniet excepturi illum labore laborum libero nam nulla, placeat quas quia quis rem, repellendus sequi voluptate. Consequuntur, distinctio?</p>
+            <p class="text-primary bg-primary">首选项Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at, deserunt eius eveniet excepturi illum labore laborum libero nam nulla, placeat quas quia quis rem, repellendus sequi voluptate. Consequuntur, distinctio?</p>
+            <p class="text-info bg-info">一般信息Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at, deserunt eius eveniet excepturi illum labore laborum libero nam nulla, placeat quas quia quis rem, repellendus sequi voluptate. Consequuntur, distinctio?</p>
+            <p class="text-warning bg-warning">警告Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at, deserunt eius eveniet excepturi illum labore laborum libero nam nulla, placeat quas quia quis rem, repellendus sequi voluptate. Consequuntur, distinctio?</p>
+            <p class="text-danger bg-danger">危险Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at, deserunt eius eveniet excepturi illum labore laborum libero nam nulla, placeat quas quia quis rem, repellendus sequi voluptate. Consequuntur, distinctio?</p>
+        </div>
+    </div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

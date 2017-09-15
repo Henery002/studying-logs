@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绘制矩形</title>
+</head>
+<body>
+<canvas id="canvas" width="500px" height="300px"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext('2d');
+    /*
+        TODO 绘制空心或实心矩形
+        TODO 默认的描边和填充颜色都是 黑色
+     */
+    //TODO 设置描边颜色
+    context.strokeStyle = "red";
+    //TODO 1.绘制空心矩形
+    context.strokeRect(10,10,100,100);
+
+    //TODO 设置填充颜色
+    context.fillStyle = "green";
+    //TODO 2.绘制实心矩形
+    context.fillRect(120,10,100,100);
+    /*
+      TODO clearRect(x,y,width,height)
+      TODO * 作用:清楚指定矩形区域的内容
+      TODO * 参数
+      TODO   * x和y:表示绘制矩形的左上角坐标值
+      TODO   * width:表示绘制矩形的宽度
+      TODO   * height:表示绘制矩形的高度
+     */
+    context.fillStyle = "black";
+    context.fillRect(240,10,100,100);
+    context.clearRect(250,20,80,80);
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+2016年07月27日：
+第一阶段：HTML + CSS	内容
+第二阶段：JS + DOM 		交互
+第三阶段：jQuery + AJAX + HTML5 	全栈
+
+李文华
+QQ:2180265268
+liwenhua@tedu.cn
+
+今日目标：	
+1、jQuery概述	--	了解
+2、jQuery选择器	--	重点
+
+1、jQuery
+	官网：https://jquery.com/
+	格言：
+	版本：jQuery1	--	兼容老IE，功能受限
+		  jQuery1	--	不兼容老IE，功能丰富
+		  jQuery1	--	不兼容老IE，功能丰富
+
+	jQuery是一个JS函数库，用于简化DOM操作，同时屏蔽浏览器兼容性问题。
+	共有100+个函数，分为四类：
+	（1）DOM操作：
+	（2）事件处理：
+	（3）动画
+	（4）AJAX
+
+2、复习：常见DOM操作
+	查找元素：
+			getELementById('id')
+			getELementsByTagName('标签名')
+			getELementsByClassName('class')
+			4getELementsByName('name')
+			document.querySelector('selector')
+			document.querySelectorAll('selector')
+	操作元素的属性：
+		1、获取属性值：
+			1、获得属性节点对象
+				var attrNode=elem.attributes[i]
+							elem.attributes['属性名']
+				attrNode.value
+			2、直接获得属性值：
+				var value=elem.getAttribute('属性名')
+		2、设置属性值：
+			elem.setAttribute('属性名','属性值')
+	操作元素的内容：
+		1、elem.innerHTML
+		2、elem.textContent	(IE8不支持)/elem.innerText
+	操作元素的值：
+		input.value
+	操作元素的样式：
+		e.style.backgroundColor
+		e,className
+	遍历元素（查找父亲）：
+		child.parentNode
+		child.parentElementNode
+	遍历元素（查找孩子）：
+		parent.ChildNodes
+		parent.Childrent
+	遍历元素（查找兄弟）：
+		e.nextSibling
+		e.previousSibling
+	添加元素：
+		var c=document.createElement()
+		p.appendChild(c)
+	删除元素：
+		p.removeChild(c)
+		p.innerHTML=''
+	替换元素：
+		p.replaceChild(newChild,oldChild)
+	克隆元素：	
+		var copy=e.cloneNode()
+		例：01-clone
+		
+		练习：使用元素克隆
+			div#container>p      button
+      
+3、编辑常用快捷键:
+		Ctrl+D		Delete Line
+		Ctrl+Alt+↓	Duplicate Line
+		Alt+↑		Move Up
+		Alt+↓		Move Down
+		Ctrl+/		Line Comment Indent
+
+4、HTML中使用jQuery:
+	1、jquery.js可以在head或body的最后来引入，推荐在body最后引入
+	2、jquery.js中提供了两个全局变量: $和jQuery，二者等价( == 、===)
+	3、jquery对象和DOM对象的区别：-- 【重点】
+		jquery对象：
+			由$/jQuery函数返回的对象	--	类数组对象
+		DOM对象：
+			浏览器根据标签创建的对象
+
+	【注意】：二者不能混合使用！
+		jQuery对象不能使用DOM对象的属性和方法；反之亦然！
+
+	jQuery对象转换为DOM对象：
+		语法：DOM对象 = jQuery对象.get(index)
+			  DOM对象 = jQuery对象[index]
+			var domObj=$('button')[0];
+	DOM对象转换为jquery对象：
+		$(document);
+		$(this);
+		
+	练习：
+		使用jQuery实现:
+		$('button').css('color',#f00);
+		$('button').html('加载中...');
+		页面中创建三个按钮，点击某个按钮，修改器样式及其上面的文字
+
+	jQuery对象的两个特点：
+		1、提供的所有方法都自带循环
+		2、提供的大部分方法返回值都是
+
+5、jQuery中的函数第一组：DOM操作函数
+	查找元素相关方法：
+		提示：jquery查找元素直接使用 选择器  ，语法几乎兼容所有的CSS选择器。作用上类似于querySelectorAll()，兼容性更好！
+
+	CSS选择器：
+	jQuery选择器：
+		语法：	$('选择器')
+
+		1、基本选择器(Basic)
+			#id		.class		*		div		s1,s2,...
+			练习：使用jquery清除所有元素的padding和margin，
+		2、层级选择器(Hierarchy)
+			$('parent child')		->	$('div p')	
+			$('parent > child')
+			$('parent + child')
+			$('parent ~ child')
+			练习：可以展开收起的下拉菜单
+			
+		3、属性选择器(Attribute)
+			$('[attr]')
+			$('[attr  = "value"]')
+			$('[attr != "value"]')
+			$('[attr ^= "value"]')
+			$('[attr $= "value"]')
+			$('[attr *= "value"]')
+			练习：页面中创建若干个a元素，点击按钮，实现样式的修改。
+
+		4、表单元素选择器(Form)
+			:text		:password	:radio		:checkbox
+			:file		:hidden		:submit		:reset
+			:button		:image		:input(所有 input + textarea + select)
+			:checked	:selected
+			:disabled	:enabled
+
+		5、基本过滤选择器(Basic Filter)		-->		"下标从0开始"
+			:first		:last		:eq(i)
+			:lt(i)		:gt(i)
+			:odd		:even
+
+			特点：把所有选中的元素放在一个大的集合中，编号从0开始，不管他们是否在同一个父元素下。
+
+		6、子代过滤选择器(Child Filter)		-->		"下标从1开始"
+			:first-child			:last-child
+			:nth-child(i/odd/even/3n+1/5n+2)	//此处的i从1开始
+			:only-child
+
+			特点：把选中的元素按照所在父元素进行分组，从每一组中都取第i个，
+			练习：用jquery实现表格变色
+
+		7、内容过滤选择器(Content Filter)
+			:contains('text')	//innerHTML中包含text
+			:has(selector)		//innerHTML中有指定的选择器
+			:parent				//innerHTML不为空
+			:empty				//innerHTML为空
+
+		8、可见性过滤选择器(Visibility Filter)
+			:visible
+			:hidden	  -->	head meta script title display:none  type="hidden"
+			
+			【注意】：visibility:hidden;和opacity:0不能被:hidden选中！
+
+	
+面试题：jQuery3的新特性？
+	高阶面试题：
+		上述哪些选择器是jQuery中所特有而CSS中没有的？
+		——这样的选择器底层无法利用querySelectorAll()函数进行查找速度优化，需要谨慎使用。	

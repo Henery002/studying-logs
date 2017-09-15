@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="" />
+  <script></script>
+  <style></style>
+ </head>
+ <body>
+
+  <script>
+	function groupNum(num){		//设置形参
+		var count=0;	//声明一个计数器，初始化为0
+		var i,j,k;
+		for(i=1;i<=num;i++){
+			for(j=1;j<=num;j++){
+				if(i!=j){		//可减少比较次数
+					for(k=1;k<=num;k++){
+						if(i!=k&&j!=k){
+							console.log(i*100+j*10+k);
+							count++;		//计数器，计算满足要求的三位数的个数
+						}
+					}
+				}
+			}
+		}
+		alert("满足要求的三位数共有："+count+"个")
+	}
+	groupNum(4);		//为实参赋值，即数字个数
+  </script>
+ 
+ </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	//一、
+	//函数也是引用类型的对象
+	function cook(noodle,tomato,egg){
+		//var noodle = 0,egg = 0,tomato = 0;
+		console.log(tomato+" 炒 "+egg);
+		console.log("煮 "+noodle);
+		return '材料：'+tomato+egg+tomato;
+	}
+	var wan = cook("面","西红柿","鸡蛋");
+	console.log(wan);
+  </script>
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+ </body>
+</html>

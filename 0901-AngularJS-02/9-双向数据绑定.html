@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--2、使用/注册模块-->
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>双向数据绑定：方向1-模型数据到视图的绑定</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <!--4、使用控制器-->
+    <div ng-controller="myCtrl">
+        <!--通过 {{}} 将num绑定到 p -->
+        <p>{{num}}</p>
+        <button ng-click="clickFunc()">点我</button>
+    </div>
+    <script>
+        //1、模块声明
+        var app = angular.module('myApp',[]);
+        //3、控制器的声明
+        app.controller('myCtrl',function($scope){
+            $scope.num = 0;
+            $scope.clickFunc = function(){
+                $scope.num ++;
+            }
+        });
+    </script>
+</body>
+</html>

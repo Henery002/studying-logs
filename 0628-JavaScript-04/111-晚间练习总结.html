@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	  function getHTML(){
+		var p = document.getElementById('p1');
+		//console.log(p.innerHTML);
+		//console.log(typeof p.innerHTML);
+		//实现p标签内的HTML元素内容的修改。注意此处不能把span改成块级元素
+		p.innerHTML = '<span>央视消息</span>';
+		p.innerText = "维生素复合肥";
+		p.textContent = '央视消息';
+	  }
+
+	  function jump(){
+		var a = document.getElementById('bdlink');
+		console.log(a.attributes);
+		//console.log(a.attributes.length);
+		//console.log(a.attributes[3]);
+		//console.log(a.attributes[3].value);
+		console.log(a.attributes['id']);
+		console.log(a.getAttributeNode('href'));
+		//console.log(a.getAttribute('class'));
+	  }
+  </script>
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+	<p id="p1"><span>样式消息</span></p>
+	<button onclick="getHTML()">获取HTML元素</button><br><br>
+	<a id="bdlink" class="sitelink" href="javascript" onclick="jump()">百度搜索</a><br><br>
+	<button onclick="jump()">获取属性</button><br><br>
+ </body>
+</html>

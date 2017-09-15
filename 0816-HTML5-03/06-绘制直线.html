@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="300px"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    /*
+    * TODO 创建路径以下两种方式：
+    *   moveTo(x,y)方法：  --  设置起点
+    *       作用：将当前光标移到到(x,y)坐标值
+    *   lineTo(x,y)方法：  --  设置终点
+    *       作用：绘制直线达到(x,y)坐标值
+    *  注意：只能使用stroke()方法
+    * */
+    context.beginPath();
+    context.moveTo(10,10);
+    context.lineTo(10,100);
+    context.stroke();
+    //使用两条直线拼接成折线
+    context.beginPath();
+    context.moveTo(10,100);
+    context.lineTo(100,100);
+    context.closePath();
+    context.stroke();
+
+    //直接绘制直线
+    context.beginPath();
+    context.moveTo(100,100);
+    context.lineTo(200,100);
+    context.lineTo(200,200);
+    context.lineTo(300,200);
+    context.lineTo(300,300);
+    context.lineTo(400,300);
+    context.lineTo(400,400);
+    context.lineTo(500,400);
+    context.lineTo(500,500);
+    context.lineTo(500,600);
+    context.closePath();
+    context.stroke();
+
+
+</script>
+</html>

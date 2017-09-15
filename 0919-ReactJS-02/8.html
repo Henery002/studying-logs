@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习--一个React程序</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var MyForm = React.createClass({
+        getInitialState:function(){
+            return {
+                username:'',
+                gender:'man',
+                checked:true
+            };
+        },
+        handleUserNameChange:function(event){
+            this.setState({username:event.target.value});
+        },
+        handleGenderChange:function(){
+            this.setState({gender:event.target.value});
+        },
+        handleCheckboxChange:function(){
+            this.setState({checked:event.target.value});
+        },
+        handleSubmit:function(event){
+            event.preventDefault();
+            console.log(1);
+            console.log(this.state);
+        },
+        render:function(){
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="userName">用户名</label>
+                    <input type="text" id="userName" value={this.state.username} onChange={this.handleUserNameChange}/>
+                    <br/>
+                    <label htmlFor="gender">性别</label>
+                    <select name="" id="gender" value={this.state.gender} onChange={this.handleGenderChange}>
+                        <option value="man">男</option>
+                        <option value="woman">女</option>
+                    </select>
+                    <br/>
+                    <label htmlFor="agree">同意本站协议</label>
+                    <input type="checkbox" id="agree" checked onChange={this.handleCheckboxChange}/>
+                    <br/>
+                    <button type="submit">注册</button>
+                </form>
+            )
+        }
+    });
+    ReactDOM.render(
+            <MyForm/>,
+            document.getElementById('example')
+    );
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

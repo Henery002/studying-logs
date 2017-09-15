@@ -1,0 +1,184 @@
+jQuery-day02：
+1、复习：
+	jQuery概述
+		jQuery是一个JS函数库，用于简化DOM操作，屏蔽浏览器兼容性问题。共提供了100多个函数，分为下列四类：
+			1、DOM操作相关函数
+			2、事件处理函数
+			3、动画函数
+			4、AJAX封装函数
+2、jQuery知识体系脉络：
+	jQuery提供的DOM操作函数：
+		1、查找元素
+			基本选择器
+			层级选择器
+			属性选择器
+			表单元素选择器
+
+			基本过滤选择器
+			子代过滤选择器
+			内容过滤选择器
+			可见性过滤选择器
+		2、操作元素的属性
+		3、操作元素的内容
+		4、操作元素的值
+		5、操作元素的样式
+		6、遍历元素
+		7、添加元素
+		8、删除元素
+		9、替换元素
+		10、克隆元素
+
+今日目标：
+1、操作元素：
+	1、操作元素属性
+		DOM:
+			div.getAttribute('title')
+			div.setAttribute('title','XXX')
+		jQuery:
+			$('div').attr('title','XXX')	-- 设置
+			var v=$('div').attr('title')	-- 读取
+	2、操作元素内容：
+		DOM:
+			var h=div.innerHTML;	//读取 
+			div.innerHTML='xxx';	//设置
+			div.innerText='XXX';
+			var t=div.innerText;
+		jQuery:
+			$('div').html('xxx');	//设置	-->  $('div').html('') //也是设置
+			var h=$('div').html();	//读取
+			$('div').text('xxx');
+			var h=$('div').text();
+	3、操作元素的值：
+		DOM:
+			input.value='Tom';
+			var v=input.value;
+		jQuery:
+			$('input').val('Tom');	//设置
+			var v=$('input').val();	//获取
+	4、操作元素的样式：
+		DOM:
+			div.style.color='#f00';	//设置
+			var c=div.style.color;	//获取
+			div.className='box';
+			var n=div.className;
+		jQuery:
+			$('div').css('color','#f00');	//设置某个样式
+			var c=$('div').css('color');	//获取某个样式
+			$('div').addClass('box');		//添加class
+			$('div').removeClass('box');	//删除class
+			$('div').hasClass('box');		//判断是否有class
+			$('div').toggleClass('box');	//切换。有则删除，无则添加
+
+			例：<div class='box alert warning'></div>	可用上述方式修改
+			
+		提示：操作样式推荐用 控制class 来实现！
+			  添加删除时不要加 . 号！
+			
+			练习：双态按钮。每个按钮在'按下'，'弹起'状态间切换
+	5、遍历元素	--	重点	
+		DOM:
+			div.parentNode					//获得父元素
+			div.childNodes					//获取子元素
+			div.nextSibling					//获取下一个兄弟
+			div.previousSibling				//获取上一个兄弟
+		jQuery:
+			$('div').parent()				//获得父元素
+			$('div').children()				//获得所有直接子元素
+			$('div').children('span/.box')	//获得直接子元素（筛选）
+			$('div').find('选择器')			//查找所有子元素
+			$('div').next()					//下一个兄弟
+			$('div').nextAll()				//后面所有的兄弟
+			$('div').prev()					//上一个兄弟
+			$('div').prevAll()				//前面所有兄弟
+			$('div').siblings()				//所有兄弟
+			$('div').siblings('选择器')		//所有兄弟（满足条件的）
+		
+		【练习：实现一个标签页的页签】
+
+2、添加新元素：
+	DOM:
+		var p=document.createElement('p');
+		p.innerHTML='';
+		p.onclick=function(){};
+		div.appendChild(p);
+	jQuery:	 -->	八个方法：
+		
+		$('div').append('<p>段落<a>链接</a>篇章</p>');
+		$('div').prepend('<p>段落<a>链接</a>篇章</p>');
+
+		用此种方法绑定监听事件
+		var p=$('<p>段落<a>链接</a>篇章</p>');	//创建一个jQuery对象，其中封装着新的DOM元素
+		p.click(function(){});
+		$('div').append(p);
+
+3、删除元素：
+	DOM:
+		div.removeChild(p);
+		p.parentNode.removeChild(p);	//由父元素删除子元素
+	jQuery:
+		$('p').remove();		//删除当前选定的元素
+		$('div').empty();		//清除选中元素中的内容
+
+	练习：
+
+4、替换元素：
+	DOM:
+		parent.replaceChild(newChild,oldChild);
+	jQuery:
+		$('new').replaceAll($('old'));			//返回新的元素
+			//	$('new').replaceAll('.old');
+		$('old').replaceWith($('new'));
+			//	$('old').replaceWith('.new');	//返回被替换的元素
+
+	练习：选择英雄：
+
+5、克隆元素
+	DOM:
+		var copy=div.cloneNode();			//浅克隆
+		var copy=div.cloneNode(true);		//深克隆
+	jQuery:
+		var copy=$('div').clone();			//深克隆（克隆所有内容，但不克隆事件监听函数）
+		var copy=$('div').clone(true);		//深克隆（同时克隆监听函数）
+		
+	/************************!!!!!!!!!!!!!!!************/
+	练习：改进“英雄选择” -- 点击某个飞机后，上方选择区域出现一个当前飞机的副本。
+	/************************!!!!!!!!!!!!!!!************/
+
+6、jQuery中事件处理：
+	【面试题】：jQuery中多少个事件绑定函数？各自的区别？
+		历史上，先后出现了如下的事件绑定方法：
+		（1）bind()	&	unbind()	为选定元素绑定特定事件的处理函数
+			用法：	$('.btn').bind('click',function(){})
+					$('.btn').unbind('click')
+
+			练习：创建一个按钮：‘退出登陆’，被点击一次后，显示文字‘请稍后’，此后再也不能被点击
+
+		（2）one()		为选定元素绑定一次事件处理函数
+			用法：	$('btn').one('click',function(){});
+			说明：监听函数只能执行一次，此方法相当于bind)中调用了unbind()。
+		（3）bind函数的简化版本	-->	click / dblclick / mouseover / mouseout .... 
+			$('.btn').bind('mouseover',fn)	<==>	 $('.btn').mouseover(fn)
+			$('.btn').bind('click',fn)		<==>	 $('.btn').click(fn)
+			$('.btn').bind('keyup',fn)		<==>	 $('.btn').keyup(fn)
+			...
+
+			注意：这样的简化函数只有23个！
+
+			"上述三个函数共同的缺陷：只能对当前DOM树上已经存在的元素绑定监听函数，后添加的元素无法绑定"。
+
+		（4）delegate()	& undelegate()		-->		事件代理
+				子元素委托父元素代理处理自己的事件
+			用法：$('parent').delegate('btn','click',function(){})
+			说明：每个目标元素自己不处理事件，利用“冒泡机制”，传递给父元素来处理。
+			作用：
+				  使用父元素代理子元素的特定事件 好处：
+					1、可以对当前尚未存在的元素生效！
+					2、可以减少监听函数的数量！
+
+		（5）live：	指定子元素把指定的事件全部委托给document对象	——	jQuery1.8之后删除了此方法。
+			$(子元素).live('事件名',  fn)
+		（6）on：	可以实现类似	bind / delegate 的所有功能
+			类似bind的使用方法（把监听函数绑定在事件源上）：
+				$('子元素').on('事件名', fn)
+			类似delegate的使用方法（把监听函数委托在父元素上）：
+				$('父元素').on('事件名', '子元素', fn)

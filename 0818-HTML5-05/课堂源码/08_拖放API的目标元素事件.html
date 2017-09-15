@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖放API的目标元素事件</title>
+    <style>
+        div {
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        #d1 {
+            float: left;
+        }
+        #d2 {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- TODO 源元素 -->
+<div id="d1"><img id="img" src="img/pic.jpg"/></div>
+    <!-- TODO 目标元素 -->
+<div id="d2"></div>
+<script>
+    var d2 = document.getElementById("d2");
+    /*
+      TODO 当源元素到达目标元素时触发
+      TODO * 只被触发一次
+     */
+    d2.addEventListener("dragenter",function(event){
+        console.log("大爷您来啦...");
+    });
+    /*
+      TODO 当源元素到达目标元素时触发
+      TODO * 重复被触发(多次)
+      TODO 注意:必须阻止HTML页面的默认行为
+      TODO      * 目标元素的drop事件成功被触发
+     */
+    d2.addEventListener("dragover",function(event){
+        event.preventDefault();
+        console.log("大爷又来啦...");
+    });
+    /*
+      TODO drop事件并没有成功被触发
+      TODO * 注意:必须在目标元素的dragover事件阻止HTML页面的默认行为
+     */
+    d2.addEventListener("drop",function(event){
+        console.log("大爷别走啦...");
+    });
+    //TODO 当源元素离开目标元素时触发
+    d2.addEventListener("dragleave",function(event){
+        console.log("大爷再来啦...");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>使用service创建服务</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <p>{{name}}</p>
+        <p>{{email}}</p>
+        <button ng-click="callTel()">点我调用service自定义服务中的方法</button>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        //创建一个 $student 自定义服务
+        //由于使用service方法创建服务，
+        app.service('$student',function(){
+            this.name = '魏范光';
+            this.email = 'bjzahngzl@tedu.cn';
+            this.tell = function(){
+                return "Hello Service!";
+            }
+        });
+        //声明控制器
+        app.controller('myCtrl',["$scope",'$student',
+            function($scope,$student){
+                $scope.name = $student.name;
+                $scope.email = $student.email;
+                $scope.callTel = function(){
+                    console.log($student.tell());
+                }
+            }
+        ])
+    </script>
+</html>

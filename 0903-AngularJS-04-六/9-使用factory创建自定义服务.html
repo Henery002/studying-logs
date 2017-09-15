@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>使用factory创建自定义服务</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <button ng-click="callStr()">点我读取方法</button>
+        <button ng-click="callName()">点我读取数组中的值</button>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        //创建自定义服务：
+        app.factory('$outfun',function(){
+            return {
+                str:function(msg){
+                    return msg;
+                }
+            }
+        });
+        //再创建一个服务，用来返回数组
+        app.factory('$outarr',function(){
+            return ['20','30','40'];
+        });
+        //声明控制器
+            //引入上述两个服务
+        app.controller('myCtrl',['$scope','$outfun','$outarr',
+            function($scope,$outfun,$outarr){
+                //在控制器内部定义一个方法
+                $scope.callStr = function(){
+                    var str = $outfun.str("hello World!");
+                    console.log(str);
+                }
+                $scope.callName = function(){
+                    //读取$outarr中的数据
+                    console.log($outarr[2]);
+                }
+            }
+        ])
+    </script>
+</html>

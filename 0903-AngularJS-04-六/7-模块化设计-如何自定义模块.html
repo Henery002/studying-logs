@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp-2" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>模块化设计-如何自定义模块</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl-2">
+        <button ng-click="callShow()">点我</button>
+    </div>
+</body>
+    <script>
+        //模块的声明
+        var app01 = angular.module('myApp-1',[]);
+        //自定义服务 $custom
+        app01.factory('$custom',function(){
+            return {
+                show:function(msg){
+                    console.log('在模块app01中');
+                    alert(msg);
+                }
+            }
+        })
+        //声明第二个模块。在其中创建一个控制器引用第一个模块
+        var app02 = angular.module('myApp-2',['ng','myApp-1']); //在依赖列表中写入指定的模块名
+        //声明一个控制器
+        app02.controller('myCtrl-2',["$scope","$custom",
+            function($scope,$custom){
+                //定义一个方法callShow
+                $scope.callShow = function(){
+                    $custom.show('在模块app02中');
+                }
+        }]);
+    </script>
+</html>

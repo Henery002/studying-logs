@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	ul.tabs{
+		margin:50px 50px;
+	}
+	a{
+		padding:20px 35px;
+		text-decoration:none;
+	}
+	ul.tabs li{
+		list-style:none;
+		float:left;
+		padding:20px 0px;
+		border-bottom:1px solid #666;
+		background-color:#eee;
+	}
+	ul.tabs li.active{
+		border:1px solid #666;
+		border-bottom:0;
+		background-color:#fff;
+	}
+	#content{
+		clear:both;
+		padding-top:20px;
+	}
+	div>div{
+		display:none;
+	}
+	div>div.active{
+		display:block;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<ul class="tabs">
+		<li class='active'><a href="#tc10">十元套餐</a></li>
+		<li><a href="#tc20">二十元套餐</a></li>
+		<li><a href="#tc30">三十元套餐</a></li>
+	</ul>
+	<div id="content">
+		<div class='active' id="tc10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas id velit sunt suscipit nihil fugiat officia eveniet similique doloremque inventore ab minima necessitatibus esse culpa incidunt est iste nam voluptatem!</div>
+		<div id="tc20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta debitis blanditiis rem laborum nobis nihil provident veniam autem cum expedita nisi quas itaque voluptatum temporibus id ut odio ad magnam.</div>
+		<div id="tc30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae reprehenderit sit explicabo officiis quia libero quasi incidunt ducimus sed optio consectetur adipisci eos? Cum similique commodi esse tempore delectus inventore.</div>
+	</div>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('.tabs li a').click(function(e){
+			e.preventDefault();	//防止a标签的页面跳转
+			$(this).parent().addClass('active').siblings('.active').removeClass('active');
+			var h=$('this').attr('href');
+			$(h).addClass('active').siblings('.active').removeClass('active');
+		});
+	</script>	
+ </body>
+</html>

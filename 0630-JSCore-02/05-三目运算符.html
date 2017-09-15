@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+ <head>
+  <title> 三元运算符 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	//1、使用三目运算符判断闰年平年
+	function isLeap(y){
+		/*法一：
+		if(y%4==0&&y%100!=0||y%400==0){
+			console.log("闰年");
+		}else{
+			console.log("平年")
+		}
+		*/
+		//法二：
+		//var leap=(y%4==0&&y%100!=0||y%400==0)?"闰年":"平年";
+		//console.log(leap);
+		//法三：进一步简化代码
+		console.log((y%4==0&&y%100!=0||y%400==0)?"闰年":"平年");
+	}
+	//isLeap(1998);
+	//isLeap(2000);
+	//isLeap(2100);
+	
+	//2、使用三目运算符计算可莱托指数
+	function clt(h,w){	//传入两个参数，身高体重
+		var r=w/(h*h);
+		console.log(r>25?"胖":
+					r<20?"瘦":
+						 "正常");
+	}
+	//clt(1.75,64);
+
+	//3、使用switch case 模拟电话银行
+	//请用户输入一个数字，保存在变量input中
+	//判断input转为整数的值
+		//如果值为1
+			//提示：正在查询余额...
+		//如果值为2
+			//提示：正在取款
+		//如果值为3
+			//提示：正在转账
+		//如果值为0
+			//提示：欢迎下次再来！
+		//否则
+			//提示：无效按键
+	function telBank(){
+		var input = parseInt(prompt("请输入一个数字："));
+		//console.log(typeof(input));
+		switch(input){		//括号中的表达式判断为真时执行以下操作
+			case 1:
+				alert("正在查询余额...");
+				break;		//跳出
+			case 2:
+			case 3:
+				alert("系统维护中，该部分功能暂停使用！");
+				break;
+			case 0:
+				alert("欢迎下次再来！");
+				break;
+			default:
+				alert("无效按键");
+		}
+	}
+	telBank();
+  </script>
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+ </body>
+</html>

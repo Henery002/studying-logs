@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖放API的元元素事件</title>
+</head>
+<style>
+    div#d1,#d3{
+        border:1px solid #666;
+        width:300px;
+        height:700px;
+    }
+    #d1{
+        float:left;
+    }
+    #d3{
+        float: right;
+    }
+    #img1,#img3{
+        width:200px;
+    }
+
+</style>
+<body>
+    <div id="d1">
+        <img id="img1" src="pic.jpg" alt="">
+    </div>
+    <div id="d2">
+        <!--<img id="img2" src="pic.jpg" alt="">-->
+    </div>
+    <div id="d3">
+        <!--<img id="img3" src="pic.jpg" alt="">-->
+    </div>
+</body>
+<script>
+    var d1 = document.getElementById('d1');
+    var img = d1.firstElementChild;
+    //TODO 为源元素绑定 源元素事件
+//    img1.addEventListener("dragstart",function(){
+//        console.log("开始拖动");
+//    });
+//    img1.addEventListener("drag",function(){
+//        console.log("正在拖动");
+//    });
+//    img1.addEventListener("dragend",function(){
+//        console.log("结束拖动");
+//    });
+    //TODO 只被出发一次
+    d2.addEventListener('dragenter',function(event){
+        console.log("进入");
+        event.preventDefault();
+    })
+    //
+    d2.addEventListener('dragover',function(event){
+        event.preventDefault();
+        console.log("再来一次");
+    })
+    /*TODO 当
+            重复被触发多次
+     */
+    d2.addEventListener('drop',function(){
+        event.preventDefault();
+        console.log("投放");
+    })
+    //TODO 当源元素离开目标元素时触发
+    d2.addEventListener('dragleave',function(event){
+        event.preventDefault();
+        console.log("离开");
+    })
+    /*
+    TODO dataTransfer
+    TODO dataTransfer
+        1、获取源元素<img id='img1'>
+        2、获取目标元素<div id='d3'>
+        3、为源元素绑定 源元素dragstart事件
+    */
+    img1.ondragstart = function(event){
+//        console.log();
+        //TODO 通过event对象获取dataTransfer对象
+        var transfer = event.dataTransfer;
+        console.log(transfer);
+        /*
+        * TODO 通过dtatransfer对象存储关键数据
+        *   setData(type,data)
+        *       type:表示存储数据的类型
+        *           实际上起到的作用相当于标识id
+        *       data:表示存储的数据
+        * */
+        transfer.setData("pic.jpg",img.src);
+    }
+    d1.ondragover = function(event){
+        event.preventDefault();
+    }
+    d1.ondrop = function(event){
+        var transfer = event.dataTransfer;
+
+        var src = transfer.getData('pic.jpg');
+        console.log(src);
+        var d3 = document.getElementById('d3');
+        var img1 = document.getElementById('img1');
+        d1.appendChild(img1);
+        //TODO 清除datTransfer对象中的数据内容
+        transfer.clearData();
+    }
+    //TODO 为目标元素绑定 dragover、drop事件
+    d3.ondragover = function(event){
+        event.preventDefault();
+    }
+    d3.ondrop = function(event){
+        //TODO 通过event对象获取dataTransfer对象
+        var transfer = event.dataTransfer;
+        console.log(transfer);
+        /*TODO 通过dataTransfer对象获取关键数据
+                getDate(type)方法
+         */
+        var src = transfer.getData('pic.jpg');
+        console.log(src);
+        var d1 = document.getElementById('d1');
+        var img1 = document.getElementById('img1');
+        d3.appendChild(img1);
+        //TODO 清除datTransfer对象中的数据内容
+        transfer.clearData();
+        //TODO 将源元素删除
+        //d1.removeChild(img1);
+    }
+
+    console.log();
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

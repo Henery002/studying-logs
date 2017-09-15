@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//函数声明
+		function computNum(){
+			//1、输入数据
+			var num1 = window.prompt("请输入第一个数字：");
+			var num2 = window.prompt("请输入第二个数字：");
+			//2、将输入的字符串类型的数据转换成整数类型
+			num1 = parseInt(num1);
+			num2 = parseInt(num2);
+			//3、加减乘除计算
+			var r1 = num1 + num2;
+			var r2 = num1 - num2;
+			var r3 = num1 * num2;
+			var r4 = num1 / num2;
+			var r5 = num1 % num2;
+			//4、输出计算结果
+			//法一：
+			//document.write(r1+'\n');
+			//document.write(r2+'\n');
+			//document.write(r3+'\n');
+			//document.write(r4+'\n');
+			//document.write(r5);
+			
+			//法二：
+			alert(r1+'\n');
+			alert(r2+'\n');
+			alert(r3+'\n');
+			alert(r4+'\n');
+			alert(r5);
+
+			//法三：
+			//console.log(r1+'\n');
+			//console.log(r2+'\n');
+			//console.log(r3+'\n');
+			//console.log(r4+'\n');
+			//console.log(r5);
+		}
+		//直接调用函数
+		//computNum();
+	</script>
+		<!--使用按钮调用函数-->
+		<button onclick="computNum()" style="background-color:#ddd;padding:5px 10px;margin:50px 100px;color:#e4393c;font-weight:bold;font-size:16px;">调用计算函数</button>
+ </body>
+</html>

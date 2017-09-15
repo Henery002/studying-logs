@@ -1,0 +1,213 @@
+第一阶段： HTML + CSS    内容
+第二阶段： JS + DOM	 交互
+第三阶段： jQuery + AJAX + HTML5   全栈
+
+
+李文华
+QQ: 2180265268
+liwenhua@tedu.cn
+
+
+今日目标：
+1)jQuery概述——了解
+2)jQuery选择器——重点
+
+
+1.jQuery
+  官网：https://jquery.com/
+  格言：Write Less，Do More
+  版本：jQuery1 - 兼容老IE，功能受限
+	jQuery2 - 不兼容老IE，功能丰富
+	jQuery3 - 不兼容老IE，功能丰富
+  是一个：
+  jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.
+  jQuery是一个JS函数库，用于简化DOM操作，屏蔽浏览器兼容性。
+  共有100+个函数，分为四类：
+  (1)DOM操作
+  (2)事件处理
+  (3)动画
+  (4)AJAX
+
+
+
+2.复习：常见DOM操作
+  查找元素：
+	document.getElementById()
+	document.getElementsByClassName()
+	document.getElementsByTagName()
+	document.getElementsByName()
+	document.querySelector()
+	document.querySelectorAll()
+  操作元素的属性：
+	e.setAttribute()
+	e.getAttribute()
+  操作元素的内容：
+	e.innerHTML
+	e.innerText
+	e.textContent
+  操作元素的值：
+	input.value
+  操作元素的样式：
+	e.style.backgroundColor
+	e.className
+  遍历元素(查找父亲)：
+	c.parentNode
+  遍历元素(查找孩子)：
+	p.childNodes
+  遍历元素(查找兄弟)：
+	e.nextSibling
+	e.previousSibling
+  添加元素：
+	var c = document.createElement()
+	p.appendChild(c)
+  删除元素：
+	p.removeChild(c)
+	p.innerHTML = ''
+  替换元素：
+	p.replaceChild(newChild,oldChild)
+  克隆元素：
+	e.cloneNode()
+  
+练习：使用元素克隆
+      div#container>p      button
+      
+
+3.编码常用快捷键
+  Ctrl+D	Delete Line
+  Ctrl+Alt+↓	Duplicate Line
+  Alt+↑		Move Up
+  Alt+↓		Move Down
+  Ctrl+/	Line Comment Indent
+
+
+
+4.HTML中使用jQuery
+  (1)jquery.js可以在head或body的最后来引入，推荐在body最后引入
+  (2)jquery.js中提供了两个全局变量: $和jQuery，二者等价
+  (3)jQuery对象和DOM对象区别——重点
+   
+   jQuery对象：由$/jQuery函数返回的对象——类数组对象
+   DOM对象：浏览器根据标签创建的对象
+
+  注意：jQuery对象不能使用DOM对象的属性和方法；反之亦然！
+
+  jQuery对象转换为DOM对象：
+	var domObj = $('button')[0];
+  DOM对象转换为jQuery对象：
+	$(document)
+	$(this)
+
+练习：使用jQuery实现     11:47~11:55
+   页面中创建3个按钮，点击某个按钮，修改其样式及上面的文字
+提示：
+   $('button').css('color', '#f00');
+   $('button').html('加载中...');
+
+
+jQuery对象的两个特点：
+  (1)提供的所有方法都自带循环
+  (2)提供的大部分方法返回值仍然是当前的jQuery对象
+
+
+function Emp(){
+  this.work = function(){
+    //...
+    return this;
+  }
+  this.rest = function(){
+    //....
+    return this;
+  }
+}
+var e1 = new Emp();
+//e1.work();
+//e1.rest();
+e1.work().rest().work().rest();
+//方法的链式调用
+
+
+CSS选择器：
+
+5.jQuery中的函数第一组：DOM操作函数
+  查找元素相关方法
+  提示：jQuery查找元素使用选择器，语法上几乎兼容所有的CSS选择器，又有一定扩展，作用上类似于querySelectorAll()，兼容性更好！
+  
+  使用语法：  $('选择器')
+  
+  1.基本选择器(Basic)
+    #id  .class   div   *   s1,s2,...
+
+  练习：使用jQuery清除所有元素的padding和margin，ul#menu>li*3，点击某一个li，则此li变为京东红并加粗；其它的加粗项需要取消加粗。 
+
+  2.层级选择器(Hierarchy)
+    $('parent child')
+    $('parent > child')
+    $('prev + next')
+    $('prev ~ nextAll')
+
+  练习：可以展开/收起的下拉菜单
+    <div class="dropdown">
+      <a>产品大全</a>
+      <ul class="menu"><li>...</li></ul>
+    </div>         
+  
+  3.属性选择器(Attribute)
+    $('[attr]')		
+    $('[attr="value"]')	
+    $('[attr!="value"]')	
+    $('[attr^="value"]')	
+    $('[attr$="value"]')	
+    $('[attr*="value"]')	
+
+  练习：页面中创建若干a元素，点击按钮，实现样式修改：
+  按钮1：把所有具有title属性的a加边框
+  按钮2：把所有href为#用红色显示
+  按钮3：把所有锚点跳转的a变斜体
+  按钮4：把所有非锚点跳转的a字体变为2倍
+  按钮5：把所有href中包含锚点地址的背景色改为淡绿色
+  href="#"		
+  href="#chapter"
+  href="2.html#chapter3"
+  href="http://tmooc.cn/index.html"
+  href="http://tmooc.cn/index.html#c3"
+
+
+  4.表单元素选择器(Form)
+   :text  :password  :radio  :checkbox
+   :file  :hidden  :submit  :reset  :button  :image  :input(所有input + textarea + select)
+   :checked  :selected  
+   :disabled  :enabled
+
+
+  5.基本过滤选择器(Basic Filter)
+    :first  :last  
+    :eq(i)  :lt(i)  :gt(i)
+    :odd    :even
+
+  特点：把所有选中的元素放在一个大的集合中，编号从0开始，不管它们是否在同一个父元素下
+
+  6.子代过滤选择器(Child Filter)
+    :first-child  :last-child
+    :nth-child( i/odd/even/3n+1/5n+2 )
+    :only-child
+
+  特点：把选中的元素按照所在父元素进行分组，从每一组中都取第i个，编号从1开始
+
+  7.内容过滤选择器(Content Filter)
+    :contains(txt)    innerHTML中包含txt
+    :empty	      innerHTML为空
+    :parent           innerHTML不为空
+    :has(selector)    innerHTML中有指定的选择器
+    	      
+  8.可见性过滤选择器(Visibility Filter)
+    :visible
+    :hidden   head meta script title display:none  type="hidden"
+
+    注意：visibility:hidden;和opacity:0不能被:hidden选中！
+    
+
+
+
+
+
+面试题：jQuery3的新特性？

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+ <head>
+  <title> 通过HTML选取元素-表格偶数行变色 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	.back{
+		background:#fffccc;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		function changeColor(){
+			//1、先获取 tbody
+			var tbody = document.getElementsByTagName('tbody')[0];
+			//2、获取 tbody 中所有的 tr
+			var trs = tbody.getElementsByTagName('tr');
+			//var tr[];
+			//3、循环遍历，判断奇偶性
+			for(var i=1;i<=trs.length;i++){
+				if(i % 2 ==1){
+					trs[i].className = .back;
+				}
+			}
+			console.log(tr);
+		}
+	</script>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>工资</th>
+				<th>入职时间</th>
+				<th>操作</th>
+			</tr>
+		<thead>
+		<tbody>
+			<tr>
+				<td>Tom</td>
+				<td>$3500</td>
+				<td>2010-10-25</td>
+				<td><a href="">删除</a></td>
+			</tr>
+				<td>Marry</td>
+				<td>$3500</td>
+				<td>2010-10-25</td>
+				<td><a href="">删除</a></td>
+			</tr>
+				<td>King</td>
+				<td>$3500</td>
+				<td>2010-10-25</td>
+				<td><a href="">删除</a></td>
+			</tr>
+				<td>Scott</td>
+				<td>$3500</td>
+				<td>2010-10-25</td>
+				<td><a href="">删除</a></td>
+			</tr>
+				<td>Smith</td>
+				<td>$3500</td>
+				<td>2010-10-25</td>
+				<td><a href="">删除</a></td>
+			</tr>
+				<td>Allen</td>
+				<td>$3500</td>
+				<td>2010-10-25</td>
+				<td><a href="">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<button onclick="changeColor()">隔行变色</button>
+ </body>
+</html>

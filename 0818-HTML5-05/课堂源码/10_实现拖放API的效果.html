@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现拖放API的效果</title>
+    <style>
+        div {
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        #d1 {
+            float: left;
+        }
+        #d2 {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="d1">
+    <!-- TODO 源元素 -->
+    <img id="img" src="img/pic.jpg"/>
+</div>
+<!-- TODO 目标元素 -->
+<div id="d2"></div>
+<script>
+    //TODO 1. 获取源元素 - <img>
+    var img = document.getElementById("img");
+    var d1 = document.getElementById("d1");
+    //TODO 2. 获取目标元素 - <div id="d2">
+    var d2 = document.getElementById("d2");
+    //TODO 3. 为源元素绑定 dragstart 事件
+    img.ondragstart = function(event){
+        //TODO 通过event对象获取dataTransfer对象
+        var transfer = event.dataTransfer;
+        /*
+          TODO 通过dataTransfer对象存储关键数据
+          TODO setData(type,data)
+          TODO * type:表示存储数据的类型
+          TODO   * 实际上起到的作用相当于标识(id)
+          TODO * data:表示存储的数据
+         */
+        transfer.setData("image/jpg",img.src);
+    }
+    //TODO 4.为目标元素绑定 dragover和drop 事件
+    d2.ondragover = function(event){
+        event.preventDefault();
+    }
+    d2.ondrop = function(event){
+        //TODO 通过event对象获取dataTransfer对象
+        var transfer = event.dataTransfer;
+        /*
+          TODO 通过dataTransfer对象获取关键数据
+          TODO getData(type)方法
+          TODO * setData()方法设置的type是什么,getData()方法设置的type就得是什么
+         */
+        var src = transfer.getData("img/jpg");
+        //TODO 在目标元素中显示这张图片
+        var imgData = document.createElement("img");
+        imgData.src = src;
+        d2.appendChild(imgData);
+        //TODO 清除dataTransfer对象中的数据内容
+        transfer.clearData();
+        //TODO 将源元素删除
+        d1.removeChild(img);
+    }
+</script>
+</body>
+</html>

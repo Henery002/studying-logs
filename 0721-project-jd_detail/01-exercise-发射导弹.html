@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<button id='btn1'>发射巡航、弹道导弹</button>
+	<button id='btn2'>取消发射巡航导弹</button>
+	<script>
+		function dan1(){
+			console.log('发射巡航导弹');
+		}
+		function dan2(){
+			console.log('发射弹道导弹');
+		}
+		btn1.addEventListener('click',dan1);
+		btn1.addEventListener('click',dan2);
+		btn2.addEventListener('click',function(){
+			console.log('被击中');
+			btn1.removeEventListener('click',dan2);
+		});
+	</script>	
+ </body>
+</html>

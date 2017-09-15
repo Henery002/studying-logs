@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>每日一练：BootDay01</title>
+        <link rel="stylesheet" href="css/Style1.css"/>
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<style>
+			#d1{
+				position:absolute;
+				border:1px solid black;
+				background-color:#ddd;
+				width:300px;
+				height:200px;
+				left:50px;
+				top:100px;
+			}
+			#d1>span{
+				float:right;
+				margin-right:10px;
+				cursor:pointer;
+			}
+		</style>
+    </head>
+    <body>
+	<div id="d1">
+		<span>X</span>
+		<h3>BootStrapDay01每日一练：手工编写响应式页面</h3>
+            <p>
+                1、完成页面效果；<br>
+                2、PC中：一行显示4个；PAD中：一行显示2个；Phone中，一行显示1个
+			</p>
+	</div>
+    <header>
+        <a href=""><img src="img/logo.png" alt=""/></a>
+        <ul>
+            <li>BootStrap中文网</li>
+            <li>教程</li>
+            <li>中文文档</li>
+            <li>Less教程</li>
+            <li>jQuery API</li>
+        </ul>
+    </header>
+    <section class="text-center">
+        <div class="container">
+            <h1>Bootstrap</h1>
+            <h3  class="text-primary text-center text-uppercase">简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</h3>
+            <button class="btn-lg btn-primary">Bootstrap3中文文档(v3.3.5)</button>
+        </div>
+        <footer>
+            <div><img src="img/t1.png" alt=""/></div>
+            <div><img src="img/t2.png" alt=""/></div>
+            <div><img src="img/t3.png" alt=""/></div>
+            <div><img src="img/t4.png" alt=""/></div>
+        </footer>
+    </section>
+	<script>
+		document.getElementById('d1').getElementsByTagName('span')[0].onclick = 
+		function(){
+			this.parentNode.style.display = 'none';
+		};
+	</script>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    canvas{
+        background-color: #00CC44;
+    }
+</style>
+<body>
+    <!--
+        TODO HTML5提供的新标签    <canvas></canvas>
+            定义标签名时，浏览器中没有任何显示效果，默认占据300px*150px的区域
+            是以一张图片(.png)的方式显示在浏览器中。
+        TODO 改变显示的大小区域
+            通过width和height属性
+            通过CSS样式属性   --  绘制的图像会被拉伸
+        TODO canvas绘制的图像实际上与html无关
+
+    -->
+    <!--1、定义Canvas标签-->
+    <canvas id="canvas" style='width:600px;height:300px;'></canvas>
+</body>
+<script>
+//    2、获取到canvas标签
+    var canvas = document.getElementById('canvas');
+/*    3、通过<canvas>标签得到画布
+        getContext()方法
+        该方法的返回值    --  画布对象
+        接收参数          --  2d
+        注意：2d 中的 d 必须小写
+
+ */
+    var context = canvas.getContext('2d');
+//    4、通过画布对象绘制图像
+    context.strokeRect(15,15,100,100);
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

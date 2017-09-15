@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>video标签的高级编程一</title>
+</head>
+<body>
+    <video id="mmedia" src="videos/oceans-clip.mp4"></video>
+    <button id="control">播放</button>
+    <script>
+        //TODO 1.获取button按钮
+        var btn = document.getElementById("control");
+        //TODO 2.为button按钮绑定onclick事件
+        btn.onclick = function(){
+            var mmedia = document.getElementById("mmedia");
+            //TODO 3.判断当前视频是播放还是暂停
+            if(mmedia.paused){
+                //TODO 当前是暂停,播放视频
+                mmedia.play();
+                //TODO 将播放按钮修改为暂停按钮
+                this.firstChild.nodeValue = "暂停";
+            }else{
+                //TODO 当前是播放,暂停视频
+                mmedia.pause();
+                this.firstChild.nodeValue = "播放";
+            }
+        }
+    </script>
+</body>
+</html>

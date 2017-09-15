@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+ <head>
+  <title> 冒泡排序 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+  <!--代码补全：-->
+  <script type="text/javascript">
+	//定义的数组中的值类型可能不定
+	var arr=[4,25,1,17,8,116,3,69,2];
+	//var arr=["Hello",23,"hi",114,"ok","javacript",];
+	function bubbleSort(arr,cmp){
+		//如果cmp是undefined
+		if(cmp===undefined){	//如果传进来的比较器用户给了，就用原装比较器
+			//定义比较器函数
+			//为防止函数声明提前，要用var创建变量的方法定义函数
+			var cmp = function(a,b){		//原装比较器。这样声明的函数不会被声明提前。
+											//也可以改为：function cmp(a,b){...}
+				return String(a)>String(b)?1:	//把每两个元素转成字符串在比较
+					   String(a)<String(b)?-1:
+											0;
+			}
+		}
+		//var r=1;
+		//对数字数值冒泡排序的算法
+		//公式：第r轮排序的算法...
+			//i从0开始，到<arr的length-r结束，i每次增1
+				//如果当前元素>下一个元素
+					//声明变量temp，初始化为当前元素的值
+					//将下一个元素赋值给当前元素
+					//将temp赋值给下一个元素
+				//r从1，到<length结束，每次递增1
+		for(var i=1;i<arr.length;i++){
+			for(var j=0;j<arr.length-i;j++){
+				if(cmp(arr[j],arr[j+1])>0){		//把两个值传入cmp函数中，做另类比较
+					var temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+			//return arr;
+		}
+		console.log(arr);				//升序排列
+		console.log(arr.reverse());		//降序排列
+	}
+	bubbleSort(arr,cmp);			
+									//函数调用
+	//console.dir(arr);
+	//然后：
+	//1、定义比较器：颠倒比较器函数返回值的正负号，改升序为降序
+	function cmp(a,b){
+		return (a-b);			//升序为：return (a-b);
+									//降序为：return -(a-b);即b-a
+	}
+	//2、将比较器函数作为参数传入sort方法
+	arr.sort(arr,cmp);	//！！！！！将函数作为参数
+	//console.log(String(arr));	 //会把数字作为字符串输出
+  </script>	
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+ </body>
+</html>

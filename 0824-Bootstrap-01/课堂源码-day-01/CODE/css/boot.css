@@ -1,0 +1,29 @@
+/* Bootstrap提供的布局容器 */
+.container-fluid {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px){
+    /* TODO 手机 */
+    .container {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 768px){
+    /* TODO 平板电脑 */
+    .container {
+        width: 750px;
+    }
+}
+@media screen and (min-width: 992px){
+    /* TODO 桌面浏览器 */
+    .container {
+        width: 970px;
+    }
+}
+@media screen and (min-width: 1200px){
+    /* TODO 大桌面浏览器 */
+    .container {
+        width: 1170px;
+    }
+}

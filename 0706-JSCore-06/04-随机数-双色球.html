@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//双色球
+		function doubleball(){
+			//1、声明空数组reds，红球
+				//循环：reds的元素个数<6
+					//在1-33之间取一个随机数r
+					//遍历reds中每个元素
+						//如果当前元素等于r
+							//退出循环
+						//循环结束
+					//如果i等于reds的length时
+						//将r压入reds中
+				//退出循环
+				//将reds按数字升序排列
+			//2、在1-16之间生成随机整数，保存在变量blue中
+				//弹出提示：alert
+					//reds转为字符串+|+bule
+			var reds=[];
+			//循环。控制reds的元素个数小于6
+			while(reds.length<6){
+				var r=parseInt(Math.random()*(33-1)+1);
+				for(var i=0;i<reds.length;i++){
+					if(reds[i]==r){
+						break;
+					}
+				}
+				if(i==reds.length){
+					reds.push(r);
+				}
+			}
+			//对6个红球升序排序
+			reds.sort(function(a,b){return a-b;});	//定义比较器函数，直接写入sort方法
+			var blue=parseInt(Math.random()*(16-1)+1);
+			alert("本期双色球结果："+"\n"+String(reds)+' | '+blue);
+		}
+		//doubleball();
+	</script>	
+	<button onclick="doubleball()">双色球机选</button>
+ </body>
+</html>

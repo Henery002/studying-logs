@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	img{
+		width:300px;
+		margin-left:50px;
+		margin-top:20px;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<button>隐藏灰机</button>
+	<button>显示灰机</button>
+	<button>显隐切换</button><br>
+	<img src="img/p1.png" alt="">
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('button:first-child').on('click',function(){
+			$('img').fadeOut(2000);
+		});
+		$('button:nth-child(2)').on('click',function(){
+			$('img').fadeIn(2000);
+		});
+		$('button:nth-child(3)').on('click',function(){
+			$('img').fadeToggle(500);
+		});
+	</script>	
+ </body>
+</html>

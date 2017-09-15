@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ref的基本使用</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <h2>点击按钮，得到输入框中的输入值</h2>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    /*
+    * TODO 注意：在line28，按钮点击事件必须大写，即 onClick
+    * */
+    var MyComponent = React.createClass({
+        //TODO 定义点击的方法/回调函数
+        handleClick:function(){
+            console.log('所输入内容为：'+this.refs.myInputText.value);
+        },
+        render:function(){
+            return(
+                <div>
+                    <input placeholder="请输入" ref="myInputText"/>
+                    <button onClick={this.handleClick}>点我</button>
+                </div>
+            )
+        }
+    });
+    ReactDOM.render(
+        <MyComponent/>,
+        document.getElementById('example')
+    );
+</script>
+</html>

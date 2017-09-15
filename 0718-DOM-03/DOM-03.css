@@ -1,0 +1,145 @@
+正课：
+1、添加和删除元素：
+	1、添加元素：3步：
+		1、创建空元素：
+			var elem=document.createElement('标签名');
+			eg:
+				var a=document.createElement('a');
+					相当于：<a></a>
+		2、设置关键属性：
+			eg:
+				a.href="http://www.baidu.com";
+				a.innerHTML='百度一下';
+		3、将新元素添加到指定父元素下：
+			parent.appendChild(child);
+				将child追加到parent的子元素末尾
+			parent.insertBefore(child,oldChild);
+				将child插入到oldChild之前
+			parent.replaceChild(newNode,oldNode);
+				用child替换parent下的oldChild
+			原则："要尽量减少layout的次数，其实也就是减少appendChild的使用次数。"
+				
+				如果同时添加父元素和子元素时：
+					先创建父元素，将子元素添加到父元素
+					最后将父元素整体添加到页面
+				如果父元素已经在页面上，而需要同时添加多个同级子元素时：
+					引入文档片段
+					文档片段：内存中临时存储多个子节点的虚拟父节点。
+					为什么有文档片段：反复向页面添加多个子节点会导致
+						反复layout，减低效率。
+					何时使用：只要添加多个平级子节点时，都要先将子节点放在文档片段中，
+						再将文档片段整体挂在页面中。
+					
+					如何使用：3步：
+						1、创建空的文档片段：
+							var frag = document.createDocumentFragment();
+						2、将多个子元素添加到文档片段下
+							frag.appendChild(child);
+						3、将片段整体添加到页面上：
+							片段不会成为页面上的元素，添加后，自动释放。
+			
+		补：select元素的一个事件：
+			事件：onchange:当选中项发生改变时触发
+			属性：select.selectedIndex	:选中项下标
+				  select.value:
+							如果option有value，就返回value	
+								-> <option id='' class='' value=''></option>	
+							如果option没有value，就返回文本
+	2、删除元素：只有父元素才有资格删除元素
+				  parent.removeChild(child);
+		child.parentNode.removeChild(child);
+
+2、HTML DOM常用对象：
+	1、Image：指页面上一个img元素
+		创建：var img=new Image();
+				  document.createElement('img');
+		强调：只有极个别元素可以new
+	2、Select：指一个select元素
+		事件：onchange
+		属性：
+			select.selectedIndex	
+			select.value	
+			select.options	
+				获得select下所有option
+				select.options.length
+					获取或设置选项的个数，
+					也可简写为：select.length
+		方法：
+			select.add(opt)
+				将opt追加到select元素下。 -> .appendChild(opt);
+			select.remove(i)
+				移除select中i位置的opt
+	3、Option：
+		Option对象：指select下的一个option元素
+		创建：var opt=new Option(text,value);	//第二个参数可省略
+			相当于核心DOM中的：3句
+				var opt=document.createElement('option');
+				opt.innerHTML=text;
+				opt.value=value;
+		属性：opt.text
+		简写：创建一个新option，同时添加到select
+			select.add(new Option(text,value));
+
+		【补】：闭包缺点：占内存，无法自动释放	-- 即 内存泄漏
+				DOM操作的事件处理函数内，不要形成与DOM函数的闭包  --> this
+				
+		【【【【级联菜单重要例题：3】】】】
+		【【【【级联菜单重要例题：3】】】】
+	4、Table：指代一个table元素
+		行分组：
+			tHead:	var thead = table.createTHead()	
+								table.deleteTHead()
+								table.tHead
+			tBodies:	-> tBody	
+					var tbody = table.createTBody();	
+								table.tBodies[i];
+			tFoot:	var tfoot = table.createTFoot()	
+								table.deleteTFoot()
+								table.tFoot
+		行：
+			行分组.rows
+			var tr = 行分组.insertRow(i);
+				如果省略i，表示在末尾追加一行
+				eg:
+					var tr = tbody.insertRow();
+			行分组.deleteRow(i);
+				如果省略i，表示删除第一行
+			
+			【i都是相对于当前行分组内的下标位置】
+	
+		格：
+			行.cells
+				var td = 行.insertCell(i);
+					强调：只能创建td元素
+				行.deleteCell(i);
+
+		table -> tr	 //table还可以接管行tr
+			table.rows
+			var tr = table.insertRow(i);
+			table.deleteRow(i);
+				i是相对于整个table的下标位置
+				
+			tr.rowIndex属性：用来标识当前tr在整个表中的行下标
+				所以，如果删除rowIndex标识的行 ，必须用delete删除。
+			
+			【补】：对话框：
+				输入框：prompt
+				警告框：alert
+				确认框：confirm
+					confirm有返回值:
+					var bool = confirm('确认消息');
+						点确认后返回true，否则返回false。
+
+	5、Form（对象）：指代页面上一个表单元素。
+		获得表单：
+			var form = document.forms[i/id/name];	i或id名或name都可以
+				i指form中第i个表单元素
+			form方法：
+				form.submmit()	//用以实现手动提交	
+		获取表单中的元素：
+			var elem = form.elements[i/id/name];
+			属性：
+			方法：elem.focus();		
+				  elem.blur();
+			强调：elements集合仅包含表单元素
+			简写：form.id/name		也可以这样写

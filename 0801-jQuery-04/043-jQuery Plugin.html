@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+ <head>
+  <title> 使用我的工具函数库 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<h1>使用jQuery对象插件函数</h1>
+	<ul id="scoreList">
+		<li>456</li>
+		<li>514</li>
+		<li>513</li>
+		<li>855</li>
+		<li>122</li>
+		<li>89</li>
+		<li>82</li>
+	</ul>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='043-jQuery Plugin.js'></script>
+	<script>
+		var average=$('#scoreList li').avg();	//调用jQuery中的avg函数
+		console.log('平均值为：'+average);	
+		var max=$('#scoreList li').max();	//调用jQuery中的avg函数
+		console.log('最大值为：'+max);	
+		var min=$('#scoreList li').min();	//调用jQuery中的avg函数
+		console.log('最小值为：'+min);	
+	</script>	
+ </body>
+</html>

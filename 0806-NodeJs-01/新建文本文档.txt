@@ -1,0 +1,40 @@
+/**使用Node.js实现一个静态Web服务器**/
+var http = require('http');
+var url = require('url');
+var fs = require('fs');
+
+//1 创建Server对象
+var server = http.createServer();
+
+//2 绑定request事件监听函数
+server.on('request',(request,response)=>{
+	//解析请求URL
+	var urlObj = url.parse(request.url,true);
+	var fileName = __dirname+'/htdocs'+urlObj.pathname;
+	
+	//判定请求的资源在服务器上是否存在
+	if( fs.existsSync(fileName) ){ //存在
+		writeFileResponse();
+	}else {	//不存在
+		write404Response();
+	}
+	function writeFileResponse(){
+		//读取被请求的文件，输出给客户端
+		fs.readFile(fileName,(err,data)=>{
+			response.setHeader('Content-Type','text/html;charset=UTF-8');
+			response.end(data);
+		})
+	}
+	function write404Response(){
+		//向客户端输出一个404响应消息
+		response.statusCode = 404;
+		response.setHeader('Content-Type','text/html;charset=UTF-8');
+		response.end('<h4>您请求的资源不存在</h4>');
+	}
+})
+
+
+//3 监听端口
+server.listen(80,()=>{
+	console.log('WebServer开始监听80端口...');
+});

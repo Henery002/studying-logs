@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	请选择菜品：<input type="">
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script>
+		var availableTags=[
+			'牛肉拉面',
+			'牛肉刀削面',
+			'黄焖鸡',
+			'鱼香肉丝',
+			'脆皮鸡',
+			'肯德基'
+		];
+		$('input').autocomplete({
+			source:availableTags
+		})
+	</script>	
+ </body>
+</html>

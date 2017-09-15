@@ -1,0 +1,65 @@
+jQueryMobile day04：
+1、前端框架：
+	1、jQuery：				js函数库，简化DOM操作
+	2、jQueryUI：			HTML组件库，用于PC端应用
+	3、BootStrap：			css样式库，html组件库，响应式布局(偏向于pc端)
+	4、AngularJS(ng)：		mvc框架，数据操作为主的SPA应用。主要将数据和业务隔开
+	5、jQueryMobile(JQM)：	HTML组件库，用于移动端的网页应用等
+
+2、能否配对组合使用？
+	1、jQ + jQUI 			ok
+	2、jQ + BootStrap 		ok
+	3、jQ + ng 				ok
+	4、jQ + JQM 			ok
+
+	5、jQUI + Bootstrap 	不建议
+	6、jQUI + ng 			ok
+	7、jQUI + JQM   		不建议 
+
+	8、Bootstrap + ng 		ok
+	9、Bootstrap + jQM 		很少使用(易引起冲突)
+
+	10、ng + JQM 			ok
+
+3、重构项目注意点：
+	1、SPA方案的选择：
+		SPA：ng原理：由 ngRoute + 路由词典 完成
+		SPA：JQM原理：html -> page id
+	2、导航方式：
+		ng：	$location.path();
+		JQM:	$.mobile.changePage();
+	3、动态添加数据的问题：
+		案例：ng应用，把model数据绑定到页面，通过按钮，动态添加元素进行数据绑定
+		解决方案：编译链接，进入$digest循环
+		$(document).on('precreatepage',function(){
+			//获取当前元素对应的作用域对象
+	        var scope = $('#container').scope();
+	        //获取注入器对象
+	        var injector = $('#container').injector();
+	        //调用注入器，注入$compile服务，为程序提供$compile服务
+	        injector.invoke(function($compile){
+	            //编译并链接DOM节点
+	            $compile($('#container'))(scope);
+	            scope.$digest();
+	        });
+	    })
+
+4、准备工作：
+	1、将rar压缩包解压到xampp/htdocs中
+	2、将xampp的apache和sql运行起来
+	3、确保工程是可以执行的(localhost)
+	4、框架的搭建
+
+5、JQM ==> 引入必要的文件
+	由于抛弃了ngRoute的方案，必须要删掉相关代码，否则会冲突
+	可以先注释掉之前的代码，然后再去写新代码
+	验证：kaifanla.html ==> main.html ==> detail.html ==> order.html ==> myOrder.html
+
+	/* TODO 新增样式，实现垂直、水平居中且文本内容也居中 */
+	.align-center{
+	    position: fixed;
+	    top:50%;
+	    left:50%;
+	    transform: translate(-50%,-50%);
+	    text-align: center;
+	}

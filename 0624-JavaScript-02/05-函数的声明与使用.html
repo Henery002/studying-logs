@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		function printHello(){
+			document.write("Hello World!");
+			//alert("Hello World!");
+		}
+		function receiveMsg(){
+			var msg = window.prompt("请输入一段数据：");
+			console.log(msg);
+		}
+		/*函数的调用*/
+		//printHello();
+
+	</script>	
+		<!--使用按钮调用函数-->
+		<button onclick="receiveMsg()">函数调用按钮测试</button>
+ </body>
+</html>

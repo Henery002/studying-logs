@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ng提供的方法-forEach方法</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            /*遍历一个数组*/
+            var list = [45,545,23,87,60];
+            angular.forEach(list,function(value,key){
+                console.log(key+":"+value);
+            })
+            /*遍历一个对象*/
+            var stu = {name:'John',age:23};
+            angular.forEach(stu,function(value,key){
+                console.log(key+" 是 "+value);
+            })
+            /*大小写转换*/
+            var name = 'John';
+            console.log(angular.uppercase(name));
+            console.log(angular.lowercase(name));
+        });
+    </script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+ <head>
+  <title> 从开头、结尾出入栈 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	var bus=[];
+	//从结尾出入栈
+	/**/
+	console.log("***************从结尾出入栈**************");
+	for(var i=0;i<=5;i++){
+		console.log("乘客"+i+"上车");
+		bus.push("乘客"+i);
+		console.log("此时："+String(bus));
+	}
+	while(bus.length>0){
+		var c=bus.pop();
+		console.log(c+"下车");
+		console.log("此时："+String(bus));
+	}
+	console.log("***************从开头出入栈**************");
+	
+	//从开头出入栈
+	for(var i=0;i<=5;i++){
+		console.log("乘客"+i+"上车");
+		bus.unshift("乘客"+i);
+		console.log("此时："+String(bus));
+	}
+	while(bus.length>0){
+		var c=bus.shift();
+		console.log(c+"下车");
+		console.log("此时："+String(bus));
+	}
+  </script>
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+ </body>
+</html>

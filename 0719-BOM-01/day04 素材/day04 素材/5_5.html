@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>倒计时自动关闭/跳转页面</title>
+<meta charset="utf-8" />
+</head>
+<body>
+	<span id='tip'>5秒钟后自动关闭</span><br>
+	<a href="javascript:clear()">留在本页</a>
+</body>
+<script>
+	//1-1、使用一次性计时器实现5s自动关闭
+		/*
+		function myclose(){
+			window.close();		//关闭当前窗口
+		}				//myclose函数由于太简单 ，所以可以把他直接放在setTimeout的
+						//第1个参数中
+		//启动定时器
+		var timer=setTimeout(myclose,3000);
+		//var timer=setTimeout('close()',3000);
+		//停止定时器
+		function clear(){
+			clearTimeout(timer);
+		}
+		*/
+	//2-1、
+	function calc(){
+		//获取id为tip的内容，去掉末尾的 非数字字符，保存在n
+		var n=parseInt(tip.innerHTML);
+		//n-1
+		n--;
+		if(n>0){
+			//设置id为tip的内容为n+秒钟后自动关闭
+			tip.innerHTML=n+'秒钟后自动关闭';
+		}else{
+			close();
+		}
+	}
+	//2-2、启动周期性定时器，每隔1s执行calc
+	var timer=setInterval(calc,5000);
+	//2-3、停止周期性计时器
+	function clear(){
+		clearInterval(timer);
+	}
+</script>
+</html>

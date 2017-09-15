@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800px" height="800px" style="border:1px solid #333"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    /* TODO  使用面向对象的概念
+    *       将该小球当做对象
+    *       属性：
+    *       方法：
+    * */
+    function Ball(){
+        this.x = Math.random()*(canvas.width-40)+20;
+        this.y = canvas.height-20;
+        this.r = Math.floor(Math.random()*255);
+        this.g = Math.floor(Math.random()*255);
+        this.b = Math.floor(Math.random()*255);
+        this.color = "rgb("+this.r+","+this.g+","+this.b+")";
+        this.alpha = 01;
+        this.paint = function(){
+            //TODO 设置小球的填充颜色
+            context.fillStyle = this.color;
+            context.globalAlpha = this.alpha;
+            context.beginPath();
+            context.arc(this.x,this.y,20,0,Math.PI*2);
+            context.closePath();
+            context.fill();
+        },
+        this.move = function(){
+            this.y--;
+            this.alpha -= 0.0015;
+        }
+    }
+    //TODO 创建用于存储所有小球的数组
+    var balls = [];      //初始化为空数组
+    //创建函数  存储小球
+    function createBall(){
+        var ball = new Ball();
+//        balls[balls.length] = ball;
+        balls.push(ball);
+    }
+    //TODO 创建函数。绘制并控制所有小球
+    function controlBall(){
+        for(var i=0;i<balls.length;i++){
+            var ball = balls[i];
+            ball.paint();
+            ball.move();
+            //判断小球透明度是否为0
+            if(ball.alpha <= 0){
+                //透明度为0，删除小球
+                balls.splice(i,1);
+            }
+        }
+    }
+    var requestAnimationFrame = window.requestAnimationFrame ||window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    (function move(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+        controlBall();
+        requestAnimationFrame(move);
+    })()
+    //创建函数，用于移动小球
+    var ball = new Ball();
+    setInterval(function(){
+        //TODO 清除整个画布
+        context.clearRect(0,0,canvas.width,canvas.height);
+        createBall();
+        controlBall();
+    },400);
+</script>
+</html>

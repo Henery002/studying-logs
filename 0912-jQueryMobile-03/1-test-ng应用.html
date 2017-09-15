@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ng应用-数据绑定</title>
+    <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="jqm/jquery.mobile-1.4.5.js"></script>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-controller="myCtrl">
+    <div data-role="page">
+        <div data-role="header">
+            <h2>页头</h2>
+        </div>
+        <div class="ui-content">
+            <button id="btn">点我</button>
+            <div id="container">
+                <!--数据的绑定-->
+                <p>{{num}}</p>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h2>页尾</h2>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+        $scope.num = 10;
+    });
+    $(document).ready(function(){
+        $('#btn').click(function(){
+            console.log('button is clicked!');
+            //两种方法，都不行
+            $('#container').append("<p>{{num}}</p>").append("<p ng-bind='num'></p>");
+            /***************解决 以上方式无法成功绑定数据 的问题*************/
+            //获取当前元素对应的作用域对象
+            var scope = $('#container').scope();
+            //获取注入器对象
+            var injector = $('#container').injector();
+            //调用注入器，注入$compile服务，为程序提供$compile服务
+            injector.invoke(function($compile){
+                //编译并链接DOM节点
+                $compile($('#container'))(scope);
+                scope.$digest();
+            });
+        })
+    })
+</script>
+</html>

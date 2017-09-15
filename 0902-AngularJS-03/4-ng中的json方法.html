@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>学习ng中json的处理方法</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            /*定义一个json对象*/
+            var jsonObj = {name:'John',age:23};
+            /*通过json方法，序列化为json字符串(，发送给服务器)*/
+            var jsonStr = angular.toJson(jsonObj);
+            console.log(jsonStr);
+
+            /*将jsonStr反序列化为一个json对象，输出*/
+            console.log(angular.fromJson(jsonStr));     //同jsonObj
+        });
+    </script>
+</html>

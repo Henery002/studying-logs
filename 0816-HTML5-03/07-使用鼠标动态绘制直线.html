@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>画笔功能</title>
+</head>
+<body>
+<canvas id="canvas" width="800px" height="600px" style="border:1px solid #333;"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    /*
+    * TODO 鼠标动态绘制直线
+    *       鼠标左键被按下，表示开始绘制直线
+    *       onmousedown 事件
+    *       鼠标移动时，表示一直在绘制直线
+    *       onmousemove 事件
+    *       鼠标左键被抬起，表示结束绘制直线
+    *       onmouseup   事件
+    *       
+    * */
+    //TODO 开关
+    var flag = false;
+    canvas.onmousedown = function(event){
+        //TODO event.offsetX和event.offsetY
+        context.beginPath();
+        context.moveTo(event.offsetX,event.offsetY);
+        flag = true;
+    }
+    canvas.onmousemove = function(){
+        if(flag){
+            context.lineTo(event.offsetX,event.offsetY);
+            context.stroke();
+        }
+    }
+    canvas.onmouseup = function(event){
+        context.lineTo(event.offsetX,event.offsetY);
+        context.stroke();
+        flag = false;
+    }
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

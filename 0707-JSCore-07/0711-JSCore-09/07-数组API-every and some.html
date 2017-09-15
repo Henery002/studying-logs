@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var arr1=[1,2,3,2,1];
+		var arr2=[8,6,4,2,0];
+		var arr3=[1,3,5,7,9];
+	//every
+		var r1=arr1.every(function(val){
+			return  val%2==0;
+		})	//判断数组中是否 都是 偶数
+		var r2=arr2.every(function(val){
+			return  val%2==0;
+		})	//判断数组中是否 都是 偶数
+		var r3=arr3.every(function(val){
+			return  val%2==0;
+		})	//判断数组中是否 都是 偶数
+		console.log(r1,r2,r3);	//false true false	
+
+	//some
+		var r1=arr1.some(function(val){
+			return  val%2==0;
+		})	//判断数组中是否 有 偶数
+		var r2=arr2.some(function(val){
+			return  val%2==0;
+		})	//判断数组中是否 有 偶数
+		var r3=arr3.some(function(val){
+			return  val%2==0;
+		})	//判断数组中是否 有 偶数
+		console.log(r1,r2,r3);	//true true false
+
+	//利用every判断数组元素是否升序排序
+		var r1=arr1.every(function(val,idx,arr){
+			return  (val<arr.length-1)?(val<=arr[idx+1]):true;
+		})	//判断数组是否 升序排序
+		var r2=arr2.every(function(val,idx,arr){
+			return  (val<arr.length-1)?(val<=arr[idx+1]):true;
+		})	//判断数组是否 升序排序
+		var r3=arr3.every(function(val,idx,arr){
+			return  (val<arr.length-1)?(val<=arr[idx+1]):true;
+		})	//判断数组是否 升序排序
+		console.log(r1,r2,r3);	//false false true
+	</script>	
+ </body>
+</html>

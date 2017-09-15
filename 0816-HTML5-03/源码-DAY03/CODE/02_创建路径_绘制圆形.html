@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建路径_绘制圆形</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    /*
+      TODO 利用创建路径绘制圆形
+     */
+    context.beginPath();//TODO 开始创建路径
+    /*
+      TODO arc(x, y, radius, startAngle, endAngle, anticlockwise)
+      TODO 参数
+      TODO * x和y：表示绘制圆形的圆心坐标值
+      TODO * radius：表示绘制圆形的半径
+      TODO * startAngle：表示绘制的起点
+      TODO   一般值为 0,值范围 0 ~ PI*2
+      TODO * endAngle：表示绘制的终点
+      TODO   一般值为 PI*2,值范围 0 ~ PI*2
+      TODO * anticlockwise：(Boolean)表示是逆时针还是顺时针
+      TODO   * 默认值为顺时针(false),为true时是逆时针
+     */
+    context.arc(55,55,50,0,Math.PI*2);
+    context.closePath();
+    context.fill();
+
+    context.beginPath();
+    context.arc(55,170,50,0,Math.PI*2);
+    context.closePath();
+    context.stroke();
+    //TODO 利用创建路径绘制弧形
+    context.beginPath();
+    context.arc(170,55,50,Math.PI/2,Math.PI*3/2,false);
+    context.stroke();
+
+    context.beginPath();
+    context.arc(170,170,50,Math.PI/2,Math.PI*3/2,true);
+    context.stroke();
+    /*
+      TODO 绘制弧形
+      TODO * 不加closePath()方法 - 开口状
+      TODO * 增加closePath()方法 - 自动闭合
+     */
+    context.beginPath();
+    context.arc(170,275,50,Math.PI/2,Math.PI*3/2,false);
+    context.closePath();
+    context.stroke();
+
+    context.beginPath();
+    context.arc(170,380,50,Math.PI/2,Math.PI*3/2,true);
+    context.closePath();
+    context.stroke();
+
+    context.beginPath();
+    context.arc(275,55,50,Math.PI/2,Math.PI*3/2,false);
+    context.fill();
+
+    context.beginPath();
+    context.arc(275,170,50,Math.PI/2,Math.PI*3/2,true);
+    context.closePath();
+    context.fill();
+</script>
+</body>
+</html>

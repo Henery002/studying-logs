@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>完整版购物车</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <button ng-click="add()">添加商品</button>
+        <table width=500>
+            <thead>
+                <tr>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="temp in cart">
+                    <td>{{temp.price}}</td>
+                    <!--关键一步：ng-model="temp.count"-->
+                    <td><input type="number" ng-model="temp.count"></td>
+                    <td>{{temp.price*temp.count}}</td>
+                    <td><button ng-click="delete($index)">删除</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">总计：<span>{{total() | currency:"￥"}}</span></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+    <script>
+        //模块声明
+        var app = angular.module('myApp',[]);
+        //控制器声明
+        app.controller('myCtrl',function($scope,$http){
+            $http.get('data/product.json').success(function(data){
+                console.log(data);
+                $scope.cart = data;     //接收到的后台(json)数据
+            })
+            //添加商品
+            $scope.add = function(){
+                var price = (Math.random()*100).toFixed(2);
+                var count = Math.round(Math.random()*10);
+                $scope.cart.push({"price":price,"count":count});
+            }
+            //删除商品
+            $scope.delete = function(index){
+                $scope.cart.splice(index,1);
+            }
+            //价格总计
+            $scope.total = function(){
+                var sum = 0;
+                angular.forEach($scope.cart,function(value,key){
+                    sum += (value.price*value.count);
+                })
+                $filter('number')(totalNum,2);
+                return sum;
+            }
+        });
+    </script>
+</html>

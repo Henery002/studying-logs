@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 手风琴效果
+                折叠匡+面板
+                1、静态组件
+                    定义一个用于包含多个面板组件的容器元素
+                    在容器元素中，定义多个面板组件
+                        标题+主体内容
+                2、动态交互
+                    标题： 控制显隐的按钮
+                    面板中的主体：被显隐的内容
+        -->
+        <!--
+            TODO 容器元素class为.panel-group
+        -->
+        <div id="accordion" class="panel-group">
+            <!--TODO 面板组件-->
+            <!--TODO 第一组面板-->
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <!--
+                            TODO 修改为动态按钮
+                                data-parent="#容器id"
+                        -->
+                        <a href="#c1" data-toggle="collapse" data-parent="#accordion">标题</a>
+                    </h4>
+                </div>
+                <div id='c1' class="collapse in">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid atque dolor error, ex exercitationem, facere illum ipsa magni minima mollitia nulla optio quam quod recusandae repellendus sequi tempora vero!</p>
+                    </div>
+                </div>
+            </div>
+            <!--TODO 第二组面板-->
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#c2" data-toggle="collapse" data-parent="#accordion">标题2</a>
+                    </h4>
+                </div>
+                <div id="c2" class="collapse">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex laborum libero molestiae sed tempora voluptate. Aliquam corporis doloribus, dolorum ipsam labore modi neque numquam quae quibusdam quidem quos sint unde?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

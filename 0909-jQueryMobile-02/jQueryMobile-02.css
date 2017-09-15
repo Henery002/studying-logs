@@ -1,0 +1,187 @@
+jQueryMobile-day02：
+前言：
+	data-fullscreen="true"		实现全屏效果
+	data-position="fixed"		固定header或footer
+	data-role="navbar"			导航条(使用无序列表)
+
+	class=ui-bar/ui-body ui-btn-left/ui-btn-right ui-btn-active
+
+	data-role='listview' 		添加jQM中列表的样式
+	data-inset='true' 			添加嵌入效果（有圆角）
+	data-filter='true' 			支持搜索
+	data-filter-placeholder="" 	修改默认的搜索提示
+	data-autodividers='true'	自定添加分隔栏
+	data-count-theme='a/b' 		设置计数气泡的主题。
+
+	data-role='collapsible'
+	data-collapsed='false' 		调整默认的折叠状态
+	data-collapsed-icon
+	data-expaned-icon
+	data-role='collapsibleset'	折叠组件集合(手风琴组件)
+
+	data-role='table' 					指定为jQM中的table
+	data-mode='reflow/columntoggle' 	设置表格模式
+	data-priority='1~6' 				设置优先级
+	data-column-btn-text='str';			设置文本
+
+1、body  bar
+	分块显示内容：
+		class="ui-bar"
+		class="ui-body"
+
+2、toolbar	工具条
+	全屏效果
+		data-full-screen="true"
+		data-position="fixed"
+		将上述两个属性同时指定给header和footer，就能实现全屏效果
+
+		在header中添加按钮，只有一个button，如果想在右边，class='ui-btn-right'
+		两个按钮，默认一个在左边一个在右边。
+
+3、navbar	导航条
+	无序列表外部添加一个容器 指定data-role='navbar'
+	练习：
+		在footer中，放置一个navbar ，主页、个人中心、设置（图标在文本的上方）。
+
+	当导航条中的按钮 添加图标时，图标会默认在文本的上方。
+
+4、listview	列表
+	ul/ol data-role="listview"
+	ul/ol data-inset="true"			添加一个嵌入的效果
+	ul/ol data-filter="true"		JQM会给列表添加一个搜索框，提示支持搜索行为
+	ul/ol data-filter-placeholder="请输入..."		自定义提示内容
+	   li data-role="list-divider"	手动添加分隔栏
+	ul/ol data-autodividers="true"	自动添加分隔栏
+	
+	计数气泡：
+		<ul data-role="listview" data-count-theme="b" data-inset="true" data-filter="true" data-autodividers="true" data-divider-theme="b">
+			<li>
+				<a>Input
+				 <span class='ui-li-count'>2</span>
+				</a>
+			</li>
+		</ul>
+		修改气泡的主题：在ul/ol中添加属性：data-count-theme='a/b/c...'
+
+	练习：使用jQM中的listview来实现当前的页面效果
+		在li中 将img作为第一个元素就可以了。
+
+5、collapsible	折叠组件
+	<div data-role='collapsible'>
+		文本
+		<ANY />
+	</div>
+
+	修改默认的折叠状态：
+	data-collapsed='false/true' 	默认展开/折叠
+
+	修改折叠或展开的图标
+	data-collapsed-icon='gear/...'
+	data-expanded-icon='bullets/...'
+
+	修改图标的位置
+	data-iconpos='left/right'
+
+	data-role='collapsibleset' 		折叠组件集合（手风琴组件）
+
+6、table	表格
+	表格的使用过程中需要设置以下属性：
+		data-role='table'
+		必须设置thead tbody
+		class='ui-responsive'
+
+	data-mode='reflow/columntoggle' 	table为回流式表格/列切换式表格
+	data-priority="1/2/3/4/5/6" 				1是优先级最高的，6是优先级最低的。
+
+	没有设置过data-priority的列头是不允许被移除或者隐藏掉。
+		1 --> 6 优先级越来越低（越来越容易被隐藏）
+
+	修改列切换式表格 按钮的文本：data-column-btn-text	设置
+
+		例：
+		1、回流式表格
+			<table data-role="table" class="ui-responsive">
+				...
+			</table>
+		2、列切换式表格
+			 <table data-role="table"data-mode="columntoggle" data-column-btn-text="请选择要显示或隐藏的列" class="ui-responsive" >
+			 	<thead>
+			 		<tr>
+						<th>I'm critical and can't be removed</th>
+						<th data-priority="1">I'm very important</th>
+						<th data-priority="3">I'm somewhat</th>
+						<th data-priority="5">I'm less important</th>
+			 		</tr>
+			 	</thead>
+			 	<tbody>
+			 		...
+			 	</tbody>
+			 </table>
+
+7、表单
+	input type=checkbox data-role='flipswitch'
+	(data-on/off-text)
+
+8、事件
+	bind('tap',function(){})
+
+每日一练：
+	练习：
+	左滑动，右边滑出一个panel
+	右滑动，左边滑出一个panel
+
+	$('#panel-1').panel（'open'）;
+
+
+	【课上典型例题】：
+	12-表单组件综合练习.html
+		<div class="ui-content">
+            <!--TODO 父容器-->
+            <div class="ui-field-contain">
+                <label for="name">全名：</label>
+                <input class="form-control" type="text" id="name" name="name" placeholder="你的姓名是？"><br><br><br>
+
+                <label for="search">需要查找什么？</label>
+                <input type="search" id="search" name="search" placeholder="搜索内容"><br><br><br>
+
+                <label for="date">今天的日期：</label>
+                <input type="date" id="date" name="date"><br><br><br>
+
+                <label for="color">选择喜欢的颜色：</label>
+                <select name="colorshoose" id="colorshoose">
+                    <option>红色</option>
+                    <option>绿色</option>
+                    <option>蓝色</option>
+                </select><br><br><br>
+
+                <label for="switch">切换开关：</label>
+                <input data-role="flipswitch" type="checkbox" id="switch"><br><br><br>
+
+                <div data-role="controlgroup">
+                    <legend>选择喜欢的电影：</legend>
+                    <label for="m1">蜘蛛侠</label>
+                    <input type="checkbox" id="m1">
+                    <label for="m2">变形金刚</label>
+                    <input type="checkbox" id="m2">
+                    <label for="m3">碟中谍</label>
+                    <input type="checkbox" id="m3">
+                </div>
+            </div>
+        </div>
+    13-事件的绑定.html	
+		<script>
+		    $(document).ready(function(){
+		        $('h3').bind('tap',function(){
+		            alert('已被点击...');
+		        });
+		        $('h3').bind('taphold',function(){
+		            alert('已被长按...');
+		        });
+		        $('div').bind('swipeleft',function(){
+		            alert('左滑动...');
+		        });
+		    })
+		</script>
+		<div class="ui-content">
+        	<h3>Hello jQueryMobile</h3>
+    	</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>关于内置服务的调用</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <p>{{url}}</p>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope,$location){
+            /* 得到当前页面的 url */
+            $scope.url = $location.absUrl();
+            console.log($location.host());      //localhost
+            console.log($location.port());      //63344
+        });
+    </script>
+</html>

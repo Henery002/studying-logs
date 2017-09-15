@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var str='You can you up';
+		var kwords=str.match(/我[去]{1,2}/ig);
+		kwords=str.match(/you/ig);		//不区分大小写，且查找全部
+		console.dir(kwords);
+		console.log(kwords!=null ? "共找到"+kwords.length+"个关键词："+String(kwords) : "没找到");
+	</script>	
+ </body>
+</html>

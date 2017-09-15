@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+	//API-过滤：filter
+		var arr=[1,2,3,4,5];
+		var even=arr.filter(function(val,idx,arr){
+			return val%2==0;
+		});
+		console.log(arr);		//[1,2,3,4,5]
+		console.log(even);		//[2,4]
+
+		var odd=arr.filter(function(val,idx,arr){
+			return val%2==1;
+		});
+		console.log(odd);		//[1,3,5]
+
+	//API-汇总：reduce			//将当前数组中的所有元素统计出一个结果
+		var sum=arr.reduce(function(prev,val){
+			return prev+val;
+		});
+
+		console.log(sum);		//15,相当于求和
+
+		//base					//参数base用来设置起始的汇总值
+		var arr2=[6,7,8,9,10];
+		sum=arr2.reduce(function(prev,val){
+			return prev+val;
+		},sum);					//此处sum为上一段代码的结果15，在15的基础上，累加arr2
+								//表示依次将arr中的每个值汇总到prev中
+		console.log(sum);		//55
+	</script>	
+ </body>
+</html>

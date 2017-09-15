@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+	ul{
+		list-style:none;
+	}
+	.dropdown-menu{	
+		display:none;
+	}
+	ul li{
+		width:100px;
+		list-style:none;
+		/*display:inline-block;*/
+		padding:10px 20px;
+		margin-bottom:5px;
+		background-color:#000;
+		color:#fff;
+	}
+	span{
+		margin-left:40px;
+		padding:5px 10px;
+		border:1px solid #999;
+		cursor:pointer;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<div class="dropdown">
+		<span href="#">产品大全</span>
+		<ul class="dropdown-menu">
+			<li>文体用品</li>
+			<li>家居家电</li>
+			<li>娱乐设施</li>
+			<li>孕婴用品</li>
+		</ul>
+	</div>
+	
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script src='044-dropdown Plugin.js'></script>
+	<script>
+	</script>
+	<script>
+		$('.dropdown').dropdown();
+	</script>
+ </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习--一个React程序</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <h2>点击按钮，获取输入框中的值，计算求和</h2>
+    <div id="example"></div>
+    <br><br>
+    <span id="span" style="display:block;width:90px;height:20px;border:1px solid #0f0;"></span>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var GetSum = React.createClass({
+       handleClick:function(){
+           //TODO 获取输入框输入值，转化为浮点数，求和
+           var sum = parseFloat(this.refs.myInput1.value)+parseFloat(this.refs.myInput2.value);
+           span.innerHTML = sum;
+       },
+       render:function(){
+           return (
+               <div>
+                   <input ref="myInput1" placeholder="请输入第一个值"/><br/><br/>
+                   <input ref="myInput2" placeholder="请输入第二个值"/><br/><br/>
+                   <button onClick={this.handleClick}>点我计算</button>
+               </div>
+           )
+       }
+    });
+    ReactDOM.render(
+        <GetSum/>,
+        document.getElementById('example')
+    );
+</script>
+</html>

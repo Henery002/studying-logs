@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>$timeout与$interval的使用</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <p>{{num}}</p>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope,$timeout,$interval) {
+        $scope.num = 0;
+
+       /* setTimeout(function () {
+            $scope.num = 11;
+            console.log($scope.num);
+            $scope.$apply();
+        },2000);*/
+
+       /* $timeout(function () {
+            $scope.num = 11;
+        },2000);*/
+
+        $interval(function () {
+            $scope.num++;
+        },2000);
+
+    });
+</script>
+</body>
+</html>

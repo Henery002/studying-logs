@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+	/*
+		var now=new Date();
+		//复制日期对象，用于计算
+		var now2=new Date(now);
+		//计算最晚能买到哪天的火车票
+		//1、取出今天的日期
+		//var d=now.getDate();
+		//2、做加减
+		//var d+=60;
+		//3、放回去
+		now.setDate(now.getDate());
+		console.log(now);
+	*/
+		//练习：计算合同到期时间
+		//定义入职时间hiredate:2012/6/30
+		//复制hiredate到到期时间enddate
+		//将enddate+3年
+		//复制enddate到续签时间renewdate
+		//将renewdate-1月
+		//如果renewdate是周六
+			//就renewdate-1天
+		//否则，如果是周日，
+			//就renewdate-2天
+		//将renewdate复制到提醒时间alertdate
+		//将alertdate-7天
+		var hiredate=new Date("2012/6/30");
+		var enddate=new Date(hiredate);
+		enddate.setFullYear(enddate.getFullYear()+3);	//更改enddate中的年
+		var renewdate=new Date(enddate);
+		renewdate.setMonth(renewdate.getMonth()-1);
+		if(renewdate.getDay()==6){
+			renewdate.setDate(renewdate.getDate()-1);
+		}else if(renewdate.getDay()==0){
+			renewdate.setDate(renewdate.getDate()-2);
+		}
+		var alertdate=new Date(renewdate);
+		alertdate.setDate(alertdate.getDate()-7);
+		console.log("入职时间:"+hiredate);
+		console.log("到期时间:"+enddate);
+		console.log("续签时间:"+renewdate);
+		console.log("提醒时间:"+alertdate);
+
+		function workDays(days){
+			//获得当前时间now
+			//i从1，到<=days+1
+				//now++
+					//如果now是周五,就+3天
+					//否则，如果now是周六,就+2天
+					//否则，就+1天
+				//循环结束输出now
+			var now=new Date();
+			for(var i=1;i<=days+1;i++){
+				now.setDate(now.getDate() + now.getDay()==5?3:
+											now.getDay()==6?2:
+															1)
+			}
+		}
+		workDays(10);
+	</script>	
+ </body>
+</html>

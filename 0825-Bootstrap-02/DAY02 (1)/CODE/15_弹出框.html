@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>弹出框</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 弹出(警告)框
+            TODO * HTML标签 - <div>
+            TODO * CSS样式
+            TODO   * 基类 - .alert
+            TODO   * 修饰类 - .alert-*
+            TODO     * .alert-info - 一般信息
+            TODO     * .alert-warning - 警告信息
+            TODO     * .alert-danger - 危险信息
+            TODO     * .alert-succes - 成功信息
+        -->
+        <div class="alert alert-info">
+            这是一个弹出警告框.
+        </div>
+        <!--
+            TODO 可关闭的弹出框
+            TODO * 为 <div> 元素添加 class 为 .alert-dismissble
+        -->
+        <div class="alert alert-warning alert-dismissable">
+            <!--
+                TODO 添加一个关闭按钮
+                TODO * HTML标签
+                TODO   <span>&times;</span>
+                TODO * CSS样式 - .close
+                TODO * 动态交互
+                TODO   data-dismiss="alert"
+            -->
+            <span data-dismiss="alert" class="close">&times;</span>
+            <!-- TODO 添加图标 -->
+            <span class="glyphicon glyphicon-alert"></span>
+            你的浏览器当前版本过旧,
+            <a class="alert-link" href="#">请更新</a>.
+        </div>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

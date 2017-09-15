@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>props属性</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    //TODO props属性
+    var HelloMsg = React.createClass({
+        render:function(){
+            return <h1>Hello World！{this.props.name}</h1>
+        }
+    });
+    ReactDOM.render(
+        <HelloMsg name="Web1605"/>,
+        document.getElementById('example')
+    )
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置径向渐变效果</title>
+</head>
+<body>
+<svg width="500" height="500" style="background-color: coral">
+    <defs>
+        <!--
+            TODO 设置径向渐变效果
+            TODO * cx和cy - 中心点坐标值
+            TODO   * 默认值为 (0.5,0.5)
+            TODO * fx和fy - 焦点坐标值
+            TODO   * 默认值为 (0.5,0.5)
+            TODO * r - 就是以(cx,cy)为圆心的圆形的半径值
+            TODO   * 默认值为 0.5
+        -->
+        <radialGradient id="grd1">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd2" cx="0" cy="0">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd3" cx="1" cy="1">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd4" cx="0.5" cy="0.5">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd5" fx="0" fy="0">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd6" fx="1" fy="1">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd7" fx="0.5" fy="0.5">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd8" r="0">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd9" r="1">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd10" r="0.5">
+            <stop offset="0" stop-color="red"></stop>
+            <stop offset="1" stop-color="blue"></stop>
+        </radialGradient>
+
+        <radialGradient id="grd11" cx="0.3" cy="0.3" r="0.4">
+            <stop offset="10%" stop-color="gold"/>
+            <stop offset="95%" stop-color="green"/>
+        </radialGradient>
+
+    </defs>
+    <rect x="10" y="10" width="100" height="100" fill="url(#grd1)"></rect>
+    <rect x="10" y="120" width="100" height="100" fill="url(#grd2)"></rect>
+    <rect x="10" y="230" width="100" height="100" fill="url(#grd3)"></rect>
+    <rect x="10" y="340" width="100" height="100" fill="url(#grd4)"></rect>
+
+    <rect x="120" y="10" width="100" height="100" fill="url(#grd5)"></rect>
+    <rect x="120" y="120" width="100" height="100" fill="url(#grd6)"></rect>
+    <rect x="120" y="230" width="100" height="100" fill="url(#grd7)"></rect>
+
+    <rect x="230" y="10" width="100" height="100" fill="url(#grd8)"></rect>
+    <rect x="230" y="120" width="100" height="100" fill="url(#grd9)"></rect>
+    <rect x="230" y="230" width="100" height="100" fill="url(#grd10)"></rect>
+
+    <circle fill="url(#grd11)"
+            cx="400" cy="100" r="50"/>
+</svg>
+</body>
+</html>

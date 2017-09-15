@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+ <head>
+  <title> 二维数组 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//二维数组的下标越界
+		//2048游戏
+		var arr=[
+				[2,4,2,4],
+				[4,2,4,2],
+				[2,4,2,4],
+				[4,0,4,2],
+				];
+		//编写函数检查2048游戏是否结束
+			//如果结束，返回true
+			//否则返回false
+		function isGameover(){
+			//遍历arr中的每个元素
+				//如果当前元素是0
+					//返回false
+				//如果c<当前行的length-1，且当前元素等于右侧元素
+					//返回false
+				//如果r<arr的length-1，且当前元素等于下方元素
+					//返回false
+				//(遍历结束)
+			//返回true
+			for(var r=0;r<arr.length;r++){		//外层循环控制行
+				for(var c=0;c<arr[r].length;c++){	//内层循环控制列
+					//arr[r][c];
+					if(arr[r][c]==0){
+						return false;
+					}
+					if((c<arr[r].length-1)&&arr[r][c]==arr[r][c+1]){
+						return false;
+					}
+					if((r<arr.length-1)&&arr[r][c]==arr[r+1][c]){
+						return false;
+					}
+				}
+			}				//遍历结束
+			return true;
+		}
+		console.log(isGameover());
+		//console.dir(arr);
+		//console.log(arr[2][4]);	//列下标越界，不报错，返回undefined
+		//console.log(arr[4][3]);	//行下标越界，会报错 TypeErroe:Cannot read property '3' of undefined.
+	</script>	
+ </body>
+</html>

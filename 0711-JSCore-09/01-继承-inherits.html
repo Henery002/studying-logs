@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//inherits
+
+		//设置新的father对象
+		var father={
+			bal:10000000,
+			cars:'infinity',
+			intrSelf:function(){
+				console.log("I'm "+this.name+",my bal is "+this.bal+",my cars is "+this.cars);
+			}
+		}
+		//构造函数
+		function Student(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		//让所有子对象都继承father
+		Student.prototype=father;
+		//原型对象
+	/*
+		Student.prototype.intrSelf=function(){
+			console.log("I'm "+this.name+",I'm "+this.age);
+		}
+	*/
+		//实例化
+		var lilei=new Student("lilei",12);
+		var hmm=new Student("hmm",11);
+		//输出测试
+		lilei.intrSelf();
+		hmm.intrSelf();
+	/*
+		//让hmm继承新father
+		Object.setPrototypeOf(hmm,father);
+		//测试：
+		lilei.intrSelf();
+		hmm.intrSelf();
+	*/
+	</script>	
+ </body>
+</html>

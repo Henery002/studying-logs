@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<table id="orderList">
+		<thead>
+			<tr>
+				<th>订单信息</th>
+				<th>收货人</th>
+				<th>订单金额</th>
+				<th>
+					<select name="" id="">
+						<option value="">最近三个月</option>
+						<option value="">最近一周</option>
+						<option value="">最近六个月</option>
+					</select>
+				</th>
+				<th>
+					<select name="" id="">
+						<option value="">全部状态</option>
+						<option value="">已完成订单</option>
+						<option value="">待查询订单</option>
+					</select>
+				</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<span>订单编号:9545709796</span>
+					<span>BROWNE FOX旗舰店</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="wenghong.jpg" alt="">
+					<img src="wenghong.jpg" alt="">
+				</td>
+				<td>丁当</td>
+				<td>&yen21.90<br>在线支付</td>
+				<td>2015-5-30<br>13:40:20</td>
+				<td>等待收货</td>
+				<td>查看<br>确认收货<br>取消订单</td>
+			</tr>
+			<tr>
+				<td>
+					<span>订单编号:9545709796</span>
+					<span>京东自营</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="wenghong.jpg" alt="">
+					<img src="wenghong.jpg" alt="">
+				</td>
+				<td>丁当</td>
+				<td>&yen21.90<br>在线支付</td>
+				<td>2015-5-30<br>13:40:20</td>
+				<td>已完成</td>
+				<td>查看<br>确认收货<br>取消订单</td>
+			</tr>
+			<tr>
+				<td>
+					<span>订单编号:9545709796</span>
+					<span>京东自营</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="wenghong.jpg" alt="">
+					<img src="wenghong.jpg" alt="">
+				</td>
+				<td>丁当</td>
+				<td>&yen21.90<br>在线支付</td>
+				<td>2015-5-30<br>13:40:20</td>
+				<td>等待收货</td>
+				<td>查看<br>确认收货<br>取消订单</td>
+			</tr>
+			<tr>
+				<td>
+					<span>订单编号:9545709796</span>
+					<span>京东自营</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="wenghong.jpg" alt="">
+					<img src="wenghong.jpg" alt="">
+				</td>
+				<td>丁当</td>
+				<td>&yen21.90<br>在线支付</td>
+				<td>2015-5-30<br>13:40:20</td>
+				<td>已完成</td>
+				<td>查看<br>确认收货<br>取消订单</td>
+			</tr>
+		</tbody>
+	</table>
+	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+		//图片
+		$('img').css('width','70px').css('border','1px solid #ddd');
+		//表格
+		$('table').css('width','800px').css('border','2px solid #333').css('box-shadow','5px 6px #999').css('margin','30px 100px').css('font-size','0.8em').css('border-collapse','collapse').css('color','#666');
+		//thead变色
+		$('thead').css('background-color','#666').css('color','#fff');
+		//单元格
+		$('th').css('padding','6px 0');
+		$('td').css('border','1px solid #ddd').css('padding','3px').css('text-align','center').css('line-height','20px');
+		$('tbody tr:nth-child(even) td:first-child').css('text-align','left');
+		//tbody奇数行合并单元格
+		//$('tbody tr:nth-child(odd) td').css('colspan','2');
+		$('tbody tr:nth-child(odd) td').css('background-color','#ddd').css('text-align','left');
+		$('td span:last-child').css('margin-left','50px').css('color','#0055dd');
+		//奇数行变色
+		$('tbody>tr:nth-child(odd)');
+	</script>	
+ </body>
+</html>

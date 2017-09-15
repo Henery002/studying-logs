@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReaactJS学习--state状态</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var Switch = React.createClass({
+        getInitialState:function(){
+            //设置状态值
+            return {switch:false};
+        },
+        handleClick:function(){
+            //对状态值取反
+            this.setState({switch:!this.state.switch});
+        },
+        render:function(){
+            return <button onClick={this.handleClick}>{"当前状态为："+this.state.switch}</button>
+        }
+    });
+    ReactDOM.render(
+            <Switch/>,
+            document.getElementById('example')
+    );
+</script>
+</html>

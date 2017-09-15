@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+ <head>
+  <title> 3D-旋转 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+	<style>
+		/*声明一个动画*/
+		@-webkit-keyframes scroll{
+			0%{
+				transform:rotatex(-30deg) rotatey(0deg);
+				transform:rotatey(0deg) rotatey(0deg);
+			}
+			50%{
+				transform:rotatex(-30deg) rotatey(0deg);
+				transform:rotatey(180deg);
+			}
+			100%{
+				transform:rotatex(-30deg) rotatey(0deg);
+				transform:rotatey(360deg);
+			}
+		}
+		#stage{
+			width:800px;
+			height:400px;
+			margin:50px auto;
+			/*
+			border:1px solid #333;
+			*/
+			/*perspective*/
+			-webkit-perspective:1200px;
+		}
+		#container{
+			width:800px;
+			height:400px;
+			/*
+			border:1px solid #f00;
+			*/
+			transform:rotatex(-30deg) rotatey(0deg);
+			position:relative;
+			/*规定其子元素按照3D位置摆放*/
+			-webkit-transform-style:preserve-3d;
+		}
+		#container div{
+			width:100px;
+			height:100px;
+			font-weight:bold;
+			background:#e4393c;
+			/*绝对定位*/
+			position:absolute;
+			top:150px;
+			left:350px;
+		}
+		#container div:nth-child(1){
+			background-color:#f00;
+			transform:rotatey(0deg) translatez(200px);
+		}
+		#container div:nth-child(2){
+			background-color:orange;
+			transform:rotatey(60deg) translatez(200px);
+		}
+		#container div:nth-child(3){
+			background-color:yellow;
+			transform:rotatey(120deg) translatez(200px);
+		}
+		#container div:nth-child(4){
+			background-color:green;
+			transform:rotatey(180deg) translatez(200px);
+		}
+		#container div:nth-child(5){
+			background-color:blue;
+			transform:rotatey(240deg) translatez(200px);
+		}
+		#container div:nth-child(6){
+			background-color:purple;
+			transform:rotatey(300deg) translatez(200px);
+		}
+		/*
+		#container:hover{
+			transform:rotatex(-20deg) rotatey(60deg);
+		}*/
+		/*调用动画*/
+		#container{
+			animation-name:scroll;
+			animation-duration:10s;
+			animation-timing-function:linear;
+			animation-iteration-count:infinite;
+			animation-direction:normal;
+			-webkit-animation-name:scroll;
+			-webkit-animation-duration:10s;
+			-webkit-animation-timing-function:linear;
+			-webkit-animation-iteration-count:infinite;
+			-webkit-animation-direction:normal;
+		}
+	</style>
+ </head>
+ <body>
+	<div id="stage">
+		<div id="container">
+			<div class=""></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+ </body>
+</html>

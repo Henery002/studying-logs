@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	button{
+		margin:100px;
+		padding:5px 20px;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<button>退出登陆</button>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		//实现点击一次之后再也不能点击
+		$('button').bind('click',function(){
+			$(this).html('请稍后...');
+			$(this).unbind('click');
+			console.log(111);	//检测是否还会被点击
+		})
+	</script>
+ </body>
+</html>

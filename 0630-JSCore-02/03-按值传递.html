@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	//按值传递
+	//原始类型的值
+	function buy(card){
+		card-=3;
+		console.log("余额 "+card);		//7
+	}
+	var card=10;
+	buy(card);	//按值传递，即将实参变量的值复制一份副本给方法的形参变量
+	console.log(card);		//10 不受影响，输出的是全局变量的值
+
+	//引用类型的值
+	function eat(baos){
+		baos.length--;
+		console.log(String(baos));
+	}
+	var baos=["包","包","包","包","包",];
+	eat(baos);
+	console.log(String(baos));
+  </script>
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+ </body>
+</html>

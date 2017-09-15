@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>双向数据绑定之方向1的练习</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <p>{{user.name}}</p>
+    <p>{{user.age}}</p>
+    <button ng-click="modify()">修改数据</button>
+    <button ng-click="reset()">恢复数据</button>
+</div>
+
+<script>
+    //模块的声明
+    var app = angular.module('myApp',[]);
+    //控制器的声明
+    app.controller('myCtrl', function ($scope) {
+        $scope.user = {name:'lucy',age:30};
+
+        //修改数据
+        $scope.modify = function () {
+            $scope.user = {name:'jerry',age:20};
+        }
+
+        //恢复数据
+        $scope.reset = function () {
+            $scope.user = {name:'lucy',age:30};
+        }
+    })
+</script>
+</body>
+</html>

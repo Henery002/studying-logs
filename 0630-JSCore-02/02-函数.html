@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script>
+	//1、定义一个函数add，求和
+	//参数：a,b
+	//返回值：a+b
+	//测试代码：
+	function add(a,b){
+		return a+b;
+	}
+	console.log(add(3,6),add(11,22));
+	//2、定义一个函数getMax，求最大值
+	//参数a,b,c
+	//函数体：
+		//声明变量max,赋初值为a的值
+		//b>max,max=b
+		//c>max,max=c
+	//返回值：max
+	//测试结果：
+	function getMax(a,b,c){
+		var max = a;
+		//利用短路逻辑
+		b>max&&(max=b);
+		c>max&&(max=c);
+		return max;
+	}
+	console.log(getMax(3,9,16));
+
+	//3、声明提前 var、function
+	var fun=100;
+	function fun(){console.log(1);}
+	function fun(){console.log(2);}
+	fun();
+
+
+
+  </script>
+ </head>
+ <body>
+	<script>
+		
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>购物车的练习</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+
+    <button ng-click="add()">添加商品</button>
+    <table>
+        <thead>
+            <tr>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小记</th>
+                <th>删除</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="tmp in productList">
+                <td>{{tmp.price}}</td>
+                <td>{{tmp.count}}</td>
+                <td>{{tmp.count*tmp.price}}</td>
+                <td><button ng-click="delete($index)">删除</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    //模块的声明
+    var app = angular.module('myApp',[]);
+
+    //控制器的声明
+    app.controller('myCtrl', function ($scope) {
+        $scope.productList = [
+            {price:3.5,count:2},
+            {price:4.5,count:3}
+        ];
+        
+        $scope.add = function () {
+            $scope.productList.push({price:4,count:4});
+        }
+        
+        $scope.delete = function (index) {
+            $scope.productList.splice(index,1);
+        }
+    });
+</script>
+
+</body>
+</html>

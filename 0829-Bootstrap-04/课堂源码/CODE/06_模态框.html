@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>模态框</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+            TODO 模态框
+            TODO * 静态组件效果
+            TODO   * 作为模态框的容器元素
+            TODO     class 为 .modal
+            TODO   * 模态框组件
+            TODO     * 标题 - .modal-header
+            TODO     * 主体 - .modal-body
+            TODO     * 注脚 - .modal-footer
+            TODO * 动态交互
+            TODO   * 打开模态框 - data-toggle="modal"
+            TODO   * 关闭模态框 - data-dismiss="modal"
+        -->
+        <!-- TODO 用于动态显示模态框的按钮 -->
+        <button class="btn btn-info"
+                data-toggle="modal"
+                data-target="#mymodal">打开模态框</button>
+        <!-- TODO 模态框默认是隐藏的 -->
+        <!-- TODO 表示模态框的容器 -->
+        <div id="mymodal" class="modal modal-lg">
+            <!-- TODO 表示模态框中的对话框 -->
+            <div class="modal-dialog">
+                <!-- TODO 表示对话框中的内容 -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- TODO 添加关闭按钮 -->
+                        <button data-dismiss="modal" class="close">&times;</button>
+                        <h4>模态框的标题</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>这是模态框的主体内容...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <p>模态框的注脚</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(".btn").click(function(){
+        //TODO 打开模态框
+        $("#mymodal").modal();
+    });
+</script>
+</body>
+</html>

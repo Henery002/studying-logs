@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <head>
+  <title> 基本选择器 </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	.current{
+		background:#e4393c;
+		border:5px solid #00f;
+		font-weight:bold;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<ul id="menu">
+		<li>大家电</li>
+		<li>婴童用品</li>
+		<li>小家电</li>
+	</ul>	
+	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+	//基本选择器
+		$('*').css('padding','0').css('margin','0');
+		$('#menu li').css('cursor','pointer');
+		$('#menu li').click(function(){
+			// var target=e.target;
+			//先把所有的li颜色变为默认值
+			$('#menu li').css('color','#000').css('font-weight','normal').css('font-size','1em');
+			//再把当前点击变成特殊样式
+			$(this).css('color','#e4393c').css('font-size','2em').css('font-weight','bold');
+		});
+	</script>	
+ </body>
+</html>

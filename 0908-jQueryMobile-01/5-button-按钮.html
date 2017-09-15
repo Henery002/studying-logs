@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>第一个 JQM 页面 -- 移动端框架</title>
+    <link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="jqm/jquery.mobile-1.4.5.js"></script>
+</head>
+<body>
+<!--TODO data-role="page"  声明一个page页面   -->
+<div data-role="page">
+    <!--TODO data-role="header"  声明页头-->
+    <div data-role="header">
+        <h2>这是header</h2>
+    </div>
+    <!--TODO class="ui-content"  声明正文 -->
+    <div class="ui-content">
+        Hello jQueryMobile
+        <button>button按钮</button>
+        <br>
+        <a href="" data-role="button">a标签按钮</a>
+        <br>
+        <input type="button" value="input标签按钮">
+        <br>
+        <!--TODO 取消圆角的按钮-->
+        <button data-corners="false">取消圆角的button按钮</button>
+        <br>
+        <!--TODO 取消阴影的按钮-->
+        <button data-shadow="false">取消阴影的按钮</button>
+        <br>
+        <button data-inline="true">同一行按钮1</button>
+        <button data-inline="true">同一行按钮2</button>
+        <br>
+        <!--TODO 按钮主题-->
+        <button data-theme="a">默认主题-按钮1</button>
+        <br>
+        <button data-theme="b">主题2-按钮2</button>
+        <br>
+        <!--TODO 迷你按钮-->
+        <button data-mini="true" data-inline="true">迷你按钮</button>
+        <br>
+
+        <!--TODO 使用图标-->
+        <button data-icon="delete" data-inline="true" data-theme="b">删除</button>
+        <button data-icon="arrow-d" data-inline="true">下载</button>
+        <button data-icon="action" data-inline="true">分享</button>
+        <button data-icon="gear" data-inline="true">设置</button>
+        <button data-icon="home" data-inline="true">主页</button>
+        <button data-icon="location" data-inline="true">地点</button>
+        <button data-icon="mail" data-inline="true">邮箱</button>
+        <button data-icon="bullets" data-inline="true">菜单</button>
+        <button data-icon="lock" data-inline="true">锁</button>
+        <button data-icon="camera" data-inline="true">摄像机</button>
+        <button data-icon="tag" data-inline="true">标签</button>
+        <button data-icon="power" data-inline="true">电源</button>
+        <br><br>
+        <!--TODO 改变按钮的默认位置-->
+        <button data-icon="home" data-iconpos="top" data-inline="true">主页</button>
+        <br>
+        <!--TODO 无文本的按钮-->
+        <button data-iconpos="notext" data-icon="back" data-inline="true">返回</button>
+        <button data-iconpos="notext" data-icon="refresh" data-inline="true">刷新</button>
+        <button data-iconpos="notext" data-icon="eye" data-inline="true">可见</button>
+        <br>
+        <hr>
+        <h3>练习</h3>
+        <hr>
+        <!--TODO 练习-->
+        <button data-inline="true" data-icon="back" data-iconpos="right">后退</button>
+        <button data-inline="true" data-icon="forward">前进</button>
+        <button data-inline="true" data-icon="arrow-d"  data-iconpos="top">下载</button>
+        <button data-inline="true" data-icon="delete" data-iconpos="notext" data-theme="b">删除</button>
+        <button data-inline="true" data-icon="arrow-u" data-iconpos="bottom">上传</button>
+        <button data-inline="true" data-icon="grid">网格</button>
+        <button data-inline="true" data-icon="alert" data-theme="b">警告</button>
+    </div>
+    <!--TODO data-role="footer"  声明页尾-->
+    <div data-role="footer" data-position="fixed">
+        <h2>这是footer</h2>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

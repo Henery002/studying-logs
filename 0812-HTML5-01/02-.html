@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="../js/jquery-ui.css">
+  <style>
+
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<fieldset>
+		<legend></legend>
+		<form action="">
+			select标签：
+			<select name="" id="">
+				<option value="">北京</option>
+				<option value="">南京</option>
+				<option value="">苏州</option>
+			</select>
+			<br>
+			<br>
+			<!-- 
+				datalist标签
+				效果：该标签本身不显示	
+					  与input标签配合--下拉菜单
+				问题：<select>标签实现下拉菜单，为什么提供新标签？
+					将显示与数据分离
+					数据可以重复使用
+				实现：
+					<datalist>标签定义id属性(标识)
+					<input>标签通过
+			-->
+			datalist标签：（组合）
+			<!-- 作为显示的效果 -->
+			<input type="text" list='mylist'>
+			<!-- 作为选项的容器 -->
+			<datalist id='mylist'>
+				<option value="">北京</option>
+				<option value="">南京</option>
+				<option value="">苏州</option>
+			</datalist>
+			<br>
+			<br>
+			<!--
+				进度条
+				<progress></progress>
+				作用：表示进度条
+				属性：
+					value -- 默认值
+					min	  --  最小值
+					max   --  最大值
+				场景
+			-->
+			进度条:
+			<progress id='progress' min='0' max='100' value='0'></progress>
+			<br><br>
+			<!-- 
+				刻度
+				<meter></meter>
+				作用：表示进度条
+				属性：
+					value --  默认值
+					min	  --  最小值
+					max   --  最大值
+					low   --  最小预警值
+					high  --  最大预警值
+				场景：
+					表示空间大小
+			-->
+			刻度：
+			<meter id='' min='0' max='100' value='90' low='20' high='80'></meter>
+			<br><br>
+			<!-- 
+				输出
+				<output></output>
+				作用：表示输出
+			-->
+			<output></output>
+			<br><br>
+			<input type="submit">
+		</form>
+	</fieldset>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script src='../js/jquery-ui.js'></script>
+	<script>
+		//实现动态效果的进度条
+		var progress = document.getElementById("progress");
+		t = setInterval(function(){
+			var value = progress.value;
+			if(value >= 100){
+				clearInterval(t);
+			}
+			value++;
+			progress.value = value;
+		},100)
+	</script>
+ </body>
+</html>

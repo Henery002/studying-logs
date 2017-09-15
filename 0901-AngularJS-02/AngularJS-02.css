@@ -1,0 +1,167 @@
+AngularJS-02:
+1、指令：
+	是由ng提供的，可以用在HTML中，扩展属性来使用、扩展标签
+	1、ngApp指令：
+		用来指定一个AngularJS应用的范围，同时也是ng应用自动载入并启动的。
+	2、ngInit指令：
+		声明一些变量
+	3、ngBind指令：
+		将指定的表达式的值输出到当前元素的innerHTML(替换)
+			<ANY ng-bind='表达式'></ANY>
+			代替{{}}语法，可以防止闪烁的问题
+	4、ngRepeat指令：
+		为html添加循环功能
+	5、ngIf指令：
+		为html添加选择/判断功能
+		语法：<ANY ng-if='表达式'></ANY>
+		用途：当表达式是true，当前元素会挂到DOM树上，否则会被删掉
+
+		练习：要求使用ng-repeat循环以及ng-if判断来实现一个table:仅显示成绩大于80分的数据。
+			分析：ng-init初始化数据
+				  在tr位置通过ng-repeat遍历数据，判断是否大于...
+			<span ng-init="isMember=true"></span>
+			<div ng-if="isMember">会员专区，仅会员可见</div>
+
+2、MVC：
+	面试题：
+		MVC的四大特征：
+			1、采用MVC模式
+			2、双向数据绑定
+			3、依赖注入
+			4、模块化设计
+
+	使用步骤：
+		1、声明自定义模块
+			var app = angular.module('模块名',[依赖列表]);
+		2、注册/使用模块
+			ng-app='模块名'
+		3、声明控制器
+			app.controller('控制器名',function(){...})
+		4、使用控制器
+			ng-controller='控制器名'
+				例：<div ng-controller='myCtrl'></div>
+		5、操作
+			$scope
+
+	创建AngularJS变量的两种方法：
+		1、ng-init可以用来完成一些数据的初始化
+		2、通过 控制器 中 $scope 对象完成初始化。
+		建议使用：$scope
+
+	练习：实现菜品列表，点击按钮，加载更多
+	 ==>：08-MVC-$scope-点击按钮加载更多
+		<div ng-controller="myController">
+			<button ng-click="add()">加载更多</button>
+			<ul>
+				<li ng-repeat="temp in dishList">
+					<img ng-src="{{temp.pic}}">
+					<span>{{temp.name}}</span><br><br>
+					<span>{{temp.price}}</span>
+				</li>
+			</ul>
+		</div>
+		<script>
+			//1、声明模块
+			var app = angular.module('myApp',[]);
+			//3、声明控制器
+			app.controller('myController',function($scope){
+				$scope.dishList = [{name:'鱼香肉丝',pic:'img/img2.jpg',price:30}];
+				$scope.add = function(){
+					$scope.dishList.push({name:'鱼香肉丝',pic:'img/img2.jpg',price:30});
+				}
+			});
+		</script>
+
+	其他的一些指令：
+		ng-app
+		ng-init
+		ng-bind
+		ng-if
+		ng-src
+		ng-click
+		ng-repeat
+		ng-controller
+		ng-show/ng-hide
+		ng-checked
+		ngStyle 	ngClass
+
+3、双向数据绑定：
+	方向1：模型数据到视图的绑定。		-- model -> view
+			一旦绑定之后，模型数据的修改将自动更新view
+		实现方法：{{Model}} + 常用的指令
+	方向2：view绑定到model				-- view -> model
+		实现方法：ng-model指令
+			$scope.$watch('value',function(){...})
+
+	练习：功能：
+		对象user={name:'张继科',age:30};
+		放置2个按钮，
+		第一个按钮点击修改模型数据 {name:'马龙',age:31},
+		第二个按钮点击恢复数据user={name:'张继科',age:30}
+		p用来显示名称、p显示年龄
+
+	上述案例：
+	 ==>：10-exer-双向数据绑定-方向1：通过点击按钮实现数据修改恢复
+	    <div ng-controller="myCtrl">
+	        <p>{{info.name}}</p>
+	        <p>{{info.age}}</p>
+	        <button ng-click="modify()">修改数据</button>
+	        <button ng-click="reset()">恢复数据</button>
+	    </div>
+	    <script>
+	        var app = angular.module('myApp',[]);
+	        app.controller('myCtrl',function($scope){
+	            $scope.info = {name:'张继科',age:30};
+	            $scope.info2 = {name:'马龙',age:31};
+	            $scope.modify = function(){
+	                $scope.info = $scope.info2;
+	            };
+	            $scope.reset = function(){
+	                $scope.info = {name:'张继科',age:30};
+	            };
+	        });
+	    </script>
+
+	 ==>：11-双向数据绑定-方向2：通过控制台，监听视图中数据的变化
+	    <div ng-controller="myCtrl">
+	        <!--通过 ng-value 将 input 绑定到 模型数据value -->
+	        <input type="text" ng-model="value">
+	    </div>
+	    <script>
+	        var app = angular.module('myApp',[]);
+	        app.controller('myCtrl',function($scope){
+	            //先初始化为空，为防止初始时控制台输出 undefined
+	            $scope.value = '';
+	            //$watch方法：是$scope中的方法，所以直接调用
+	            //$watch有两个参数，
+	            //第一个参数是要监听的模型数据，第二个参数是监听到变化之后执行的函数
+	            $scope.$watch('value',function(){
+	                console.log($scope.value);
+	            })
+	        });
+	    </script>
+
+	练习：留言：textarea     城市：select     性别：单选框
+
+	 ==>：13-双向数据绑定-综合练习：
+	    <div ng-controller="myCtrl">
+            <div class="sub">
+                <select ng-model="flower">
+                    <option value="img4.jpg">郁金香</option>
+                    <option value="img2.jpg">水仙花</option>
+                </select>
+                <img ng-src="img/{{flower}}" alt="">
+                <div style="display:block;"></div>
+                <label><input ng-model="isAgree" type="checkbox" >是否同意本站协议</label>
+                <br>
+                <button ng-disabled="!isAgree" class="btn btn-success">注册</button>
+            </div>
+	    </div>
+	    <script>
+	        var app = angular.module('myApp',[]);
+	        app.controller('myCtrl',function($scope){
+	            $scope.$watch('flower',function(){
+	                $scope.flower;
+	            })
+	        });
+	    </script>

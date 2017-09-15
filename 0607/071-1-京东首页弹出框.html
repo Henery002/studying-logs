@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <style>
+	body{
+		margin:0;
+		padding:0;
+		font-family:"Microsoft Yahei";
+	}
+	.nav{
+		margin:0 auto;
+		width:1211px;
+		height:40px;
+		background:#BD2A2C;
+	}
+	.nav > p a{
+		color:#fff;
+		font-size:14px;
+		font-weight:bold;
+		width:210px;
+		height:40px;
+		line-height:40px;
+		padding-left:30px;
+		text-decoration:none;
+		background:#BD2A2C;
+		/*商品分类栏左浮动*/
+		float:left;
+	}
+	.nav > p span{
+		float:right:
+		width:20px;
+		height:20px;
+		background:url(images/iconlist_2.png) no-repeat -65px 0;
+		margin-top:10px;
+		margin-right:10px;
+	}
+	
+	/*设置导航栏*/
+	.nav .ul1{
+		height:40px;
+		font-size:14px;
+		background:#e64346;
+	}
+	.nav .ul1 li{
+		width:80px;
+		float:left;
+		list-style:none;
+	}
+	.nav .ul1 li a{
+		color:#fff;
+		/*方法一
+		float:left;*/
+		/*方法二*/
+		display:block;
+		/*方法三
+		display:inline-block;*/
+		height:40px;
+		line-height:40px;
+		text-align:center;
+		text-decoration:none;
+	}
+	.nav .ul1 li a:hover{
+		height:40px;
+		line-height:40px;
+		background:#bd2a2c;
+	}
+
+	/*设置左边栏*/
+	.nav ul.side{
+		width:196px;
+		height:500px;
+		margin-top:-16px;
+		list-style:none;
+		padding-top:15px;
+		/*设置上边框之外的其他三边的边框*/
+		border:2px solid #BD2A2C;
+		border-top:0;
+		background:#fafafa;
+		}
+	.nav ul.side li{
+		color:#000;
+		/*设置每行距左边、右边的边距*/
+		margin-left:-25px;
+		margin-right:8px;
+		/*设置每行的下边框*/
+		border-bottom:1px solid #fafafa;
+		border-top:1px solid transparent;
+
+		/*做一个相对定位，以对应于下文sub_cate_box的绝对定位*/
+		position:relative;
+		z-index:500;
+	}
+	.nav ul.side li:hover{
+		border:1px solid #ddd;
+		border-left:0;
+		border-right:0;
+		/*为每个li单独做一个背景色，为的是使z-index生效，即可以让 li压住sub_cate_box*/
+		background:#fafafa;
+		background:#fff;
+	}
+	.nav ul.side li a{
+		color:#666;
+		font-size:14px;
+		text-decoration:none;
+		display:block;
+		padding:5px 0;
+	}
+
+	.nav .side li .images{
+		padding-top:5px;
+	}
+	.nav .side .firstli:hover{
+		border-top:1px solid #ddd;
+	}
+
+	/*--设置弹出菜单，即做导航栏弹出的正文内容*/
+	.nav .side .sub_cate_box{
+		width:780px;
+		height:450px;
+		border:1px solid #ddd;
+		background:#fff;
+		/*设置边框的外阴影*/
+		outline:2px solid #eee ;
+		/*做一个绝对定位，对应于左边侧边栏ul作为弹出菜单时的相对定位*/
+		position:absolute;
+		top:-1px;
+		left:212px;
+		z-index:100;
+		/*设置正文sub_cate_box默认不显示，只有选中左边栏时才弹窗*/
+		/*display:none;
+		*/
+	}
+	.nav .side .sub_cate_box .content_text{
+		width:420px;
+		height:437px;
+		border:1px solid #ddd;
+		margin:5px 5px;
+
+		/*设置content_text左浮动，以使adv可以浮上来*/
+		float:left;
+	}
+	.nav .side .sub_cate_box .adv{
+		width:200px;
+		height:420px;
+		border:1px solid #ddd;
+		float:right;
+		margin:5px 5px;
+	}
+
+	/*弹窗设置*/
+	.nav ul.side:hover .sub_cate_box{
+		display:block;
+	}
+
+	/*关闭按钮的设置*/
+	.side span.close{
+		color:#fff;
+		width:15px;
+		height:25px;
+		line-height:25px;
+		padding:0 5px;
+		background:#555;
+
+		/*定位*/
+		position:absolute;
+		left:781px;
+		top:1px;
+	}
+
+  </style>
+ <head>
+ <body>
+	<div class="nav">
+		<p>
+			<a href="#">全部商品分类</a>
+		</p>
+		<span class="narrow"></span>
+		<ul class="ul1">
+			<li>
+				<a href="#">首页</a>
+			</li>
+			<li>
+				<a href="#">服装城</a>
+			</li>
+			<li>
+				<a href="#">食品</a>
+			</li>
+			<li>
+				<a href="#">团购</a>
+			</li>
+			<li>
+				<a href="#">夺宝岛</a>
+			</li>
+			<li>
+				<a href="#">闪购</a>
+			</li>
+			<li>
+				<a href="#">金融</a>
+			</li>
+		</ul>
+		<!--设置左侧边栏的红框-->
+	 	<ul class="side">
+			<li class="firstli">
+				<a href="#" class="images">图书、音像、数字商品</a>
+
+				<div class="sub_cate_box">
+					<div class="content_text"></div>
+					<div class="adv"></div>
+					<a href="#"><span class="close" onclik="document.getElementById('sub_cate_box').style.display='none'">×</span></a>
+				</div>
+			</li>
+			<li>
+				<a href="#">家用电器</a>
+			</li>
+
+			<!--设置弹出菜单，即做导航栏弹出的正文内容-->
+
+		</ul>
+	</div>
+
+ </body>
+</html>

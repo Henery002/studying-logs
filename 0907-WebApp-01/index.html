@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Android应用程序2</title>
+</head>
+<body>
+    <button id="btn">点我隐藏</button>
+    <p id="p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolor et fugiat, impedit placeat quos voluptate! Aliquam dolor dolore eaque error, exercitationem facilis, incidunt molestiae, necessitatibus nesciunt odit officiis sint.</p>
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var  p = document.getElementById('p');
+    btn.onclick = function(){
+        if(p.style.display == 'none'){
+            p.style.display = 'block';
+        }else{
+            p.style.display = 'none';
+        }
+        console.log('你好，我的安卓应用！');
+    }
+
+</script>
+</html>

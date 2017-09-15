@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>生命周期</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+    <script src="reactjs/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+<!--TODO babel-->
+<script type="text/babel">
+    var DemoComponent = React.createClass({
+        componentWillMount:function(){
+            console.log('准备插入到真实的DOM:'+this.refs.heading1);
+        },
+        componentDidMount:function(){
+            console.log('已经插入到真实的DOM:'+this.refs.heading1);
+        },
+        render:function(){
+            return <h1 ref="heading1">Hello Component!</h1>
+        }
+    });
+    ReactDOM.render(
+            <DemoComponent/>,
+            document.getElementById('example')
+    );
+
+    /*
+    * TODO 页面输出结果：
+    *       Hello Component!
+    * TODO 控制台输出结果：
+    *       准备插入到真实的DOM:undefined
+    *       已经插入到真实的DOM:[object HTMLHeadingElement]
+    * */
+
+</script>
+</html>

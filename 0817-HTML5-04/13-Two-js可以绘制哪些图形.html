@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="two.js"></script>
+<body>
+    <div id="show"></div>
+</body>
+<script>
+    //TODO 1、创建TWO对象
+    var elem = document.getElementById('show');
+    var two = new Two({
+        //表示设置当前使用的技术，可修改
+        width:500,
+        height:500
+    });
+    two.appendTo(elem);
+    //TODO 2、绘制图形
+    //TODO 2.1 绘制矩形
+    var rect = two.makeRectangle(60,60,100,100);
+    //TODO 2.2 样式设置
+    rect.stroke = '#0055dd';
+    rect.linewidth = '10';
+    rect.fill = '#f00';
+    //TODO 更新
+    two.update();
+    /*
+    *TODO 绘制的图形种类
+    *       makeRoundRectangle(x,y,width,height) 圆角矩形
+    *       makeCircle(x,y,radius)               圆形
+    *       makeEllipse(x,y,width,height)        椭圆
+    *       makeStar(ox,oy,r,sides)              星
+    *       makePolygon(ox,oy,r,sides)           多边形
+    *       makeLine(x1,y1,x2,y2)                直线
+    * */
+    var line = two.makeLine(10,140,10,300);
+    line.linewidth = 10;
+    line.cap = 'round';
+//    line.join = 'butter';
+    var circle = two.makeCircle(100,200,60);
+    var ellipse = two.makeEllipse(300,200,100,200);
+    var polygon = two.makePolygon(300,200,100,6);
+    two.update();
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Document</title>
+  <meta charset="UTF-8">
+  <meta charset="GBK">
+  <link rel="stylesheet" href="" />
+  <script></script>
+  <style></style>
+ </head>
+ <body>
+	<!--计算可莱托指数-->
+  <script>
+	var height;
+	var weight;
+	var index;
+	function cretoFunc(){
+		height = parseFloat(prompt("请输入您的身高(m)："));
+		weight = parseFloat(prompt("然后输入体重(kg)呗："));
+		index = weight/(height*height);
+		alert("经过计算，您的可莱托指数为："+index);
+		if(index > 25){
+			alert("您的体型偏胖，注意保持锻炼哦");
+		}else if(index < 20){
+			alert("您的体型偏瘦，可适当做个吃货，哈哈");
+		}else{
+			alert("恭喜您，您的体型在合适范围内，注意保持！");
+		}
+	}
+  </script>
+	<!--在按钮中调用函数-->
+	<button onclick=(cretoFunc())>计算体重</button>
+ </body>
+</html>

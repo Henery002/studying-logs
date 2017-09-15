@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		function format(date){
+			//声明数组week，为"日"，..."六"
+							// 0  1 2...
+			//获取date中的年，保存在变量y中
+			//获取date中的月，保存在变量M中
+			//如果M<10，就改为0+M
+			//获取date中的日，保存在变量d中
+			//如果d<10，就改为0+d
+			//获得date中的星期，保存在day中
+			//获取week中day位置的字符，保存回day
+			//获得date中的小时，保存在h中
+			//声明变量am，如果h<12，就初始化为上午，否则初始化为下午
+			//如果h>12，就改为h-12
+			//如果h<10，就改为0+h
+			//获得date中的分钟，保存在m
+			//如果m<10，就改为0+m
+			var week=["日","一","二","三","四","五","六"];
+			var y=date.getFullYear();
+			var M=date.getMonth()+1;
+			//M<10&&(M='0'+M);
+			var d=date.getDate();
+			//d<10&&(d='0'+d);
+			var day=date.getDay();
+			//day=week[day];
+			var h=date.getHours();
+			var am=(h<12?'上午':'下午');
+			h>12&&(h-=12);
+			h=(h<10&&('0'+h));
+			var m=date.getMinutes();
+			//m<10&&(m='0'+m);
+			return y+'年'+(M<10&&(M='0'+M))+'月'+(d<10&&(d='0'+d))+'日 星期'+(day=week[day])+' '+am+h+'时'+(m<10&&(m='0'+m))+'分';
+		}	
+		var date=new Date();	//获取当前系统时间
+		console.log(format(date));
+	</script>	
+ </body>
+</html>

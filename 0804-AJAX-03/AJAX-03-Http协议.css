@@ -1,0 +1,249 @@
+今日目标：
+	1、PHP连接数据库，执行增删查改		-- 重点难点
+	2、HTTP协议							-- 重点&易睡觉点
+	3、练习：PHP连接数据库
+
+1、客户端浏览器如何给PHP页面提交数据
+	1、通过请求URL地址提交请求数据：
+		http://127.0.0.1/2.php?k1=v1&k2=v2&k3=v3
+	查询字符串(QueryString):以 ？开头，包含多个以 & 分隔的键值对。
+	2、也可以编写 HTML FORM 来辅助提交用户数据。
+	PHP页面中通过 $_REQUEST 预定义数组变量读取。
+
+	练习：
+		1、创建 book_del.html 表单，“请输入您想删除的书籍的编号：__”，可以点击提交按钮提交。
+		2、创建 book_del.php，接收客户端提交的待删除的书籍的编号，链接数据库执行DELETE语句，删除数据库中的数据。
+
+2、使用PHP执行SELECT操作
+	注意：所有的编程语言，都不能直接返回SELECT语句的查询结果  --  这个结果可能很大！ 只能“一行一行”的读取！
+		$result = mysqli_query($conn, $sql);
+  		while(($row=mysqli_fetch_assoc($result))!==null){
+				var_dump($row);			//处理抓取到的当前行记录$row
+		}
+
+	练习：创建book_select.php，在一个TABLE中显示出所有的书籍数据，
+		  挑战性任务：在表格最后添加一列：“操作”，包含删除和修改两个超链接
+
+3、使用PHP执行UPDATE操作：
+	 提示：修改功能应该先执行一次查询，再让用户修改，保存提交修改后的信息
+  		book_select_for_update.php?bid=3		//查询
+ 		book_update.php							//保存修改
+
+	CRUD操作：Create Retrive Update Delete
+
+4、学习HTTP协议的目的：
+	1、解决AJAX应用中‘看不见摸不着’的错误
+	2、提出网页访问优化方案				-- 	【面试题】
+
+5、HTTP协议概述
+	Hyper Text Transfer Protocol协议，用于确定Web浏览器与Web服务器之间通信必须消息格式。
+	IETF(http://www.ietf.org/)制定了HTTP协议的详细规范。
+	HTTP/1.0：1996年	RFC1945	-- RequestForComment
+	HTTP/1.1：1999年	RFC2616
+
+	【面试题】：
+	HTTP/1.1相比于HTTP/1.0有哪些改进？
+		1、支持虚拟主机		--  在一个WebServer中同时运行多个站点
+			Host:www.baidu.com
+		2、支持持久连接		--  ‘三次握手’建立连接、‘四次挥手’断开连接
+			持久连接：一个页面中的多个资源只需要一次建立连接，保持一段时间（n秒钟）
+			Connectuon:keep-alive
+		3、支持代理连接		--  可以通过中间服务器，间接访问目标服务器。
+			Proxy：xxx
+
+	请求消息：客户端发给服务器的消息，表明了客户端的意图。
+	响应消息：服务器发给客户端的消息，包含了服务器的应答。
+
+6、HTTP协议规定：请求消息的格式  --  重点
+	请求起始行
+	请求头部
+	CRLF
+	请求主体
+
+	请求起始行的格式：
+		GET /script/js/index.js HTTP/1.1
+		请求方法 空格 请求URL 空格 请求协议版本
+			请求方法：HTTP协议规定的请求方法：用于明确指定客户端的意图		--  【面试题】
+				八种：
+				1、GET：			表示客户端想【获取】服务器上的指定资源
+				2、POST：				客户端想【传递】数据给服务器				--  有请求主体
+				3、HEAD：				客户端想【获取】服务器上的指定资源的响应头部
+				4、PUT： 客户端想往服务器上放置/【存储】指定的文件  --  文件上传	--  有请求主体
+				5、DELETE：				客户端想【删除】服务器上的指定文件
+				6、OPTIONS：保留以后使用
+				7、TRACE：保留以后使用
+				8、CONNECT：保留以后使用
+
+				浏览器中发起GET请求的方法：
+					1、在地址栏中输入一个网址
+					2、超链接跳转
+					3、JS跳转		location.open() 、location.href=""
+					4、标签资源引用 <img src=''> 、<link href=''>
+					5、GET方式提交FORM表单
+					6、AJAX GET请求
+				浏览器中发起POST请求的方法：
+					1、POST方式提交表单
+					2、AJAX POST请求
+				浏览器中发起HEAD请求的方法：
+					1、AJAX HEAD请求
+				浏览器中发起PUT请求的方法：
+					1、AJAX PUT请求
+				浏览器中发起DELETE请求的方法：
+					1、AJAX DELETE请求
+
+				【面试题】：GET请求和POST请求方法的区别？
+					GET：请求数据被追加在URL的后面  --  HTTP协议规定请求起始行长度在1024个字节内，同时规定中文和特殊标点都必须进行编码！
+						语意：表获取
+					POST：请求数据放置在请求主体中  --  HTTP规定求主题没有长度限制！中文和特殊标点也需要编码！
+						语意：表提交
+<<0805-AJAX-04>>:	
+<<0805-AJAX-04>>:	
+	请求头部：
+		1、请求消息专用头部
+			Host:127.0.0.1			--  客户端告诉服务器此次请求域名/IP
+			Accept:text/html,*/*	--  */客户端告诉服务器自己可以接收的响应数据类型
+			Origin:http:127.0.0.1	--  请求的来源
+			User-Agent:				--  告诉服务器当前浏览器的类型
+				Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) 
+				Chrome/50.0.2661.102 Safari/537.36		
+			Referer:http://127.0.0.1/AJAX_day04/2_msg_delete.html 	--  告诉服务器当前请求来自于哪个页面
+			Accept-Encoding:gzip，deflate	--  客户端告诉服务器自己接收数据允许的编码方式（即是否允许压缩/何种方式压缩）
+			Accept-Language:zh-CN,zh 		--  客户端浏览器告诉服务器自己接收的语言类型
+			Cookie:
+			If-Modified-Since:				--  客户端在询问服务器指定的资源自从某个时间点后是否被修改过
+		2、请求/响应消息通用头部
+			Connection:keep-alive 	--  告诉对方启用持久连接
+			Cache-Control:no-cache/max-age=3600 	--  告诉对方如何缓存主体中的数据/时间
+			Pragma:no-cache 		--  HTTP/1.0支持的缓存控制方案
+		3、请求主体描述头部
+			Content-length:68 		--  请求数据的长度
+			Content-Type:text/plain	--  请求主体是未经编码的普通文本。  --  PHP服务器拒绝接收
+						 application/x-www.form-urlencoded 		--【表明请求主体是经过编码之后的表单数据】
+						 multipart/form-data		--  专用于文件上传
+
+		4、浏览器自定义的头部
+
+7、HTTP协议规定：响应消息的格式  --  重点
+	响应起始行
+	响应头部
+	CRLF
+	响应主体
+
+	响应起始行的格式：
+		协议版本  空格  响应状态码  空格  原因短句
+			响应状态码：
+				1、1xx 	Informational	--  表示提示
+					100	Continue
+					101	Switchinng Protocols
+				2、2xx	Successful		--  表示成功
+					200 OK
+					201	Created
+					202	Accepted
+				3、3xx	Redirection		--  表示重定向
+					301	Moved Permanently	--  永久移动	配合Location:头部
+					303	See other			--  另请参见
+					304	Not Modified 		--  在客户端缓存的资源在服务器上未被修改过
+				4、4xx	Client Error	--  客户端错误
+					400	Bad Request 		--  错误的请求消息格式
+					403	Forbidden			--  客户端请求了禁止访问的资源
+					404	Not Found 			--  请求的资源不存在
+					405 Method Not Allowed	--  请求不被支持
+					414	Request-URI Too Long
+				5、5xx	Server Error	--  服务器端错误
+					500	Internal Server Error
+					501	Not Implemented		--  请求方法未实现
+					503	Service Unavailable
+					505	HTTP Version Not Supported
+
+	响应头部：
+		1、响应消息专用头部
+			Server: Apache/2.4.17
+			Last-Modified: Thu, 22 Oct 2015 05:10:15 GMT
+			Set-Cookie: BD_CK_SAM=1;path=/
+		2、请求/响应消息通用头部
+			Connection: keep-alive 					--  告诉对方启用持久连接
+			Cache-Control: no-cache/max-age=3600 	--  告诉对方如何缓存主体中的数据
+			Pragma: no-cache						--  HTTP/1.0支持的缓存控制方案
+			Date: Fri, 05 Aug 2016 06:36:38 GMT		--  消息的创建时间
+		3、响应主体的描述头部
+			Content-Length:2261
+			Content-Type:							--  任意合法的MIME
+			Expires: Sun, 15 Mar 2014, 08:00:00 GMT --  资源的过期时间
+		4、服务器自定义头部
+
+		MIME ：Multipurpose Internet Mail Extension
+			提示：靠文件的后缀名无法确定文件类型
+			text/html 				1.html/1.xhtml/
+			image/jpeg				2.jpg/2.jpeg
+			audio/mpeg3				3.mp3/3.mpeg3
+			application/binary		4.exe/4.bin/4.cmd/4.bat
+			text/plain
+			text/css
+			application/javascript
+			application/xml
+			application/json
+			...
+			Web服务器给客户端的响应消息，必须指明响应主体的内容类型  Content-Type:text/html
+
+阶段小项目：留言板
+	功能：
+	1、发表留言：  用户在一个表单中提交自己的姓名、电话、以及留言内容，点击提交按钮即可发表。
+	2、浏览所有留言：  可以查看到编号、姓名、电话、内容、发布时间。
+	3、删除某个留言： 点击某个留言右上角的X删除该留言。
+
+	需要的文件：
+	1、编写一个 tarena.sql ，创建一个留言表 msg ，包含留言编号、发布人姓名、联系电话、发布时间、留言内容
+	2、发表留言：   msg_add.html       msg_add.php
+	3、浏览所有留言：   msg_select.php   
+	4、删除留言：  msg_delete.php
+
+【练习中的小知识点】：
+	1、一个完整的CRUD操作
+		添加书籍	book_add.html 		book_add.php
+		删除书籍	book_delete.html 	book_delete.php
+		查询书籍	book_select.php
+		修改书籍	book_select_for_update.php 	book_select_update.php
+	2、提交SQL语句到服务器
+		$sql = "INSERT INTO dd_book VALUES(NULL,'$name',$price,$birthday,$isOnsale,'$pic')";
+			#echo $sql;
+		$result = mysqli_query($conn, $sql); 
+	3、获得$conn刚刚执行的INSERT语句创建的自增编号
+		echo '新记录在数据库中的编号为：'.mysqli_insert_id($conn);
+	4、PHP预定义变量： $_XXXX
+		var_dump($_REQUEST);  //array,保存着客户端提交给服务器的请求数据
+	5、接收客户端提交的书籍编号：
+		$bid = $_REQUEST['bid'];
+	6、提交SQL：
+		$sql = "DELETE FROM dd_book WHERE bid=$bid";
+		$result = mysqli_query($conn, $sql);
+	7、删除语句影响的行数为：
+		echo '删除语句影响的行数为：'.mysqli_affected_rows($conn);	
+	8、mysql_query()函数的返回值：例：3_book_del.php	
+			执行失败时（如SQL语法错误）：返回FALSE
+			执行成功：
+				DML执行成功：TRUE
+				DQL执行成功：object（查询结果描述对象）
+
+		...
+		if($result){				//object=>true 	执行成功
+			$row = mysqli_fetch_assoc($result);
+			var_dump($row);			//返回关联数组 第0行
+			$row = mysqli_fetch_assoc($result);
+			var_dump($row);			//返回关联数组 第1行
+			$row = mysqli_fetch_assoc($result);
+			var_dump($row);			//返回关联数组 第2行
+									//若超出行数，返回NULL
+			while(true){
+				$row = mysqli_fetch_assoc($result);
+				if($row === NULL){
+					break;
+				}
+				var_dump($row);
+			}
+				/***************while语句简写为：***************/
+		//	while(($row =mysqli_fetch_assoc($result))!=null){
+		//		var_dump($row);		//处理抓取到的当前记录行 $row
+		//	}
+		}else{
+			echo '<h2>查询失败！</h2>';
+		}

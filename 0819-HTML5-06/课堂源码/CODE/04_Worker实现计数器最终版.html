@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Worker实现计数器最终版</title>
+</head>
+<body>
+<button id="start">开始计数</button>
+<button id="stop">结束计数</button>
+<br/>
+<div id="show"></div>
+<script>
+    //TODO 1.获取HTML页面元素
+    var start = document.getElementById("start");
+    var stop = document.getElementById("stop");
+    var show = document.getElementById("show");
+    //TODO 2.定义Worker对象、num值
+    var worker,num = 0;
+    //TODO 3.为button按钮绑定 onclick 事件
+    start.onclick = function(){
+        //TODO a.创建Worker对象
+        worker = new Worker("worker3.js");
+        //TODO b.将num值发送给Worker文件
+        worker.postMessage(num);
+        //TODO c.接收Worker返回的num值
+        worker.onmessage = function(event){
+            num = event.data;
+            show.innerHTML = num;
+        }
+    }
+    stop.onclick = function(){
+        worker.terminate();
+    }
+</script>
+</body>
+</html>

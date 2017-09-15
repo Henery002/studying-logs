@@ -1,0 +1,16 @@
+function selectImg(div){
+	if(div.className!='chosen'){
+		div.className = 'chosen';
+	}else{
+		div.className = '';
+	}
+}
+//点击按钮实现隐藏选中的div（图片）
+function hiddenAll(btn){
+	var divs=document.querySelectorAll('div>div');
+	for(var i=0;i<divs.length;i++){
+		if(divs[i].className=='chosen'){
+			divs[i].className='block';
+		}
+	}
+}

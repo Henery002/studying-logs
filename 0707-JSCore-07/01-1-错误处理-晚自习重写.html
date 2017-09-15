@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		function round(num,d){
+			var r;
+			if(!isNaN(num)&&!isNaN(d)&&d<=20&&d>=0){
+				r=parseFloat(parseFloat(num).toFixed(2));
+			}else{
+				throw new Error("输入错误！小数位数必须介于0-20之间");
+			}
+			num=null;
+			d=null;
+			console.log("释放资源");
+			return r;
+		}
+
+		var r;
+		try{	
+			//函数调用
+			r=round(
+					prompt("请输入一个数值num："),
+					prompt("请输入小数位数d：")
+					);
+		}catch(err){
+			alert(String(err)+'输入出错！');
+			r='出错了';
+		}
+		console.log("正常结束:"+r);
+	</script>	
+ </body>
+</html>

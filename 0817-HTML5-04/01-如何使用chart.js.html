@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../0816-HTML5-03/源码-DAY03/DATA/Chart.js/Chart.bundle.js"></script>
+</head>
+<body>
+    <!--
+        TODO Chart.js库利用 HTML5 的canvas技术进行绘制图表
+    -->
+    <canvas id="canvas" width="800" height="600"></canvas>
+</body>
+<script src="../js/Chart.js/Chart.bundle.js"></script>
+<script>
+    /*
+    * TODO Chart.js库允许使用的
+    * TODO      1、直接使用<canvas>元素
+    *           2、使用创建的画布对象   （建议使用）
+    *           3、允许使用jquery对象
+    *               var $canvas = $('#canvas');
+    *
+    *              创建chart.js库的对象
+    *               var chart = new Chart(context,config);
+    *               context参数：获取到的canvas
+    *               config参数：
+    *
+    * */
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+</script>
+</html>

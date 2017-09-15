@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<span id="s1">  标  题</span>
+	<h1>标题一</h1>
+	<script>
+		//找到想要的节点
+		console.log(document.body.childNodes);
+		//找到想要的一个子节点
+		console.log(document.body.firstChild.nextSibling);		//节点树
+		console.log(document.body.lastChild.previousSibling.previousSibling);		//节点树
+			//元素树
+		console.log("元素树");
+		console.log(document.body.firstElementChild.innerHTML);
+		console.log(document.body.firstElementChild.nextElementSibling.nextElementSibling);
+		var span=document.body.lastElementChild;
+		console.log(span.innerText);
+	</script>	
+ </body>
+</html>

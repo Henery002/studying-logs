@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="300px"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    //设置描边颜色
+    context.strokeStyle = '#f00';
+    context.strokeRect(10,10,100,100);
+    context.fillStyle = '#00f';
+    context.fillRect(120,10,100,100);
+    /*
+    * TODO clearRect(x,y,width,height)
+    * TODO 作用：清除指定矩形区域的内容
+    *       参数：
+    *           x和y：
+    * */
+    context.fillStyle = '#0f0';
+    context.fillRect(240,10,100,100);
+    context.clearRect(250,20,80,90);
+</script>
+</html>

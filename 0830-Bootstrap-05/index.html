@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式-->
+    <meta name="renderer" content="webkit">
+    <!--TODO 移动设计优先(响应式)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--
+        TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+                html5shiv.min.js 专门兼容IE6,7.8版本的html5新标签
+                respond.min.js   专门兼容IE6,7.8版本的CSS3提供的媒体查询
+    -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/intel.css">
+</head>
+<body>
+<!--TODO 导航条-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!--TODO 针对移动端的容器-->
+            <div class="navbar-header">
+                <!--TODO 汉堡包按钮-->
+                <button class="navbar-toggle" data-target="#mycollapse" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--TODO 品牌图标-->
+                <a href="#" class="navbar-brand"></a>
+            </div>
+            <!--TODO 包裹导航条组件的容器-->
+            <div id="mycollapse" class="navbar-collapse collapse">
+                <!--TODO 下拉菜单(居左)-->
+                <!--TODO 导航组件-->
+                <ul class="nav navbar-nav navbar-left">
+                    <!--TODO 嵌套下拉菜单-->
+                    <li class="active">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            菜单
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Inter产品</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">热点话题</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">用户中心</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">产品购买</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">售后服务</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">关于我们</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--TODO 语言&登录(居右)-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" >China简体中文</a>
+                    </li>
+                    <li>
+                        <a data-toggle="dropdown" href="#" >登录</a>     <!--下拉菜单的按钮-->
+                        <div class="dropdown-menu">
+                            <!--TODO 嵌入一个面板组件-->
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3>登录</h3>
+                                    <p>您是否在因特尔工作？</p>
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="用户名" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="密码" type="password">
+                                        </div>
+                                        <!--TODO 表示静态组件内容-->
+                                        <p class="form-control-static">您登录表明您同意我们的服务条款</p>
+                                        <button class="btn btn-info btn-md">登录</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--TODO 搜索框(居右)-->
+                <form class="navbar-form navbar-right" action="#">
+                    <p class="form-control-static">查找内容</p>
+                    <p class="form-control-static">|</p>
+                    <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="搜索" type="search">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+<!--TODO 页面主体-->
+    <div class="container c2">
+        <!--TODO 第一行内容-->
+        <div class="row">
+            <!--TODO 第一行左侧内容-->
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <!--TODO 引入图片-->
+                <img class="img-responsive" src="img/intel.web.864.486.1.jpg" alt="">
+                <!--TODO 定义图片的描述内容（需要重新定位）-->
+                <div class="img-title">
+                    <h2>五代酷睿芯，强劲创体验</h2>
+                    <p>第五代智能因特尔酷睿处理器锋芒登场，革命性突破的</p>
+                    <a class="btn btn-info" href="###">立即探索第五代智能因特尔酷睿处理器</a>
+                </div>
+            </div>
+            <!--TODO 第一行右侧内容-->
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-6">
+                        <!--TODO 引入图片-->
+                        <img class="img-responsive" src="img/intel.web.368.207.1.jpg" alt="">
+                        <!--TODO 图片描述内容(自定义样式)-->
+                        <div class="half-mask">
+                            <h4>解密2合1电脑</h4>
+                            <p>搭载英特尔处理器的2合1电脑</p>
+                            <!--TODO 超链接-->
+                            <a class="btn btn-link" href="###">了解更多</a>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-6">
+                        <!--TODO 媒体对象-->
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <img class="media-object" src="img/intel.web.81.108.png" alt="">
+                            </div>
+                            <div class="media-body" style="border-left:1px solid #00aeef">
+                                <ul class="list-unstyled">
+                                    <li><a href="###">列表选项内容</a></li>
+                                    <li><a href="###">列表选项内容</a></li>
+                                    <li><a href="###">列表选项内容</a></li>
+                                    <li><a href="###">列表选项内容</a></li>
+                                    <li><a href="###">列表选项内容</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+    </div>
+
+<!--TODO 页脚-->
+    <footer>
+        <div class="container">
+            <!--TODO 第一行-->
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <ul class="list-unstyled">
+                        <li><h4>标题</h4></li>
+                        <li><a href="">列表项1</a></li>
+                        <li><a href="">列表项2</a></li>
+                        <li><a href="">列表项3</a></li>
+                        <li><a href="">列表项1</a></li>
+                        <li><a href="">列表项2</a></li>
+                        <li><a href="">列表项3</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <ul class="list-unstyled">
+                        <li><h4>标题</h4></li>
+                        <li><a href="">列表项1</a></li>
+                        <li><a href="">列表项2</a></li>
+                        <li><a href="">列表项3</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <ul class="list-unstyled">
+                        <li><h4>标题</h4></li>
+                        <li><a href="">列表项1</a></li>
+                        <li><a href="">列表项2</a></li>
+                        <li><a href="">列表项3</a></li>
+                        <li><a href="">列表项3</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <ul class="list-unstyled">
+                        <li><h4>标题</h4></li>
+                        <li><a href="">列表项1</a></li>
+                        <li><a href="">列表项2</a></li>
+                        <li><a href="">列表项3</a></li>
+                        <li><a href="">列表项2</a></li>
+                        <li><a href="">列表项3</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--TODO 第二行-->
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <p><img src="img/logo.png" alt="">英特尔公司 京ICP备</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!--TODO 基于jQuery实现的-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+

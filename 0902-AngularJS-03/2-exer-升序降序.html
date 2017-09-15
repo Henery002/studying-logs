@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <h2>按照age降序</h2>
+        <ul>
+            <!--true：降序-->
+            <li ng-repeat="temp in array | orderBy:'age':true">{{temp.age}}岁-{{temp.name}}-绩点：{{temp.score}}</li>
+        </ul>
+        <h2>按照name升序</h2>
+        <ul>
+            <!--默认-false：升序-->
+            <li ng-repeat="temp in array | orderBy:'name'">{{temp.age}}岁-{{temp.name}}-绩点：{{temp.score}}</li>
+        </ul>
+        <h2>按照score降序，只显示前三名</h2>
+        <ul>
+            <!--false：升序-->
+            <li ng-repeat="temp in array | orderBy:'score':true | limitTo:3">{{temp.age}}岁-{{temp.name}}-绩点：{{temp.score}}</li>
+        </ul>
+    </div>
+</body>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.array = [
+                {age:23,name:'张继科',score:90},
+                {age:34,name:'马龙',score:94},
+                {age:22,name:'刘诗雯',score:92},
+                {age:17,name:'樊振东',score:80},
+                {age:20,name:'许昕',score:68}
+            ];
+        });
+    </script>
+</html>

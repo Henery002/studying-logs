@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//用try catch判断浏览器兼容性：
+		/*
+		try{
+			new XMLHTTPRequest();
+			document.write("完美支持Ajax");
+		}catch(err){
+			//否则
+			document.write("您的浏览器不支持Ajax");
+		}
+		*/
+		
+		//用if...else...判断
+		new XMLHttpRequest();
+		if(XMLHttpRequest!=undefined){
+			//如果window的XMLHTTPRequest不是undeifined
+			document.write("该浏览器完美支持Ajax");
+		}else{
+			//否则
+			document.write("您的浏览器不支持Ajax");
+		}
+			/*测试结果：IE 11   支持
+						Opera   支持
+						Chrome  支持
+						Safari   ？
+						FIreFox 支持
+			*/
+	</script>
+ </body>
+</html>

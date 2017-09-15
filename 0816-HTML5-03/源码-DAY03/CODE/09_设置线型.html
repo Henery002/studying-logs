@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置线型</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    //TODO 设置线的宽度,默认值为 1.0
+    context.lineWidth = 10;
+    //TODO 设置线的端点形状
+    context.lineCap = "round";
+    //TODO 设置线的交点形状
+    context.lineJoin = "round";
+
+    //TODO 绘制一条折线
+    context.beginPath();
+    context.moveTo(10,10);
+    context.lineTo(400,400);
+    context.lineTo(200,10);
+    context.stroke();
+</script>
+</body>
+</html>

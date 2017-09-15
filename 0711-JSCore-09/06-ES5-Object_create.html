@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		var father={
+			bal:10000,
+			cars:"infinity"
+		};
+		//东哥
+		Object.create=function(){
+			cosole.log("自定义create")
+			//创建一个空对象，保存在child中
+			//让child继承father
+			//如果props不是undefined
+				//利用defineProperties，向child对象中批量添加props中的属性
+			//返回child
+			var child={};
+			Object.setPrototypeOf(child,father);
+			if(props!=undefined){
+				
+			}
+		}
+
+		/*自写
+			var child=Object.create(father,{
+				if(!props==undefined){
+					Object.defineProperties(father,{
+						phone:{
+							value:"iphone 7",
+							writable:true,
+							enumerable:true,
+							configurable:true
+						},
+						bao:{
+							value:"LV",
+							writable:true,
+							enumerable:true,
+							configurable:true
+						}
+					});
+				}
+				return child;
+			);
+		*/
+
+		var child=Object.create(father,{
+			phone:{
+				value:"iphone 7",
+				writable:true,
+				enumerable:true,
+				configurable:true
+			},
+			bao:{
+				value:"LV",
+				writable:true,
+				enumerable:true,
+				configurable:true
+			}
+		})
+		var child=Object.create(father);
+		console.dir(child);
+		console.dir(child.bal);
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+     <!--
+     1、定义XML的声明
+     2、定义SVG的命名空间
+     3、定义SVG标签
+        a.作为容器的标签<svg></svg>
+        b.定义......
+
+     -->
+<svg width="100" height="100" version="1.1">
+    xmlns = "http://www.w3.org/2000/svg";
+</svg>
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//如果已经启用cookie，则提示‘cookie’已启用，请妥善保存个人信息。
+		//否则。提示 cookie已禁用，无法自动登录
+		navigator.cookieEnabled?console.log('cookie已启用，请妥善保存个人信息'):console.log('cookie已禁用，无法自动登录');
+
+		function checkPlugIn(pname){
+			//遍历plugins集合中每个插件
+			for(var i=0;i<navigator.plugins.length;i++){
+				//如果当前插件的name等于pname
+				if(navigator.plugins[i].name==pname){
+					//提示：已安装pname插件
+					console.log('已安装'+pname+'插件');
+					//退出函数
+					return 0;
+				}
+			}
+			//提示：未安装pname插件，请下载
+			console.log('未安装'+pname+'插件，请下载');
+		}
+		//检测代码：
+		checkPlugIn("Shockwave Flash");		//chrome已安装
+		checkPlugIn("Chrome PDF Viewer");	//chrome已安装
+		checkPlugIn("HunanTVPlugins");		//360未安装
+	</script>	
+ </body>
+</html>

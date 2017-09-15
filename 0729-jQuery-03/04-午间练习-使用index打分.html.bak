@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style>
+	body{
+		margin:100px;
+	}
+	span{
+		width:50px;
+		height:50px;
+		border-radius:50%;
+		display:inline-block;
+		margin-right:5px;
+		background-color:#ddd;
+	}
+	hr{
+		width:270px;
+		height:5px;
+		background-color:#ddd;
+		position:absolute;
+		top:112px;
+		left:100px;
+		z-index:-1;
+	}
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<hr>
+	<div id='mark'>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<h2>请您打分：</h2>
+	<script src='../js/jquery-1.11.3.js'></script>
+	<script>
+		$('#mark').on('click','span',function(){
+			var idx=$('span').index(this);	//this-->目标元素span，此处不再需要使用 e.target
+			console.log(idx);
+			$('span:lt('+(idx+1)+')').css('background-color','#e4393c');
+			$('span:gt('+(idx)+')').css('background-color','#ddd');
+			if(idx==0 && ($($('span')[0]).css('background-color')=='#e4393c')){
+				$($('span')[0]).css('background-color','#ddd');
+			}
+		});
+	</script>
+ </body>
+</html>

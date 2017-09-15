@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="" />
+  <style></style>
+  <script></script>
+ </head>
+ <body>
+	<script>
+		//设置访问器属性：geter seter
+		//定义一个对象
+		var emp={
+			id:1001,
+			name:"eric",
+			//_age:25			//定义的受保护的数据属性
+		};
+		//定义访问器属性 age
+			//增加一个外层函数的匿名函数自调
+			//传一个参数25存到_age
+		(function(_age){
+			Object.defineProperty(emp,"age",{
+				get:function(){		//在取值时自动调用
+					console.log("调用get");
+					return _age;//this._age;
+				},
+				set:function(val){
+					console.log("调用set");
+					if(val<18||val>65){
+						throw new RangeError("age must between 18-65!");
+					}
+					_age=val;//this._age=val;
+				}
+			});
+		})(25);
+		//console.log(emp.age);
+		//emp.age=30;
+		//console.log(emp.age);
+		//emp.age++;
+		//console.log(emp.age);
+		//emp.age=66;
+		//console.log(emp.age);
+		console.log(emp.age);
+		try{
+			emp.age=15;	//set(15)
+		}catch(err){
+			console.log(String(err));
+		}finally{
+			console.log(emp.age);
+		}
+
+		/*
+		for(var key in emp){
+			console.log(key+" : "+emp[key]);
+		}
+		*/
+	</script>	
+ </body>
+</html>

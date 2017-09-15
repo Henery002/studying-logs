@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态操作表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:500px; border-collapse:collapse;
+		text-align:center;
+	}
+	td{border:1px solid #ccc}
+	thead td{font-weight:bold;}
+</style>
+<script>
+	var products=[
+{"id":1001,"name":'可口可乐',"price":2.5,"count":3000},
+{"id":1003,"name":'百事可乐',"price":2.5,"count":5000},
+{"id":1011,"name":'非常可乐',"price":2.3,"count":1000}
+	];
+	
+</script>
+</head>
+<body>
+	<div id="data"></div>
+	<script>
+		//创建一个table
+		var table = document.createElement('table');
+		//在table中添加一个thead，保存在thead
+		var thead = table.createTHead();
+		//在thead中添加一个tr,保存在tr
+		var tr = thead.insertRow();
+		//遍历products中第一个对象的所有属性	以形成表头
+		for(var key in products[0]){
+			//向tr中添加一个td
+			var td = tr.insertCell();
+			//设置td的内容为当前属性名
+			td.innerHTML=key;
+		//debugger;
+		}
+	
+		//在tr中添加一个td，设置其内容为operate
+		tr.insertCell().innerHTML='operate';
+
+		//在table中添加一个tbody元素
+		var tbody = table.createTBody();
+		//遍历products中每个对象
+		for(var i=0;i<products.length;i++){
+			var tr = tbody.insertRow();
+			//遍历products中当前对象的每个属性
+			for(var key in products[i]){
+				//tr中添加一个td
+				var td = tr.insertCell();
+				//设置td的内容为当前对象的当前属性值
+				td.innerHTML=products[i][key];
+			}
+			//在tr中添加一个td,删除按钮
+			var td = tr.insertCell();
+			//创建一个button
+			var btn = document.createElement('button');	//该句为核心DOM语法
+			//设置button的内容为删除
+			btn.innerHTML='删除';
+			//为btn绑定单击事件为function(){}
+			btn.onclick=function(){
+				//找到id为data下的table
+				var table=document.querySelector('#data>table');
+				//获得tr（即btn的父元素的父元素）
+				var tr=this.parentNode.parentNode;
+				//获得商品名称，以确认删除
+				var pname=tr.cells[1].innerHTML;
+				//如果确定删除
+				if(confirm('确定删除 '+pname+' 吗?')){
+					//删除table中第rowIndex行
+					table.deleteRow(tr.rowIndex);
+				}
+				//table.deleteRow(tr.rowIndex);
+			};
+			//
+			//将btn追加到td下
+			td.appendChild(btn);
+		}
+		//将table追加到id为data的元素下
+		data.appendChild(table);
+	</script>
+</body>
+</html>

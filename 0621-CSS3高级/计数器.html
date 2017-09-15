@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+	<style>
+		body{
+			font-size:20px;
+			font-weight:bold;
+			margin:100px 200px;
+			counter-reset:c1 0 c2 0;
+		}
+		div{
+			counter-increment:c1 1;
+			counter-reset:c2 0;	/*重要一步，使二级序号在每个一级序号之后都能复位，即重置为0开始*/
+		}
+		p{
+			counter-increment:c2 1;
+		}
+		div:before{
+			content:counter(c1)"、";
+			color:#f00;
+			font-weight:bold;
+			font-size:24px;
+		}
+		p:before{
+			content:counter(c1)"."counter(c2)" ";
+			color:#00f;
+			margin-left:30px;
+			font-weight:bold;
+			font-size:22px;
+		}
+	</style>
+  <link rel="stylesheet" href="" />
+ </head>
+ <body>
+	<div>HTML</div>
+	<p>基本元素</p>
+	<p>布局元素</p>
+	<p>表单元素</p>
+	<div>CSS</div>
+	<p>基础选择器</p>
+	<p>高级选择器</p>
+	<p>文本属性</p>
+ </body>
+</html>

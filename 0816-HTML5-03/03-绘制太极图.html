@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="1000px" height="1000px"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    //TODO 太极图大圆
+    //大圆
+    context.beginPath();
+    context.arc(300,300,300,0,Math.PI*2);
+    context.stroke();
+    //左半圆
+    context.beginPath();
+    context.arc(300,300,300,Math.PI/2,Math.PI*3/2,false);
+    context.fill();
+    context.stroke();
+    //左半小白色圆
+    context.beginPath();
+    context.fillStyle = '#fff';
+    context.arc(300,450,150,Math.PI/2,Math.PI*3/2,false);
+    context.fill();
+    //右半小黑色圆
+    context.beginPath();
+    context.fillStyle = '#000';
+    context.arc(300,150,150,Math.PI/2,Math.PI*3/2,true);
+    context.fill();
+    //右半圆
+    context.beginPath();
+    context.arc(300,300,300,Math.PI/2,Math.PI*3/2,true);
+    //TODO 小圆白色上面
+    context.beginPath();
+    context.fillStyle = '#fff';
+    context.arc(300,150,50,0,Math.PI*2);
+    context.fill();
+    //TODO 小圆黑色下面
+    context.beginPath();
+    context.fillStyle = '#000';
+    context.arc(300,450,50,0,Math.PI*2);
+    context.fill();
+</script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>单选框或多选框</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <form action="#">
+            <!--
+                TODO 单选框或多选框的容器元素
+                TODO * 单选框 - .radio
+                TODO * 多选框 - .checkbox
+             -->
+            <div class="checkbox">
+                <!-- TODO 文本内容被<label>包裹 -->
+                <label>
+                    <!-- TODO 多选框 -->
+                    <input type="checkbox"/>
+                    记住用户名
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio"/>
+                    记住密码
+                </label>
+            </div>
+            <!-- TODO 多个多选框或单选框(水平排列) -->
+            <div class="checkbox">
+                <!-- TODO 一个容器可以包含多个<label>-->
+                <label>
+                    <!-- TODO 一个<label>只能包含一个多选框或单选框 -->
+                    <input name="like" type="checkbox"/>
+                    Html
+                </label>
+                <label>
+                    <input name="like" type="checkbox"/>
+                    JavaScript
+                </label>
+                <label>
+                    <input name="like" type="checkbox"/>
+                    CSS
+                </label>
+            </div>
+            <!-- TODO 水平排列的多选框或单选框 -->
+            <div class="checkbox-inline">
+                <label>
+                    <input type="checkbox"/>JavaScript
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label>
+                    <input type="checkbox"/>Html
+                </label>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="bootstrap/js/jquery-1.11.3.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
